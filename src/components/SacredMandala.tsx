@@ -1,7 +1,13 @@
 export function SacredMandala({ className = "" }: { className?: string }) {
   return (
     <div className={`pointer-events-none ${className}`} aria-hidden>
-      <svg viewBox="0 0 600 600" className="w-full h-full text-foreground" fill="none" stroke="currentColor" strokeWidth="0.5">
+      <svg
+        viewBox="0 0 600 600"
+        className="w-full h-full text-foreground"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="0.5"
+      >
         <circle cx="300" cy="300" r="290" />
         <circle cx="300" cy="300" r="220" />
         <circle cx="300" cy="300" r="150" />

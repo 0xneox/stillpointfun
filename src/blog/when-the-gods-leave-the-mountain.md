@@ -46,7 +46,6 @@ Migration statistics record the bodies that leave. They cannot record what goes 
 
 Two lesser known dialects; Rangkas and Tolcha—spoken in Pithoragarh district have already gone completely extinct. The Bangani dialect of Uttarkashi has been placed in the "critically endangered" category.
 
-
 ## The Char Dham Paradox
 
 Here is Devbhumi's darkest irony. The very religious identity that makes Uttarakhand sacred to a billion Hindus is being weaponized to destroy it.
@@ -77,7 +76,7 @@ What the folk deities of the ghost villages are doing right now—migrating from
 
 When there was no one left in the village, the folk deity also had to migrate and be displaced elsewhere.
 
-This is Devbhumi's deepest paradox. The Land of Gods is emptying of gods,  not because divinity departed, but because the people who carried the divinity in their daily rituals, their seasonal festivals, their agricultural cycles, their Van Panchayat forests, their Garhwali songs and Kumaoni prayers—they left. And the gods, faithful companions that they are, followed.
+This is Devbhumi's deepest paradox. The Land of Gods is emptying of gods, not because divinity departed, but because the people who carried the divinity in their daily rituals, their seasonal festivals, their agricultural cycles, their Van Panchayat forests, their Garhwali songs and Kumaoni prayers—they left. And the gods, faithful companions that they are, followed.
 
 ## Is This Preventable?
 
@@ -97,7 +96,7 @@ The Bhavishya Badri prophecy is not a warning. It is a promise. The divine doesn
 
 The Ganga returning to the heavens in the Puranas is not death. It is rest. Like a river going underground—invisible, but still moving, still sacred, still returning.
 
-The villages didn't have to empty this fast. The languages didn't have to die this generation. The arm of the Narasimha idol may have been destined to thin, but did it have to thin while a hydropower tunnel was being blasted 300 metres beneath the town? 
+The villages didn't have to empty this fast. The languages didn't have to die this generation. The arm of the Narasimha idol may have been destined to thin, but did it have to thin while a hydropower tunnel was being blasted 300 metres beneath the town?
 
 The glaciers were always going to retreat—but did Gangotri need to receive 400 times more black carbon in summer than in winter from unmanaged forest fires?
 
@@ -124,11 +123,11 @@ The ghost villages are not failures. They are seeds, locked houses holding the m
 
 Everything is flowing. Everything has always been flowing. The Himalayas themselves are flowing—just slowly enough that we mistake them for solid ground.
 
-The real question is not whether this can be stopped. 
-The real question is: how do you flow with it without losing what matters? 
-How do you carry the folk deity with ceremony when you leave? 
+The real question is not whether this can be stopped.
+The real question is: how do you flow with it without losing what matters?
+How do you carry the folk deity with ceremony when you leave?
 How do you teach your child the Garhwali word for the sound water makes in a mountain stream—even in a Dehradun flat, even in a Mumbai apartment, so that when the stream comes back, the word is still alive to receive it?
 
-That is the only freedom left inside an inevitable current. 
-Not to stop the river. 
+That is the only freedom left inside an inevitable current.
+Not to stop the river.
 But to remember what you are carrying as it takes you where it goes.

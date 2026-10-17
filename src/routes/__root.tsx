@@ -10,24 +10,16 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { SiteNav } from "@/components/SiteNav";
+import { StillpointNav } from "@/components/StillpointNav";
 import { SiteFooter } from "@/components/SiteFooter";
-// import { WalletProvider } from "@/components/WalletProvider"; // Temporarily disabled due to dependency issue
+import { BottomPlayer } from "@/components/BottomPlayer";
+import { NotFound } from "@/components/NotFound";
+import { ErrorState } from "@/components/ErrorState";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { CONTENT } from "@/data/content";
 
 function NotFoundComponent() {
-  return (
-    <div className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-md text-center">
-        <h1 className="font-display italic text-7xl">404</h1>
-        <p className="mt-4 font-mono text-[11px] tracking-widest uppercase opacity-60">
-          This page is not (yet) here.
-        </p>
-        <a href="/" className="mt-8 inline-block font-mono text-[11px] tracking-widest uppercase text-accent link-underline">
-          Return to the still point
-        </a>
-      </div>
-    </div>
-  );
+  return <NotFound />;
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
@@ -38,16 +30,14 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-md text-center">
-        <h1 className="font-display italic text-4xl">Something did not resolve.</h1>
-        <p className="mt-4 text-sm opacity-70">Try again, or return home.</p>
-        <div className="mt-8 flex justify-center gap-6 font-mono text-[11px] tracking-widest uppercase">
-          <button onClick={() => { router.invalidate(); reset(); }} className="text-accent link-underline">Try again</button>
-          <a href="/" className="link-underline">Go home</a>
-        </div>
-      </div>
-    </div>
+    <ErrorState
+      title="Something did not resolve"
+      message="An unexpected error occurred. Please try again or return home."
+      action={{
+        label: "Try again",
+        to: "/",
+      }}
+    />
   );
 }
 
@@ -56,18 +46,78 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The Still Point — Writings on Non-Duality, AI & Consciousness" },
-      { name: "description", content: "A quiet notebook at the intersection of non-duality, philosophy, technology, crypto, AI, and Shiva. Writings, photography, and work by a writer and builder." },
-      { name: "author", content: "The Still Point" },
-      { property: "og:site_name", content: "The Still Point" },
+      { title: "Stillpoint — Listen. Read. Question." },
+      {
+        name: "description",
+        content:
+          "An open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
+      },
+      {
+        name: "keywords",
+        content:
+          "consciousness, philosophy, non-duality, Advaita, Kashmir Shaivism, Vedanta, meditation, contemplation, wisdom, inquiry",
+      },
+      { name: "author", content: "Stillpoint" },
+      { property: "og:site_name", content: "Stillpoint" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "The Still Point" },
-      { property: "og:description", content: "Writings on non-duality, philosophy, technology, and the search for truth." },
+      { property: "og:title", content: "Stillpoint — Listen. Read. Question." },
+      {
+        property: "og:description",
+        content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
+      },
+      { property: "og:url", content: "https://stillpoint.com" },
+      { property: "og:image", content: "https://stillpoint.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Stillpoint — Listen. Read. Question." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Stillpoint — Listen. Read. Question." },
+      {
+        name: "twitter:description",
+        content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
+      },
+      { name: "twitter:image", content: "https://stillpoint.com/og-image.png" },
+      { name: "twitter:image:alt", content: "Stillpoint — Listen. Read. Question." },
+      { name: "robots", content: "index, follow" },
+      { name: "googlebot", content: "index, follow" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "canonical", href: "https://stillpoint.com" },
+      { rel: "manifest", href: "/site.webmanifest" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "icon", href: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { rel: "icon", href: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        innerHTML: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Stillpoint",
+          url: "https://stillpoint.com",
+          description: "An independent, open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://stillpoint.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        innerHTML: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Stillpoint",
+          url: "https://stillpoint.com",
+          description: "An independent, open-source project for listening, inquiry, and the exploration of consciousness.",
+          sameAs: ["https://github.com/0xneox"],
+          foundingDate: "2026",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -86,7 +136,7 @@ function RootShell({ children }: { children: ReactNode }) {
             __html: `
               try {
                 var s = localStorage.getItem('sp-theme');
-                var d = s ? s === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var d = s ? s === 'dark' : true;
                 if (d) document.documentElement.classList.add('dark');
                 document.documentElement.style.colorScheme = d ? 'dark' : 'light';
               } catch (e) {}
@@ -104,15 +154,17 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const [lastPlayedId] = useLocalStorage<string>("stillpoint-last-played", "");
+  const currentItem = CONTENT.find((c) => c.id === lastPlayedId);
+
   return (
     <QueryClientProvider client={queryClient}>
-      {/* <WalletProvider> */}
-        <SiteNav />
-        <main className="min-h-[60vh]">
-          <Outlet />
-        </main>
-        <SiteFooter />
-      {/* </WalletProvider> */}
+      <StillpointNav />
+      <main className="min-h-[60vh] pb-32">
+        <Outlet />
+      </main>
+      <SiteFooter />
+      {currentItem && <BottomPlayer currentItem={currentItem} />}
     </QueryClientProvider>
   );
 }

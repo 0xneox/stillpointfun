@@ -1,11 +1,11 @@
 # The Universe Losing Its Faces
 
-Extinction is not a statistic, but more intimate. 
+Extinction is not a statistic, but more intimate.
 The IUCN Red List now includes 172,620 species, of which 48,646 are threatened with extinction. Before human beings walked the earth, a species became extinct approximately every thousand years. Now it is approximately every twenty minutes.
 
 But what does this number actually mean? What is it that disappears when a species vanishes?
 
-## The Saola  ; A Ghost That May Already Be Gone
+## The Saola ; A Ghost That May Already Be Gone
 
 The saola was discovered only in 1992 in the misty highland forests of Vietnam and Laos. It sits on a 12–15 million year old evolutionary branch, the only surviving descendant on that branch. The last confirmed wild sighting was in 2013. Right now, the existence of live saolas can neither be proven nor disproven.
 
@@ -87,10 +87,10 @@ The Chandogya Upanishad declares four Mahavakyas great sayings that form the spi
 
 Prajnanam Brahma : Consciousness is Brahman
 Aham Brahmasmi : I am Brahman
-Tat Tvam Asi  : Thou art That
-Sarvam Khalvidam Brahma   : All this is Brahman
+Tat Tvam Asi : Thou art That
+Sarvam Khalvidam Brahma : All this is Brahman
 
-Everything, absolutely everything, is indeed Brahman. 
+Everything, absolutely everything, is indeed Brahman.
 Including you. Including this moment. Including the very reading of these words.
 
 Now hold this against the extinction list.
@@ -109,13 +109,13 @@ Here is what Vedanta holds in tension with the extinction crisis and it is genui
 
 On one level, Brahman is indestructible. The underlying consciousness that expresses itself as the saola, the axolotl, the forest that consciousness is eternal. Nothing truly dies at the level of Brahman.
 
-But on another level the level of form, of lila (divine play), of rta (cosmic harmony) each form is irreplaceable. 
-The Bhagavad Gita teaches that the self is eternal but does not teach that forms do not matter. 
+But on another level the level of form, of lila (divine play), of rta (cosmic harmony) each form is irreplaceable.
+The Bhagavad Gita teaches that the self is eternal but does not teach that forms do not matter.
 Krishna does not tell Arjuna: "nothing matters because Brahman is eternal." He tells him: act rightly in the world you actually inhabit.
 
 Vivekananda said: "The whole of life is giving; nature will force you to give. So give willingly. Sooner or later you will have to give up. You come into life to accumulate. With clenched fist you want to take. But nature puts a hand on your throat and makes your hands open."
 
-The 6th mass extinction is precisely this: nature forcing open humanity's clenched fist. 
+The 6th mass extinction is precisely this: nature forcing open humanity's clenched fist.
 The question is whether we open it willingly in wisdom or have it forced open when it is too late.
 
 Science seeks answers, but mystery gives it purpose. For as long as the saola hides, the axolotl regenerates, and the pistol shrimp births microsuns, humanity will keep looking eyes wide with wonder into the vast, untamed beauty of the living world.

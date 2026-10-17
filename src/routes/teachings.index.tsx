@@ -4,16 +4,17 @@ import { useMemo } from "react";
 import { ALL_TOPICS, sortedPosts, type Topic } from "@/data/posts";
 
 const searchSchema = z.object({
-  topic: z.enum([
-    "Non-Duality",
-    "Philosophy",
-    "Technology",
-    "Crypto",
-    "AI",
-    "God & Shiva",
-    "Life",
-    "Truth",
-  ]).optional(),
+  topic: z
+    .enum([
+      "Non-Duality",
+      "Philosophy",
+      "Technology",
+      "AI",
+      "God & Shiva",
+      "Life",
+      "Truth",
+    ])
+    .optional(),
 });
 
 export const Route = createFileRoute("/teachings/")({
@@ -21,9 +22,16 @@ export const Route = createFileRoute("/teachings/")({
   head: () => ({
     meta: [
       { title: "Teachings — The Still Point" },
-      { name: "description", content: "A continuously unfolding library of writings, recordings, and pointers on non-dual wisdom." },
+      {
+        name: "description",
+        content:
+          "A continuously unfolding library of writings, recordings, and pointers on non-dual wisdom.",
+      },
       { property: "og:title", content: "Teachings — The Still Point" },
-      { property: "og:description", content: "A continuously unfolding library of writings, recordings, and pointers." },
+      {
+        property: "og:description",
+        content: "A continuously unfolding library of writings, recordings, and pointers.",
+      },
       { property: "og:url", content: "/teachings" },
     ],
     links: [{ rel: "canonical", href: "/teachings" }],
@@ -41,12 +49,15 @@ function BlogIndex() {
   return (
     <div>
       <header className="container-editorial pt-24 pb-16 border-b border-border">
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">The Living Teachings</span>
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+          The Living Teachings
+        </span>
         <h1 className="font-display italic text-5xl md:text-7xl mt-6 text-balance">
           A Continuously Unfolding Library
         </h1>
         <p className="mt-6 max-w-xl text-lg opacity-70 leading-relaxed">
-          Writings, recordings, and pointers on non-dual wisdom drawn from Advaita Vedanta, Kashmir Shaivism, and the direct path of Recognition.
+          Writings, recordings, and pointers on non-dual wisdom drawn from Advaita Vedanta, Kashmir
+          Shaivism, and the direct path of Recognition.
         </p>
 
         <div className="mt-12 flex flex-wrap gap-2">
@@ -71,7 +82,11 @@ function BlogIndex() {
             className="group grid grid-cols-12 gap-6 py-10 items-baseline"
           >
             <div className="col-span-12 md:col-span-2 font-mono text-[10px] tracking-widest uppercase opacity-50">
-              {new Date(p.date).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" })}
+              {new Date(p.date).toLocaleDateString("en-US", {
+                month: "short",
+                day: "2-digit",
+                year: "numeric",
+              })}
             </div>
             <div className="col-span-12 md:col-span-8">
               <h2 className="font-display text-3xl md:text-4xl group-hover:text-accent transition-colors leading-tight text-balance">

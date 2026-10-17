@@ -34,23 +34,52 @@
   --animate-fade: fade 1.2s var(--ease-out-expo) both;
 
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   @keyframes fade {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   @keyframes spin-slow {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
   @keyframes breathe-slow {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
   }
 }
 
 :root {
+  --background: oklch(0.14 0.008 65);
+  --foreground: oklch(0.92 0.012 75);
+  --muted: oklch(0.22 0.008 65);
+  --muted-foreground: oklch(0.6 0.008 65);
+  --accent: oklch(0.68 0.12 55);
+  --accent-foreground: oklch(0.14 0.008 65);
+  --border: oklch(0.92 0.012 75 / 0.15);
+  --surface: oklch(0.18 0.008 65);
+  --surface-foreground: oklch(0.92 0.012 75);
+}
+
+.light {
   --background: oklch(0.98 0.008 85);
   --foreground: oklch(0.18 0.005 0);
   --muted: oklch(0.94 0.008 85);
@@ -60,18 +89,6 @@
   --border: oklch(0.18 0.005 0 / 0.1);
   --surface: oklch(0.18 0.005 0);
   --surface-foreground: oklch(0.98 0.008 85);
-}
-
-.dark {
-  --background: oklch(0.13 0.008 60);
-  --foreground: oklch(0.94 0.01 70);
-  --muted: oklch(0.2 0.008 60);
-  --muted-foreground: oklch(0.65 0.008 60);
-  --accent: oklch(0.76 0.15 60);
-  --accent-foreground: oklch(0.13 0.008 60);
-  --border: oklch(0.94 0.01 70 / 0.12);
-  --surface: oklch(0.94 0.01 70);
-  --surface-foreground: oklch(0.13 0.008 60);
 }
 
 @utility container-editorial {
@@ -86,17 +103,226 @@
   background-size: 0% 1px;
   background-position: 0 100%;
   transition: background-size 0.4s var(--ease-out-expo);
-  &:hover { background-size: 100% 1px; }
+  &:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@utility fade-in {
+  animation: fadeIn 0.6s var(--ease-out-expo) both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@utility slide-up {
+  animation: slideUp 0.6s var(--ease-out-expo) both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility slide-down {
+  animation: slideDown 0.6s var(--ease-out-expo) both;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility scale-in {
+  animation: scaleIn 0.5s var(--ease-out-expo) both;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@utility shimmer {
+  animation: shimmer 2s linear infinite;
+  background: linear-gradient(
+    90deg,
+    var(--color-muted) 0%,
+    var(--color-accent) 50%,
+    var(--color-muted) 100%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@utility pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Micro-interactions */
+@utility hover-lift {
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px color-mix(in oklab, var(--color-foreground) 10%, transparent);
+  }
+}
+
+@utility hover-glow {
+  transition: box-shadow 0.3s var(--ease-out-expo);
+  &:hover {
+    box-shadow: 0 0 20px color-mix(in oklab, var(--color-accent) 30%, transparent);
+  }
+}
+
+@utility press-scale {
+  transition: transform 0.1s ease-out;
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Loading states */
+@utility skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-muted) 0%,
+    color-mix(in oklab, var(--color-muted) 20%, var(--color-foreground)) 50%,
+    var(--color-muted) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+@utility loading-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scroll-triggered animations */
+@utility scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  &.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@utility scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  &.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Staggered animations */
+@utility stagger-1 {
+  animation-delay: 0.1s;
+}
+
+@utility stagger-2 {
+  animation-delay: 0.2s;
+}
+
+@utility stagger-3 {
+  animation-delay: 0.3s;
+}
+
+@utility stagger-4 {
+  animation-delay: 0.4s;
+}
+
+@utility stagger-5 {
+  animation-delay: 0.5s;
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    padding-bottom: env(safe-area-inset-bottom);
   }
-  ::selection { background-color: color-mix(in oklab, var(--accent) 25%, transparent); }
+  ::selection {
+    background-color: color-mix(in oklab, var(--accent) 25%, transparent);
+  }
+}
+
+@utility safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@utility safe-area-top {
+  padding-top: env(safe-area-inset-top);
 }

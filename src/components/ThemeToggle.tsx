@@ -16,7 +16,11 @@ export function ThemeToggle() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     applyTheme(next);
-    try { window.localStorage.setItem(THEME_KEY, next); } catch {}
+    try {
+      window.localStorage.setItem(THEME_KEY, next);
+    } catch {
+      // Ignore localStorage errors
+    }
   }
 
   return (

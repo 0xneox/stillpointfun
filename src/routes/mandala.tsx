@@ -4,9 +4,15 @@ export const Route = createFileRoute("/mandala")({
   head: () => ({
     meta: [
       { title: "The Mandala — The Still Point" },
-      { name: "description", content: "Enter the living discussion space of The Still Point community." },
+      {
+        name: "description",
+        content: "Enter the living discussion space of The Still Point community.",
+      },
       { property: "og:title", content: "The Mandala — The Still Point" },
-      { property: "og:description", content: "Enter the living discussion space of The Still Point community." },
+      {
+        property: "og:description",
+        content: "Enter the living discussion space of The Still Point community.",
+      },
       { property: "og:url", content: "/mandala" },
     ],
     links: [{ rel: "canonical", href: "/mandala" }],
@@ -26,12 +32,15 @@ function Mandala() {
   return (
     <div>
       <header className="container-editorial pt-24 pb-16 border-b border-border">
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">The Mandala</span>
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+          The Mandala
+        </span>
         <h1 className="font-display italic text-5xl md:text-7xl mt-6 text-balance max-w-3xl">
           The Field is Alive
         </h1>
         <p className="mt-6 max-w-xl text-lg opacity-70 leading-relaxed">
-          Long-form study circles, dream sharing, textual exegesis, archetype exploration, and sangha support — all held within the same field of Recognition.
+          Long-form study circles, dream sharing, textual exegesis, archetype exploration, and
+          sangha support — all held within the same field of Recognition.
         </p>
       </header>
 
@@ -39,12 +48,16 @@ function Mandala() {
       <section className="max-w-3xl mx-auto px-6 py-24">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">Active Now</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+              Active Now
+            </span>
             <h2 className="font-display italic text-4xl md:text-5xl mt-4">Living Discussions</h2>
           </div>
           <div className="hidden md:flex items-center gap-2">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-widest opacity-70">47 online</span>
+            <span className="font-mono text-xs uppercase tracking-widest opacity-70">
+              47 online
+            </span>
           </div>
         </div>
 
@@ -83,7 +96,9 @@ function Mandala() {
       {/* Community Practices */}
       <section className="bg-surface text-surface-foreground py-24 px-6">
         <div className="max-w-3xl mx-auto">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">Within the mandala</span>
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+            Within the mandala
+          </span>
           <h2 className="font-display italic text-4xl md:text-5xl mt-6 text-balance">
             Community Practices
           </h2>
@@ -112,29 +127,22 @@ function Mandala() {
         </div>
       </section>
 
-      {/* Token Holder Benefits */}
+      {/* Community Guidelines */}
       <section className="max-w-3xl mx-auto px-6 py-24 border-t border-border">
         <div className="space-y-8">
-          <span className="font-mono text-[10px] tracking-widest uppercase opacity-50 block mb-6">$STILL Token Holders</span>
-          <h2 className="font-display italic text-4xl md:text-5xl mb-8">
-            Private Access
-          </h2>
+          <span className="font-mono text-[10px] tracking-widest uppercase opacity-50 block mb-6">
+            Participation
+          </span>
+          <h2 className="font-display italic text-4xl md:text-5xl mb-8">How to Engage</h2>
           <div className="space-y-4 text-lg leading-[1.7] opacity-80">
-            <p>• Private forums for deeper discussion</p>
-            <p>• Voice channels for real-time dialogue</p>
-            <p>• Direct access to teachings and archives</p>
-            <p>• Governance in community direction</p>
-          </div>
-          <div className="pt-6">
-            <Link 
-              to="/token" 
-              className="px-8 py-4 bg-foreground text-background font-mono text-[10px] tracking-[0.2em] uppercase hover:bg-accent transition-colors"
-            >
-              Get $STILL Token
-            </Link>
+            <p>• Study circles on Kashmir Shaivism and Advaita Vedanta texts</p>
+            <p>• Dream sharing and symbolic interpretation</p>
+            <p>• Textual exegesis and deep inquiry into traditional scriptures</p>
+            <p>• Archetype exploration and Jungian integration</p>
+            <p>• Community support in the field of shared inquiry</p>
           </div>
         </div>
-                              </section>
+      </section>
 
       {/* Still Board Integration */}
       <section className="bg-surface text-surface-foreground py-24 px-6">
@@ -143,11 +151,12 @@ function Mandala() {
             Share Your Still Point
           </h2>
           <p className="text-lg opacity-80 leading-relaxed max-w-xl mx-auto">
-            Post to the Still Board: "I remain still because..." — one-sentence declarations from the field.
+            Post to the Still Board: "I remain still because..." — one-sentence declarations from
+            the field.
           </p>
           <div className="pt-6">
-            <Link 
-              to="/board" 
+            <Link
+              to="/board"
               className="px-8 py-4 bg-foreground text-background font-mono text-[10px] tracking-[0.2em] uppercase hover:bg-accent transition-colors"
             >
               Enter Still Board

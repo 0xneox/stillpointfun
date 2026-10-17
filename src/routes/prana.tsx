@@ -1,13 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 
 export const Route = createFileRoute("/prana")({
   head: () => ({
     meta: [
       { title: "Prāṇa Gate — The Still Point" },
-      { name: "description", content: "A 60-90 second guided attention tool to enter the still center." },
+      {
+        name: "description",
+        content: "A 60-90 second guided attention tool to enter the still center.",
+      },
       { property: "og:title", content: "Prāṇa Gate — The Still Point" },
-      { property: "og:description", content: "A 60-90 second guided attention tool to enter the still center." },
+      {
+        property: "og:description",
+        content: "A 60-90 second guided attention tool to enter the still center.",
+      },
       { property: "og:url", content: "/prana" },
     ],
     links: [{ rel: "canonical", href: "/prana" }],
@@ -21,13 +27,22 @@ function PranaGate() {
   const [timeRemaining, setTimeRemaining] = useState(90);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const phases = [
-    { duration: 15, instruction: "Close your eyes. Feel your breath as it enters and leaves." },
-    { duration: 20, instruction: "Notice the space between breaths. The stillness that is always here." },
-    { duration: 20, instruction: "You are the awareness watching the breath. Not the breath itself." },
-    { duration: 20, instruction: "Rest as that awareness. The witness never moves." },
-    { duration: 15, instruction: "When ready, open your eyes. Carry this stillness forward." },
-  ];
+  const phases = useMemo(
+    () => [
+      { duration: 15, instruction: "Close your eyes. Feel your breath as it enters and leaves." },
+      {
+        duration: 20,
+        instruction: "Notice the space between breaths. The stillness that is always here.",
+      },
+      {
+        duration: 20,
+        instruction: "You are the awareness watching the breath. Not the breath itself.",
+      },
+      { duration: 20, instruction: "Rest as that awareness. The witness never moves." },
+      { duration: 15, instruction: "When ready, open your eyes. Carry this stillness forward." },
+    ],
+    [],
+  );
 
   useEffect(() => {
     if (isActive && timeRemaining > 0) {
@@ -37,7 +52,9 @@ function PranaGate() {
           if (newTime === 0) {
             setIsActive(false);
             // Save practice completion to localStorage
-            const savedData = JSON.parse(localStorage.getItem("stillPointData") || '{"totalMinutes":0,"practices":[]}');
+            const savedData = JSON.parse(
+              localStorage.getItem("stillPointData") || '{"totalMinutes":0,"practices":[]}',
+            );
             savedData.totalMinutes += 90;
             savedData.practices.push({
               type: "Prāṇa Gate",
@@ -53,7 +70,7 @@ function PranaGate() {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isActive]);
+  }, [isActive, timeRemaining]);
 
   useEffect(() => {
     if (isActive) {
@@ -65,7 +82,7 @@ function PranaGate() {
         }
       });
     }
-  }, [isActive, timeRemaining]);
+  }, [isActive, timeRemaining, phases]);
 
   const startPractice = () => {
     setIsActive(true);
@@ -89,7 +106,9 @@ function PranaGate() {
   return (
     <div>
       <header className="container-editorial pt-24 pb-16 border-b border-border">
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">Practice Tool</span>
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+          Practice Tool
+        </span>
         <h1 className="font-display italic text-5xl md:text-7xl mt-6 text-balance max-w-3xl">
           Prāṇa Gate
         </h1>
@@ -106,7 +125,8 @@ function PranaGate() {
                 Enter through the breath. Exit as the witness.
               </p>
               <p className="text-base opacity-70 leading-relaxed max-w-xl mx-auto">
-                This practice guides you through five phases of attention, each designed to deepen recognition of the still center that never moves.
+                This practice guides you through five phases of attention, each designed to deepen
+                recognition of the still center that never moves.
               </p>
             </div>
 
@@ -124,10 +144,14 @@ function PranaGate() {
 
             <div className="pt-12 border-t border-border">
               <div className="space-y-4">
-                <span className="font-mono text-[10px] tracking-widest uppercase opacity-50">The phases</span>
+                <span className="font-mono text-[10px] tracking-widest uppercase opacity-50">
+                  The phases
+                </span>
                 {phases.map((p, i) => (
                   <div key={i} className="flex gap-4 items-start">
-                    <span className="font-mono text-accent text-sm whitespace-nowrap">{p.duration}s</span>
+                    <span className="font-mono text-accent text-sm whitespace-nowrap">
+                      {p.duration}s
+                    </span>
                     <p className="text-base opacity-80">{p.instruction}</p>
                   </div>
                 ))}
@@ -157,7 +181,7 @@ function PranaGate() {
             {/* Progress Bar */}
             <div className="max-w-md mx-auto">
               <div className="h-px bg-foreground/20">
-                <div 
+                <div
                   className="h-full bg-foreground transition-all duration-1000 ease-linear"
                   style={{ width: `${((90 - timeRemaining) / 90) * 100}%` }}
                 />
@@ -180,13 +204,18 @@ function PranaGate() {
       {/* Context */}
       <section className="bg-surface text-surface-foreground py-24 px-6">
         <div className="max-w-3xl mx-auto">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">About this practice</span>
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+            About this practice
+          </span>
           <div className="mt-8 space-y-6 text-lg leading-[1.7] opacity-90">
             <p>
-              Prāṇa Gate draws from the Vijñāna Bhairava Tantra — an ancient Kashmir Shaivist text that offers 112 practices to recognize the divine in everyday experience.
+              Prāṇa Gate draws from the Vijñāna Bhairava Tantra — an ancient Kashmir Shaivist text
+              that offers 112 practices to recognize the divine in everyday experience.
             </p>
             <p>
-              The breath is the bridge. By attending to the space between breaths, we discover the stillness that precedes all movement. The witness of the breath is not the breath. You are that witness.
+              The breath is the bridge. By attending to the space between breaths, we discover the
+              stillness that precedes all movement. The witness of the breath is not the breath. You
+              are that witness.
             </p>
             <p className="italic opacity-80">
               This is not relaxation. This is recognition. The center is already here.
@@ -198,10 +227,16 @@ function PranaGate() {
       {/* Navigation */}
       <section className="max-w-3xl mx-auto px-6 py-24 border-t border-border">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
-          <Link to="/" className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity">
+          <Link
+            to="/"
+            className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity"
+          >
             ← Return Home
           </Link>
-          <Link to="/inquiry" className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity">
+          <Link
+            to="/inquiry"
+            className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity"
+          >
             Try Groundless Inquiry →
           </Link>
         </div>

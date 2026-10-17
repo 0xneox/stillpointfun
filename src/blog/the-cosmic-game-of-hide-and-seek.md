@@ -142,13 +142,13 @@ The exhaustion isn't a bug in the system; it's the mechanism that forces the act
 
 In the architecture of this cosmic play, Anugraha is the ultimate plot twist. To understand how it functions, we have to look at the entire cycle. The tradition describes reality not as a static state, but as an ongoing five-fold dance—the Pancha Kritya (Five Cosmic Acts). Shiva is constantly performing these five operations at every scale of reality, from the birth of a galaxy to a single thought flipping in your mind:
 
-| Act | Sanskrit | Cosmic Scale | Human/Psychological Scale |
-|-----|----------|--------------|---------------------------|
-| 1. Creation | Srishti | Emitting the universe into form | Grasping a new idea, building a project |
-| 2. Maintenance | Sthiti | Sustaining the cosmic order | Keeping a habit, stabilizing a life state |
-| 3. Dissolution | Samhara | Reabsorbing the universe back into the void | Letting go, forgetting, the ending of a phase |
-| 4. Camouflage | Tirodhana | Hiding the truth beneath limitation | The deep amnesia, feeling trapped and separate |
-| 5. Grace | Anugraha | Revealing the underlying unity | Waking up mid-game; the cosmic wink |
+| Act            | Sanskrit  | Cosmic Scale                                | Human/Psychological Scale                      |
+| -------------- | --------- | ------------------------------------------- | ---------------------------------------------- |
+| 1. Creation    | Srishti   | Emitting the universe into form             | Grasping a new idea, building a project        |
+| 2. Maintenance | Sthiti    | Sustaining the cosmic order                 | Keeping a habit, stabilizing a life state      |
+| 3. Dissolution | Samhara   | Reabsorbing the universe back into the void | Letting go, forgetting, the ending of a phase  |
+| 4. Camouflage  | Tirodhana | Hiding the truth beneath limitation         | The deep amnesia, feeling trapped and separate |
+| 5. Grace       | Anugraha  | Revealing the underlying unity              | Waking up mid-game; the cosmic wink            |
 
 ## The Paradox of Grace
 

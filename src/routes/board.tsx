@@ -5,9 +5,15 @@ export const Route = createFileRoute("/board")({
   head: () => ({
     meta: [
       { title: "Still Board — The Still Point" },
-      { name: "description", content: "Community board: 'I remain still because...' one-sentence posts." },
+      {
+        name: "description",
+        content: "Community board: 'I remain still because...' one-sentence posts.",
+      },
       { property: "og:title", content: "Still Board — The Still Point" },
-      { property: "og:description", content: "Community board: 'I remain still because...' one-sentence posts." },
+      {
+        property: "og:description",
+        content: "Community board: 'I remain still because...' one-sentence posts.",
+      },
       { property: "og:url", content: "/board" },
     ],
     links: [{ rel: "canonical", href: "/board" }],
@@ -22,14 +28,54 @@ function StillBoard() {
       return JSON.parse(saved);
     }
     return [
-      { id: 1, text: "I remain still because the witness never moves.", author: "0x7a3...f2c", time: "2m ago", verified: true },
-      { id: 2, text: "I remain still because chaos is just motion recognized.", author: "0x9b1...e4d", time: "5m ago", verified: true },
-      { id: 3, text: "I remain still because the center is already here.", author: "0x2c8...a1f", time: "8m ago", verified: false },
-      { id: 4, text: "I remain still because I am not the story.", author: "0x5d4...b7e", time: "12m ago", verified: true },
-      { id: 5, text: "I remain still because awareness has no ground.", author: "0x8e2...c9a", time: "15m ago", verified: true },
-      { id: 6, text: "I remain still because the market moves, I don't.", author: "0x3f2...a8d", time: "18m ago", verified: false },
-      { id: 7, text: "I remain still because recognition is immediate.", author: "0x7c1...e4b", time: "22m ago", verified: true },
-      { id: 8, text: "I remain still because there is nowhere to go.", author: "0x9a4...f2c", time: "25m ago", verified: false },
+      {
+        id: 1,
+        text: "I remain still because the witness never moves.",
+        author: "Anonymous",
+        time: "2m ago",
+      },
+      {
+        id: 2,
+        text: "I remain still because chaos is just motion recognized.",
+        author: "Anonymous",
+        time: "5m ago",
+      },
+      {
+        id: 3,
+        text: "I remain still because the center is already here.",
+        author: "Anonymous",
+        time: "8m ago",
+      },
+      {
+        id: 4,
+        text: "I remain still because I am not the story.",
+        author: "Anonymous",
+        time: "12m ago",
+      },
+      {
+        id: 5,
+        text: "I remain still because awareness has no ground.",
+        author: "Anonymous",
+        time: "15m ago",
+      },
+      {
+        id: 6,
+        text: "I remain still because the market moves, I don't.",
+        author: "Anonymous",
+        time: "18m ago",
+      },
+      {
+        id: 7,
+        text: "I remain still because recognition is immediate.",
+        author: "Anonymous",
+        time: "22m ago",
+      },
+      {
+        id: 8,
+        text: "I remain still because there is nowhere to go.",
+        author: "Anonymous",
+        time: "25m ago",
+      },
     ];
   });
 
@@ -48,9 +94,8 @@ function StillBoard() {
         const post = {
           id: posts.length + 1,
           text: newPost.trim(),
-          author: "You",
+          author: "Anonymous",
           time: "Just now",
-          verified: false,
         };
         setPosts([post, ...posts]);
         setNewPost("");
@@ -62,7 +107,9 @@ function StillBoard() {
   return (
     <div>
       <header className="container-editorial pt-24 pb-16 border-b border-border">
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">Community Board</span>
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+          Community Board
+        </span>
         <h1 className="font-display italic text-5xl md:text-7xl mt-6 text-balance max-w-3xl">
           Still Board
         </h1>
@@ -79,7 +126,9 @@ function StillBoard() {
               Complete the sentence
             </label>
             <div className="flex items-center gap-4">
-              <span className="font-display text-2xl opacity-80 italic">I remain still because</span>
+              <span className="font-display text-2xl opacity-80 italic">
+                I remain still because
+              </span>
               <input
                 type="text"
                 value={newPost}
@@ -116,14 +165,7 @@ function StillBoard() {
                   <span className="opacity-90">{post.text}</span>
                 </p>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm opacity-70">{post.author}</span>
-                    {post.verified && (
-                      <span className="px-2 py-0.5 bg-accent/10 text-accent font-mono text-[10px] tracking-widest uppercase rounded">
-                        Verified
-                      </span>
-                    )}
-                  </div>
+                  <span className="font-mono text-sm opacity-70">{post.author}</span>
                   <span className="font-mono text-xs opacity-50">{post.time}</span>
                 </div>
               </div>
@@ -135,48 +177,47 @@ function StillBoard() {
       {/* Info Section */}
       <section className="bg-surface text-surface-foreground py-24 px-6">
         <div className="max-w-3xl mx-auto">
-          <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">About Still Board</span>
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+            About Still Board
+          </span>
           <div className="mt-8 space-y-6 text-lg leading-[1.7] opacity-90">
             <p>
-              The Still Board is a living record of collective recognition. Each post is a one-sentence pointer to the still center that never moves. The field remembers.
-            </p>
-            <p>
-              $STILL token holders receive a verified badge on their posts, indicating their participation in the mandala. The center is already here.
+              The Still Board is a living record of collective recognition. Each post is a
+              one-sentence pointer to the still center that never moves. The field remembers.
             </p>
             <p className="italic opacity-80">
-              The board is not for discussion. It is for declaration. I remain still because... You are already It.
+              The board is not for discussion. It is for declaration. I remain still because... You
+              are already It.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Token CTA */}
+      {/* Board Guidelines */}
       <section className="max-w-3xl mx-auto px-6 py-24 border-t border-border">
         <div className="text-center space-y-8">
           <h2 className="font-display italic text-4xl md:text-5xl text-balance">
-            Get Verified on Still Board
+            Share Your Still Point
           </h2>
-          <p className="text-lg opacity-80 leading-relaxed">
-            Hold $STILL to receive a verified badge and priority visibility on the Still Board.
+          <p className="text-lg opacity-80 leading-relaxed max-w-xl mx-auto">
+            One-sentence declarations from the field. The board is for declaration, not discussion.
           </p>
-          <div className="pt-6">
-            <Link 
-              to="/token" 
-              className="px-8 py-4 bg-foreground text-background font-mono text-[10px] tracking-[0.2em] uppercase hover:bg-accent transition-colors"
-            >
-              View $STILL Token
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* Navigation */}
       <section className="max-w-3xl mx-auto px-6 py-24 border-t border-border">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
-          <Link to="/score" className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity">
+          <Link
+            to="/score"
+            className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity"
+          >
             ← Live Score
           </Link>
-          <Link to="/live" className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity">
+          <Link
+            to="/live"
+            className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity"
+          >
             Join Live Session →
           </Link>
         </div>

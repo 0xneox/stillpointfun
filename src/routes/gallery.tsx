@@ -1,14 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { GALLERY, GALLERY_CATEGORIES, type GalleryCategory, type GalleryImage } from "@/data/gallery";
+import {
+  GALLERY,
+  GALLERY_CATEGORIES,
+  type GalleryCategory,
+  type GalleryImage,
+} from "@/data/gallery";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — The Still Point" },
-      { name: "description", content: "A visual journal from travel, nature, and sacred places. Photographs from the road and from home." },
+      {
+        name: "description",
+        content:
+          "A visual journal from travel, nature, and sacred places. Photographs from the road and from home.",
+      },
       { property: "og:title", content: "Gallery — The Still Point" },
-      { property: "og:description", content: "A visual journal from travel, nature, and sacred places." },
+      {
+        property: "og:description",
+        content: "A visual journal from travel, nature, and sacred places.",
+      },
       { property: "og:url", content: "/gallery" },
     ],
     links: [{ rel: "canonical", href: "/gallery" }],
@@ -29,8 +41,10 @@ function Gallery() {
     if (openIndex === null) return;
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") setOpenIndex(null);
-      if (e.key === "ArrowRight") setOpenIndex((i) => (i === null ? null : (i + 1) % images.length));
-      if (e.key === "ArrowLeft") setOpenIndex((i) => (i === null ? null : (i - 1 + images.length) % images.length));
+      if (e.key === "ArrowRight")
+        setOpenIndex((i) => (i === null ? null : (i + 1) % images.length));
+      if (e.key === "ArrowLeft")
+        setOpenIndex((i) => (i === null ? null : (i - 1 + images.length) % images.length));
     }
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -48,7 +62,8 @@ function Gallery() {
           Captured Presence
         </h1>
         <p className="mt-6 max-w-xl opacity-70 text-lg leading-relaxed">
-          Moments of stillness in motion. Ongoing, un-curated in strict sequence, filed loosely by shape and mood.
+          Moments of stillness in motion. Ongoing, un-curated in strict sequence, filed loosely by
+          shape and mood.
         </p>
 
         <div className="mt-12 flex flex-wrap gap-2">
@@ -78,7 +93,10 @@ function Gallery() {
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors" />
               <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                 <div className="font-mono text-[9px] tracking-widest uppercase text-background bg-foreground/80 backdrop-blur px-2 py-1 inline-block">
-                  {new Date(img.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                  {new Date(img.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "numeric",
+                  })}
                 </div>
               </div>
             </button>
@@ -100,7 +118,15 @@ function Gallery() {
   );
 }
 
-function CatPill({ active, label, onClick }: { active: boolean; label: string; onClick: () => void }) {
+function CatPill({
+  active,
+  label,
+  onClick,
+}: {
+  active: boolean;
+  label: string;
+  onClick: () => void;
+}) {
   return (
     <button
       onClick={onClick}
@@ -152,15 +178,16 @@ function Lightbox({
       </button>
 
       <figure className="max-w-[92vw] max-h-[85vh] flex flex-col items-center">
-        <img
-          src={img.src}
-          alt={img.alt}
-          className="max-w-full max-h-[75vh] object-contain"
-        />
+        <img src={img.src} alt={img.alt} className="max-w-full max-h-[75vh] object-contain" />
         <figcaption className="mt-6 text-center text-white/70">
           <p className="font-display italic text-xl">"{img.caption}"</p>
           <p className="mt-2 font-mono text-[10px] tracking-widest uppercase opacity-60">
-            {new Date(img.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })} · {img.category}
+            {new Date(img.date).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}{" "}
+            · {img.category}
           </p>
         </figcaption>
       </figure>

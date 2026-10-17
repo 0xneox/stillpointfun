@@ -6,7 +6,6 @@ const links = [
   { to: "/live", label: "Live" },
   { to: "/teachings", label: "Teachings" },
   { to: "/mandala", label: "The Mandala" },
-  { to: "/token", label: "$STILL" },
   { to: "/about", label: "About" },
 ] as const;
 
@@ -28,7 +27,10 @@ export function SiteNav() {
       }`}
     >
       <div className="container-editorial flex items-center justify-between py-6">
-        <Link to="/" className="font-mono text-[10px] tracking-widest uppercase opacity-70 hover:opacity-100 transition-opacity italic">
+        <Link
+          to="/"
+          className="font-mono text-[10px] tracking-widest uppercase opacity-70 hover:opacity-100 transition-opacity italic"
+        >
           The Still Point
         </Link>
 

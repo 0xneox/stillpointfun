@@ -12,7 +12,8 @@ export function NewsletterForm({ variant = "light" }: { variant?: "light" | "dar
   }
 
   const borderClass = variant === "dark" ? "border-background/20" : "border-border";
-  const placeholder = variant === "dark" ? "placeholder:opacity-30" : "placeholder:text-muted-foreground/50";
+  const placeholder =
+    variant === "dark" ? "placeholder:opacity-30" : "placeholder:text-muted-foreground/50";
 
   return (
     <form onSubmit={onSubmit} className={`flex gap-4 border-b ${borderClass} pb-2 w-full`}>
