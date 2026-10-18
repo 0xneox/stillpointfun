@@ -255,16 +255,6 @@ function Discourses() {
 
   return (
     <div className="min-h-screen">
-      {/* Invisible YouTube Audio Engine (Zero Video Elements) */}
-      <iframe
-        ref={iframeRef}
-        key={selectedTrack.videoId}
-        src={`https://www.youtube.com/embed/${selectedTrack.videoId}?enablejsapi=1&autoplay=${isPlaying ? 1 : 0}&playsinline=1&controls=0`}
-        className="absolute -top-[9999px] -left-[9999px] w-1 h-1 opacity-0 pointer-events-none"
-        allow="autoplay"
-        title="Spoken Audio Stream"
-      />
-
       {/* Header */}
       <header className="container-editorial pt-24 pb-16 border-b border-border">
         <Breadcrumbs items={[{ label: "Discourses" }]} />
@@ -282,7 +272,7 @@ function Discourses() {
         </div>
       </header>
 
-      {/* Featured Pure Audio Archive Deck */}
+      {/* Featured audio archive deck */}
       {activePlaylist && (
         <section className="border-b border-border bg-surface/30">
           <div className="max-w-5xl mx-auto px-6 py-20">
@@ -322,7 +312,7 @@ function Discourses() {
                     {activePlaylist.tracks.length} Spoken Lectures & Talks
                   </span>
                   <span className="inline-block px-2.5 py-1 text-[9px] font-mono tracking-widest uppercase text-accent border border-accent/40">
-                    Pure Audio
+                    Audio + Video
                   </span>
                 </div>
                 <h2 className="font-display text-3xl md:text-5xl mt-2">
@@ -349,10 +339,19 @@ function Discourses() {
               </div>
             </div>
 
-            {/* Pure Audio Console (Zero Video) */}
+            {/* Custom audio controls with the YouTube player */}
             <div className="rounded-sm border border-border bg-background shadow-xl overflow-hidden">
               <div className="p-8 md:p-12 bg-surface/40">
                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                  <iframe
+                    ref={iframeRef}
+                    key={selectedTrack.videoId}
+                    src={`https://www.youtube.com/embed/${selectedTrack.videoId}?enablejsapi=1&autoplay=${isPlaying ? 1 : 0}&playsinline=1&controls=0`}
+                    className="h-[204px] w-[204px] shrink-0 rounded-sm border border-border bg-black"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    title={`${selectedTrack.title} by ${selectedTrack.speaker}`}
+                  />
+
                   {/* Contemplative Sound Disc Visualizer */}
                   <div className="relative shrink-0 flex items-center justify-center">
                     <div

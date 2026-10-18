@@ -72,8 +72,8 @@ export function EnhancedPlayer({
 
       try {
         playerRef.current = new window.YT.Player(playerId, {
-          height: "1",
-          width: "1",
+          height: "204",
+          width: "204",
           videoId,
           playerVars: {
             autoplay: autoplay ? 1 : 0,
@@ -251,22 +251,11 @@ export function EnhancedPlayer({
 
   return (
     <div className="w-full relative">
-      {/* Invisible YouTube Audio Engine (Tiny 1x1 div in DOM with zero visual footprint) */}
-      <div
-        style={{
-          position: "absolute",
-          width: "1px",
-          height: "1px",
-          opacity: 0.001,
-          pointerEvents: "none",
-          overflow: "hidden",
-          clip: "rect(0 0 0 0)",
-        }}
-      >
+      <div className="w-[204px] h-[204px] shrink-0 overflow-hidden rounded-lg border border-border bg-black">
         <div id={playerId} />
       </div>
 
-      {/* SEXY AUDIO PLAYER CONSOLE (ZERO VIDEO DISPLAYED) */}
+      {/* Custom audio controls for the YouTube player */}
       <div className="p-6 md:p-10 bg-surface/50 backdrop-blur-md border border-border rounded-xl shadow-2xl space-y-8 relative overflow-hidden group">
         {/* Ambient Glow */}
         <div
@@ -307,7 +296,7 @@ export function EnhancedPlayer({
           <div className="flex-1 min-w-0 text-center sm:text-left space-y-2.5">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <span className="px-2.5 py-0.5 bg-accent/15 text-accent font-mono text-[9px] tracking-widest uppercase rounded font-medium border border-accent/20">
-                Pure Audio Transmission
+                YouTube Audio
               </span>
               {channel && (
                 <span className="px-2.5 py-0.5 bg-surface text-foreground/70 font-mono text-[9px] tracking-wider uppercase border border-border rounded">
