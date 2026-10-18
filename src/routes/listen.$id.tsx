@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { CONTENT } from "@/data/content";
 import { POSTS } from "@/data/posts";
 import { LIBRARY_ITEMS } from "@/routes/library";
@@ -7,29 +7,31 @@ import { ShareButton } from "@/components/ShareButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const Route = createFileRoute("/listen/$id")({
-  component: Listen,
-  meta: ({ params }) => {
+  head: ({ params }) => {
     const item = CONTENT.find((c) => c.id === params.id);
-    if (!item) return [];
+    if (!item) return { meta: [] };
 
-    return [
-      { title: `Stillpoint — ${item.title}` },
-      {
-        name: "description",
-        content: `${item.title} by ${item.artist_or_speaker}. ${item.description || ""} Listen on Stillpoint.`,
-      },
-      { property: "og:title", content: `Stillpoint — ${item.title}` },
-      {
-        property: "og:description",
-        content: `${item.artist_or_speaker} · ${item.channel}. For curious minds in a noisy world.`,
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Stillpoint" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: `Stillpoint — ${item.title}` },
-      { name: "twitter:description", content: `${item.artist_or_speaker} · ${item.channel}` },
-    ];
+    return {
+      meta: [
+        { title: `Stillpoint — ${item.title}` },
+        {
+          name: "description",
+          content: `${item.title} by ${item.artist_or_speaker}. ${item.description || ""} Listen on Stillpoint.`,
+        },
+        { property: "og:title", content: `Stillpoint — ${item.title}` },
+        {
+          property: "og:description",
+          content: `${item.artist_or_speaker} · ${item.channel}. For curious minds in a noisy world.`,
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "Stillpoint" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: `Stillpoint — ${item.title}` },
+        { name: "twitter:description", content: `${item.artist_or_speaker} · ${item.channel}` },
+      ],
+    };
   },
+  component: Listen,
 });
 
 function Listen() {
@@ -49,17 +51,28 @@ function Listen() {
     );
   }
 
+  const navigate = useNavigate();
+  const currentIndex = CONTENT.findIndex((c) => c.id === currentItem.id);
+  const handleNext = () => {
+    const nextItem = CONTENT[(currentIndex + 1) % CONTENT.length];
+    navigate({ to: "/listen/$id", params: { id: nextItem.id } });
+  };
+  const handlePrev = () => {
+    const prevItem = CONTENT[(currentIndex - 1 + CONTENT.length) % CONTENT.length];
+    navigate({ to: "/listen/$id", params: { id: prevItem.id } });
+  };
+
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   // Find related articles
   const relatedArticles = currentItem.related_articles
     ?.map((slug) => POSTS.find((p) => p.slug === slug))
-    .filter(Boolean);
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
   // Find related books
   const relatedBooks = currentItem.related_books
     ?.map((bookId) => LIBRARY_ITEMS.find((b) => b.id === bookId))
-    .filter(Boolean);
+    .filter((b): b is NonNullable<typeof b> => Boolean(b));
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6">
@@ -77,7 +90,12 @@ function Listen() {
             videoId={currentItem.youtube_video_id}
             title={currentItem.title}
             artist={currentItem.artist_or_speaker}
+            channel={currentItem.channel}
             autoplay={true}
+            onNext={handleNext}
+            onPrev={handlePrev}
+            hasPrev={true}
+            hasNext={true}
           />
         </div>
 

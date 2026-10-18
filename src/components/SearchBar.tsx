@@ -69,7 +69,7 @@ export function SearchBar({ onSelect }: SearchBarProps) {
         title: item.title,
         subtitle: `${item.author} · ${item.format}`,
         type: "book" as const,
-        route: "#",
+        route: "/library",
         params: {},
       }));
 
@@ -89,6 +89,8 @@ export function SearchBar({ onSelect }: SearchBarProps) {
       navigate({ to: "/listen/$id", params: { id: result.params.id } });
     } else if (result.route === "/teachings/$slug") {
       navigate({ to: "/teachings/$slug", params: { slug: result.params.slug } });
+    } else if (result.route === "/library") {
+      navigate({ to: "/library" });
     }
     setQuery("");
     setResults([]);

@@ -27,6 +27,16 @@ dist-ssr
 .DS_Store
 *.suo
 *.ntvs*
-*.njsproj
-*.sln
 *.sw?
+
+# Local Large Media & Audiobooks
+/audiobook/
+*.mp3
+*.m4a
+*.wav
+
+# Local PDF Library
+/Library/
+*.pdf
+
+

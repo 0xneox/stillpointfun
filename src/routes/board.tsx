@@ -21,8 +21,15 @@ export const Route = createFileRoute("/board")({
   component: StillBoard,
 });
 
+interface PostItem {
+  id: number | string;
+  text: string;
+  author: string;
+  time: string;
+}
+
 function StillBoard() {
-  const [posts, setPosts] = useState(() => {
+  const [posts, setPosts] = useState<PostItem[]>(() => {
     const saved = localStorage.getItem("stillBoardPosts");
     if (saved) {
       return JSON.parse(saved);
@@ -135,7 +142,7 @@ function StillBoard() {
                 onChange={(e) => setNewPost(e.target.value)}
                 placeholder="..."
                 className="flex-1 bg-transparent border-b border-border py-3 font-display text-2xl opacity-80 italic placeholder:opacity-30 focus:outline-none focus:border-foreground transition-colors"
-                maxLength="200"
+                maxLength={200}
               />
             </div>
           </div>

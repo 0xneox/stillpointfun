@@ -42,7 +42,8 @@ function ChannelDetail() {
           {channelContent.map((item) => (
             <Link
               key={item.id}
-              to={`/listen/${item.id}`}
+              to="/listen/$id"
+              params={{ id: item.id }}
               className="block group py-6 border-b border-border hover:border-accent transition-colors"
             >
               <div className="flex items-start justify-between gap-4">

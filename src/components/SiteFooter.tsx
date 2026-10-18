@@ -25,14 +25,17 @@ export function SiteFooter() {
               <Link to="/library" className="hover:text-accent transition-colors">
                 Library
               </Link>
+              <Link to="/writings" className="hover:text-accent transition-colors">
+                Writings
+              </Link>
               <Link to="/journal" className="hover:text-accent transition-colors">
-                Journal
+                Journal & Notes
               </Link>
               <Link to="/discourses" className="hover:text-accent transition-colors">
                 Discourses
               </Link>
-              <Link to="/journeys" className="hover:text-accent transition-colors">
-                Journeys
+              <Link to="/audiobooks" className="hover:text-accent transition-colors">
+                Audiobooks
               </Link>
             </div>
             <div className="flex flex-col gap-4">

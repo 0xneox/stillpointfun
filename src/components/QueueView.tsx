@@ -34,7 +34,8 @@ export function QueueView({ items, currentIndex, onRemove }: QueueViewProps) {
             <span className="font-mono text-xs opacity-50 w-6">{index + 1}</span>
             <div className="flex-1 min-w-0">
               <Link
-                to={`/listen/${id}`}
+                to="/listen/$id"
+                params={{ id }}
                 className="font-display text-sm truncate block hover:text-accent transition-colors"
               >
                 {item.title}

@@ -97,7 +97,7 @@ function PracticeLog() {
             </div>
           ) : (
             <div className="space-y-4">
-              {practices.slice().reverse().map((practice, i) => (
+              {practices.slice().reverse().map((practice: any, i: number) => (
                 <div
                   key={i}
                   className="flex items-center justify-between py-4 border-t border-surface-foreground/20"

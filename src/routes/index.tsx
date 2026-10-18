@@ -3,31 +3,34 @@ import { CHANNELS, CHANNEL_DESCRIPTIONS, CONTENT } from "@/data/content";
 import { useState, useRef } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { EnhancedPlayer } from "@/components/EnhancedPlayer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Stillpoint — Listen. Read. Question." },
+      {
+        name: "description",
+        content:
+          "An open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry. Discover curated discourses, sacred music, philosophical talks, and sacred audiobooks.",
+      },
+      { property: "og:title", content: "Stillpoint — Listen. Read. Question." },
+      {
+        property: "og:description",
+        content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom. Curated discourses, sacred music, and philosophical exploration.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Stillpoint" },
+      { property: "og:url", content: "https://stillpoint.com/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Stillpoint — Listen. Read. Question." },
+      {
+        name: "twitter:description",
+        content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
+      },
+    ],
+  }),
   component: Home,
-  meta: () => [
-    { title: "Stillpoint — Listen. Read. Question." },
-    {
-      name: "description",
-      content:
-        "An open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry. Discover curated discourses, sacred music, philosophical talks, and contemplative journeys.",
-    },
-    { property: "og:title", content: "Stillpoint — Listen. Read. Question." },
-    {
-      property: "og:description",
-      content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom. Curated discourses, sacred music, and philosophical exploration.",
-    },
-    { property: "og:type", content: "website" },
-    { property: "og:site_name", content: "Stillpoint" },
-    { property: "og:url", content: "https://stillpoint.com/" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Stillpoint — Listen. Read. Question." },
-    {
-      name: "twitter:description",
-      content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
-    },
-  ],
 });
 
 function Home() {
@@ -50,6 +53,20 @@ function Home() {
     setLastPlayedId(item.id);
   };
 
+  const handleNext = () => {
+    const currentIndex = CONTENT.findIndex((c) => c.id === currentItem.id);
+    const nextIndex = (currentIndex + 1) % CONTENT.length;
+    setCurrentItem(CONTENT[nextIndex]);
+    setLastPlayedId(CONTENT[nextIndex].id);
+  };
+
+  const handlePrev = () => {
+    const currentIndex = CONTENT.findIndex((c) => c.id === currentItem.id);
+    const prevIndex = (currentIndex - 1 + CONTENT.length) % CONTENT.length;
+    setCurrentItem(CONTENT[prevIndex]);
+    setLastPlayedId(CONTENT[prevIndex].id);
+  };
+
   playRandomRef.current = playRandom;
 
   const dailySelection = CONTENT.find((c) => c.daily_selection) || CONTENT[0];
@@ -59,7 +76,6 @@ function Home() {
   const [featuredRef, featuredVisible] = useScrollAnimation(0.1);
   const [channelsRef, channelsVisible] = useScrollAnimation(0.1);
   const [discoverRef, discoverVisible] = useScrollAnimation(0.1);
-  const [journeyRef, journeyVisible] = useScrollAnimation(0.1);
 
   return (
     <div className="min-h-screen">
@@ -109,6 +125,10 @@ function Home() {
               Library
             </Link>
             <span className="opacity-30">·</span>
+            <Link to="/writings" className="hover:opacity-100 hover:text-accent transition-all link-underline">
+              Writings
+            </Link>
+            <span className="opacity-30">·</span>
             <Link to="/journal" className="hover:opacity-100 hover:text-accent transition-all link-underline">
               Journal
             </Link>
@@ -117,50 +137,120 @@ function Home() {
               Discourses
             </Link>
             <span className="opacity-30">·</span>
-            <Link to="/journeys" className="hover:opacity-100 hover:text-accent transition-all link-underline">
-              Journeys
+            <Link to="/audiobooks" className="hover:opacity-100 hover:text-accent transition-all link-underline">
+              Audiobooks
             </Link>
           </div>
         </div>
       </section>
 
       {/* Featured Listening */}
-      <section ref={featuredRef as any} className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${featuredVisible ? 'is-visible' : ''}`}>
-        <div className="text-center space-y-8 mb-16">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
-            FEATURED
+      <section
+        ref={featuredRef as any}
+        className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${
+          featuredVisible ? "is-visible" : ""
+        }`}
+      >
+        <div className="text-center space-y-4 mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface border border-border rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+            <span className="font-mono text-[9px] tracking-[0.25em] uppercase opacity-75">
+              Featured Transmission
+            </span>
+          </div>
+          <h2 className="font-display text-3xl md:text-5xl">Now Playing</h2>
+          <p className="font-sans text-sm md:text-base opacity-70 max-w-xl mx-auto">
+            Curated contemplative transmissions, satsangs, and sacred audio. Select a transmission to enter the listening deck.
           </p>
-          <h2 className="font-display text-3xl md:text-4xl">Now Playing</h2>
         </div>
 
-        <div className="space-y-4">
-          <div className="border-b border-border pb-8 hover-lift">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <h3 className="font-display text-2xl md:text-3xl mb-2">{currentItem.title}</h3>
-                <p className="font-mono text-sm opacity-60 mb-4">
-                  {currentItem.artist_or_speaker} · {currentItem.channel}
-                </p>
-                {currentItem.description && (
-                  <p className="font-sans text-sm opacity-70 max-w-2xl">{currentItem.description}</p>
-                )}
-              </div>
-              <Link
-                to="/listen/$id"
-                params={{ id: currentItem.id }}
-                className="px-6 py-3 border border-border font-mono text-[10px] tracking-widest uppercase hover:border-foreground hover:bg-foreground hover:text-background transition-all press-scale"
-              >
-                Play
+        {/* Live Sexy Audio Console (Zero Video) */}
+        <div className="mb-10">
+          <EnhancedPlayer
+            key={currentItem.id}
+            videoId={currentItem.youtube_video_id}
+            title={currentItem.title}
+            artist={currentItem.artist_or_speaker}
+            channel={currentItem.channel}
+            autoplay={false}
+            onNext={handleNext}
+            onPrev={handlePrev}
+            hasPrev={true}
+            hasNext={true}
+          />
+        </div>
+
+        {/* Transmission Browser & Quick Selector */}
+        <div className="space-y-4 pt-2">
+          <div className="flex items-center justify-between border-b border-border pb-3">
+            <span className="font-mono text-[10px] tracking-widest uppercase opacity-50">
+              Featured Transmissions
+            </span>
+            <span className="font-mono text-[10px] opacity-40">
+              {CONTENT.length} Audio Transmissions Available
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {CONTENT.slice(0, 6).map((item) => {
+              const isSelected = item.id === currentItem.id;
+              return (
+                <div
+                  key={item.id}
+                  className={`p-3.5 border rounded-sm transition-all flex items-center justify-between gap-3 ${
+                    isSelected
+                      ? "border-foreground bg-foreground/5 shadow-sm"
+                      : "border-border hover:border-foreground/40 bg-surface/20"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => playItem(item)}
+                    className="min-w-0 flex-1 text-left"
+                  >
+                    <p
+                      className={`font-display text-sm truncate ${
+                        isSelected ? "text-accent font-medium" : ""
+                      }`}
+                    >
+                      {item.title}
+                    </p>
+                    <p className="font-mono text-[10px] opacity-60 truncate">
+                      {item.artist_or_speaker} · {item.channel}
+                    </p>
+                  </button>
+                  <Link
+                    to="/listen/$id"
+                    params={{ id: item.id }}
+                    className={`font-mono text-[10px] px-2.5 py-1 rounded transition-colors shrink-0 ${
+                      isSelected
+                        ? "bg-accent text-white"
+                        : "border border-border opacity-70 hover:opacity-100 hover:border-foreground"
+                    }`}
+                  >
+                    Play ↗
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <button
+              onClick={playRandom}
+              className="w-full sm:w-auto px-6 py-3 border border-border font-mono text-[10px] tracking-widest uppercase hover:border-foreground hover:bg-foreground hover:text-background transition-all hover-lift press-scale"
+            >
+              🎲 Discover Something Random
+            </button>
+            <div className="flex items-center gap-6 text-[10px] font-mono tracking-widest uppercase opacity-70">
+              <Link to="/discourses" className="hover:text-accent transition-colors">
+                All 2,000+ Discourses →
+              </Link>
+              <Link to="/audiobooks" className="hover:text-accent transition-colors">
+                236 Spoken Audiobooks →
               </Link>
             </div>
           </div>
-
-          <button
-            onClick={playRandom}
-            className="w-full py-4 border border-border font-mono text-[10px] tracking-widest uppercase hover:border-foreground hover:bg-foreground hover:text-background transition-all hover-lift press-scale"
-          >
-            Discover Something Random
-          </button>
         </div>
       </section>
 
@@ -176,7 +266,8 @@ function Home() {
             return (
               <Link
                 key={channel}
-                to={`/channel/${channel.toLowerCase()}`}
+                to="/channel/$id"
+                params={{ id: channel.toLowerCase() }}
                 className="block group"
               >
                 <div className={`w-full text-left py-6 border-b border-border hover:border-accent transition-colors hover-lift stagger-${Math.min(index + 1, 5)}`}>
@@ -223,25 +314,6 @@ function Home() {
               {mood}
             </button>
           ))}
-        </div>
-      </section>
-
-      {/* Featured Journey */}
-      <section ref={journeyRef as any} className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${journeyVisible ? 'is-visible' : ''}`}>
-        <div className="text-center space-y-8">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
-            CURATED JOURNEY
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl italic">Into the Unknown</h2>
-          <p className="font-sans text-base opacity-70 max-w-xl mx-auto">
-            Explore the boundaries of understanding across science, mysticism, and direct experience.
-          </p>
-          <Link
-            to="/journey/into-the-unknown"
-            className="inline-block px-10 py-4 bg-foreground text-background font-mono text-[11px] tracking-[0.2em] uppercase hover:bg-accent transition-colors hover-lift press-scale"
-          >
-            Begin Journey
-          </Link>
         </div>
       </section>
     </div>

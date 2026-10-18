@@ -16,7 +16,7 @@ function Discover() {
           </h1>
           <p className="font-sans text-lg opacity-70 max-w-2xl mx-auto">
             A curated space for listening, reading, and inquiry. Discover audio, books, articles,
-            and journeys across traditions.
+            and sacred audiobooks across traditions.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ function Discover() {
             className="group block p-8 border border-border hover:border-accent transition-colors"
           >
             <p className="font-mono text-[10px] tracking-widest uppercase opacity-50 mb-3">
-              Journal
+              Writings
             </p>
             <h2 className="font-display text-2xl group-hover:text-accent transition-colors mb-2">
               Original Essays
@@ -65,17 +65,17 @@ function Discover() {
             </p>
           </Link>
           <Link
-            to="/journeys"
+            to="/audiobooks"
             className="group block p-8 border border-border hover:border-accent transition-colors"
           >
             <p className="font-mono text-[10px] tracking-widest uppercase opacity-50 mb-3">
-              Journeys
+              Audiobooks
             </p>
             <h2 className="font-display text-2xl group-hover:text-accent transition-colors mb-2">
-              Curated Sequences
+              Sacred Audiobooks
             </h2>
             <p className="font-sans text-sm opacity-60">
-              Intentional paths through the collection.
+              High-fidelity spoken audio across 16 contemplative traditions.
             </p>
           </Link>
         </div>
@@ -93,7 +93,11 @@ function Discover() {
 
             return (
               <div key={channel}>
-                <Link to={`/channel/${channel}`} className="block group mb-8">
+                <Link
+                  to="/channel/$id"
+                  params={{ id: channel.toLowerCase() }}
+                  className="block group mb-8"
+                >
                   <h2 className="font-display text-3xl md:text-4xl group-hover:text-accent transition-colors">
                     {channel}
                   </h2>
@@ -106,7 +110,8 @@ function Discover() {
                   {channelContent.slice(0, 3).map((item) => (
                     <Link
                       key={item.id}
-                      to={`/listen/${item.id}`}
+                      to="/listen/$id"
+                      params={{ id: item.id }}
                       className="block group py-4 border-b border-border hover:border-accent transition-colors"
                     >
                       <div className="flex items-start justify-between gap-4">
