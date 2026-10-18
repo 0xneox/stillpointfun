@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useId } from "react";
 
 // Declare YT global on window
 declare global {
@@ -38,12 +38,10 @@ export function EnhancedPlayer({
   const [isMuted, setIsMuted] = useState(false);
   const [isSeeking, setIsSeeking] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
-  const [isReady, setIsReady] = useState(false);
 
-  const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<any>(null);
   const pollIntervalRef = useRef<any>(null);
-  const playerIdRef = useRef<string>(`yt-audio-${Math.random().toString(36).slice(2, 9)}`);
+  const playerId = `yt-audio-${useId().replace(/:/g, "")}`;
 
   // Format seconds to mm:ss or hh:mm:ss
   const formatTime = (seconds: number) => {
@@ -63,7 +61,7 @@ export function EnhancedPlayer({
 
     const initPlayer = () => {
       if (isCancelled || !window.YT || !window.YT.Player) return;
-      const targetEl = document.getElementById(playerIdRef.current);
+      const targetEl = document.getElementById(playerId);
       if (!targetEl) return;
 
       if (playerRef.current) {
@@ -73,7 +71,7 @@ export function EnhancedPlayer({
       }
 
       try {
-        playerRef.current = new window.YT.Player(playerIdRef.current, {
+        playerRef.current = new window.YT.Player(playerId, {
           height: "1",
           width: "1",
           videoId,
@@ -89,13 +87,11 @@ export function EnhancedPlayer({
           events: {
             onReady: (event: any) => {
               if (isCancelled) return;
-              setIsReady(true);
               event.target.setVolume(volume);
               const dur = event.target.getDuration();
               if (dur) setDuration(dur);
               if (autoplay) {
                 event.target.playVideo();
-                setIsPlaying(true);
               }
             },
             onStateChange: (event: any) => {
@@ -148,7 +144,7 @@ export function EnhancedPlayer({
         } catch {}
       }
     };
-  }, [videoId]);
+  }, [playerId, videoId]);
 
   // Track playback time
   useEffect(() => {
@@ -185,7 +181,6 @@ export function EnhancedPlayer({
         setIsPlaying(false);
       } else {
         playerRef.current.playVideo();
-        setIsPlaying(true);
       }
     } catch (e) {
       console.error("Play toggle error:", e);
@@ -268,7 +263,7 @@ export function EnhancedPlayer({
           clip: "rect(0 0 0 0)",
         }}
       >
-        <div id={playerIdRef.current} />
+        <div id={playerId} />
       </div>
 
       {/* SEXY AUDIO PLAYER CONSOLE (ZERO VIDEO DISPLAYED) */}
