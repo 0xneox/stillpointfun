@@ -1,0 +1,348 @@
+﻿path,size_bytes,size_mib,category,referenced_in
+audiobook/Ayya Jitindriya_s Guided Meditations/4. Working with painful feelings.wav,116451904,111.06,audio,src/data/audiobooks_data.json:24; src/data/audiobooks_data.json:25; src/data/audiobooks_data.json:28
+audiobook/Ayya Jitindriya_s Guided Meditations/7. Relaxation and Metta.wav,303295040,289.24,audio,src/data/audiobooks_data.json:34; src/data/audiobooks_data.json:35; src/data/audiobooks_data.json:38
+audiobook/Christian Mystics/Emmet Fox - Love.mp3,2266996,2.16,audio,src/data/audiobooks_data.json:64; src/data/audiobooks_data.json:65; src/data/audiobooks_data.json:68
+audiobook/Christian Mystics/Jesus the Christ - Selected Teachings from St. John_s Gospel.mp3,13836789,13.20,audio,src/data/audiobooks_data.json:74; src/data/audiobooks_data.json:75; src/data/audiobooks_data.json:78
+audiobook/Christian Mystics/Lilian DeWaters - Light of the Eternal.mp3,26410616,25.19,audio,src/data/audiobooks_data.json:84; src/data/audiobooks_data.json:85; src/data/audiobooks_data.json:88
+audiobook/Christian Mystics/Meister Eckhart (5).mp3,13252531,12.64,audio,src/data/audiobooks_data.json:94; src/data/audiobooks_data.json:95; src/data/audiobooks_data.json:98
+audiobook/Christian Mystics/Meister Eckhart ~ 𝐔𝐧𝐡𝐚𝐦𝐩𝐞𝐫𝐞𝐝 𝐍𝐨𝐭𝐡𝐢𝐧𝐠𝐧𝐞𝐬𝐬 .mp3,15811231,15.08,audio,src/data/audiobooks_data.json:104; src/data/audiobooks_data.json:105; src/data/audiobooks_data.json:108
+audiobook/Christian Mystics/Merton - What is Contemplation.mp3,33089675,31.56,audio,src/data/audiobooks_data.json:114; src/data/audiobooks_data.json:115; src/data/audiobooks_data.json:118
+audiobook/Christian Mystics/The Gospel of Mary.mp3,30802098,29.38,audio,src/data/audiobooks_data.json:124; src/data/audiobooks_data.json:125; src/data/audiobooks_data.json:128
+audiobook/Christian Mystics/~ 𝐓𝐡𝐞 𝐒𝐨𝐮𝐥 𝐨𝐟 𝐖𝐨𝐦𝐚𝐧 ~ Edith Stein.mp3,12475164,11.90,audio,src/data/audiobooks_data.json:134; src/data/audiobooks_data.json:135; src/data/audiobooks_data.json:138
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/Awareness and Emptiness - Spontaneous Vajra.mp3,15518872,14.80,audio,src/data/audiobooks_data.json:164; src/data/audiobooks_data.json:165; src/data/audiobooks_data.json:168
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/Instructions on Stillness - Mipham Rinpoche.mp3,12930327,12.33,audio,src/data/audiobooks_data.json:174; src/data/audiobooks_data.json:175; src/data/audiobooks_data.json:178
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/Instructions on Sustaining the Nature of Awareness ~ Mipham Rinpoche.mp3,15307226,14.60,audio,src/data/audiobooks_data.json:184; src/data/audiobooks_data.json:185; src/data/audiobooks_data.json:188
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/The Dying Process and the Bardos - Patrul Rinpoche.mp3,30326391,28.92,audio,src/data/audiobooks_data.json:194; src/data/audiobooks_data.json:195; src/data/audiobooks_data.json:198
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/The Last Statement of Garab Dorje.mp3,75644162,72.14,audio,src/data/audiobooks_data.json:204; src/data/audiobooks_data.json:205; src/data/audiobooks_data.json:208
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/The Prayer of Kuntuzangpo.mp3,21616624,20.62,audio,src/data/audiobooks_data.json:214; src/data/audiobooks_data.json:215; src/data/audiobooks_data.json:218
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/Tsoknyi Rinpoche - On Love and the Journey.mp3,20705744,19.75,audio,src/data/audiobooks_data.json:224; src/data/audiobooks_data.json:225; src/data/audiobooks_data.json:228
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/Tulku Urgyen Rinpoche - Non-Duality.mp3,43339065,41.33,audio,src/data/audiobooks_data.json:234; src/data/audiobooks_data.json:235; src/data/audiobooks_data.json:238
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/Tulku Urgyen ~ 𝐏𝐨𝐢𝐧𝐭𝐢𝐧𝐠 𝐭𝐨 𝐨𝐮𝐫 𝐁𝐮𝐝𝐝𝐡𝐚 𝐍𝐚𝐭𝐮𝐫𝐞 .mp3,19902210,18.98,audio,src/data/audiobooks_data.json:244; src/data/audiobooks_data.json:245; src/data/audiobooks_data.json:248
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/𝐓𝐡𝐞 𝐑𝐨𝐨𝐭 𝐕𝐞𝐫𝐬𝐞𝐬 𝐨𝐧 𝐭𝐡𝐞 𝐒𝐢𝐱 𝐁𝐚𝐫𝐝𝐨𝐬.mp3,9212991,8.79,audio,src/data/audiobooks_data.json:254; src/data/audiobooks_data.json:255; src/data/audiobooks_data.json:258
+audiobook/Dzogchen _ Mahamudra (Tibetan Buddhism)/𝐓𝐡𝐞𝐫𝐞 𝐢𝐬 𝐍𝐨 𝐁𝐮𝐝𝐝𝐡𝐚 𝐄𝐥𝐬𝐞𝐰𝐡𝐞𝐫𝐞 ~  Drubwang Tsoknyi Rinpoche.mp3,9847937,9.39,audio,src/data/audiobooks_data.json:264; src/data/audiobooks_data.json:265; src/data/audiobooks_data.json:268
+audiobook/Jayasara_s Guided Meditations/Guided Yoga Nidra - Jayasara.mp3,35579681,33.93,audio,src/data/audiobooks_data.json:293; src/data/audiobooks_data.json:294; src/data/audiobooks_data.json:297
+audiobook/Longchenpa/(1) The First Vajra Point.mp3,103876091,99.06,audio,src/data/audiobooks_data.json:323; src/data/audiobooks_data.json:324; src/data/audiobooks_data.json:327
+audiobook/Longchenpa/(2) The Second Vajra Point .mp3,91758532,87.51,audio,src/data/audiobooks_data.json:333; src/data/audiobooks_data.json:334; src/data/audiobooks_data.json:337
+audiobook/Longchenpa/(5) The Fifth Vajra Point .mp3,70898418,67.61,audio,src/data/audiobooks_data.json:343; src/data/audiobooks_data.json:344; src/data/audiobooks_data.json:347
+audiobook/Longchenpa/(7) The Seventh Vajra Point .mp3,50413445,48.08,audio,src/data/audiobooks_data.json:353; src/data/audiobooks_data.json:354; src/data/audiobooks_data.json:357
+audiobook/Longchenpa/(8b) The Eighth Vajra Point - Part B.mp3,62733268,59.83,audio,src/data/audiobooks_data.json:363; src/data/audiobooks_data.json:364; src/data/audiobooks_data.json:367
+audiobook/Longchenpa/(9) Conclusion - Commentary .mp3,46326289,44.18,audio,src/data/audiobooks_data.json:373; src/data/audiobooks_data.json:374; src/data/audiobooks_data.json:377
+audiobook/Longchenpa/Afflictive Emotions.mp3,36789334,35.09,audio,src/data/audiobooks_data.json:383; src/data/audiobooks_data.json:384; src/data/audiobooks_data.json:387
+audiobook/Longchenpa/Part 3 - Treasury of Natural Perfection.mp3,71320994,68.02,audio,src/data/audiobooks_data.json:393; src/data/audiobooks_data.json:394; src/data/audiobooks_data.json:397
+audiobook/Longchenpa/Space without Centre or Edge.mp3,35707601,34.05,audio,src/data/audiobooks_data.json:403; src/data/audiobooks_data.json:404; src/data/audiobooks_data.json:407
+audiobook/Longchenpa/Spiritual Obstacles.mp3,41769108,39.83,audio,src/data/audiobooks_data.json:413; src/data/audiobooks_data.json:414; src/data/audiobooks_data.json:417
+audiobook/Longchenpa/The Adornment of Basic Space.mp3,80793749,77.05,audio,src/data/audiobooks_data.json:423; src/data/audiobooks_data.json:424; src/data/audiobooks_data.json:427
+audiobook/Longchenpa/The Way of Abiding 1.mp3,100917663,96.24,audio,src/data/audiobooks_data.json:433; src/data/audiobooks_data.json:434; src/data/audiobooks_data.json:437
+audiobook/Longchenpa/The Way of Abiding 2.mp3,58334750,55.63,audio,src/data/audiobooks_data.json:443; src/data/audiobooks_data.json:444; src/data/audiobooks_data.json:447
+audiobook/Longchenpa/The Way of Abiding 3.mp3,70360929,67.10,audio,src/data/audiobooks_data.json:453; src/data/audiobooks_data.json:454; src/data/audiobooks_data.json:457
+audiobook/Longchenpa/The Way of Abiding 4.mp3,66225512,63.16,audio,src/data/audiobooks_data.json:463; src/data/audiobooks_data.json:464; src/data/audiobooks_data.json:467
+audiobook/Longchenpa/Timeless Freedom Part 1.mp3,82975134,79.13,audio,src/data/audiobooks_data.json:473; src/data/audiobooks_data.json:474; src/data/audiobooks_data.json:477
+audiobook/Mahayana (Tibetan) Buddhism/37 Things Bodhisattvas Do.mp3,42231323,40.27,audio,src/data/audiobooks_data.json:503; src/data/audiobooks_data.json:504; src/data/audiobooks_data.json:507
+audiobook/Mahayana (Tibetan) Buddhism/Atisha_s Heart Advice and the Highest Teachings.mp3,27920526,26.63,audio,src/data/audiobooks_data.json:513; src/data/audiobooks_data.json:514; src/data/audiobooks_data.json:517
+audiobook/Mahayana (Tibetan) Buddhism/Chapter 1 - The Way of the Bodhisattva.mp3,27346210,26.08,audio,src/data/audiobooks_data.json:523; src/data/audiobooks_data.json:524; src/data/audiobooks_data.json:527
+audiobook/Mahayana (Tibetan) Buddhism/Chapter 6 - The Way of the Bodhisattva.mp3,85985756,82.00,audio,src/data/audiobooks_data.json:533; src/data/audiobooks_data.json:534; src/data/audiobooks_data.json:537
+audiobook/Mahayana (Tibetan) Buddhism/Chapter 7 - The Way of Bodhisattva.mp3,42959046,40.97,audio,src/data/audiobooks_data.json:543; src/data/audiobooks_data.json:544; src/data/audiobooks_data.json:547
+audiobook/Mahayana (Tibetan) Buddhism/Chapter 8 - The Way of Bodhisattva.mp3,85014971,81.08,audio,src/data/audiobooks_data.json:553; src/data/audiobooks_data.json:554; src/data/audiobooks_data.json:557
+audiobook/Mahayana (Tibetan) Buddhism/Heart Sutra.mp3,18020285,17.19,audio,src/data/audiobooks_data.json:563; src/data/audiobooks_data.json:564; src/data/audiobooks_data.json:567
+audiobook/Mahayana (Tibetan) Buddhism/His Holiness Compassion.mp3,26744369,25.51,audio,src/data/audiobooks_data.json:573; src/data/audiobooks_data.json:574; src/data/audiobooks_data.json:577
+audiobook/Mahayana (Tibetan) Buddhism/Milarepa (2) - Selected Pointers.mp3,27996410,26.70,audio,src/data/audiobooks_data.json:583; src/data/audiobooks_data.json:584; src/data/audiobooks_data.json:587
+audiobook/Mahayana (Tibetan) Buddhism/Nagarjuna (1) - Mahamudra Vision.mp3,18908474,18.03,audio,src/data/audiobooks_data.json:593; src/data/audiobooks_data.json:594; src/data/audiobooks_data.json:597
+audiobook/Mahayana (Tibetan) Buddhism/Nagarjuna (2) - Selected teachings MMK.mp3,22125638,21.10,audio,src/data/audiobooks_data.json:603; src/data/audiobooks_data.json:604; src/data/audiobooks_data.json:607
+audiobook/Mahayana (Tibetan) Buddhism/Song of Realization - Khenpo Tsültrim Gyamtso Rinpoche.mp3,63969012,61.01,audio,src/data/audiobooks_data.json:613; src/data/audiobooks_data.json:614; src/data/audiobooks_data.json:617
+audiobook/Miscellaneous (Taoism Meditations etc)/Tao Te Ching - Part 1.mp3,44724318,42.65,audio,src/data/audiobooks_data.json:643; src/data/audiobooks_data.json:644; src/data/audiobooks_data.json:647
+audiobook/Miscellaneous (Taoism Meditations etc)/Tao Te Ching - Part 2.mp3,60859564,58.04,audio,src/data/audiobooks_data.json:653; src/data/audiobooks_data.json:654; src/data/audiobooks_data.json:657
+audiobook/Miscellaneous (Taoism Meditations etc)/Tao Te Ching - Part 3.mp3,45790303,43.67,audio,src/data/audiobooks_data.json:663; src/data/audiobooks_data.json:664; src/data/audiobooks_data.json:667
+audiobook/Miscellaneous (Taoism Meditations etc)/Wei Wu Wei -3.mp3,38110114,36.34,audio,src/data/audiobooks_data.json:673; src/data/audiobooks_data.json:674; src/data/audiobooks_data.json:677
+audiobook/Miscellaneous (Taoism Meditations etc)/Zohar v2.mp3,5433025,5.18,audio,src/data/audiobooks_data.json:683; src/data/audiobooks_data.json:684; src/data/audiobooks_data.json:687
+audiobook/Nisargadatta Meditations - No Music/I am That - 5 (No Music).mp3,21235273,20.25,audio,src/data/audiobooks_data.json:952; src/data/audiobooks_data.json:953; src/data/audiobooks_data.json:956
+audiobook/Nisargadatta/Core of his Teaching - Meditation.mp3,60136797,57.35,audio,src/data/audiobooks_data.json:713; src/data/audiobooks_data.json:714; src/data/audiobooks_data.json:717
+audiobook/Nisargadatta/Destruction of the False - Nisarg.mp3,15931889,15.19,audio,src/data/audiobooks_data.json:723; src/data/audiobooks_data.json:724; src/data/audiobooks_data.json:727
+audiobook/Nisargadatta/Detachment.mp3,32591204,31.08,audio,src/data/audiobooks_data.json:733; src/data/audiobooks_data.json:734; src/data/audiobooks_data.json:737
+audiobook/Nisargadatta/Essence of His Teachings - Prior to Consciousness.mp3,27957119,26.66,audio,src/data/audiobooks_data.json:743; src/data/audiobooks_data.json:744; src/data/audiobooks_data.json:747
+audiobook/Nisargadatta/Go Back to the Source.mp3,22872623,21.81,audio,src/data/audiobooks_data.json:753; src/data/audiobooks_data.json:754; src/data/audiobooks_data.json:757
+audiobook/Nisargadatta/Grieve No More - There is No Me.mp3,26470478,25.24,audio,src/data/audiobooks_data.json:763; src/data/audiobooks_data.json:764; src/data/audiobooks_data.json:767
+audiobook/Nisargadatta/Heart of the Saint.mp3,11891044,11.34,audio,src/data/audiobooks_data.json:773; src/data/audiobooks_data.json:774; src/data/audiobooks_data.json:777
+audiobook/Nisargadatta/I Am That Meditation (2).mp3,14783705,14.10,audio,src/data/audiobooks_data.json:783; src/data/audiobooks_data.json:784; src/data/audiobooks_data.json:787
+audiobook/Nisargadatta/I Am That Meditation (3).mp3,27719661,26.44,audio,src/data/audiobooks_data.json:793; src/data/audiobooks_data.json:794; src/data/audiobooks_data.json:797
+audiobook/Nisargadatta/I Am That Meditation (4).mp3,34081062,32.50,audio,src/data/audiobooks_data.json:803; src/data/audiobooks_data.json:804; src/data/audiobooks_data.json:807
+audiobook/Nisargadatta/I am That Meditation (5).mp3,21235273,20.25,audio,src/data/audiobooks_data.json:813; src/data/audiobooks_data.json:814; src/data/audiobooks_data.json:817
+audiobook/Nisargadatta/I am That Meditation (6).mp3,25362302,24.19,audio,src/data/audiobooks_data.json:823; src/data/audiobooks_data.json:824; src/data/audiobooks_data.json:827
+audiobook/Nisargadatta/Nisargadatta Meditations (3).mp3,65097624,62.08,audio,src/data/audiobooks_data.json:833; src/data/audiobooks_data.json:834; src/data/audiobooks_data.json:837
+audiobook/Nisargadatta/Part 1 - A Guided Meditation on Going Beyond the I Am .mp3,26484346,25.26,audio,src/data/audiobooks_data.json:843; src/data/audiobooks_data.json:844; src/data/audiobooks_data.json:847
+audiobook/Nisargadatta/Part 2 - A Guided Meditation on Going Beyond the I Am .mp3,24475593,23.34,audio,src/data/audiobooks_data.json:853; src/data/audiobooks_data.json:854; src/data/audiobooks_data.json:857
+audiobook/Nisargadatta/Self-Knowledge.mp3,34315424,32.73,audio,src/data/audiobooks_data.json:863; src/data/audiobooks_data.json:864; src/data/audiobooks_data.json:867
+audiobook/Nisargadatta/Siddharameshwar - Teachings on Reality.mp3,38365134,36.59,audio,src/data/audiobooks_data.json:873; src/data/audiobooks_data.json:874; src/data/audiobooks_data.json:877
+audiobook/Nisargadatta/Siddharameshwar Teachings.mp3,24077062,22.96,audio,src/data/audiobooks_data.json:883; src/data/audiobooks_data.json:884; src/data/audiobooks_data.json:887
+audiobook/Nisargadatta/Spiritual Knowledge.mp3,24374313,23.25,audio,src/data/audiobooks_data.json:893; src/data/audiobooks_data.json:894; src/data/audiobooks_data.json:897
+audiobook/Nisargadatta/The Dawn of Wisdom.mp3,18915616,18.04,audio,src/data/audiobooks_data.json:903; src/data/audiobooks_data.json:904; src/data/audiobooks_data.json:907
+audiobook/Nisargadatta/The Power of Awareness and Transcending the _I Am_.mp3,30773624,29.35,audio,src/data/audiobooks_data.json:913; src/data/audiobooks_data.json:914; src/data/audiobooks_data.json:917
+audiobook/Nisargadatta/The Power of Love.mp3,12335228,11.76,audio,src/data/audiobooks_data.json:923; src/data/audiobooks_data.json:924; src/data/audiobooks_data.json:927
+audiobook/Padmasambhava/(old version) Songs to the 25 Disciples.mp3,53110448,50.65,audio,src/data/audiobooks_data.json:982; src/data/audiobooks_data.json:983; src/data/audiobooks_data.json:986
+audiobook/Padmasambhava/1. Vital Points for Awakening.mp3,53225992,50.76,audio,src/data/audiobooks_data.json:992; src/data/audiobooks_data.json:993; src/data/audiobooks_data.json:996
+audiobook/Padmasambhava/2. Vital Points for Awakening.mp3,42233683,40.28,audio,src/data/audiobooks_data.json:1002; src/data/audiobooks_data.json:1003; src/data/audiobooks_data.json:1006
+audiobook/Padmasambhava/A Meditation to Dispel Hindrances.mp3,38941819,37.14,audio,src/data/audiobooks_data.json:1012; src/data/audiobooks_data.json:1013; src/data/audiobooks_data.json:1016
+audiobook/Padmasambhava/Advice on Enlightenment at the Moment of Death.mp3,38960696,37.16,audio,src/data/audiobooks_data.json:1022; src/data/audiobooks_data.json:1023; src/data/audiobooks_data.json:1026
+audiobook/Padmasambhava/Direct Instructions of Shri Singha to Padmasambhava - The Treasure of the Lotus Crystal Cave.mp3,82919515,79.08,audio,src/data/audiobooks_data.json:1032; src/data/audiobooks_data.json:1033; src/data/audiobooks_data.json:1036
+audiobook/Padmasambhava/Direct Pointing Out Instructions - Old Man.mp3,24682185,23.54,audio,src/data/audiobooks_data.json:1042; src/data/audiobooks_data.json:1043; src/data/audiobooks_data.json:1046
+audiobook/Padmasambhava/Freedom from Labelling_.mp3,11892714,11.34,audio,src/data/audiobooks_data.json:1052; src/data/audiobooks_data.json:1053; src/data/audiobooks_data.json:1056
+audiobook/Padmasambhava/Instructions for Attaining Enlightenment (given to women).mp3,58029434,55.34,audio,src/data/audiobooks_data.json:1062; src/data/audiobooks_data.json:1063; src/data/audiobooks_data.json:1066
+audiobook/Padmasambhava/No Music - Instructions for Attaining Enlightenment.mp3,40177557,38.32,audio,src/data/audiobooks_data.json:1072; src/data/audiobooks_data.json:1073; src/data/audiobooks_data.json:1076
+audiobook/Padmasambhava/Pointing out Instructions to the Old Lady.mp3,34079258,32.50,audio,src/data/audiobooks_data.json:1082; src/data/audiobooks_data.json:1083; src/data/audiobooks_data.json:1086
+audiobook/Padmasambhava/Songs to the 25 Disciples.mp3,89715268,85.56,audio,src/data/audiobooks_data.json:982; src/data/audiobooks_data.json:983; src/data/audiobooks_data.json:986; src/data/audiobooks_data.json:1092; src/data/audiobooks_data.json:1093; src/data/audiobooks_data.json:1096
+audiobook/Padmasambhava/Teaching on the Supreme Profound Meaning - Advice to King Trisong.mp3,38285334,36.51,audio,src/data/audiobooks_data.json:1102; src/data/audiobooks_data.json:1103; src/data/audiobooks_data.json:1106
+audiobook/Papaji/This - Part 1.mp3,60563530,57.76,audio,src/data/audiobooks_data.json:1132; src/data/audiobooks_data.json:1133; src/data/audiobooks_data.json:1136
+audiobook/Papaji/Wake up and Roar Part 1.mp3,69855291,66.62,audio,src/data/audiobooks_data.json:1142; src/data/audiobooks_data.json:1143; src/data/audiobooks_data.json:1146
+audiobook/Papaji/Wake up and Roar Part 2.mp3,83008924,79.16,audio,src/data/audiobooks_data.json:1152; src/data/audiobooks_data.json:1153; src/data/audiobooks_data.json:1156
+audiobook/Ramana Maharshi/(New) 40 Verses Reality -Ulladu Narpadu .mp3,37773254,36.02,audio,src/data/audiobooks_data.json:1182; src/data/audiobooks_data.json:1183; src/data/audiobooks_data.json:1186
+audiobook/Ramana Maharshi/(Old Version) Reality in 40 Verses.mp3,66957852,63.86,audio,src/data/audiobooks_data.json:1192; src/data/audiobooks_data.json:1193; src/data/audiobooks_data.json:1196
+audiobook/Ramana Maharshi/1. The Conversations - Be As You Are.mp3,29848738,28.47,audio,src/data/audiobooks_data.json:1202; src/data/audiobooks_data.json:1203; src/data/audiobooks_data.json:1206
+audiobook/Ramana Maharshi/10. Meditation and Yoga - Be As You Are.mp3,30115834,28.72,audio,src/data/audiobooks_data.json:1212; src/data/audiobooks_data.json:1213; src/data/audiobooks_data.json:1216
+audiobook/Ramana Maharshi/11. Yoga - Be As you Are.mp3,36123228,34.45,audio,src/data/audiobooks_data.json:1222; src/data/audiobooks_data.json:1223; src/data/audiobooks_data.json:1226
+audiobook/Ramana Maharshi/12. Experience and Samadhi - Be As You Are.mp3,28373832,27.06,audio,src/data/audiobooks_data.json:1232; src/data/audiobooks_data.json:1233; src/data/audiobooks_data.json:1236
+audiobook/Ramana Maharshi/13. Life in the World- Be As You Are.mp3,37486486,35.75,audio,src/data/audiobooks_data.json:1242; src/data/audiobooks_data.json:1243; src/data/audiobooks_data.json:1246
+audiobook/Ramana Maharshi/2. Self Awareness and Ignorance - Be As You Are.mp3,28383148,27.07,audio,src/data/audiobooks_data.json:1252; src/data/audiobooks_data.json:1253; src/data/audiobooks_data.json:1256
+audiobook/Ramana Maharshi/2a. Self Awareness and Ignorance - Be As You Are.mp3,29786019,28.41,audio,src/data/audiobooks_data.json:1262; src/data/audiobooks_data.json:1263; src/data/audiobooks_data.json:1266
+audiobook/Ramana Maharshi/3. The Jnani - Be As You Are.mp3,39546100,37.71,audio,src/data/audiobooks_data.json:1272; src/data/audiobooks_data.json:1273; src/data/audiobooks_data.json:1276
+audiobook/Ramana Maharshi/4. Self Enquiry - Theory - Be As You Are.mp3,31674473,30.21,audio,src/data/audiobooks_data.json:1282; src/data/audiobooks_data.json:1283; src/data/audiobooks_data.json:1286
+audiobook/Ramana Maharshi/40 Verses on Reality - Supplement.mp3,42874003,40.89,audio,src/data/audiobooks_data.json:1292; src/data/audiobooks_data.json:1293; src/data/audiobooks_data.json:1296
+audiobook/Ramana Maharshi/5a. Self-Enquiry Practice - Be As You Are.mp3,30023333,28.63,audio,src/data/audiobooks_data.json:1302; src/data/audiobooks_data.json:1303; src/data/audiobooks_data.json:1306
+audiobook/Ramana Maharshi/5b. Self-Enquiry Practice - Be As You Are.mp3,25451722,24.27,audio,src/data/audiobooks_data.json:1312; src/data/audiobooks_data.json:1313; src/data/audiobooks_data.json:1316
+audiobook/Ramana Maharshi/6. Self-Enquiry Misconceptions - Be As You Are.mp3,32449393,30.95,audio,src/data/audiobooks_data.json:1322; src/data/audiobooks_data.json:1323; src/data/audiobooks_data.json:1326
+audiobook/Ramana Maharshi/7. Surrender - Be As You Are.mp3,28607312,27.28,audio,src/data/audiobooks_data.json:1332; src/data/audiobooks_data.json:1333; src/data/audiobooks_data.json:1336
+audiobook/Ramana Maharshi/8. The Guru - Be As You Are.mp3,37556817,35.82,audio,src/data/audiobooks_data.json:1342; src/data/audiobooks_data.json:1343; src/data/audiobooks_data.json:1346
+audiobook/Ramana Maharshi/9. Silence and Satsanga - Be As You Are.mp3,29831030,28.45,audio,src/data/audiobooks_data.json:1352; src/data/audiobooks_data.json:1353; src/data/audiobooks_data.json:1356
+audiobook/Ramana Maharshi/A Guided Meditation on Silence and Stillness.mp3,28183801,26.88,audio,src/data/audiobooks_data.json:1362; src/data/audiobooks_data.json:1363; src/data/audiobooks_data.json:1366
+audiobook/Ramana Maharshi/Be As You Are - Part 1- The Conversations.mp3,51069596,48.70,audio,src/data/audiobooks_data.json:1372; src/data/audiobooks_data.json:1373; src/data/audiobooks_data.json:1376
+audiobook/Ramana Maharshi/Be As You Are - Part 10 - Meditation.mp3,70745614,67.47,audio,src/data/audiobooks_data.json:1382; src/data/audiobooks_data.json:1383; src/data/audiobooks_data.json:1386
+audiobook/Ramana Maharshi/Be As You Are - Part 2a - Self Awarneness and Ignorance.mp3,55639289,53.06,audio,src/data/audiobooks_data.json:1392; src/data/audiobooks_data.json:1393; src/data/audiobooks_data.json:1396
+audiobook/Ramana Maharshi/Be As You Are - Part 2b - Self Awareness and Ignorance.mp3,48475979,46.23,audio,src/data/audiobooks_data.json:1402; src/data/audiobooks_data.json:1403; src/data/audiobooks_data.json:1406
+audiobook/Ramana Maharshi/Be As You Are - Part 4 - Self Enquiry Theory.mp3,53178557,50.72,audio,src/data/audiobooks_data.json:1412; src/data/audiobooks_data.json:1413; src/data/audiobooks_data.json:1416
+audiobook/Ramana Maharshi/Be As You Are - Part 5a - Self-Enquiry Practice.mp3,50998932,48.64,audio,src/data/audiobooks_data.json:1422; src/data/audiobooks_data.json:1423; src/data/audiobooks_data.json:1426
+audiobook/Ramana Maharshi/Be As You Are - Part 5b - Self Enquiry Practice.mp3,47023879,44.85,audio,src/data/audiobooks_data.json:1432; src/data/audiobooks_data.json:1433; src/data/audiobooks_data.json:1436
+audiobook/Ramana Maharshi/Be As You Are - Part 6 - Self Enquiry Misconceptions.mp3,63085007,60.16,audio,src/data/audiobooks_data.json:1442; src/data/audiobooks_data.json:1443; src/data/audiobooks_data.json:1446
+audiobook/Ramana Maharshi/Be As You Are - Yoga.mp3,60805237,57.99,audio,src/data/audiobooks_data.json:1452; src/data/audiobooks_data.json:1453; src/data/audiobooks_data.json:1456
+audiobook/Ramana Maharshi/Be As You Are -Part 9 - Silence and Satsanga.mp3,73761204,70.34,audio,src/data/audiobooks_data.json:1462; src/data/audiobooks_data.json:1463; src/data/audiobooks_data.json:1466
+audiobook/Ramana Maharshi/Guided Meditation on Silence.mp3,34529341,32.93,audio,src/data/audiobooks_data.json:1472; src/data/audiobooks_data.json:1473; src/data/audiobooks_data.json:1476
+audiobook/Ramana Maharshi/Guru Vācaka Kōvai .mp3,27738795,26.45,audio,src/data/audiobooks_data.json:1482; src/data/audiobooks_data.json:1483; src/data/audiobooks_data.json:1486
+audiobook/Ramana Maharshi/Life in the World.mp3,53701883,51.21,audio,src/data/audiobooks_data.json:1492; src/data/audiobooks_data.json:1493; src/data/audiobooks_data.json:1496
+audiobook/Ramana Maharshi/No Music - Guru Vacaka Kovai.mp3,22392213,21.35,audio,src/data/audiobooks_data.json:1502; src/data/audiobooks_data.json:1503; src/data/audiobooks_data.json:1506
+audiobook/Ramana Maharshi/Ramana - Guided Meditation.mp3,25148075,23.98,audio,src/data/audiobooks_data.json:1512; src/data/audiobooks_data.json:1513; src/data/audiobooks_data.json:1516
+audiobook/Ramana Maharshi/Ramana In His Own Words - 1.mp3,26390525,25.17,audio,src/data/audiobooks_data.json:1522; src/data/audiobooks_data.json:1523; src/data/audiobooks_data.json:1526
+audiobook/Ramana Maharshi/Ramana In His Own Words - 2.mp3,26166969,24.95,audio,src/data/audiobooks_data.json:1532; src/data/audiobooks_data.json:1533; src/data/audiobooks_data.json:1536
+audiobook/Ramana Maharshi/Selection of Key Pointers for Meditation.mp3,38642955,36.85,audio,src/data/audiobooks_data.json:1542; src/data/audiobooks_data.json:1543; src/data/audiobooks_data.json:1546
+audiobook/Ramana Maharshi/Teachings on Self Liberation - new version.mp3,82112803,78.31,audio,src/data/audiobooks_data.json:1552; src/data/audiobooks_data.json:1553; src/data/audiobooks_data.json:1556
+audiobook/Ramana Maharshi/Teachings on Self-Liberation - Part 2.mp3,59127081,56.39,audio,src/data/audiobooks_data.json:1562; src/data/audiobooks_data.json:1563; src/data/audiobooks_data.json:1566
+audiobook/Ramana Maharshi/Teachings on Self-Liberation .mp3,25022526,23.86,audio,src/data/audiobooks_data.json:1572; src/data/audiobooks_data.json:1573; src/data/audiobooks_data.json:1576
+audiobook/Ramana Maharshi/Who am I - No Music.mp3,32644392,31.13,audio,src/data/audiobooks_data.json:1582; src/data/audiobooks_data.json:1583; src/data/audiobooks_data.json:1586
+audiobook/Sufi  Mystics Saints Bhakti etc/Abul-Hasan of Kharaqan.mp3,28182522,26.88,audio,src/data/audiobooks_data.json:1613; src/data/audiobooks_data.json:1614; src/data/audiobooks_data.json:1617
+audiobook/Sufi  Mystics Saints Bhakti etc/Al-Ghazali.mp3,19131519,18.25,audio,src/data/audiobooks_data.json:1623; src/data/audiobooks_data.json:1624; src/data/audiobooks_data.json:1627
+audiobook/Sufi  Mystics Saints Bhakti etc/Anandamayi Ma (1) - Selected Pointers for Meditation.mp3,28240342,26.93,audio,src/data/audiobooks_data.json:1633; src/data/audiobooks_data.json:1634; src/data/audiobooks_data.json:1637
+audiobook/Sufi  Mystics Saints Bhakti etc/Anandamayi Ma (2) - Selected Pointers for Meditation.mp3,33276417,31.73,audio,src/data/audiobooks_data.json:1643; src/data/audiobooks_data.json:1644; src/data/audiobooks_data.json:1647
+audiobook/Sufi  Mystics Saints Bhakti etc/Anandamayi Ma (3) - Selected Pointers for Meditation.mp3,25429757,24.25,audio,src/data/audiobooks_data.json:1653; src/data/audiobooks_data.json:1654; src/data/audiobooks_data.json:1657
+audiobook/Sufi  Mystics Saints Bhakti etc/Bulleh Shah.mp3,17695840,16.88,audio,src/data/audiobooks_data.json:1663; src/data/audiobooks_data.json:1664; src/data/audiobooks_data.json:1667
+audiobook/Sufi  Mystics Saints Bhakti etc/Guru Nanak.mp3,29015915,27.67,audio,src/data/audiobooks_data.json:1673; src/data/audiobooks_data.json:1674; src/data/audiobooks_data.json:1677
+audiobook/Sufi  Mystics Saints Bhakti etc/Hafiz (1) - Selected Poems for Meditation.mp3,22768910,21.71,audio,src/data/audiobooks_data.json:1683; src/data/audiobooks_data.json:1684; src/data/audiobooks_data.json:1687
+audiobook/Sufi  Mystics Saints Bhakti etc/Hafiz - Love_s Victory.mp3,7778683,7.42,audio,src/data/audiobooks_data.json:1693; src/data/audiobooks_data.json:1694; src/data/audiobooks_data.json:1697
+audiobook/Sufi  Mystics Saints Bhakti etc/Ibn Arabi (1) - Alone with the Alone.mp3,21653871,20.65,audio,src/data/audiobooks_data.json:1703; src/data/audiobooks_data.json:1704; src/data/audiobooks_data.json:1707
+audiobook/Sufi  Mystics Saints Bhakti etc/Ibn Arabi (2) - Selected Verses.mp3,23742167,22.64,audio,src/data/audiobooks_data.json:1713; src/data/audiobooks_data.json:1714; src/data/audiobooks_data.json:1717
+audiobook/Sufi  Mystics Saints Bhakti etc/Kabir (1) Selected Teachings.mp3,50975117,48.61,audio,src/data/audiobooks_data.json:1723; src/data/audiobooks_data.json:1724; src/data/audiobooks_data.json:1727
+audiobook/Sufi  Mystics Saints Bhakti etc/Kabir (2) Selected Teachings.mp3,24217717,23.10,audio,src/data/audiobooks_data.json:1733; src/data/audiobooks_data.json:1734; src/data/audiobooks_data.json:1737
+audiobook/Sufi  Mystics Saints Bhakti etc/Lalleshwari (1).mp3,20677941,19.72,audio,src/data/audiobooks_data.json:1743; src/data/audiobooks_data.json:1744; src/data/audiobooks_data.json:1747
+audiobook/Sufi  Mystics Saints Bhakti etc/Lalleshwari (2).mp3,23110636,22.04,audio,src/data/audiobooks_data.json:1753; src/data/audiobooks_data.json:1754; src/data/audiobooks_data.json:1757
+audiobook/Sufi  Mystics Saints Bhakti etc/Mirabai (1). mp3,36416129,34.73,audio,NOT FOUND in tracked text/source files
+audiobook/Sufi  Mystics Saints Bhakti etc/Mirabai (2).mp3,29239341,27.88,audio,src/data/audiobooks_data.json:1763; src/data/audiobooks_data.json:1764; src/data/audiobooks_data.json:1767
+audiobook/Sufi  Mystics Saints Bhakti etc/Rumi (7)  A Meditation at Sunrise.mp3,13598313,12.97,audio,src/data/audiobooks_data.json:1773; src/data/audiobooks_data.json:1774; src/data/audiobooks_data.json:1777
+audiobook/Sufi  Mystics Saints Bhakti etc/Rumi - Gone to the Unseen.mp3,5532996,5.28,audio,src/data/audiobooks_data.json:1783; src/data/audiobooks_data.json:1784; src/data/audiobooks_data.json:1787
+audiobook/Sufi  Mystics Saints Bhakti etc/Rumi - Poetry for Meditation (1).mp3,40560203,38.68,audio,src/data/audiobooks_data.json:1793; src/data/audiobooks_data.json:1794; src/data/audiobooks_data.json:1797
+audiobook/Sufi  Mystics Saints Bhakti etc/Shah Abdul Latif -1.mp3,11911140,11.36,audio,src/data/audiobooks_data.json:1803; src/data/audiobooks_data.json:1804; src/data/audiobooks_data.json:1807
+audiobook/Sufi  Mystics Saints Bhakti etc/Shams Tabrizi.mp3,21893813,20.88,audio,src/data/audiobooks_data.json:1813; src/data/audiobooks_data.json:1814; src/data/audiobooks_data.json:1817
+audiobook/Sufi  Mystics Saints Bhakti etc/Yogananda (1).mp3,20798233,19.83,audio,src/data/audiobooks_data.json:1823; src/data/audiobooks_data.json:1824; src/data/audiobooks_data.json:1827
+audiobook/Sufi  Mystics Saints Bhakti etc/Yogananda (2).mp3,22344149,21.31,audio,src/data/audiobooks_data.json:1833; src/data/audiobooks_data.json:1834; src/data/audiobooks_data.json:1837
+audiobook/Sufi  Mystics Saints Bhakti etc/Yunus Emre.mp3,18685434,17.82,audio,src/data/audiobooks_data.json:1843; src/data/audiobooks_data.json:1844; src/data/audiobooks_data.json:1847
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/(1) Upasika Kee - Dhamma for Dying and Illness.mp3,53468376,50.99,audio,src/data/audiobooks_data.json:1873; src/data/audiobooks_data.json:1874; src/data/audiobooks_data.json:1877
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/(2) Upasika Kee - Dhamma for Dying and Illness.mp3,41235557,39.33,audio,src/data/audiobooks_data.json:1883; src/data/audiobooks_data.json:1884; src/data/audiobooks_data.json:1887
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/1. Upasika Kee - Aware Right at Awareness.mp3,81184559,77.42,audio,src/data/audiobooks_data.json:1893; src/data/audiobooks_data.json:1894; src/data/audiobooks_data.json:1897
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/3. Upasika Kee - Meditation Instructions.mp3,25880528,24.68,audio,src/data/audiobooks_data.json:1903; src/data/audiobooks_data.json:1904; src/data/audiobooks_data.json:1907
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Chah - On Meditation.mp3,30579356,29.16,audio,src/data/audiobooks_data.json:1913; src/data/audiobooks_data.json:1914; src/data/audiobooks_data.json:1917
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Chah - Opening the Dhamma Eye - 2.mp3,30276666,28.87,audio,src/data/audiobooks_data.json:1923; src/data/audiobooks_data.json:1924; src/data/audiobooks_data.json:1927
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Chah - Opening the Dhamma Eye -1.mp3,47695638,45.49,audio,src/data/audiobooks_data.json:1933; src/data/audiobooks_data.json:1934; src/data/audiobooks_data.json:1937
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Chah - Pointers  to Truth 1.mp3,33638084,32.08,audio,src/data/audiobooks_data.json:1943; src/data/audiobooks_data.json:1944; src/data/audiobooks_data.json:1947
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Chah - Pointers  to Truth 2.mp3,16062043,15.32,audio,src/data/audiobooks_data.json:1953; src/data/audiobooks_data.json:1954; src/data/audiobooks_data.json:1957
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Chah - The Peace Beyond.mp3,45220590,43.13,audio,src/data/audiobooks_data.json:1963; src/data/audiobooks_data.json:1964; src/data/audiobooks_data.json:1967
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Chah - Training this Mind.mp3,11783176,11.24,audio,src/data/audiobooks_data.json:1973; src/data/audiobooks_data.json:1974; src/data/audiobooks_data.json:1977
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Chah - True Meditation and Contemplation - Q_A.mp3,21921352,20.91,audio,src/data/audiobooks_data.json:1983; src/data/audiobooks_data.json:1984; src/data/audiobooks_data.json:1987
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Lee - Four Jhanas Guided Meditation.mp3,28715731,27.39,audio,src/data/audiobooks_data.json:1993; src/data/audiobooks_data.json:1994; src/data/audiobooks_data.json:1997
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Maha Boowa - Citta - The Mind_s Essential Knowing Nature.mp3,43669621,41.65,audio,src/data/audiobooks_data.json:2003; src/data/audiobooks_data.json:2004; src/data/audiobooks_data.json:2007
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Ajahn Mun -Ballad of Liberation from the Khandas.mp3,57792937,55.12,audio,src/data/audiobooks_data.json:2013; src/data/audiobooks_data.json:2014; src/data/audiobooks_data.json:2017
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Bahiya Sutta.mp3,14268310,13.61,audio,src/data/audiobooks_data.json:2023; src/data/audiobooks_data.json:2024; src/data/audiobooks_data.json:2027
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Girimananda Sutta.mp3,25293874,24.12,audio,src/data/audiobooks_data.json:2033; src/data/audiobooks_data.json:2034; src/data/audiobooks_data.json:2037
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Part 1 - Ajahn Chah - Unshakeable Peace.mp3,34899970,33.28,audio,src/data/audiobooks_data.json:2043; src/data/audiobooks_data.json:2044; src/data/audiobooks_data.json:2047
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Part 2 - Ajahn Chah - Unshakeable Peace.mp3,27848815,26.56,audio,src/data/audiobooks_data.json:2053; src/data/audiobooks_data.json:2054; src/data/audiobooks_data.json:2057
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Part 3 - Ajahn Chah - Unshakeable Peace.mp3,35334385,33.70,audio,src/data/audiobooks_data.json:2063; src/data/audiobooks_data.json:2064; src/data/audiobooks_data.json:2067
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Q_A Meditation - Ajahn Chah.mp3,34110997,32.53,audio,src/data/audiobooks_data.json:2073; src/data/audiobooks_data.json:2074; src/data/audiobooks_data.json:2077
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/The Dhātuvibhaṅga Sutta.mp3,46143178,44.01,audio,src/data/audiobooks_data.json:2083; src/data/audiobooks_data.json:2084; src/data/audiobooks_data.json:2087
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/The Satipatthana Sutta.mp3,48711152,46.45,audio,src/data/audiobooks_data.json:2093; src/data/audiobooks_data.json:2094; src/data/audiobooks_data.json:2097
+audiobook/Theravada - Thai Forest Masters and Pali Suttas/Verses of the Ancient Nuns - Bhikkhuni-Samyutta.mp3,18730653,17.86,audio,src/data/audiobooks_data.json:2103; src/data/audiobooks_data.json:2104; src/data/audiobooks_data.json:2107
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 10.mp3,30210772,28.81,audio,src/data/audiobooks_data.json:2133; src/data/audiobooks_data.json:2134; src/data/audiobooks_data.json:2137
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 11.mp3,31945072,30.47,audio,src/data/audiobooks_data.json:2143; src/data/audiobooks_data.json:2144; src/data/audiobooks_data.json:2147
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 12.mp3,41404443,39.49,audio,src/data/audiobooks_data.json:2153; src/data/audiobooks_data.json:2154; src/data/audiobooks_data.json:2157
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 1a.mp3,25930145,24.73,audio,src/data/audiobooks_data.json:2163; src/data/audiobooks_data.json:2164; src/data/audiobooks_data.json:2167
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 1b.mp3,37936863,36.18,audio,src/data/audiobooks_data.json:2173; src/data/audiobooks_data.json:2174; src/data/audiobooks_data.json:2177
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 2a.mp3,24016781,22.90,audio,src/data/audiobooks_data.json:2183; src/data/audiobooks_data.json:2184; src/data/audiobooks_data.json:2187
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 2b.mp3,18491723,17.64,audio,src/data/audiobooks_data.json:2193; src/data/audiobooks_data.json:2194; src/data/audiobooks_data.json:2197
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 3a.mp3,25545835,24.36,audio,src/data/audiobooks_data.json:2203; src/data/audiobooks_data.json:2204; src/data/audiobooks_data.json:2207
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 3b.mp3,23576790,22.48,audio,src/data/audiobooks_data.json:2213; src/data/audiobooks_data.json:2214; src/data/audiobooks_data.json:2217
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 4a.mp3,25329041,24.16,audio,src/data/audiobooks_data.json:2223; src/data/audiobooks_data.json:2224; src/data/audiobooks_data.json:2227
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 4b.mp3,28033651,26.73,audio,src/data/audiobooks_data.json:2233; src/data/audiobooks_data.json:2234; src/data/audiobooks_data.json:2237
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 5a.mp3,19464924,18.56,audio,src/data/audiobooks_data.json:2243; src/data/audiobooks_data.json:2244; src/data/audiobooks_data.json:2247
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 5b.mp3,21349953,20.36,audio,src/data/audiobooks_data.json:2253; src/data/audiobooks_data.json:2254; src/data/audiobooks_data.json:2257
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 6a.mp3,15553662,14.83,audio,src/data/audiobooks_data.json:2263; src/data/audiobooks_data.json:2264; src/data/audiobooks_data.json:2267
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 6b.mp3,17323126,16.52,audio,src/data/audiobooks_data.json:2273; src/data/audiobooks_data.json:2274; src/data/audiobooks_data.json:2277
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 7a.mp3,16120759,15.37,audio,src/data/audiobooks_data.json:2283; src/data/audiobooks_data.json:2284; src/data/audiobooks_data.json:2287
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 7b.mp3,20080093,19.15,audio,src/data/audiobooks_data.json:2293; src/data/audiobooks_data.json:2294; src/data/audiobooks_data.json:2297
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 8a.mp3,12134730,11.57,audio,src/data/audiobooks_data.json:2303; src/data/audiobooks_data.json:2304; src/data/audiobooks_data.json:2307
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 8b.mp3,11872891,11.32,audio,src/data/audiobooks_data.json:2313; src/data/audiobooks_data.json:2314; src/data/audiobooks_data.json:2317
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 9a.mp3,15319361,14.61,audio,src/data/audiobooks_data.json:2323; src/data/audiobooks_data.json:2324; src/data/audiobooks_data.json:2327
+audiobook/Wu Hsin/_Wu Hsin_ Pointers - Part 9b.mp3,15928911,15.19,audio,src/data/audiobooks_data.json:2333; src/data/audiobooks_data.json:2334; src/data/audiobooks_data.json:2337
+audiobook/Zen Buddhism/Bodhidharma - Bloodstream Sermon.mp3,20430710,19.48,audio,src/data/audiobooks_data.json:2364; src/data/audiobooks_data.json:2365; src/data/audiobooks_data.json:2368
+audiobook/Zen Buddhism/Bodhidharma - Wake Up Sermon.mp3,56020132,53.42,audio,src/data/audiobooks_data.json:2374; src/data/audiobooks_data.json:2375; src/data/audiobooks_data.json:2378
+audiobook/Zen Buddhism/Cold Mountain (1) - Han Shan.mp3,26022679,24.82,audio,src/data/audiobooks_data.json:2384; src/data/audiobooks_data.json:2385; src/data/audiobooks_data.json:2388
+audiobook/Zen Buddhism/Cold Mountain (2) - Han Shan.mp3,18535720,17.68,audio,src/data/audiobooks_data.json:2394; src/data/audiobooks_data.json:2395; src/data/audiobooks_data.json:2398
+audiobook/Zen Buddhism/Dogen (1) - Genjo Koan - Trs. Tanahashi.mp3,35734178,34.08,audio,src/data/audiobooks_data.json:2404; src/data/audiobooks_data.json:2405; src/data/audiobooks_data.json:2408
+audiobook/Zen Buddhism/Dogen (2) -Truth Unfolding - Trans. Myers.mp3,35924985,34.26,audio,src/data/audiobooks_data.json:2414; src/data/audiobooks_data.json:2415; src/data/audiobooks_data.json:2418
+audiobook/Zen Buddhism/Dōgen Zenji_s Bendowa ~ JIJUYU ZANMAI.mp3,22294133,21.26,audio,src/data/audiobooks_data.json:2424; src/data/audiobooks_data.json:2425; src/data/audiobooks_data.json:2428
+audiobook/Zen Buddhism/Dōgen ~ Bendowa - Jijuyu Zanmai.mp3,21335535,20.35,audio,src/data/audiobooks_data.json:2434; src/data/audiobooks_data.json:2435; src/data/audiobooks_data.json:2438
+audiobook/Zen Buddhism/Hakuin Ekaku.mp3,14551003,13.88,audio,src/data/audiobooks_data.json:2444; src/data/audiobooks_data.json:2445; src/data/audiobooks_data.json:2448
+audiobook/Zen Buddhism/Master Shiwu - Stonehouse Poems 1.mp3,30957254,29.52,audio,src/data/audiobooks_data.json:2454; src/data/audiobooks_data.json:2455; src/data/audiobooks_data.json:2458
+audiobook/Zen Buddhism/Master Shiwu - Stonehouse Poems 2.mp3,17712092,16.89,audio,src/data/audiobooks_data.json:2464; src/data/audiobooks_data.json:2465; src/data/audiobooks_data.json:2468
+audiobook/Zen Buddhism/Mazu - Suchness.mp3,11395966,10.87,audio,src/data/audiobooks_data.json:2474; src/data/audiobooks_data.json:2475; src/data/audiobooks_data.json:2478
+audiobook/Zen Buddhism/NEW - Old Man Tcheng - No Music.mp3,55045728,52.50,audio,src/data/audiobooks_data.json:2484; src/data/audiobooks_data.json:2485; src/data/audiobooks_data.json:2488
+audiobook/Zen Buddhism/Old Man Tcheng.mp3,76559134,73.01,audio,src/data/audiobooks_data.json:2494; src/data/audiobooks_data.json:2495; src/data/audiobooks_data.json:2498
+audiobook/Zen Buddhism/Picture 5 - Ten OxHerding.mp3,32611294,31.10,audio,src/data/audiobooks_data.json:2504; src/data/audiobooks_data.json:2505; src/data/audiobooks_data.json:2508
+audiobook/Zen Buddhism/Ryokan (1) - Selected Poems for Meditation.mp3,35211651,33.58,audio,src/data/audiobooks_data.json:2514; src/data/audiobooks_data.json:2515; src/data/audiobooks_data.json:2518
+audiobook/Zen Buddhism/Ryokan (2) - Selected Poems for Meditation.mp3,30790985,29.36,audio,src/data/audiobooks_data.json:2524; src/data/audiobooks_data.json:2525; src/data/audiobooks_data.json:2528
+audiobook/Zen Buddhism/Ryokan (3) - Selected Poems for Meditation.mp3,15915158,15.18,audio,src/data/audiobooks_data.json:2534; src/data/audiobooks_data.json:2535; src/data/audiobooks_data.json:2538
+audiobook/Zen Buddhism/Ryokan (4) - Selected Poems for Meditation.mp3,16281201,15.53,audio,src/data/audiobooks_data.json:2544; src/data/audiobooks_data.json:2545; src/data/audiobooks_data.json:2548
+audiobook/Zen Buddhism/Ryokan (5) - Selected Poems for Meditation.mp3,10798565,10.30,audio,src/data/audiobooks_data.json:2554; src/data/audiobooks_data.json:2555; src/data/audiobooks_data.json:2558
+audiobook/Zen Buddhism/Shodoka (Abridged) - Song of Enlightenment.mp3,13422021,12.80,audio,src/data/audiobooks_data.json:2564; src/data/audiobooks_data.json:2565; src/data/audiobooks_data.json:2568
+audiobook/Zen Buddhism/Shodoka (Full) Song of Enlightenment.mp3,59172096,56.43,audio,src/data/audiobooks_data.json:2574; src/data/audiobooks_data.json:2575; src/data/audiobooks_data.json:2578
+audiobook/Zen Buddhism/Song of Mind.mp3,48426304,46.18,audio,src/data/audiobooks_data.json:2584; src/data/audiobooks_data.json:2585; src/data/audiobooks_data.json:2588
+audiobook/Zen Buddhism/Song of the Grass-Roof Hermitage - Shitou Xiqian.mp3,10135527,9.67,audio,src/data/audiobooks_data.json:2594; src/data/audiobooks_data.json:2595; src/data/audiobooks_data.json:2598
+audiobook/Zen Buddhism/The Mountain Hermitage of Mu.mp3,10233520,9.76,audio,src/data/audiobooks_data.json:2604; src/data/audiobooks_data.json:2605; src/data/audiobooks_data.json:2608
+audiobook/Zen Buddhism/The Zen Teaching of Huang Po (Part 1).mp3,43986850,41.95,audio,src/data/audiobooks_data.json:2614; src/data/audiobooks_data.json:2615; src/data/audiobooks_data.json:2618
+audiobook/Zen Buddhism/The Zen Teaching of Huang Po (Part 2).mp3,51736573,49.34,audio,src/data/audiobooks_data.json:2624; src/data/audiobooks_data.json:2625; src/data/audiobooks_data.json:2628
+audiobook/Zen Buddhism/The Zen Teaching of Huang Po (Part 4).mp3,50242667,47.92,audio,src/data/audiobooks_data.json:2634; src/data/audiobooks_data.json:2635; src/data/audiobooks_data.json:2638
+audiobook/Zen Buddhism/Thich Nhat Hahn - Please Call Me By My True Names.mp3,8418010,8.03,audio,src/data/audiobooks_data.json:2644; src/data/audiobooks_data.json:2645; src/data/audiobooks_data.json:2648
+audiobook/Zen Buddhism/Tribute to Thich Nhat Hahn.mp3,13428772,12.81,audio,src/data/audiobooks_data.json:2654; src/data/audiobooks_data.json:2655; src/data/audiobooks_data.json:2658
+audiobook/Zen Buddhism/Verses on the Faith Mind - The Great Way.mp3,30237159,28.84,audio,src/data/audiobooks_data.json:2664; src/data/audiobooks_data.json:2665; src/data/audiobooks_data.json:2668
+audiobook/Zen Buddhism/𝐒𝐨𝐧𝐠 𝐨𝐟 𝐭𝐡𝐞 𝐒𝐤𝐢𝐧 𝐁𝐚𝐠 - Master Hsu Yun (Empty Cloud).mp3,31043606,29.61,audio,src/data/audiobooks_data.json:2674; src/data/audiobooks_data.json:2675; src/data/audiobooks_data.json:2678
+Library/01-Bramha-Sutra-Volume-1.pdf,10012458,9.55,PDF/library,src/data/library_data.json:16; src/data/library_data.json:19
+Library/108Upanishads-Malayalam-VBalakrishnanDrRLeeladevi.pdf,8149605,7.77,PDF/library,src/data/library_data.json:75; src/data/library_data.json:78
+Library/2015.226329.The-Kashmirian.pdf,18203482,17.36,PDF/library,src/data/library_data.json:95; src/data/library_data.json:98
+Library/2015.22639.Veda-And-Vedanta.pdf,11177313,10.66,PDF/library,src/data/library_data.json:115; src/data/library_data.json:118
+Library/2015.237338.Lights-On.pdf,6015668,5.74,PDF/library,src/data/library_data.json:134; src/data/library_data.json:137
+Library/2015.490204.Veda-Samiksa.pdf,17877559,17.05,PDF/library,src/data/library_data.json:153; src/data/library_data.json:156
+Library/205059-Sama Veda.pdf,34821842,33.21,PDF/library,src/data/library_data.json:193
+Library/Acc.No.2556-The Philosophy of the Vedanta and the Vedantasara-1957.pdf,8139428,7.76,PDF/library,src/data/library_data.json:232
+Library/AdhyatmaRamayanam-Malayalam-SwamiChidanandaSaraswati.pdf,11904323,11.35,PDF/library,src/data/library_data.json:251; src/data/library_data.json:254
+Library/AtharvaVeda-MalayalamTranslation-VBalakrishnanRLeeladevi.pdf,3994068,3.81,PDF/library,src/data/library_data.json:270; src/data/library_data.json:273
+Library/Awakening of Intelligence.pdf,1515968,1.45,PDF/library,src/data/library_data.json:309
+Library/Bhagavad Gita.pdf,1153608,1.10,PDF/library,src/data/library_data.json:329
+Library/bhaspatiimveda00stragoog.pdf,1409132,1.34,PDF/library,src/data/library_data.json:367; src/data/library_data.json:370
+Library/Brahma Sutras - According to Sri Sankara by Swami Vireswarananda [Sanskrit-English].pdf,26748563,25.51,PDF/library,src/data/library_data.json:426
+Library/Buddhism Without Beliefs_A Contemporary Guide to Awakening_Batchelor.pdf,15430380,14.72,PDF/library,src/data/library_data.json:486
+Library/Dattatreya-The-way-and-the-Goal.pdf,14849253,14.16,PDF/library,src/data/library_data.json:506; src/data/library_data.json:509
+Library/Devimahatmyam-KodungalloreKochunniThampuran.pdf,4061373,3.87,PDF/library,src/data/library_data.json:525; src/data/library_data.json:528
+Library/Georg-Feuerstein-Tantra-The-Path-Of-Ectasy.pdf,2056024,1.96,PDF/library,src/data/library_data.json:623; src/data/library_data.json:626
+Library/GitaPrvachanamOfVinobaBhave-MalayalamTranslationByVBalakrishnan.pdf,2436954,2.32,PDF/library,src/data/library_data.json:642; src/data/library_data.json:645
+Library/Gospel of Holy Mother.pdf,1717106,1.64,PDF/library,src/data/library_data.json:661
+Library/Gospel of Sri Ramakrishna.pdf,4930421,4.70,PDF/library,src/data/library_data.json:681
+Library/I Am That of Sri Nisargadatta Maharaj.pdf,1958674,1.87,PDF/library,src/data/library_data.json:701
+Library/kamakala.pdf,2902644,2.77,PDF/library,src/data/library_data.json:721; src/data/library_data.json:724
+Library/Krishna Yajur Veda [Taittiriya Brahmana].pdf,2295972,2.19,PDF/library,src/data/library_data.json:740
+Library/Krishna Yajur Veda [Taittiriya Samhita].pdf,4847082,4.62,PDF/library,src/data/library_data.json:759
+Library/Mahanirvana-Tantra.pdf,2545235,2.43,PDF/library,src/data/library_data.json:798; src/data/library_data.json:801
+Library/manthan-bhairava-tantra-siddhipdf-pdf-free.pdf,19270203,18.38,PDF/library,src/data/library_data.json:839; src/data/library_data.json:842
+Library/Mindfulness-in-Early-Buddhism_Kuan.pdf,3080113,2.94,PDF/library,src/data/library_data.json:859; src/data/library_data.json:862
+Library/Progressive-tripura.pdf,10142800,9.67,PDF/library,src/data/library_data.json:918; src/data/library_data.json:921
+Library/PsychedelicSacraments.pdf,27622650,26.34,PDF/library,src/data/library_data.json:938; src/data/library_data.json:941
+Library/RigVeda-MalayalamTranslation-VBalakrishnanDrRLeeladevi.pdf,5754658,5.49,PDF/library,src/data/library_data.json:996; src/data/library_data.json:999
+Library/SanatsujatiyamWithSankaraBhashya-PanditGopalaPillai-Malayalam.pdf,2640484,2.52,PDF/library,src/data/library_data.json:1054; src/data/library_data.json:1057
+Library/SarvaVedantaSiddhantaSaraSangraham-SwamiJnanananda-Malayalam.pdf,3270688,3.12,PDF/library,src/data/library_data.json:1073; src/data/library_data.json:1076
+Library/Sensemaking and spirituality the process of re centring self decentralisation at work.pdf,2032388,1.94,PDF/library,src/data/library_data.json:1092
+Library/Spreading the Dhamma_Writing_Orality_And Textual Transmission in Buddhist Northern Thailand_Veidlinger.pdf,2877636,2.74,PDF/library,src/data/library_data.json:1132
+Library/SriRamaGita-MalayalamA5.pdf,1071006,1.02,PDF/library,src/data/library_data.json:1170; src/data/library_data.json:1173
+Library/SriSivaSahasranamaStotraWithNamavali-Malayalam.pdf,1189902,1.13,PDF/library,src/data/library_data.json:1189; src/data/library_data.json:1192
+Library/taittiriya_upanisad.pdf,5852809,5.58,PDF/library,src/data/library_data.json:1209; src/data/library_data.json:1212
+Library/Taitttiriya-Upanishad.pdf,46783056,44.62,PDF/library,src/data/library_data.json:1229; src/data/library_data.json:1232
+Library/Tantra Pushpanjali Studies in Memory of Pandit H.N. Chakravarty - Hamsa Stainton.pdf,88342408,84.25,PDF/library,src/data/library_data.json:1249
+Library/Tantra-Samucchayam-Malayalam-Chapter-01(1).pdf,40928793,39.03,PDF/library,src/data/library_data.json:1268; src/data/library_data.json:1271
+Library/Tantra-The-Path-Of-Ectasy.pdf,2056024,1.96,PDF/library,src/data/library_data.json:623; src/data/library_data.json:626; src/data/library_data.json:1288; src/data/library_data.json:1291
+Library/TapovanaSandesam-SwamiTapovanam.pdf,2518899,2.40,PDF/library,src/data/library_data.json:1307; src/data/library_data.json:1310
+Library/The alchemy of sexual energy_ connecting to the universe from within ( PDFDrive ).pdf,8872910,8.46,PDF/library,src/data/library_data.json:1326
+Library/The Immortals of Meluha - Shiva Trilogy 1.pdf,1352339,1.29,PDF/library,src/data/library_data.json:1345
+Library/The Opening Of The Third Eye ( PDFDrive ).pdf,2842547,2.71,PDF/library,src/data/library_data.json:1365
+Library/The Religion and Philosophy of the Veda and Upanishads_Vol 1_Keith.pdf,23819179,22.72,PDF/library,src/data/library_data.json:1385
+Library/Tripura Rahasya - A.U. Vasavada.pdf,70891374,67.61,PDF/library,src/data/library_data.json:1502
+Library/TripuraUpanishadTranslationPrabuddhaBharataJanuary2016.pdf,1177241,1.12,PDF/library,src/data/library_data.json:1541; src/data/library_data.json:1544
+"Library/Vigyan Bhairav Tantra, Vol 1 ( PDFDrive ).pdf",2125141,2.03,PDF/library,src/data/library_data.json:1580
+Library/VivekaChudamani-of-Sri-Shankaracharya.pdf,14831936,14.14,PDF/library,src/data/library_data.json:1600; src/data/library_data.json:1603
+Library/Yantra_Manjari.pdf,7323499,6.98,PDF/library,src/data/library_data.json:1619; src/data/library_data.json:1622
+Library/Yoni Massage_ Awakening Female Sexual Energy   ( PDFDrive ).pdf,4919961,4.69,PDF/library,src/data/library_data.json:1638
+src/img/20220224_164120.jpg,2223645,2.12,source media,src/data/gallery.ts:601
+src/img/20220323_162750.jpg,2670942,2.55,source media,src/data/gallery.ts:590
+src/img/20220427_172530.jpg,2819042,2.69,source media,src/data/gallery.ts:568
+src/img/20220427_180527.jpg,2855941,2.72,source media,src/data/gallery.ts:579
+src/img/IMG20230104145534.jpg,12373192,11.80,source media,src/data/gallery.ts:557
+src/img/IMG20230524100740.jpg,5210233,4.97,source media,src/data/gallery.ts:546
+src/img/IMG20230711103141-01.jpeg,8674531,8.27,source media,src/data/gallery.ts:513
+src/img/IMG20230711103226-01.jpeg,6841623,6.52,source media,src/data/gallery.ts:524
+src/img/IMG20230711103229-01.jpeg,7769580,7.41,source media,src/data/gallery.ts:535
+src/img/IMG20231010171207.jpg,4215918,4.02,source media,src/data/gallery.ts:491
+src/img/IMG20231010171401.jpg,5741412,5.48,source media,src/data/gallery.ts:502
+src/img/IMG20240225174348.jpg,22247339,21.22,source media,src/data/gallery.ts:392
+src/img/IMG20240505161229.jpg,3784704,3.61,source media,src/data/gallery.ts:348
+src/img/IMG20240511172321.jpg,20877652,19.91,source media,src/data/gallery.ts:337
+src/img/IMG20240623065357.jpg,8617167,8.22,source media,src/data/gallery.ts:315
+src/img/IMG20240623065604.jpg,7569704,7.22,source media,src/data/gallery.ts:326
+src/img/IMG20240819192544.jpg,15677440,14.95,source media,src/data/gallery.ts:304
+src/img/IMG20240927132120.jpg,23271273,22.19,source media,src/data/gallery.ts:293
+src/img/IMG20240929091823.jpg,25785099,24.59,source media,src/data/gallery.ts:260
+src/img/IMG20240929095212.jpg,22565336,21.52,source media,src/data/gallery.ts:271
+src/img/IMG20240929134443.jpg,26407763,25.18,source media,src/data/gallery.ts:282
+src/img/IMG20241017160250.jpg,4216178,4.02,source media,src/data/gallery.ts:227
+src/img/IMG20241208142824.jpg,6767919,6.45,source media,src/data/gallery.ts:194
+src/img/IMG20241208142830(1).jpg,21749005,20.74,source media,src/data/gallery.ts:205
+src/img/IMG20241222083121.jpg,4308785,4.11,source media,src/data/gallery.ts:128
+src/img/IMG20241222090353.jpg,22845088,21.79,source media,src/data/gallery.ts:139
+src/img/IMG20241222095749.jpg,3429033,3.27,source media,src/data/gallery.ts:150
+src/img/IMG20241222102937.jpg,4584870,4.37,source media,src/data/gallery.ts:161
+src/img/IMG20241222103030.jpg,4388054,4.18,source media,src/data/gallery.ts:172
+src/img/IMG20241222103247.jpg,4302937,4.10,source media,src/data/gallery.ts:183
+src/img/IMG20241223092025.jpg,4095260,3.91,source media,src/data/gallery.ts:29
+src/img/IMG20241223094227.jpg,22968648,21.90,source media,src/data/gallery.ts:40
+src/img/IMG20241223111654.jpg,5714906,5.45,source media,src/data/gallery.ts:51
+src/img/IMG20241223113212.jpg,10467772,9.98,source media,src/data/gallery.ts:62
+src/img/IMG20241223113218.jpg,17136744,16.34,source media,src/data/gallery.ts:73
+src/img/IMG20241223120501.jpg,28608709,27.28,source media,src/data/gallery.ts:84
+src/img/IMG20241223124513.jpg,2631595,2.51,source media,src/data/gallery.ts:95
+src/img/IMG20241223131606.jpg,5975087,5.70,source media,src/data/gallery.ts:106
+src/img/IMG20241223140528.jpg,6772763,6.46,source media,src/data/gallery.ts:117
+src/img/IMG_20180320_080408.jpg,1645889,1.57,source media,src/data/gallery.ts:711
+src/img/IMG_20180321_154534.jpg,3414233,3.26,source media,src/data/gallery.ts:689
+src/img/IMG_20180321_154649.jpg,3468101,3.31,source media,src/data/gallery.ts:700
+src/img/IMG_20180322_101850_Bokeh.jpg,5839586,5.57,source media,src/data/gallery.ts:656
+src/img/IMG_20180322_102348.jpg,3391470,3.23,source media,src/data/gallery.ts:667
+src/img/IMG_20180322_102524.jpg,3458183,3.30,source media,src/data/gallery.ts:678
+src/img/IMG_20180326_162253.jpg,2943807,2.81,source media,src/data/gallery.ts:645
+src/img/IMG_20180402_181236_Bokeh-EFFECTS.jpg,1139404,1.09,source media,src/data/gallery.ts:634
+src/img/IMG_20240222_112215.jpg,5819888,5.55,source media,src/data/gallery.ts:414
+src/img/IMG_20240225_202926.jpg,5376548,5.13,source media,src/data/gallery.ts:403
+src/img/IMG_20240227_162051.jpg,6198835,5.91,source media,src/data/gallery.ts:381
+src/img/IMG_20240501_111329.jpg,8146499,7.77,source media,src/data/gallery.ts:370
+src/img/IMG_20240505_101430.jpg,11962234,11.41,source media,src/data/gallery.ts:359
+src/img/IMG_20241013_172043.jpg,3893957,3.71,source media,src/data/gallery.ts:238
+src/img/IMG_20241019_142725.jpg,6806744,6.49,source media,src/data/gallery.ts:216
+src/img/IMG_20250328_171459_HDR.jpg,11084448,10.57,source media,src/data/gallery.ts:18
+src/img/VID20240501175639.mp4,31558035,30.10,source media,NOT FOUND in tracked text/source files
+src/img/VID20241223111520.mp4,19421827,18.52,source media,NOT FOUND in tracked text/source files

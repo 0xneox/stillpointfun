@@ -35,8 +35,8 @@ export type LibraryCategory = (typeof LIBRARY_CATEGORIES)[number];
 /**
  * Returns the fully resolved URL for viewing or downloading a Library PDF.
  * Supports:
- * 1. User-customized Base URL stored in localStorage (e.g., Cloudflare R2, AWS S3, custom CDN)
- * 2. Environment variable VITE_LIBRARY_BASE_URL
+ * 1. MEDIA_BASE_URL for an object-storage origin containing a '/Library' prefix
+ * 2. User-customized or legacy base URLs
  * 3. Default local dev path '/Library'
  */
 export function getLibraryPdfUrl(fileName: string): string {
@@ -49,6 +49,9 @@ export function getLibraryPdfUrl(fileName: string): string {
   }
   if (import.meta.env.VITE_LIBRARY_BASE_URL) {
     base = import.meta.env.VITE_LIBRARY_BASE_URL;
+  }
+  if (__MEDIA_BASE_URL__) {
+    base = `${__MEDIA_BASE_URL__.replace(/\/$/, "")}/Library`;
   }
 
   const encodedFileName = encodeURIComponent(fileName);

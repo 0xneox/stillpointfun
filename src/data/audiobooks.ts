@@ -30,8 +30,8 @@ export const SACRED_AUDIOBOOKS: AudiobookCollection[] = collectionsData as Audio
 /**
  * Returns the fully resolved audio stream URL for a given track.
  * Supports:
- * 1. User-customized Base URL stored in localStorage (e.g., Cloudflare R2, AWS S3, custom CDN)
- * 2. Environment variable VITE_AUDIOBOOK_BASE_URL
+ * 1. MEDIA_BASE_URL for an object-storage origin containing an '/audiobook' prefix
+ * 2. User-customized or legacy base URLs
  * 3. Default local path '/audiobook'
  */
 export function getAudiobookTrackUrl(relPath: string): string {
@@ -44,6 +44,9 @@ export function getAudiobookTrackUrl(relPath: string): string {
   }
   if (import.meta.env.VITE_AUDIOBOOK_BASE_URL) {
     base = import.meta.env.VITE_AUDIOBOOK_BASE_URL;
+  }
+  if (__MEDIA_BASE_URL__) {
+    base = `${__MEDIA_BASE_URL__.replace(/\/$/, "")}/audiobook`;
   }
 
   // Correctly encode URI components for spaces, parentheses, etc.

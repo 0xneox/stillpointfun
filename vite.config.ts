@@ -87,10 +87,14 @@ function localMediaDevServerPlugin(): Plugin {
 }
 
 export default defineConfig(() => {
+  const envFile = path.resolve(process.cwd(), ".env");
+  if (fs.existsSync(envFile)) process.loadEnvFile(envFile);
+
   const publicLaunch = process.env.PUBLIC_LAUNCH === "true";
   return {
     define: {
       __PUBLIC_LAUNCH__: JSON.stringify(publicLaunch),
+      __MEDIA_BASE_URL__: JSON.stringify(process.env.MEDIA_BASE_URL ?? ""),
     },
     plugins: [localMediaDevServerPlugin()],
     tanstackStart: {
