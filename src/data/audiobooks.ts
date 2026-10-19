@@ -1,4 +1,5 @@
 import collectionsData from "./audiobooks_data.json";
+import type { RightsStatus } from "./rights";
 
 export interface AudiobookTrack {
   id: string;
@@ -6,6 +7,7 @@ export interface AudiobookTrack {
   title: string;
   fileName: string;
   relPath: string;
+  rightsStatus: RightsStatus;
   sizeBytes: number;
   sizeFormatted: string;
   duration?: string;

@@ -1,4 +1,5 @@
 import libraryData from "./library_data.json";
+import type { RightsStatus } from "./rights";
 
 export interface LibraryDocument {
   id: string;
@@ -14,6 +15,7 @@ export interface LibraryDocument {
   sizeBytes: number;
   sizeFormatted: string;
   downloadUrl: string;
+  rightsStatus: RightsStatus;
   translator?: string;
   sourceUrl?: string;
 }

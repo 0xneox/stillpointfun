@@ -78,7 +78,7 @@ Edit `src/data/content.ts` in the `CONTENT` array:
   featured: true, // optional
   daily_selection: false, // optional
   published: true,
-  rights_status: "public-domain" | "authorized" | "link-only" | "restricted",
+  rights_status: "verify" | "public-domain" | "authorized" | "link-only" | "restricted",
   attribution_notes: "Additional attribution information",
   related_articles: ["article-slug"],
   related_books: ["book-id"]
@@ -88,28 +88,37 @@ Edit `src/data/content.ts` in the `CONTENT` array:
 ## Cross-Linking Content
 
 ### Articles to Audio
+
 Add `relatedAudio` to the post with audio IDs:
+
 ```typescript
 tags: ["shiva", "parvati"],
 ```
+
 The system automatically finds related audio based on matching tags.
 
 ### Audio to Articles
+
 Add `related_articles` to the audio item:
+
 ```typescript
-related_articles: ["when-the-gods-leave-the-mountain"]
+related_articles: ["when-the-gods-leave-the-mountain"];
 ```
 
 ### Books to Audio
+
 Add `relatedAudio` to the library item:
+
 ```typescript
-relatedAudio: ["alan-watts-1"]
+relatedAudio: ["alan-watts-1"];
 ```
 
 ### Audio to Books
+
 Add `related_books` to the audio item:
+
 ```typescript
-related_books: ["vimarsa-pratyabhijna"]
+related_books: ["vimarsa-pratyabhijna"];
 ```
 
 ## Content Integrity Rules

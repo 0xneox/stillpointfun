@@ -13,7 +13,7 @@ Stillpoint is a digital sanctuary for listening, reading, watching, contemplatio
 - Present source-linked knowledge rather than unverified claims
 - Distinguish original writing and curated materials
 - Require no account for public reading and listening
-- Design with privacy-respecting principles and minimal tracking
+- Avoid first-party analytics and tracking
 
 ## What Stillpoint Is
 
@@ -27,10 +27,18 @@ Stillpoint is a digital sanctuary for listening, reading, watching, contemplatio
 ## What Stillpoint Is Not
 
 - A crypto product
+- A token
+- A sales or advertising platform
 - A commercial streaming service
 - A generic meditation app
 - A paywalled or monetized platform
 - A place for fabricated content or statistics
+
+## NOT A TOKEN
+
+**No token. No sales. No ads. No first-party analytics or tracking.**
+
+The site uses YouTube players and thumbnails. Loading or playing embedded YouTube content makes requests to YouTube and is subject to its own data practices.
 
 ## Technology
 
@@ -124,7 +132,7 @@ Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ## License
 
-This project is open-source. The specific license will be determined based on ownership and third-party licensing verification.
+The application code is MIT-licensed; see [LICENSE](./LICENSE). Original writing and third-party content have separate terms; see [CONTENT.md](./CONTENT.md).
 
 ## Attribution
 
