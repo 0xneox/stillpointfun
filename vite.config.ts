@@ -91,10 +91,12 @@ export default defineConfig(() => {
   if (fs.existsSync(envFile)) process.loadEnvFile(envFile);
 
   const publicLaunch = process.env.PUBLIC_LAUNCH === "true";
+  const siteUrl = (process.env.SITE_URL ?? "https://stillpoint.fun").replace(/\/+$/, "");
   return {
     define: {
       __PUBLIC_LAUNCH__: JSON.stringify(publicLaunch),
       __MEDIA_BASE_URL__: JSON.stringify(process.env.MEDIA_BASE_URL ?? ""),
+      __SITE_URL__: JSON.stringify(siteUrl),
     },
     plugins: [localMediaDevServerPlugin()],
     tanstackStart: {

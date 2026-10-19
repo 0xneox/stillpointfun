@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef, useMemo } from "react";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/inquiry")({
   head: () => ({
@@ -11,9 +12,9 @@ export const Route = createFileRoute("/inquiry")({
         property: "og:description",
         content: "A 2-minute phenomenological exercise from UNDIVIDED.",
       },
-      { property: "og:url", content: "/inquiry" },
+      { property: "og:url", content: siteUrl("/inquiry") },
     ],
-    links: [{ rel: "canonical", href: "/inquiry" }],
+    links: [{ rel: "canonical", href: siteUrl("/inquiry") }],
   }),
   component: GroundlessInquiry,
 });

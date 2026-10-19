@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/disclaimer")({
   head: () => ({
@@ -7,9 +8,9 @@ export const Route = createFileRoute("/disclaimer")({
       { name: "description", content: "Disclaimer for The Still Point." },
       { property: "og:title", content: "Disclaimer — The Still Point" },
       { property: "og:description", content: "Disclaimer for The Still Point." },
-      { property: "og:url", content: "/disclaimer" },
+      { property: "og:url", content: siteUrl("/disclaimer") },
     ],
-    links: [{ rel: "canonical", href: "/disclaimer" }],
+    links: [{ rel: "canonical", href: siteUrl("/disclaimer") }],
   }),
   component: Disclaimer,
 });
@@ -32,7 +33,6 @@ function Disclaimer() {
             This site and its teachings are for educational, philosophical, and contemplative
             purposes only.
           </p>
-
         </div>
       </section>
 

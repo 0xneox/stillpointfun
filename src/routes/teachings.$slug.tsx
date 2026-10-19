@@ -3,6 +3,7 @@ import { adjacentPosts, getPost, type Post } from "@/data/posts";
 import { CONTENT } from "@/data/content";
 import { LIBRARY_ITEMS } from "@/routes/library";
 import { useMemo } from "react";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/teachings/$slug")({
   loader: ({ params }): Post => {
@@ -21,9 +22,9 @@ export const Route = createFileRoute("/teachings/$slug")({
         { property: "og:title", content: loaderData.title },
         { property: "og:description", content: loaderData.excerpt },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/teachings/${params.slug}` },
+        { property: "og:url", content: siteUrl(`/teachings/${params.slug}`) },
       ],
-      links: [{ rel: "canonical", href: `/teachings/${params.slug}` }],
+      links: [{ rel: "canonical", href: siteUrl(`/teachings/${params.slug}`) }],
     };
   },
   notFoundComponent: () => (

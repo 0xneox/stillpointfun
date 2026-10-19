@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/board")({
   head: () => ({
@@ -14,9 +15,9 @@ export const Route = createFileRoute("/board")({
         property: "og:description",
         content: "Community board: 'I remain still because...' one-sentence posts.",
       },
-      { property: "og:url", content: "/board" },
+      { property: "og:url", content: siteUrl("/board") },
     ],
-    links: [{ rel: "canonical", href: "/board" }],
+    links: [{ rel: "canonical", href: siteUrl("/board") }],
   }),
   component: StillBoard,
 });

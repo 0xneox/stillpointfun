@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { EnhancedPlayer } from "@/components/EnhancedPlayer";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,16 +18,18 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Stillpoint — Listen. Read. Question." },
       {
         property: "og:description",
-        content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom. Curated discourses, sacred music, and philosophical exploration.",
+        content:
+          "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom. Curated discourses, sacred music, and philosophical exploration.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Stillpoint" },
-      { property: "og:url", content: "https://stillpoint.com/" },
+      { property: "og:url", content: siteUrl("/") },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Stillpoint — Listen. Read. Question." },
       {
         name: "twitter:description",
-        content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
+        content:
+          "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
       },
     ],
   }),
@@ -117,27 +120,45 @@ function Home() {
 
           {/* Quick Navigation */}
           <div className="pt-12 flex flex-wrap justify-center gap-6 font-mono text-[10px] tracking-widest uppercase opacity-60">
-            <Link to="/" className="hover:opacity-100 hover:text-accent transition-all link-underline">
+            <Link
+              to="/"
+              className="hover:opacity-100 hover:text-accent transition-all link-underline"
+            >
               Listen
             </Link>
             <span className="opacity-30">·</span>
-            <Link to="/library" className="hover:opacity-100 hover:text-accent transition-all link-underline">
+            <Link
+              to="/library"
+              className="hover:opacity-100 hover:text-accent transition-all link-underline"
+            >
               Library
             </Link>
             <span className="opacity-30">·</span>
-            <Link to="/writings" className="hover:opacity-100 hover:text-accent transition-all link-underline">
+            <Link
+              to="/writings"
+              className="hover:opacity-100 hover:text-accent transition-all link-underline"
+            >
               Writings
             </Link>
             <span className="opacity-30">·</span>
-            <Link to="/journal" className="hover:opacity-100 hover:text-accent transition-all link-underline">
+            <Link
+              to="/journal"
+              className="hover:opacity-100 hover:text-accent transition-all link-underline"
+            >
               Journal
             </Link>
             <span className="opacity-30">·</span>
-            <Link to="/discourses" className="hover:opacity-100 hover:text-accent transition-all link-underline">
+            <Link
+              to="/discourses"
+              className="hover:opacity-100 hover:text-accent transition-all link-underline"
+            >
               Discourses
             </Link>
             <span className="opacity-30">·</span>
-            <Link to="/audiobooks" className="hover:opacity-100 hover:text-accent transition-all link-underline">
+            <Link
+              to="/audiobooks"
+              className="hover:opacity-100 hover:text-accent transition-all link-underline"
+            >
               Audiobooks
             </Link>
           </div>
@@ -160,7 +181,8 @@ function Home() {
           </div>
           <h2 className="font-display text-3xl md:text-5xl">Now Playing</h2>
           <p className="font-sans text-sm md:text-base opacity-70 max-w-xl mx-auto">
-            Curated contemplative transmissions, satsangs, and sacred audio. Select a transmission to enter the listening deck.
+            Curated contemplative transmissions, satsangs, and sacred audio. Select a transmission
+            to enter the listening deck.
           </p>
         </div>
 
@@ -255,7 +277,10 @@ function Home() {
       </section>
 
       {/* Channels - Featured Selection */}
-      <section ref={channelsRef as any} className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${channelsVisible ? 'is-visible' : ''}`}>
+      <section
+        ref={channelsRef as any}
+        className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${channelsVisible ? "is-visible" : ""}`}
+      >
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50 mb-12 text-center">
           CHANNELS
         </p>
@@ -270,7 +295,9 @@ function Home() {
                 params={{ id: channel.toLowerCase() }}
                 className="block group"
               >
-                <div className={`w-full text-left py-6 border-b border-border hover:border-accent transition-colors hover-lift stagger-${Math.min(index + 1, 5)}`}>
+                <div
+                  className={`w-full text-left py-6 border-b border-border hover:border-accent transition-colors hover-lift stagger-${Math.min(index + 1, 5)}`}
+                >
                   <div className="flex items-center justify-between">
                     <span className="font-display text-2xl md:text-3xl group-hover:text-accent transition-colors">
                       {channel}
@@ -299,7 +326,10 @@ function Home() {
       </section>
 
       {/* Small Discovery */}
-      <section ref={discoverRef as any} className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${discoverVisible ? 'is-visible' : ''}`}>
+      <section
+        ref={discoverRef as any}
+        className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${discoverVisible ? "is-visible" : ""}`}
+      >
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50 mb-12 text-center">
           DISCOVER
         </p>

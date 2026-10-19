@@ -6,6 +6,7 @@ import {
   type GalleryCategory,
   type GalleryImage,
 } from "@/data/gallery";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -21,9 +22,9 @@ export const Route = createFileRoute("/gallery")({
         property: "og:description",
         content: "A visual journal from travel, nature, and sacred places.",
       },
-      { property: "og:url", content: "/gallery" },
+      { property: "og:url", content: siteUrl("/gallery") },
     ],
-    links: [{ rel: "canonical", href: "/gallery" }],
+    links: [{ rel: "canonical", href: siteUrl("/gallery") }],
   }),
   component: Gallery,
 });

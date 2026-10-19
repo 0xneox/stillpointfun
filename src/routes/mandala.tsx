@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/mandala")({
   head: () => ({
@@ -13,9 +14,9 @@ export const Route = createFileRoute("/mandala")({
         property: "og:description",
         content: "Enter the living discussion space of The Still Point community.",
       },
-      { property: "og:url", content: "/mandala" },
+      { property: "og:url", content: siteUrl("/mandala") },
     ],
-    links: [{ rel: "canonical", href: "/mandala" }],
+    links: [{ rel: "canonical", href: siteUrl("/mandala") }],
   }),
   component: Mandala,
 });

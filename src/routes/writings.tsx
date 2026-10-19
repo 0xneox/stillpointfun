@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { POSTS } from "@/data/posts";
 import { CONTENT } from "@/data/content";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/writings")({
   head: () => ({
@@ -18,9 +19,9 @@ export const Route = createFileRoute("/writings")({
         content:
           "Original essays and reflections on consciousness, philosophy, tradition, and the encounter between the ancient and the contemporary.",
       },
-      { property: "og:url", content: "/writings" },
+      { property: "og:url", content: siteUrl("/writings") },
     ],
-    links: [{ rel: "canonical", href: "/writings" }],
+    links: [{ rel: "canonical", href: siteUrl("/writings") }],
   }),
   component: Writings,
 });
@@ -65,7 +66,12 @@ function Writings() {
         {/* Articles */}
         <div className="space-y-16">
           {POSTS.map((post) => (
-            <Link key={post.slug} to="/teachings/$slug" params={{ slug: post.slug }} className="block group">
+            <Link
+              key={post.slug}
+              to="/teachings/$slug"
+              params={{ slug: post.slug }}
+              className="block group"
+            >
               <article className="border-b border-border pb-12 group-hover:border-accent transition-colors">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="px-2 py-0.5 bg-accent/10 text-accent font-mono text-[10px] tracking-widest uppercase rounded">
@@ -89,28 +95,28 @@ function Writings() {
                   post.tags.some((tag) =>
                     CONTENT.some((c) => c.tags.includes(tag.toLowerCase())),
                   ) && (
-                  <div className="mt-6 pt-6 border-t border-border/50">
-                    <p className="font-mono text-[10px] tracking-widest uppercase opacity-50 mb-4">
-                      Related Audio
-                    </p>
-                    <div className="space-y-2">
-                      {CONTENT.filter((c) =>
-                        post.tags?.some((tag) => c.tags.includes(tag.toLowerCase())),
-                      )
-                        .slice(0, 2)
-                        .map((audio) => (
-                          <Link
-                            key={audio.id}
-                            to="/listen/$id"
-                            params={{ id: audio.id }}
-                            className="block text-sm opacity-60 hover:opacity-100 hover:text-accent transition-all"
-                          >
-                            {audio.title} · {audio.artist_or_speaker}
-                          </Link>
-                        ))}
+                    <div className="mt-6 pt-6 border-t border-border/50">
+                      <p className="font-mono text-[10px] tracking-widest uppercase opacity-50 mb-4">
+                        Related Audio
+                      </p>
+                      <div className="space-y-2">
+                        {CONTENT.filter((c) =>
+                          post.tags?.some((tag) => c.tags.includes(tag.toLowerCase())),
+                        )
+                          .slice(0, 2)
+                          .map((audio) => (
+                            <Link
+                              key={audio.id}
+                              to="/listen/$id"
+                              params={{ id: audio.id }}
+                              className="block text-sm opacity-60 hover:opacity-100 hover:text-accent transition-all"
+                            >
+                              {audio.title} · {audio.artist_or_speaker}
+                            </Link>
+                          ))}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
               </article>
             </Link>
           ))}
@@ -119,7 +125,9 @@ function Writings() {
         {/* Note on Sources */}
         <section className="mt-24 pt-12 border-t border-border">
           <div className="space-y-4 text-sm opacity-60 leading-relaxed">
-            <p className="font-mono text-[10px] tracking-widest uppercase">On Sources and Inquiry</p>
+            <p className="font-mono text-[10px] tracking-widest uppercase">
+              On Sources and Inquiry
+            </p>
             <p>
               These essays emerge from direct contemplation and cross-traditional inquiry. They are
               not academic papers, nor dogmatic assertions, but pointers toward understanding.

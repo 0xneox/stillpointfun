@@ -1,13 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/robots.txt")({
   server: {
     handlers: {
       GET: () => {
-        const content =
-          process.env.PUBLIC_LAUNCH === "true"
-            ? "User-agent: *\nAllow: /\n"
-            : "User-agent: *\nDisallow: /\n";
+        const publicLaunch = process.env.PUBLIC_LAUNCH === "true";
+        const content = publicLaunch
+          ? `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl("/sitemap.xml")}\n`
+          : "User-agent: *\nDisallow: /\n";
 
         return new Response(content, {
           headers: {

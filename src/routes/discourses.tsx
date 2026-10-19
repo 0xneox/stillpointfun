@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CONTENT, CURATED_PLAYLISTS, type CuratedPlaylistTrack } from "@/data/content";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/discourses")({
   head: () => ({
@@ -18,9 +19,9 @@ export const Route = createFileRoute("/discourses")({
         content:
           "Curated public discourses, spoken audio archives, talks, and philosophical lectures including Alan Watts, Ram Dass, Neem Karoli Baba, Ramana Maharshi, Samadhi, Advaita, and Zen.",
       },
-      { property: "og:url", content: "/discourses" },
+      { property: "og:url", content: siteUrl("/discourses") },
     ],
-    links: [{ rel: "canonical", href: "/discourses" }],
+    links: [{ rel: "canonical", href: siteUrl("/discourses") }],
   }),
   component: Discourses,
 });
@@ -31,10 +32,7 @@ function Discourses() {
   );
 
   const activePlaylist = useMemo(() => {
-    return (
-      CURATED_PLAYLISTS.find((p) => p.id === activePlaylistId) ||
-      CURATED_PLAYLISTS[0]
-    );
+    return CURATED_PLAYLISTS.find((p) => p.id === activePlaylistId) || CURATED_PLAYLISTS[0];
   }, [activePlaylistId]);
 
   const [selectedTrack, setSelectedTrack] = useState<CuratedPlaylistTrack>(
@@ -111,10 +109,7 @@ function Discourses() {
         c.media_type !== "chanting",
     ),
     "Buddhist Teachings": CONTENT.filter(
-      (c) =>
-        c.channel === "BUDDHA" &&
-        c.media_type !== "music" &&
-        c.media_type !== "chanting",
+      (c) => c.channel === "BUDDHA" && c.media_type !== "music" && c.media_type !== "chanting",
     ),
     "Depth Psychology & Mysticism": CONTENT.filter(
       (c) =>
@@ -125,10 +120,7 @@ function Discourses() {
         c.media_type !== "chanting",
     ),
     "Sufi Traditions": CONTENT.filter(
-      (c) =>
-        c.channel === "SUFI" &&
-        c.media_type !== "music" &&
-        c.media_type !== "chanting",
+      (c) => c.channel === "SUFI" && c.media_type !== "music" && c.media_type !== "chanting",
     ),
   };
 
@@ -267,7 +259,8 @@ function Discourses() {
           </h1>
           <p className="mt-6 max-w-xl text-lg opacity-70 leading-relaxed font-sans">
             Curated spoken lectures, satsangs, and contemplative dialogues from teachers across
-            traditions. Pure audio archives designed for focused listening, stillness, and deep study.
+            traditions. Pure audio archives designed for focused listening, stillness, and deep
+            study.
           </p>
         </div>
       </header>
@@ -315,9 +308,7 @@ function Discourses() {
                     Audio + Video
                   </span>
                 </div>
-                <h2 className="font-display text-3xl md:text-5xl mt-2">
-                  {activePlaylist.title}
-                </h2>
+                <h2 className="font-display text-3xl md:text-5xl mt-2">{activePlaylist.title}</h2>
                 <p className="font-mono text-xs opacity-60">
                   {activePlaylist.speaker} · {activePlaylist.traditions.join(" · ")}
                 </p>
@@ -712,9 +703,9 @@ function Discourses() {
               explorations of consciousness and non-duality.
             </p>
             <p className="italic opacity-80">
-              Stillpoint is a quiet sanctuary for discovering meaningful spoken discourses
-              already available in the public domain—curated for pure acoustic focus, stillness,
-              and contemplation.
+              Stillpoint is a quiet sanctuary for discovering meaningful spoken discourses already
+              available in the public domain—curated for pure acoustic focus, stillness, and
+              contemplation.
             </p>
           </div>
         </div>
@@ -723,9 +714,7 @@ function Discourses() {
       {/* Browse Related */}
       <section className="max-w-3xl mx-auto px-6 py-24 border-t border-border">
         <div className="text-center space-y-8">
-          <h2 className="font-display italic text-4xl md:text-5xl text-balance">
-            Explore Further
-          </h2>
+          <h2 className="font-display italic text-4xl md:text-5xl text-balance">Explore Further</h2>
           <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/"

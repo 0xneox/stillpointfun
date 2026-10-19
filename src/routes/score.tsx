@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
+import { siteUrl } from "@/lib/site-url";
 
 interface Practice {
   type: string;
@@ -20,9 +21,9 @@ export const Route = createFileRoute("/score")({
         property: "og:description",
         content: "Your personal contemplative practice log. Private and optional.",
       },
-      { property: "og:url", content: "/score" },
+      { property: "og:url", content: siteUrl("/score") },
     ],
-    links: [{ rel: "canonical", href: "/score" }],
+    links: [{ rel: "canonical", href: siteUrl("/score") }],
   }),
   component: PracticeLog,
 });
@@ -86,33 +87,36 @@ function PracticeLog() {
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
             Your Sessions
           </span>
-          <h2 className="font-display italic text-4xl md:text-5xl mt-6 mb-12">
-            Recent Practice
-          </h2>
+          <h2 className="font-display italic text-4xl md:text-5xl mt-6 mb-12">Recent Practice</h2>
 
           {practices.length === 0 ? (
             <div className="text-center py-12 space-y-4">
               <p className="text-lg opacity-70">No practice sessions recorded yet.</p>
-              <p className="text-sm opacity-50">Complete a Prāṇa Gate or Inquiry session to begin logging.</p>
+              <p className="text-sm opacity-50">
+                Complete a Prāṇa Gate or Inquiry session to begin logging.
+              </p>
             </div>
           ) : (
             <div className="space-y-4">
-              {practices.slice().reverse().map((practice: any, i: number) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between py-4 border-t border-surface-foreground/20"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="font-mono text-sm opacity-80">{practice.type}</span>
+              {practices
+                .slice()
+                .reverse()
+                .map((practice: any, i: number) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between py-4 border-t border-surface-foreground/20"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="font-mono text-sm opacity-80">{practice.type}</span>
+                    </div>
+                    <div className="flex items-center gap-8">
+                      <span className="font-display text-lg">{practice.duration} min</span>
+                      <span className="font-mono text-xs opacity-50">
+                        {new Date(practice.timestamp).toLocaleDateString()}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-8">
-                    <span className="font-display text-lg">{practice.duration} min</span>
-                    <span className="font-mono text-xs opacity-50">
-                      {new Date(practice.timestamp).toLocaleDateString()}
-                    </span>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           )}
         </div>

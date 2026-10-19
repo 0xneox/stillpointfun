@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/site-url";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import {
   SACRED_AUDIOBOOKS,
@@ -24,9 +25,9 @@ export const Route = createFileRoute("/audiobooks")({
         content:
           "High-fidelity spoken audiobooks and contemplative treatises across 16 traditions and 236 chapters.",
       },
-      { property: "og:url", content: "/audiobooks" },
+      { property: "og:url", content: siteUrl("/audiobooks") },
     ],
-    links: [{ rel: "canonical", href: "/audiobooks" }],
+    links: [{ rel: "canonical", href: siteUrl("/audiobooks") }],
   }),
   component: AudiobooksPage,
 });
@@ -53,7 +54,7 @@ interface SavedProgress {
 function AudiobooksPage() {
   const stats = useMemo(() => getTotalAudiobookStats(), []);
   const [activeCollectionId, setActiveCollectionId] = useState<string>(
-    SACRED_AUDIOBOOKS[0]?.id || "nisargadatta-maharaj"
+    SACRED_AUDIOBOOKS[0]?.id || "nisargadatta-maharaj",
   );
   const [searchQuery, setSearchQuery] = useState("");
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -65,18 +66,15 @@ function AudiobooksPage() {
   });
 
   const activeCollection = useMemo(() => {
-    return (
-      SACRED_AUDIOBOOKS.find((c) => c.id === activeCollectionId) ||
-      SACRED_AUDIOBOOKS[0]
-    );
+    return SACRED_AUDIOBOOKS.find((c) => c.id === activeCollectionId) || SACRED_AUDIOBOOKS[0];
   }, [activeCollectionId]);
 
   // Player State
   const [currentTrack, setCurrentTrack] = useState<AudiobookTrack | null>(
-    () => activeCollection?.tracks[0] || null
+    () => activeCollection?.tracks[0] || null,
   );
   const [currentCollection, setCurrentCollection] = useState<AudiobookCollection>(
-    () => activeCollection
+    () => activeCollection,
   );
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -161,7 +159,7 @@ function AudiobooksPage() {
       }
       audioRef.current.play().catch((err) => {
         setAudioError(
-          `Unable to stream "${track.fileName}". If running locally, check that the file exists in /audiobook, or configure a Cloud Storage Base URL.`
+          `Unable to stream "${track.fileName}". If running locally, check that the file exists in /audiobook, or configure a Cloud Storage Base URL.`,
         );
         setIsPlaying(false);
       });
@@ -173,7 +171,7 @@ function AudiobooksPage() {
     if (!audioRef.current) return;
     audioRef.current.currentTime = Math.max(
       0,
-      Math.min(audioRef.current.duration || 0, audioRef.current.currentTime + seconds)
+      Math.min(audioRef.current.duration || 0, audioRef.current.currentTime + seconds),
     );
   };
 
@@ -308,7 +306,7 @@ function AudiobooksPage() {
         }}
         onError={() => {
           setAudioError(
-            `Unable to stream audio. Ensure local files are in the /audiobook directory or check your custom storage Base URL.`
+            `Unable to stream audio. Ensure local files are in the /audiobook directory or check your custom storage Base URL.`,
           );
           setIsPlaying(false);
         }}
@@ -336,8 +334,9 @@ function AudiobooksPage() {
                 Sacred Audiobooks & Readings
               </h1>
               <p className="font-sans text-sm md:text-base opacity-75 max-w-2xl leading-relaxed">
-                Direct pointers, classic texts, and unhurried contemplative readings. Pure spoken voice
-                archives from Ramana Maharshi, Nisargadatta, Longchenpa, Dzogchen, Zen, and the Christian Mystics.
+                Direct pointers, classic texts, and unhurried contemplative readings. Pure spoken
+                voice archives from Ramana Maharshi, Nisargadatta, Longchenpa, Dzogchen, Zen, and
+                the Christian Mystics.
               </p>
             </div>
 
@@ -349,9 +348,7 @@ function AudiobooksPage() {
                 title="Storage & Streaming Settings"
               >
                 <span>⚙ Storage Settings</span>
-                {customBaseUrl && (
-                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                )}
+                {customBaseUrl && <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />}
               </button>
             </div>
           </div>
@@ -432,7 +429,8 @@ function AudiobooksPage() {
                   Narrated by {activeCollection.narrator}
                 </span>
                 <span className="px-2 py-0.5 text-[9px] font-mono tracking-widest uppercase text-accent border border-accent/30">
-                  {activeCollection.trackCount} Tracks · {(activeCollection.totalSizeBytes / (1024 * 1024)).toFixed(0)} MB
+                  {activeCollection.trackCount} Tracks ·{" "}
+                  {(activeCollection.totalSizeBytes / (1024 * 1024)).toFixed(0)} MB
                 </span>
               </div>
               <h2 className="font-display text-2xl md:text-3xl">{activeCollection.title}</h2>
@@ -522,7 +520,9 @@ function AudiobooksPage() {
                           {(track as any).collectionTitle.split(":")[0]}
                         </span>
                       )}
-                      <span className="font-mono text-[10px] opacity-40">{track.sizeFormatted}</span>
+                      <span className="font-mono text-[10px] opacity-40">
+                        {track.sizeFormatted}
+                      </span>
 
                       {hasProgress && (
                         <span className="font-mono text-[9px] text-accent/80 flex items-center gap-1.5">
@@ -575,9 +575,7 @@ function AudiobooksPage() {
                   style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
                 />
               </div>
-              <span className="font-mono text-[10px] opacity-60 w-12">
-                {formatTime(duration)}
-              </span>
+              <span className="font-mono text-[10px] opacity-60 w-12">{formatTime(duration)}</span>
             </div>
 
             {/* Controls Bar */}
@@ -692,18 +690,23 @@ function AudiobooksPage() {
 
             <div className="space-y-4 font-sans text-xs leading-relaxed opacity-85">
               <div className="p-3 bg-background/60 border border-border rounded-sm space-y-1">
-                <p className="font-mono font-bold text-accent">1. Local Offline Streaming (Default)</p>
+                <p className="font-mono font-bold text-accent">
+                  1. Local Offline Streaming (Default)
+                </p>
                 <p>
-                  In local development, the app streams directly from your local <code>/audiobook</code>{" "}
-                  folder with full HTTP 206 partial range scrubbing.
+                  In local development, the app streams directly from your local{" "}
+                  <code>/audiobook</code> folder with full HTTP 206 partial range scrubbing.
                 </p>
               </div>
 
               <div className="p-3 bg-background/60 border border-border rounded-sm space-y-1">
-                <p className="font-mono font-bold text-accent">2. Production / Cloudflare R2 or S3</p>
+                <p className="font-mono font-bold text-accent">
+                  2. Production / Cloudflare R2 or S3
+                </p>
                 <p>
-                  When deploying to Vercel or the web, upload your 8 GB <code>audiobook</code> folder to
-                  a free Cloudflare R2 bucket or AWS S3, and enter your public bucket URL below.
+                  When deploying to Vercel or the web, upload your 8 GB <code>audiobook</code>{" "}
+                  folder to a free Cloudflare R2 bucket or AWS S3, and enter your public bucket URL
+                  below.
                 </p>
               </div>
 

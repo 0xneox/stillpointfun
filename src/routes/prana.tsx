@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef, useMemo } from "react";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/prana")({
   head: () => ({
@@ -14,9 +15,9 @@ export const Route = createFileRoute("/prana")({
         property: "og:description",
         content: "A 60-90 second guided attention tool to enter the still center.",
       },
-      { property: "og:url", content: "/prana" },
+      { property: "og:url", content: siteUrl("/prana") },
     ],
-    links: [{ rel: "canonical", href: "/prana" }],
+    links: [{ rel: "canonical", href: siteUrl("/prana") }],
   }),
   component: PranaGate,
 });

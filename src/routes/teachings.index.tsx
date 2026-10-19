@@ -2,18 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { z } from "zod";
 import { useMemo } from "react";
 import { ALL_TOPICS, sortedPosts, type Topic } from "@/data/posts";
+import { siteUrl } from "@/lib/site-url";
 
 const searchSchema = z.object({
   topic: z
-    .enum([
-      "Non-Duality",
-      "Philosophy",
-      "Technology",
-      "AI",
-      "God & Shiva",
-      "Life",
-      "Truth",
-    ])
+    .enum(["Non-Duality", "Philosophy", "Technology", "AI", "God & Shiva", "Life", "Truth"])
     .optional(),
 });
 
@@ -32,9 +25,9 @@ export const Route = createFileRoute("/teachings/")({
         property: "og:description",
         content: "A continuously unfolding library of writings, recordings, and pointers.",
       },
-      { property: "og:url", content: "/teachings" },
+      { property: "og:url", content: siteUrl("/teachings") },
     ],
-    links: [{ rel: "canonical", href: "/teachings" }],
+    links: [{ rel: "canonical", href: siteUrl("/teachings") }],
   }),
   component: BlogIndex,
 });

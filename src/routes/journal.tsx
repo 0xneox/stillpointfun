@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/journal")({
   head: () => ({
@@ -17,9 +18,9 @@ export const Route = createFileRoute("/journal")({
         content:
           "Tactile contemplative journal and field notes board. Capture fleeting insights, inquiries, reflections, and quotes in stillness.",
       },
-      { property: "og:url", content: "/journal" },
+      { property: "og:url", content: siteUrl("/journal") },
     ],
-    links: [{ rel: "canonical", href: "/journal" }],
+    links: [{ rel: "canonical", href: siteUrl("/journal") }],
   }),
   component: StickyJournal,
 });
@@ -538,7 +539,9 @@ function StickyJournal() {
           const parsed = JSON.parse(saved);
           if (Array.isArray(parsed) && parsed.length > 0) {
             const missingNotes = DEFAULT_NOTES.filter(
-              (def) => NEW_USER_NOTE_IDS.includes(def.id) && !parsed.some((p: StickyNote) => p.id === def.id)
+              (def) =>
+                NEW_USER_NOTE_IDS.includes(def.id) &&
+                !parsed.some((p: StickyNote) => p.id === def.id),
             );
             if (missingNotes.length > 0) {
               return [...missingNotes, ...parsed];
@@ -667,9 +670,7 @@ function StickyJournal() {
   // Toggle Pin
   const togglePin = (id: string, e?: React.MouseEvent) => {
     e?.stopPropagation();
-    setNotes((prev) =>
-      prev.map((n) => (n.id === id ? { ...n, isPinned: !n.isPinned } : n))
-    );
+    setNotes((prev) => prev.map((n) => (n.id === id ? { ...n, isPinned: !n.isPinned } : n)));
   };
 
   // Delete Note
@@ -719,7 +720,10 @@ function StickyJournal() {
       "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(notes, null, 2));
     const downloadAnchor = document.createElement("a");
     downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", `stillpoint-journal-notes-${new Date().toISOString().slice(0, 10)}.json`);
+    downloadAnchor.setAttribute(
+      "download",
+      `stillpoint-journal-notes-${new Date().toISOString().slice(0, 10)}.json`,
+    );
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
@@ -1004,7 +1008,9 @@ function StickyJournal() {
                   <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-2.5 shrink-0">
                     <div className="flex items-center gap-1.5 text-xs font-mono">
                       <span>{moodInfo.icon}</span>
-                      <span className={`text-[10px] tracking-wider uppercase font-semibold ${colorStyle.accent}`}>
+                      <span
+                        className={`text-[10px] tracking-wider uppercase font-semibold ${colorStyle.accent}`}
+                      >
                         {moodInfo.label}
                       </span>
                     </div>
@@ -1116,9 +1122,7 @@ function StickyJournal() {
 
         {/* Board Bottom Controls */}
         <div className="mt-20 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono opacity-60">
-          <p>
-            {notes.length} total reflections stored in local browser storage.
-          </p>
+          <p>{notes.length} total reflections stored in local browser storage.</p>
           <div className="flex items-center gap-4">
             <button
               type="button"
@@ -1220,7 +1224,9 @@ function StickyJournal() {
                         type="button"
                         onClick={() => setNewColor(c)}
                         className={`w-7 h-7 rounded-full border-2 transition-transform ${col.bg} ${
-                          isSelected ? "border-accent scale-110 shadow-md ring-2 ring-accent/30" : "border-border/60 hover:scale-105"
+                          isSelected
+                            ? "border-accent scale-110 shadow-md ring-2 ring-accent/30"
+                            : "border-border/60 hover:scale-105"
                         }`}
                         title={col.name}
                       />
@@ -1252,7 +1258,10 @@ function StickyJournal() {
                   onChange={(e) => setNewIsPinned(e.target.checked)}
                   className="rounded border-border text-accent focus:ring-accent"
                 />
-                <label htmlFor="pin-note-checkbox" className="font-mono text-xs opacity-75 cursor-pointer">
+                <label
+                  htmlFor="pin-note-checkbox"
+                  className="font-mono text-xs opacity-75 cursor-pointer"
+                >
                   Pin to top of board
                 </label>
               </div>
@@ -1305,9 +1314,7 @@ function StickyJournal() {
                   type="text"
                   placeholder="Title (Optional)..."
                   value={editingNote.title || ""}
-                  onChange={(e) =>
-                    setEditingNote({ ...editingNote, title: e.target.value })
-                  }
+                  onChange={(e) => setEditingNote({ ...editingNote, title: e.target.value })}
                   className="w-full px-3.5 py-2.5 font-display text-lg bg-background border border-border rounded focus:outline-none focus:border-accent"
                 />
               </div>
@@ -1317,9 +1324,7 @@ function StickyJournal() {
                   rows={4}
                   required
                   value={editingNote.content}
-                  onChange={(e) =>
-                    setEditingNote({ ...editingNote, content: e.target.value })
-                  }
+                  onChange={(e) => setEditingNote({ ...editingNote, content: e.target.value })}
                   className="w-full p-3.5 font-sans text-sm bg-background border border-border rounded focus:outline-none focus:border-accent leading-relaxed"
                 />
               </div>
@@ -1360,7 +1365,9 @@ function StickyJournal() {
                         type="button"
                         onClick={() => setEditingNote({ ...editingNote, color: c })}
                         className={`w-7 h-7 rounded-full border-2 ${col.bg} ${
-                          editingNote.color === c ? "border-accent scale-110 ring-2 ring-accent/30" : "border-border/60"
+                          editingNote.color === c
+                            ? "border-accent scale-110 ring-2 ring-accent/30"
+                            : "border-border/60"
                         }`}
                         title={col.name}
                       />

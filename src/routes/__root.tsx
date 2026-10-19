@@ -16,6 +16,7 @@ import { NotFound } from "@/components/NotFound";
 import { ErrorState } from "@/components/ErrorState";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { CONTENT } from "@/data/content";
+import { siteUrl } from "@/lib/site-url";
 
 function NotFoundComponent() {
   return <NotFound />;
@@ -62,8 +63,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
       },
-      { property: "og:url", content: "https://stillpoint.com" },
-      { property: "og:image", content: "https://stillpoint.com/og-image.png" },
+      { property: "og:url", content: siteUrl("/") },
+      { property: "og:image", content: siteUrl("/og-image.png") },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Stillpoint — Listen. Read. Question." },
@@ -74,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
       },
-      { name: "twitter:image", content: "https://stillpoint.com/og-image.png" },
+      { name: "twitter:image", content: siteUrl("/og-image.png") },
       { name: "twitter:image:alt", content: "Stillpoint — Listen. Read. Question." },
       {
         name: "robots",
@@ -88,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "canonical", href: "https://stillpoint.com" },
+      { rel: "canonical", href: siteUrl("/") },
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "icon", href: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -101,12 +102,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Stillpoint",
-          url: "https://stillpoint.com",
+          url: siteUrl("/"),
           description:
             "An independent, open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
           potentialAction: {
             "@type": "SearchAction",
-            target: "https://stillpoint.com/search?q={search_term_string}",
+            target: siteUrl("/search?q={search_term_string}"),
             "query-input": "required name=search_term_string",
           },
         }),
@@ -117,7 +118,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Stillpoint",
-          url: "https://stillpoint.com",
+          url: siteUrl("/"),
           description:
             "An independent, open-source project for listening, inquiry, and the exploration of consciousness.",
           sameAs: ["https://github.com/0xneox"],

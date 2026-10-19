@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { POSTS } from "@/data/posts";
-
-const BASE_URL = "";
+import { siteUrl } from "@/lib/site-url";
 
 interface SitemapEntry {
   path: string;
@@ -17,14 +16,16 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
-          { path: "/blog", changefreq: "weekly", priority: "0.9" },
-          { path: "/gallery", changefreq: "monthly", priority: "0.7" },
+          { path: "/library", changefreq: "weekly", priority: "0.8" },
+          { path: "/journal", changefreq: "weekly", priority: "0.8" },
+          { path: "/discourses", changefreq: "weekly", priority: "0.8" },
+          { path: "/writings", changefreq: "weekly", priority: "0.8" },
           { path: "/about", changefreq: "monthly", priority: "0.6" },
-          { path: "/work", changefreq: "monthly", priority: "0.6" },
-          { path: "/contact", changefreq: "yearly", priority: "0.4" },
-          ...POSTS.map((p) => ({
-            path: `/blog/${p.slug}`,
-            lastmod: p.date,
+          { path: "/founder", changefreq: "monthly", priority: "0.5" },
+          { path: "/disclaimer", changefreq: "yearly", priority: "0.3" },
+          ...POSTS.map((post) => ({
+            path: `/teachings/${post.slug}`,
+            lastmod: post.date,
             changefreq: "yearly" as const,
             priority: "0.8",
           })),
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const urls = entries.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <loc>${siteUrl(e.path)}</loc>`,
             e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,

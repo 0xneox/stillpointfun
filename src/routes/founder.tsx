@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/site-url";
 
 export const Route = createFileRoute("/founder")({
   head: () => ({
@@ -7,9 +8,9 @@ export const Route = createFileRoute("/founder")({
       { name: "description", content: "About the founder of The Still Point." },
       { property: "og:title", content: "About the Founder — The Still Point" },
       { property: "og:description", content: "About the founder of The Still Point." },
-      { property: "og:url", content: "/founder" },
+      { property: "og:url", content: siteUrl("/founder") },
     ],
-    links: [{ rel: "canonical", href: "/founder" }],
+    links: [{ rel: "canonical", href: siteUrl("/founder") }],
   }),
   component: Founder,
 });

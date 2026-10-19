@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CONTENT } from "@/data/content";
 import { POSTS } from "@/data/posts";
+import { siteUrl } from "@/lib/site-url";
 import {
   SACRED_LIBRARY,
   LIBRARY_CATEGORIES,
@@ -68,7 +69,8 @@ export const FOUNDATIONAL_BOOKS: LibraryItem[] = [
     category: "Advaita Vedanta",
     language: "Sanskrit / English",
     format: "book",
-    description: "The unsparing dialogue between King Janaka and sage Aṣṭāvakra on the instantaneous nature of reality.",
+    description:
+      "The unsparing dialogue between King Janaka and sage Aṣṭāvakra on the instantaneous nature of reality.",
     tags: ["advaita", "non-duality", "ashtavakra", "dialogue"],
     sourceUrl: "https://archive.org/details/AshtavakraGitaEbook",
   },
@@ -81,9 +83,11 @@ export const FOUNDATIONAL_BOOKS: LibraryItem[] = [
     category: "Kashmir Shaivism & Tantra",
     language: "Sanskrit / English",
     format: "book",
-    description: "The sacred tremor. Understanding Spanda as the living throb and pulse of pure consciousness.",
+    description:
+      "The sacred tremor. Understanding Spanda as the living throb and pulse of pure consciousness.",
     tags: ["spanda", "kashmir-shaivism", "vasugupta", "consciousness"],
-    sourceUrl: "https://ia803100.us.archive.org/35/items/spandakarikasthedivinecreativepulsation/Spanda%20karikas%20the%20divine%20creative%20pulsation.pdf",
+    sourceUrl:
+      "https://ia803100.us.archive.org/35/items/spandakarikasthedivinecreativepulsation/Spanda%20karikas%20the%20divine%20creative%20pulsation.pdf",
   },
   {
     id: "vivekachudamani",
@@ -94,7 +98,8 @@ export const FOUNDATIONAL_BOOKS: LibraryItem[] = [
     category: "Advaita Vedanta",
     language: "Sanskrit / English",
     format: "book",
-    description: "The Crest Jewel of Discrimination. A quintessential foundation of self-inquiry and discernment.",
+    description:
+      "The Crest Jewel of Discrimination. A quintessential foundation of self-inquiry and discernment.",
     tags: ["advaita", "shankara", "self-inquiry", "discrimination"],
     sourceUrl: "https://archive.org/details/shankarascrestje0000sank",
   },
@@ -124,7 +129,8 @@ export const FOUNDATIONAL_BOOKS: LibraryItem[] = [
     description:
       "The monumental dialogue between Rama and sage Vasistha illustrating that the world is mind-born and freedom is self-knowledge.",
     tags: ["advaita", "vasistha", "non-duality", "dialogue"],
-    sourceUrl: "https://dn760106.eu.archive.org/0/items/YogaVasishtaOfValmikiValmiki/Yoga%20Vasishta%20of%20Valmiki%20-%20Valmiki.pdf",
+    sourceUrl:
+      "https://dn760106.eu.archive.org/0/items/YogaVasishtaOfValmikiValmiki/Yoga%20Vasishta%20of%20Valmiki%20-%20Valmiki.pdf",
   },
 ];
 
@@ -167,9 +173,9 @@ export const Route = createFileRoute("/library")({
         content:
           "Preserved digital collection of 88 sacred manuscripts and treatises available for immediate study, in-browser reading, and download.",
       },
-      { property: "og:url", content: "/library" },
+      { property: "og:url", content: siteUrl("/library") },
     ],
-    links: [{ rel: "canonical", href: "/library" }],
+    links: [{ rel: "canonical", href: siteUrl("/library") }],
   }),
   component: Library,
 });
@@ -293,7 +299,8 @@ function Library() {
 
           <p className="font-sans text-base md:text-lg opacity-70 max-w-2xl mx-auto leading-relaxed">
             A comprehensive, digital collection of primary Sanskrit, Vedantic, Tantric, and
-            contemplative texts preserved for direct inquiry, in-browser study, and archival research.
+            contemplative texts preserved for direct inquiry, in-browser study, and archival
+            research.
           </p>
 
           {/* Repository Meta Pills */}
@@ -363,24 +370,27 @@ function Library() {
               <button
                 type="button"
                 onClick={() => setActiveFormat("all")}
-                className={`px-3 py-1.5 font-mono text-[10px] tracking-widest uppercase transition-colors ${activeFormat === "all" ? "bg-foreground text-background" : "hover:bg-surface"
-                  }`}
+                className={`px-3 py-1.5 font-mono text-[10px] tracking-widest uppercase transition-colors ${
+                  activeFormat === "all" ? "bg-foreground text-background" : "hover:bg-surface"
+                }`}
               >
                 All
               </button>
               <button
                 type="button"
                 onClick={() => setActiveFormat("pdf")}
-                className={`px-3 py-1.5 font-mono text-[10px] tracking-widest uppercase transition-colors ${activeFormat === "pdf" ? "bg-foreground text-background" : "hover:bg-surface"
-                  }`}
+                className={`px-3 py-1.5 font-mono text-[10px] tracking-widest uppercase transition-colors ${
+                  activeFormat === "pdf" ? "bg-foreground text-background" : "hover:bg-surface"
+                }`}
               >
                 PDFs ({ARCHIVAL_PDF_ITEMS.length})
               </button>
               <button
                 type="button"
                 onClick={() => setActiveFormat("book")}
-                className={`px-3 py-1.5 font-mono text-[10px] tracking-widest uppercase transition-colors ${activeFormat === "book" ? "bg-foreground text-background" : "hover:bg-surface"
-                  }`}
+                className={`px-3 py-1.5 font-mono text-[10px] tracking-widest uppercase transition-colors ${
+                  activeFormat === "book" ? "bg-foreground text-background" : "hover:bg-surface"
+                }`}
               >
                 Books ({FOUNDATIONAL_BOOKS.length})
               </button>
@@ -390,8 +400,9 @@ function Library() {
               <button
                 type="button"
                 onClick={() => setViewMode("grid")}
-                className={`p-1.5 text-xs transition-colors ${viewMode === "grid" ? "bg-foreground text-background" : "hover:bg-surface"
-                  }`}
+                className={`p-1.5 text-xs transition-colors ${
+                  viewMode === "grid" ? "bg-foreground text-background" : "hover:bg-surface"
+                }`}
                 title="Grid view"
               >
                 ⊞
@@ -399,8 +410,9 @@ function Library() {
               <button
                 type="button"
                 onClick={() => setViewMode("list")}
-                className={`p-1.5 text-xs transition-colors ${viewMode === "list" ? "bg-foreground text-background" : "hover:bg-surface"
-                  }`}
+                className={`p-1.5 text-xs transition-colors ${
+                  viewMode === "list" ? "bg-foreground text-background" : "hover:bg-surface"
+                }`}
                 title="List view"
               >
                 ☰
@@ -419,10 +431,11 @@ function Library() {
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 font-mono text-[10px] tracking-[0.15em] uppercase border transition-all ${isActive
-                  ? "bg-foreground text-background border-foreground font-medium shadow-sm"
-                  : "border-border bg-background/50 hover:bg-surface text-foreground/80 hover:text-foreground"
-                  }`}
+                className={`px-3.5 py-1.5 font-mono text-[10px] tracking-[0.15em] uppercase border transition-all ${
+                  isActive
+                    ? "bg-foreground text-background border-foreground font-medium shadow-sm"
+                    : "border-border bg-background/50 hover:bg-surface text-foreground/80 hover:text-foreground"
+                }`}
               >
                 <span>{cat}</span>
                 <span className="ml-1.5 opacity-50">({count})</span>
@@ -455,7 +468,9 @@ function Library() {
         {/* Empty State */}
         {filteredItems.length === 0 && (
           <div className="p-16 text-center border border-dashed border-border rounded-sm space-y-4 my-8">
-            <p className="font-mono text-xs uppercase tracking-widest opacity-40">No manuscripts found</p>
+            <p className="font-mono text-xs uppercase tracking-widest opacity-40">
+              No manuscripts found
+            </p>
             <h3 className="font-display text-2xl">No texts matched your criteria</h3>
             <p className="font-sans text-sm opacity-60 max-w-md mx-auto">
               Try adjusting your search terms, changing the tradition filter, or resetting all
@@ -621,7 +636,9 @@ function Library() {
                         <span className="font-mono text-[10px] opacity-50">{item.category}</span>
                       )}
                       {item.sizeFormatted && (
-                        <span className="font-mono text-[9px] opacity-40">· {item.sizeFormatted}</span>
+                        <span className="font-mono text-[9px] opacity-40">
+                          · {item.sizeFormatted}
+                        </span>
                       )}
                     </div>
                     <h3 className="font-display text-xl group-hover:text-accent transition-colors truncate">
@@ -763,8 +780,8 @@ function Library() {
                   </p>
                   <h3 className="font-display text-2xl">{readingDoc.title}</h3>
                   <p className="text-sm opacity-70">
-                    This item is hosted through an authorized archive. Open the external reading portal
-                    to view.
+                    This item is hosted through an authorized archive. Open the external reading
+                    portal to view.
                   </p>
                   {readingDoc.sourceUrl && (
                     <a
@@ -799,8 +816,11 @@ function Library() {
 
             <p className="font-sans text-xs opacity-75 leading-relaxed">
               By default, PDFs are served locally from the workspace{" "}
-              <code className="px-1 py-0.5 bg-surface text-accent font-mono text-[10px]">/Library</code>{" "}
-              folder. If deploying to Vercel, Cloudflare, or an external CDN, provide your base URL below.
+              <code className="px-1 py-0.5 bg-surface text-accent font-mono text-[10px]">
+                /Library
+              </code>{" "}
+              folder. If deploying to Vercel, Cloudflare, or an external CDN, provide your base URL
+              below.
             </p>
 
             <div className="space-y-2">
@@ -815,7 +835,8 @@ function Library() {
                 className="w-full px-3 py-2 font-mono text-xs bg-surface/50 border border-border rounded-none focus:outline-none focus:border-foreground"
               />
               <p className="font-mono text-[9px] opacity-50">
-                Leave blank to use default local path (<code className="text-accent">/Library</code>).
+                Leave blank to use default local path (<code className="text-accent">/Library</code>
+                ).
               </p>
             </div>
 
@@ -839,7 +860,7 @@ function Library() {
                   type="button"
                   onClick={() => {
                     const el = document.getElementById(
-                      "library-base-url-input"
+                      "library-base-url-input",
                     ) as HTMLInputElement;
                     handleSaveStorage(el ? el.value : "");
                   }}
