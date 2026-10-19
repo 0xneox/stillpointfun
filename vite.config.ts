@@ -86,13 +86,27 @@ function localMediaDevServerPlugin(): Plugin {
   };
 }
 
-export default defineConfig({
-  plugins: [localMediaDevServerPlugin()],
-  tanstackStart: {
-    server: { entry: "server" },
-  },
-  nitro: {
-    preset: "vercel",
-  },
+export default defineConfig(() => {
+  const publicLaunch = process.env.PUBLIC_LAUNCH === "true";
+  return {
+    define: {
+      __PUBLIC_LAUNCH__: JSON.stringify(publicLaunch),
+    },
+    plugins: [localMediaDevServerPlugin()],
+    tanstackStart: {
+      server: { entry: "server" },
+    },
+    nitro: {
+      preset: "vercel",
+      routeRules: publicLaunch
+        ? {}
+        : {
+            "/**": {
+              headers: {
+                "X-Robots-Tag": "noindex, nofollow",
+              },
+            },
+          },
+    },
+  };
 });
-

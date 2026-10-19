@@ -63,7 +63,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Stillpoint — Listen. Read. Question." },
       {
         property: "og:description",
-        content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
+        content:
+          "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
       },
       { property: "og:url", content: "https://stillpoint.com" },
       { property: "og:image", content: "https://stillpoint.com/og-image.png" },
@@ -74,12 +75,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "Stillpoint — Listen. Read. Question." },
       {
         name: "twitter:description",
-        content: "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
+        content:
+          "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
       },
       { name: "twitter:image", content: "https://stillpoint.com/og-image.png" },
       { name: "twitter:image:alt", content: "Stillpoint — Listen. Read. Question." },
-      { name: "robots", content: "index, follow" },
-      { name: "googlebot", content: "index, follow" },
+      {
+        name: "robots",
+        content: __PUBLIC_LAUNCH__ ? "index, follow" : "noindex, nofollow",
+      },
+      {
+        name: "googlebot",
+        content: __PUBLIC_LAUNCH__ ? "index, follow" : "noindex, nofollow",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -98,7 +106,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "WebSite",
           name: "Stillpoint",
           url: "https://stillpoint.com",
-          description: "An independent, open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
+          description:
+            "An independent, open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
           potentialAction: {
             "@type": "SearchAction",
             target: "https://stillpoint.com/search?q={search_term_string}",
@@ -113,7 +122,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Organization",
           name: "Stillpoint",
           url: "https://stillpoint.com",
-          description: "An independent, open-source project for listening, inquiry, and the exploration of consciousness.",
+          description:
+            "An independent, open-source project for listening, inquiry, and the exploration of consciousness.",
           sameAs: ["https://github.com/0xneox"],
           foundingDate: "2026",
         }),

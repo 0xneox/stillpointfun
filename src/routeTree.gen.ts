@@ -13,6 +13,7 @@ import { Route as WritingsRouteImport } from './routes/writings'
 import { Route as TeachingsRouteImport } from './routes/teachings'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ScoreRouteImport } from './routes/score'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as PranaRouteImport } from './routes/prana'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as MandalaRouteImport } from './routes/mandala'
@@ -52,6 +53,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ScoreRoute = ScoreRouteImport.update({
   id: '/score',
   path: '/score',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PranaRoute = PranaRouteImport.update({
@@ -172,6 +178,7 @@ export interface FileRoutesByFullPath {
   '/mandala': typeof MandalaRoute
   '/notes': typeof NotesRoute
   '/prana': typeof PranaRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/score': typeof ScoreRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teachings': typeof TeachingsRouteWithChildren
@@ -198,6 +205,7 @@ export interface FileRoutesByTo {
   '/mandala': typeof MandalaRoute
   '/notes': typeof NotesRoute
   '/prana': typeof PranaRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/score': typeof ScoreRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/writings': typeof WritingsRoute
@@ -224,6 +232,7 @@ export interface FileRoutesById {
   '/mandala': typeof MandalaRoute
   '/notes': typeof NotesRoute
   '/prana': typeof PranaRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/score': typeof ScoreRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teachings': typeof TeachingsRouteWithChildren
@@ -252,6 +261,7 @@ export interface FileRouteTypes {
     | '/mandala'
     | '/notes'
     | '/prana'
+    | '/robots.txt'
     | '/score'
     | '/sitemap.xml'
     | '/teachings'
@@ -278,6 +288,7 @@ export interface FileRouteTypes {
     | '/mandala'
     | '/notes'
     | '/prana'
+    | '/robots.txt'
     | '/score'
     | '/sitemap.xml'
     | '/writings'
@@ -303,6 +314,7 @@ export interface FileRouteTypes {
     | '/mandala'
     | '/notes'
     | '/prana'
+    | '/robots.txt'
     | '/score'
     | '/sitemap.xml'
     | '/teachings'
@@ -330,6 +342,7 @@ export interface RootRouteChildren {
   MandalaRoute: typeof MandalaRoute
   NotesRoute: typeof NotesRoute
   PranaRoute: typeof PranaRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   ScoreRoute: typeof ScoreRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeachingsRoute: typeof TeachingsRouteWithChildren
@@ -366,6 +379,13 @@ declare module '@tanstack/react-router' {
       path: '/score'
       fullPath: '/score'
       preLoaderRoute: typeof ScoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prana': {
@@ -542,6 +562,7 @@ const rootRouteChildren: RootRouteChildren = {
   MandalaRoute: MandalaRoute,
   NotesRoute: NotesRoute,
   PranaRoute: PranaRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   ScoreRoute: ScoreRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeachingsRoute: TeachingsRouteWithChildren,
