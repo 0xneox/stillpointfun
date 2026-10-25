@@ -49,9 +49,6 @@ export function SiteFooter() {
               <Link to="/about" className="hover:text-accent transition-colors">
                 About
               </Link>
-              <Link to="/founder" className="hover:text-accent transition-colors">
-                Founder
-              </Link>
               <Link to="/disclaimer" className="hover:text-accent transition-colors">
                 Disclaimer
               </Link>

@@ -80,7 +80,6 @@ function contentRegistryPlugin(publicLaunch: boolean): Plugin {
         this.addWatchFile(path.resolve(process.cwd(), item.source_path));
       }
       this.addWatchFile(path.resolve(process.cwd(), "content", "content-types.yml"));
-      this.addWatchFile(path.resolve(process.cwd(), "content", "pages", "founder.md"));
     },
     load(id) {
       if (id !== resolvedContentRegistryModuleId) return null;
@@ -93,9 +92,6 @@ function contentRegistryPlugin(publicLaunch: boolean): Plugin {
         items: registry.published,
         pathSteps,
         navSections: registry.navSections,
-        founderPage: registry.founderPage
-          ? { data: registry.founderPage.data, body: registry.founderPage.body }
-          : null,
       })};`;
     },
   };

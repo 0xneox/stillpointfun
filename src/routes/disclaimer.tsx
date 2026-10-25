@@ -55,6 +55,24 @@ function Disclaimer() {
           </div>
         </div>
       </section>
+
+      <section className="max-w-3xl mx-auto px-6 py-24">
+        <span className="font-mono text-[10px] tracking-widest uppercase opacity-50 block mb-6">
+          Content Ownership
+        </span>
+        <div className="space-y-4 text-base leading-relaxed">
+          <p>
+            The contents of this site — including audiobooks, library materials, and discourses —
+            are not owned by me or by Still Point. These are open-source contributions, sourced
+            from the Internet Archive and other public sources by community members.
+          </p>
+          <p>
+            The only content that is original or owned by Still Point is the writings and journals.
+            All other materials are shared as contributed resources for educational and contemplative
+            purposes.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

@@ -27,18 +27,6 @@ function writeFixture(content, { enabled = ["path_step"] } = {}) {
       .map((type) => `  ${type}: ${enabled.includes(type)}`)
       .join("\n")}\n`,
   );
-  fs.writeFileSync(
-    path.join(root, "content", "pages", "founder.md"),
-    `---\ntitle: Founder\n---\n${[
-      "My practice",
-      "My teachers and lineage/initiation status",
-      "What I do not claim",
-      "How AI is used on this site",
-      "No token / no sales / no ads / no tracking",
-    ]
-      .map((heading) => `## ${heading}\n\nTODO`)
-      .join("\n\n")}\n`,
-  );
   fs.mkdirSync(path.join(root, "content", "path"), { recursive: true });
   if (content) fs.writeFileSync(path.join(root, "content", "path", "fixture.md"), content);
   return root;

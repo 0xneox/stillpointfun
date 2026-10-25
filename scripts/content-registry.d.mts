@@ -26,7 +26,6 @@ export interface ContentRegistry {
   all: ContentEntry[];
   published: ContentEntry[];
   navSections: Array<{ id: "path" | "practice" | "log"; label: string; count: number }>;
-  founderPage: { data: Record<string, unknown>; body: string } | null;
   issues: string[];
   warnings: string[];
 }

@@ -20,7 +20,6 @@ declare module "virtual:stillpoint-content-registry" {
     items: ContentEntry[];
     pathSteps: ContentEntry[];
     navSections: ContentNavSection[];
-    founderPage: { data: Record<string, unknown>; body: string } | null;
   };
 
   export default content;

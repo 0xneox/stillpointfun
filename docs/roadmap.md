@@ -3,7 +3,6 @@
 ## v0.1 — launch
 
 - Path
-- Founder
 - Log
 - Practice
 - Small cleared library

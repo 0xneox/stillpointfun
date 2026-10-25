@@ -415,37 +415,6 @@ function validateWork(item, file, issues) {
   }
 }
 
-function validateFounderPage(filePath, issues) {
-  const parsed = parseMarkdownFile(filePath);
-  const required = [
-    "my practice",
-    "my teachers and lineage/initiation status",
-    "what i do not claim",
-    "how ai is used on this site",
-    "no token / no sales / no ads / no tracking",
-  ];
-  const headings = new Set(
-    parsed.body
-      .split(/\r?\n/)
-      .filter((line) => line.startsWith("#"))
-      .map((line) =>
-        line
-          .replace(/^#+\s*/, "")
-          .trim()
-          .toLowerCase(),
-      ),
-  );
-  for (const heading of required) {
-    if (!headings.has(heading)) {
-      addIssue(issues, "content/pages/founder.md", `missing required section "${heading}"`);
-    }
-  }
-  if (!/TODO/i.test(parsed.body)) {
-    addIssue(issues, "content/pages/founder.md", "personal fields must remain TODO placeholders");
-  }
-  return parsed;
-}
-
 function sourceFiles(directory) {
   if (!fs.existsSync(directory)) return [];
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -551,11 +520,6 @@ export function validateContentRegistry(root, { publicLaunch = false } = {}) {
       all.push({ ...item, body: parsed.body, source_path: relativePath });
     }
   }
-
-  let founderPage = null;
-  const founderPath = path.join(contentRoot, "pages", "founder.md");
-  if (fs.existsSync(founderPath)) founderPage = validateFounderPage(founderPath, issues);
-  else addIssue(issues, "content/pages/founder.md", "founder template is required");
 
   const pathOrders = new Set();
   for (const step of all.filter((item) => item.type === "path_step")) {
@@ -668,7 +632,6 @@ export function validateContentRegistry(root, { publicLaunch = false } = {}) {
     all,
     published,
     navSections,
-    founderPage,
     issues,
     warnings,
   };

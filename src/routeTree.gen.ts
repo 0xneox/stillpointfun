@@ -25,7 +25,6 @@ import { Route as LibraryRouteImport } from './routes/library'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as InquiryRouteImport } from './routes/inquiry'
 import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as FounderRouteImport } from './routes/founder'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as DiscoursesRouteImport } from './routes/discourses'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
@@ -120,11 +119,6 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FounderRoute = FounderRouteImport.update({
-  id: '/founder',
-  path: '/founder',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DiscoverRoute = DiscoverRouteImport.update({
   id: '/discover',
   path: '/discover',
@@ -199,7 +193,6 @@ export interface FileRoutesByFullPath {
   '/disclaimer': typeof DisclaimerRoute
   '/discourses': typeof DiscoursesRoute
   '/discover': typeof DiscoverRoute
-  '/founder': typeof FounderRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/journal': typeof JournalRoute
@@ -231,7 +224,6 @@ export interface FileRoutesByTo {
   '/disclaimer': typeof DisclaimerRoute
   '/discourses': typeof DiscoursesRoute
   '/discover': typeof DiscoverRoute
-  '/founder': typeof FounderRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/journal': typeof JournalRoute
@@ -263,7 +255,6 @@ export interface FileRoutesById {
   '/disclaimer': typeof DisclaimerRoute
   '/discourses': typeof DiscoursesRoute
   '/discover': typeof DiscoverRoute
-  '/founder': typeof FounderRoute
   '/gallery': typeof GalleryRoute
   '/inquiry': typeof InquiryRoute
   '/journal': typeof JournalRoute
@@ -297,7 +288,6 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/discourses'
     | '/discover'
-    | '/founder'
     | '/gallery'
     | '/inquiry'
     | '/journal'
@@ -329,7 +319,6 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/discourses'
     | '/discover'
-    | '/founder'
     | '/gallery'
     | '/inquiry'
     | '/journal'
@@ -360,7 +349,6 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/discourses'
     | '/discover'
-    | '/founder'
     | '/gallery'
     | '/inquiry'
     | '/journal'
@@ -393,7 +381,6 @@ export interface RootRouteChildren {
   DisclaimerRoute: typeof DisclaimerRoute
   DiscoursesRoute: typeof DiscoursesRoute
   DiscoverRoute: typeof DiscoverRoute
-  FounderRoute: typeof FounderRoute
   GalleryRoute: typeof GalleryRoute
   InquiryRoute: typeof InquiryRoute
   JournalRoute: typeof JournalRoute
@@ -530,13 +517,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/founder': {
-      id: '/founder'
-      path: '/founder'
-      fullPath: '/founder'
-      preLoaderRoute: typeof FounderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/discover': {
       id: '/discover'
       path: '/discover'
@@ -653,7 +633,6 @@ const rootRouteChildren: RootRouteChildren = {
   DisclaimerRoute: DisclaimerRoute,
   DiscoursesRoute: DiscoursesRoute,
   DiscoverRoute: DiscoverRoute,
-  FounderRoute: FounderRoute,
   GalleryRoute: GalleryRoute,
   InquiryRoute: InquiryRoute,
   JournalRoute: JournalRoute,

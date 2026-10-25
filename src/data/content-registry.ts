@@ -48,14 +48,12 @@ interface PublicContent {
   items: ContentEntry[];
   pathSteps: ContentEntry[];
   navSections: ContentNavSection[];
-  founderPage: { data: Record<string, unknown>; body: string } | null;
 }
 
 export const CONTENT_REGISTRY = publicContent as PublicContent;
 export const PUBLISHED_CONTENT = CONTENT_REGISTRY.items;
 export const PUBLISHED_PATH_STEPS = CONTENT_REGISTRY.pathSteps;
 export const CONTENT_NAV_SECTIONS = CONTENT_REGISTRY.navSections;
-export const FOUNDER_PAGE = CONTENT_REGISTRY.founderPage;
 
 const sectionRoutes = {
   path: "/path",
