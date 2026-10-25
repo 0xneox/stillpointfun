@@ -71,6 +71,20 @@ function Disclaimer() {
             All other materials are shared as contributed resources for educational and contemplative
             purposes.
           </p>
+          <p className="font-semibold mt-6">
+            Copyright and Removal Request
+          </p>
+          <p>
+            If you are the owner of any works, audiobooks, discourses, or other content on this site,
+            or if you hold the copyright and wish to have your material removed, please contact us at:
+          </p>
+          <p className="font-mono text-accent">
+            neohex@pm.me
+          </p>
+          <p>
+            We will promptly remove any content upon receiving a valid copyright claim or removal
+            request from the rightful owner.
+          </p>
         </div>
       </section>
     </div>
