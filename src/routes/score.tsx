@@ -30,16 +30,30 @@ export const Route = createFileRoute("/score")({
 
 function PracticeLog() {
   const [totalMinutes, setTotalMinutes] = useState(() => {
-    const savedData = JSON.parse(
-      localStorage.getItem("stillPointData") || '{"totalMinutes":0,"practices":[]}',
-    );
-    return savedData.totalMinutes;
+    if (typeof window !== "undefined") {
+      try {
+        const savedData = JSON.parse(
+          localStorage.getItem("stillPointData") || '{"totalMinutes":0,"practices":[]}',
+        );
+        return savedData.totalMinutes || 0;
+      } catch {
+        return 0;
+      }
+    }
+    return 0;
   });
-  const [practices, setPractices] = useState(() => {
-    const savedData = JSON.parse(
-      localStorage.getItem("stillPointData") || '{"totalMinutes":0,"practices":[]}',
-    );
-    return savedData.practices || [];
+  const [practices, setPractices] = useState<Practice[]>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const savedData = JSON.parse(
+          localStorage.getItem("stillPointData") || '{"totalMinutes":0,"practices":[]}',
+        );
+        return savedData.practices || [];
+      } catch {
+        return [];
+      }
+    }
+    return [];
   });
 
   return (

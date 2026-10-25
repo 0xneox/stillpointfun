@@ -45,7 +45,7 @@ function isH3SwallowedErrorBody(body: string): boolean {
 }
 
 function applyRobotsHeader(response: Response): Response {
-  if (process.env.PUBLIC_LAUNCH === "true") return response;
+  if (__PUBLIC_LAUNCH__) return response;
 
   const headers = new Headers(response.headers);
   headers.set("X-Robots-Tag", "noindex, nofollow");

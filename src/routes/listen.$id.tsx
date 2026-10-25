@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { CONTENT } from "@/data/content";
 import { POSTS } from "@/data/posts";
-import { LIBRARY_ITEMS } from "@/routes/library";
+import { LIBRARY_ITEMS } from "@/data/library";
 import { EnhancedPlayer } from "@/components/EnhancedPlayer";
 import { ShareButton } from "@/components/ShareButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -35,6 +35,7 @@ export const Route = createFileRoute("/listen/$id")({
 });
 
 function Listen() {
+  const navigate = useNavigate();
   const { id } = Route.useParams();
   const currentItem = CONTENT.find((c) => c.id === id);
 
@@ -51,7 +52,6 @@ function Listen() {
     );
   }
 
-  const navigate = useNavigate();
   const currentIndex = CONTENT.findIndex((c) => c.id === currentItem.id);
   const handleNext = () => {
     const nextItem = CONTENT[(currentIndex + 1) % CONTENT.length];
@@ -77,16 +77,12 @@ function Listen() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6">
       <div className="max-w-4xl mx-auto space-y-8 w-full">
-        <Breadcrumbs
-          items={[
-            { label: "Listen", to: "/" },
-            { label: currentItem.title },
-          ]}
-        />
+        <Breadcrumbs items={[{ label: "Listen", to: "/" }, { label: currentItem.title }]} />
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">NOW PLAYING</p>
 
         <div className="max-w-3xl mx-auto">
           <EnhancedPlayer
+            itemId={currentItem.id}
             videoId={currentItem.youtube_video_id}
             title={currentItem.title}
             artist={currentItem.artist_or_speaker}

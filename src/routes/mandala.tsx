@@ -23,11 +23,11 @@ export const Route = createFileRoute("/mandala")({
 
 function Mandala() {
   const activeDiscussions = [
-    { title: "The nature of the witness in market volatility", replies: 23, lastActive: "2m ago" },
-    { title: "Spanda as the pulse of collective attention", replies: 17, lastActive: "15m ago" },
-    { title: "Pratyabhijñā: Recognition in the age of AI", replies: 31, lastActive: "1h ago" },
-    { title: "Dream symbols from the collective field", replies: 8, lastActive: "3h ago" },
-    { title: "Still Board reflections from this week", replies: 45, lastActive: "5h ago" },
+    { title: "The Witness in Kashmir Śaivism: Trika & Pratyabhijñā", category: "Philosophy", status: "Open Study" },
+    { title: "Spanda: Experiencing the Pulse of Pure Awareness", category: "Practice", status: "Ongoing" },
+    { title: "The Mirror and the Reflection: Non-Dual Recognition", category: "Direct Inquiry", status: "Inquiry" },
+    { title: "Phenomenological Perspectives on Pure Consciousness", category: "Dialogue", status: "Reading Group" },
+    { title: "Reflections on Stillness in Daily Life", category: "Contemplation", status: "Open" },
   ];
 
   return (
@@ -40,8 +40,8 @@ function Mandala() {
           The Field is Alive
         </h1>
         <p className="mt-6 max-w-xl text-lg opacity-70 leading-relaxed">
-          Long-form study circles, dream sharing, textual exegesis, archetype exploration, and
-          sangha support — all held within the same field of Recognition.
+          Long-form study circles, textual exegesis, contemplative inquiry, and
+          sangha support — all held within the field of shared Recognition.
         </p>
       </header>
 
@@ -50,23 +50,22 @@ function Mandala() {
         <div className="flex justify-between items-end mb-12">
           <div>
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
-              Active Now
+              Community Study
             </span>
-            <h2 className="font-display italic text-4xl md:text-5xl mt-4">Living Discussions</h2>
+            <h2 className="font-display italic text-4xl md:text-5xl mt-4">Study Circles</h2>
           </div>
           <div className="hidden md:flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-widest opacity-70">
-              47 online
+            <span className="font-mono text-xs uppercase tracking-widest opacity-60">
+              Open Participation
             </span>
           </div>
         </div>
 
         <div className="space-y-6">
           {activeDiscussions.map((discussion, i) => (
-            <button
+            <div
               key={i}
-              className="w-full text-left group border-t border-border pt-8 hover:bg-foreground/5 transition-colors"
+              className="w-full text-left group border-t border-border pt-8 hover:bg-foreground/5 transition-colors p-4 rounded"
             >
               <div className="flex items-start justify-between gap-6">
                 <div className="flex-1">
@@ -74,23 +73,31 @@ function Mandala() {
                     {discussion.title}
                   </h3>
                   <div className="flex items-center gap-4 text-sm opacity-60">
-                    <span>{discussion.replies} replies</span>
+                    <span className="font-mono text-xs uppercase tracking-wider">{discussion.category}</span>
                     <span>·</span>
-                    <span>Last active {discussion.lastActive}</span>
+                    <span className="font-mono text-xs text-accent">{discussion.status}</span>
                   </div>
                 </div>
-                <div className="font-mono text-xs opacity-40 group-hover:opacity-100 transition-opacity">
-                  →
-                </div>
               </div>
-            </button>
+            </div>
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border">
-          <button className="px-8 py-4 bg-foreground text-background font-mono text-[10px] tracking-[0.2em] uppercase hover:bg-accent transition-colors">
-            Start New Discussion
-          </button>
+        <div className="mt-12 pt-8 border-t border-border flex flex-wrap gap-4 items-center">
+          <a
+            href="https://github.com/0xneox/beyond-the-veil-dev/discussions"
+            target="_blank"
+            rel="noreferrer"
+            className="px-8 py-4 bg-foreground text-background font-mono text-[10px] tracking-[0.2em] uppercase hover:bg-accent transition-colors inline-block"
+          >
+            Join Discussions on GitHub →
+          </a>
+          <Link
+            to="/board"
+            className="px-8 py-4 border border-border font-mono text-[10px] tracking-[0.2em] uppercase hover:border-foreground transition-colors inline-block"
+          >
+            Visit Still Board
+          </Link>
         </div>
       </section>
 

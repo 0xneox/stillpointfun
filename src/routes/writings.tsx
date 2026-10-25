@@ -4,6 +4,8 @@ import { CONTENT } from "@/data/content";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { siteUrl } from "@/lib/site-url";
 
+import { useState, useMemo } from "react";
+
 export const Route = createFileRoute("/writings")({
   head: () => ({
     meta: [
@@ -27,6 +29,13 @@ export const Route = createFileRoute("/writings")({
 });
 
 function Writings() {
+  const [selectedTopic, setSelectedTopic] = useState<string>("All");
+
+  const filteredPosts = useMemo(() => {
+    if (selectedTopic === "All") return POSTS;
+    return POSTS.filter((post) => post.topic === selectedTopic);
+  }, [selectedTopic]);
+
   return (
     <div className="min-h-screen">
       <section className="max-w-4xl mx-auto px-6 py-20">
@@ -56,7 +65,12 @@ function Writings() {
           ].map((topic) => (
             <button
               key={topic}
-              className="px-4 py-2 border border-border font-mono text-[10px] tracking-widest uppercase hover:border-foreground hover:bg-foreground hover:text-background transition-all"
+              onClick={() => setSelectedTopic(topic)}
+              className={`px-4 py-2 border font-mono text-[10px] tracking-widest uppercase transition-all ${
+                selectedTopic === topic
+                  ? "border-foreground bg-foreground text-background"
+                  : "border-border hover:border-foreground hover:bg-foreground/5"
+              }`}
             >
               {topic}
             </button>
@@ -65,7 +79,7 @@ function Writings() {
 
         {/* Articles */}
         <div className="space-y-16">
-          {POSTS.map((post) => (
+          {filteredPosts.map((post) => (
             <Link
               key={post.slug}
               to="/teachings/$slug"

@@ -1,0 +1,11 @@
+content_types_enabled:
+  path_step: true
+  practice: true
+  mantra: true
+  log: true
+  chant: false
+  discourse: false
+  text: false
+  note: false
+  work: false
+  stream: false

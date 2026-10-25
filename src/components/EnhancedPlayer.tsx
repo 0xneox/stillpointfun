@@ -1,15 +1,10 @@
-import { useState, useRef, useEffect, useCallback, useId } from "react";
-
-// Declare YT global on window
-declare global {
-  interface Window {
-    YT: any;
-    onYouTubeIframeAPIReady: (() => void) | undefined;
-  }
-}
+import { useState, useRef, useEffect, useCallback } from "react";
+import { getMediaBaseUrl } from "@/lib/media";
 
 interface EnhancedPlayerProps {
-  videoId: string;
+  videoId?: string;
+  audioUrl?: string;
+  itemId?: string;
   title: string;
   artist: string;
   channel?: string;
@@ -22,6 +17,8 @@ interface EnhancedPlayerProps {
 
 export function EnhancedPlayer({
   videoId,
+  audioUrl,
+  itemId,
   title,
   artist,
   channel,
@@ -36,12 +33,32 @@ export function EnhancedPlayer({
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(85);
   const [isMuted, setIsMuted] = useState(false);
-  const [isSeeking, setIsSeeking] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
+  const [isLooping, setIsLooping] = useState(false);
+  const [audioError, setAudioError] = useState<string | null>(null);
 
-  const playerRef = useRef<any>(null);
-  const pollIntervalRef = useRef<any>(null);
-  const playerId = `yt-audio-${useId().replace(/:/g, "")}`;
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Compute resolved stream URL
+  const resolvedUrl = useCallback(() => {
+    if (audioUrl) return audioUrl;
+    const base = getMediaBaseUrl();
+    if (base && itemId) {
+      return `${base}/audio/${itemId}.opus`;
+    }
+    if (base && videoId) {
+      return `${base}/audio/${videoId}.opus`;
+    }
+    if (itemId) {
+      return `/audio/${itemId}.opus`;
+    }
+    if (videoId) {
+      return `/audio/${videoId}.opus`;
+    }
+    return "";
+  }, [audioUrl, itemId, videoId]);
+
+  const currentStreamUrl = resolvedUrl();
 
   // Format seconds to mm:ss or hh:mm:ss
   const formatTime = (seconds: number) => {
@@ -55,415 +72,252 @@ export function EnhancedPlayer({
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
-  // Initialize YouTube IFrame API
+  // Sync audio source
   useEffect(() => {
-    let isCancelled = false;
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    const initPlayer = () => {
-      if (isCancelled || !window.YT || !window.YT.Player) return;
-      const targetEl = document.getElementById(playerId);
-      if (!targetEl) return;
+    setAudioError(null);
+    setCurrentTime(0);
 
-      if (playerRef.current) {
-        try {
-          playerRef.current.destroy();
-        } catch {}
+    if (currentStreamUrl) {
+      audio.src = currentStreamUrl;
+      audio.load();
+      if (autoplay) {
+        audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
       }
-
-      try {
-        playerRef.current = new window.YT.Player(playerId, {
-          height: "204",
-          width: "204",
-          videoId,
-          playerVars: {
-            autoplay: autoplay ? 1 : 0,
-            controls: 0,
-            playsinline: 1,
-            disablekb: 1,
-            fs: 0,
-            modestbranding: 1,
-            rel: 0,
-          },
-          events: {
-            onReady: (event: any) => {
-              if (isCancelled) return;
-              event.target.setVolume(volume);
-              const dur = event.target.getDuration();
-              if (dur) setDuration(dur);
-              if (autoplay) {
-                event.target.playVideo();
-              }
-            },
-            onStateChange: (event: any) => {
-              if (isCancelled) return;
-              // YT.PlayerState: -1 unstarted, 0 ended, 1 playing, 2 paused, 3 buffering
-              if (event.data === 1) {
-                setIsPlaying(true);
-                const dur = event.target.getDuration();
-                if (dur) setDuration(dur);
-              } else if (event.data === 2) {
-                setIsPlaying(false);
-              } else if (event.data === 0) {
-                setIsPlaying(false);
-                if (onNext) onNext();
-              }
-            },
-          },
-        });
-      } catch (err) {
-        console.error("Error creating YouTube audio engine:", err);
-      }
-    };
-
-    if (window.YT && window.YT.Player) {
-      initPlayer();
     } else {
-      // Load script if not already added
-      const existingScript = document.getElementById("yt-iframe-api-script");
-      if (!existingScript) {
-        const tag = document.createElement("script");
-        tag.id = "yt-iframe-api-script";
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName("script")[0];
-        firstScriptTag?.parentNode?.insertBefore(tag, firstScriptTag);
-      }
-
-      const prevCallback = window.onYouTubeIframeAPIReady;
-      window.onYouTubeIframeAPIReady = () => {
-        if (prevCallback) prevCallback();
-        initPlayer();
-      };
+      setIsPlaying(false);
     }
+  }, [currentStreamUrl, autoplay]);
 
-    return () => {
-      isCancelled = true;
-      if (pollIntervalRef.current) clearInterval(pollIntervalRef.current);
-      if (playerRef.current) {
-        try {
-          playerRef.current.destroy();
-        } catch {}
-      }
-    };
-  }, [playerId, videoId]);
-
-  // Track playback time
+  // Sync volume and speed
   useEffect(() => {
-    if (pollIntervalRef.current) clearInterval(pollIntervalRef.current);
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = isMuted ? 0 : volume / 100;
+    audio.playbackRate = playbackSpeed;
+    audio.loop = isLooping;
+  }, [volume, isMuted, playbackSpeed, isLooping]);
 
-    if (isPlaying && !isSeeking) {
-      pollIntervalRef.current = setInterval(() => {
-        if (playerRef.current && typeof playerRef.current.getCurrentTime === "function") {
-          try {
-            const time = playerRef.current.getCurrentTime();
-            const dur = playerRef.current.getDuration();
-            if (typeof time === "number" && !isNaN(time)) {
-              setCurrentTime(time);
-            }
-            if (typeof dur === "number" && !isNaN(dur) && dur > 0) {
-              setDuration(dur);
-            }
-          } catch {}
-        }
-      }, 500);
-    }
-
-    return () => {
-      if (pollIntervalRef.current) clearInterval(pollIntervalRef.current);
-    };
-  }, [isPlaying, isSeeking]);
-
-  // Controls
   const togglePlay = () => {
-    if (!playerRef.current) return;
-    try {
-      if (isPlaying) {
-        playerRef.current.pauseVideo();
-        setIsPlaying(false);
-      } else {
-        playerRef.current.playVideo();
-      }
-    } catch (e) {
-      console.error("Play toggle error:", e);
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          setAudioError(null);
+        })
+        .catch((err) => {
+          console.warn("Autoplay / audio playback prevented:", err);
+          setIsPlaying(false);
+          setAudioError("Audio stream is connecting or format is loading.");
+        });
     }
   };
 
-  const handleSkip = (seconds: number) => {
-    if (!playerRef.current) return;
-    try {
-      const target = Math.max(0, Math.min(duration || 0, currentTime + seconds));
-      playerRef.current.seekTo(target, true);
-      setCurrentTime(target);
-    } catch {}
+  const handleSeek = (newTime: number) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.currentTime = newTime;
+    setCurrentTime(newTime);
   };
 
-  const handleSeekChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = parseFloat(e.target.value);
-    setCurrentTime(val);
+  const skipSeconds = (seconds: number) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const target = Math.max(0, Math.min(duration, audio.currentTime + seconds));
+    handleSeek(target);
   };
 
-  const handleSeekCommit = () => {
-    setIsSeeking(false);
-    if (playerRef.current && typeof playerRef.current.seekTo === "function") {
-      try {
-        playerRef.current.seekTo(currentTime, true);
-      } catch {}
-    }
-  };
-
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const vol = parseInt(e.target.value, 10);
-    setVolume(vol);
-    setIsMuted(vol === 0);
-    if (playerRef.current) {
-      try {
-        playerRef.current.setVolume(vol);
-        if (vol > 0 && playerRef.current.isMuted()) {
-          playerRef.current.unMute();
-        }
-      } catch {}
-    }
-  };
-
-  const toggleMute = () => {
-    if (!playerRef.current) return;
-    try {
-      if (isMuted) {
-        setIsMuted(false);
-        playerRef.current.unMute();
-        playerRef.current.setVolume(volume || 80);
-      } else {
-        setIsMuted(true);
-        playerRef.current.mute();
-      }
-    } catch {}
-  };
-
-  const handleSpeedChange = (speed: number) => {
-    setPlaybackSpeed(speed);
-    if (playerRef.current && typeof playerRef.current.setPlaybackRate === "function") {
-      try {
-        playerRef.current.setPlaybackRate(speed);
-      } catch {}
-    }
+  const cycleSpeed = () => {
+    const speeds = [0.75, 1, 1.25, 1.5];
+    const nextIdx = (speeds.indexOf(playbackSpeed) + 1) % speeds.length;
+    setPlaybackSpeed(speeds[nextIdx]);
   };
 
   const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="w-full relative">
-      <div className="w-[204px] h-[204px] shrink-0 overflow-hidden rounded-lg border border-border bg-black">
-        <div id={playerId} />
+    <div className="w-full bg-surface border border-border rounded-sm p-6 md:p-8 space-y-6">
+      {/* Hidden native audio element */}
+      <audio
+        ref={audioRef}
+        preload="metadata"
+        onTimeUpdate={() => {
+          if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
+        }}
+        onLoadedMetadata={() => {
+          if (audioRef.current) setDuration(audioRef.current.duration);
+        }}
+        onEnded={() => {
+          setIsPlaying(false);
+          if (onNext) onNext();
+        }}
+        onError={() => {
+          // Keep state resilient
+          setAudioError("Cloudflare Opus stream not yet uploaded or offline.");
+        }}
+      />
+
+      {/* Header Info */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border/60 pb-6">
+        <div className="space-y-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[9px] tracking-widest uppercase text-accent font-semibold">
+              PURE AUDIO STREAM
+            </span>
+            {channel && (
+              <span className="font-mono text-[9px] tracking-widest uppercase opacity-40">
+                · {channel}
+              </span>
+            )}
+            <span className="font-mono text-[9px] tracking-widest uppercase px-1.5 py-0.5 bg-accent/10 text-accent rounded">
+              OPUS
+            </span>
+          </div>
+          <h2 className="font-display text-2xl md:text-3xl text-balance truncate">{title}</h2>
+          <p className="font-mono text-xs opacity-60 truncate">{artist}</p>
+        </div>
+
+        {/* Visualizer Disc */}
+        <div className="shrink-0 flex items-center gap-3">
+          <div
+            className={`w-12 h-12 rounded-full border border-border flex items-center justify-center transition-all ${
+              isPlaying ? "animate-[spin_10s_linear_infinite] border-accent" : "opacity-40"
+            }`}
+          >
+            <div className="w-4 h-4 rounded-full border border-accent/40 bg-accent/20" />
+          </div>
+        </div>
       </div>
 
-      {/* Custom audio controls for the YouTube player */}
-      <div className="p-6 md:p-10 bg-surface/50 backdrop-blur-md border border-border rounded-xl shadow-2xl space-y-8 relative overflow-hidden group">
-        {/* Ambient Glow */}
+      {audioError && (
+        <div className="p-3 bg-surface border border-border text-xs font-mono opacity-70 rounded flex items-center justify-between">
+          <span>{audioError}</span>
+          <span className="opacity-40 text-[10px]">Awaiting Cloudflare .opus upload</span>
+        </div>
+      )}
+
+      {/* Scrubber Progress Bar */}
+      <div className="space-y-2">
         <div
-          className={`absolute -top-24 -right-24 w-80 h-80 rounded-full bg-accent/10 blur-3xl pointer-events-none transition-opacity duration-1000 ${
-            isPlaying ? "opacity-100" : "opacity-30"
-          }`}
-        />
+          className="relative h-2 bg-background border border-border/80 rounded-full cursor-pointer overflow-hidden touch-manipulation group"
+          onClick={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickPos = (e.clientX - rect.left) / rect.width;
+            if (duration > 0) {
+              handleSeek(clickPos * duration);
+            }
+          }}
+        >
+          <div
+            className="absolute top-0 bottom-0 left-0 bg-accent transition-all group-hover:brightness-110"
+            style={{ width: `${progressPercent}%` }}
+          />
+        </div>
+        <div className="flex justify-between items-center font-mono text-[11px] opacity-50">
+          <span>{formatTime(currentTime)}</span>
+          <span>{formatTime(duration)}</span>
+        </div>
+      </div>
 
-        {/* Top Header: Track Meta & Artwork */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 md:gap-8 relative z-10">
-          {/* Album Artwork with Sound Aura */}
-          <div className="relative shrink-0">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden border border-border/80 shadow-2xl relative group-hover:border-accent/60 transition-colors">
-              <img
-                src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
-                alt={title}
-                className={`w-full h-full object-cover transition-transform duration-700 ${
-                  isPlaying ? "scale-105" : "scale-100"
-                }`}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-              {/* Pulsing On-Air Indicator */}
-              <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 px-2 py-0.5 bg-black/60 backdrop-blur-sm rounded-full border border-white/10">
-                <span
-                  className={`w-1.5 h-1.5 rounded-full ${
-                    isPlaying ? "bg-accent animate-pulse" : "bg-white/40"
-                  }`}
-                />
-                <span className="font-mono text-[8px] uppercase tracking-widest text-white/90">
-                  {isPlaying ? "Live Audio" : "Paused"}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Track Information */}
-          <div className="flex-1 min-w-0 text-center sm:text-left space-y-2.5">
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <span className="px-2.5 py-0.5 bg-accent/15 text-accent font-mono text-[9px] tracking-widest uppercase rounded font-medium border border-accent/20">
-                YouTube Audio
-              </span>
-              {channel && (
-                <span className="px-2.5 py-0.5 bg-surface text-foreground/70 font-mono text-[9px] tracking-wider uppercase border border-border rounded">
-                  Channel · {channel}
-                </span>
-              )}
-            </div>
-
-            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl leading-tight text-foreground font-normal text-balance">
-              {title}
-            </h2>
-
-            <p className="font-mono text-sm opacity-70 tracking-wide">{artist}</p>
-
-            {/* Audio Waveform / Spectrum Animation */}
-            <div className="pt-2 flex items-center justify-center sm:justify-start gap-1 h-6">
-              {[40, 75, 55, 90, 60, 30, 85, 45, 95, 65, 35, 80, 50, 70, 40].map((height, i) => (
-                <div
-                  key={i}
-                  className="w-1 bg-accent/60 rounded-full transition-all duration-300"
-                  style={{
-                    height: isPlaying ? `${Math.max(15, (height * (i % 2 === 0 ? 1 : 0.8)))}%` : "15%",
-                    opacity: isPlaying ? 0.85 : 0.25,
-                    animation: isPlaying
-                      ? `pulse ${0.6 + (i % 5) * 0.15}s ease-in-out infinite alternate`
-                      : "none",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+      {/* Controls */}
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+        {/* Speed & Loop */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={cycleSpeed}
+            className="px-2.5 py-1 text-[10px] font-mono border border-border/80 hover:border-foreground transition-colors rounded"
+            title="Playback Speed"
+          >
+            {playbackSpeed}x
+          </button>
+          <button
+            onClick={() => setIsLooping(!isLooping)}
+            className={`px-2.5 py-1 text-[10px] font-mono border rounded transition-colors ${
+              isLooping ? "border-accent text-accent bg-accent/10" : "border-border/80 opacity-60"
+            }`}
+            title="Loop Track"
+          >
+            Loop
+          </button>
         </div>
 
-        {/* Timeline Progress Bar & Duration */}
-        <div className="space-y-2 relative z-10">
-          <div className="relative group/timeline flex items-center">
-            <input
-              type="range"
-              min="0"
-              max={duration || 100}
-              value={currentTime}
-              onMouseDown={() => setIsSeeking(true)}
-              onTouchStart={() => setIsSeeking(true)}
-              onChange={handleSeekChange}
-              onMouseUp={handleSeekCommit}
-              onTouchEnd={handleSeekCommit}
-              className="w-full h-2 bg-border rounded-full appearance-none cursor-pointer focus:outline-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:bg-accent [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md hover:[&::-webkit-slider-thumb]:scale-125 transition-all"
-              style={{
-                background: `linear-gradient(to right, var(--color-accent, #c99c4e) ${progressPercent}%, var(--color-border, #e5e5e5) ${progressPercent}%)`,
-              }}
-            />
-          </div>
+        {/* Center transport buttons */}
+        <div className="flex items-center gap-3">
+          {hasPrev && onPrev && (
+            <button
+              onClick={onPrev}
+              className="p-2 border border-border hover:border-foreground transition-colors rounded font-mono text-xs"
+              aria-label="Previous track"
+            >
+              ⏮
+            </button>
+          )}
 
-          <div className="flex items-center justify-between font-mono text-[11px] opacity-60">
-            <span>{formatTime(currentTime)}</span>
-            <span>{duration > 0 ? formatTime(duration) : "--:--"}</span>
-          </div>
+          <button
+            onClick={() => skipSeconds(-15)}
+            className="p-2 border border-border hover:border-foreground transition-colors rounded font-mono text-xs opacity-70"
+            title="Rewind 15 seconds"
+          >
+            -15s
+          </button>
+
+          <button
+            onClick={togglePlay}
+            className="px-6 py-3 bg-foreground text-background font-mono text-xs tracking-widest uppercase hover:bg-accent hover:text-foreground transition-all rounded font-semibold shadow-md"
+            aria-label={isPlaying ? "Pause" : "Play"}
+          >
+            {isPlaying ? "PAUSE" : "PLAY"}
+          </button>
+
+          <button
+            onClick={() => skipSeconds(15)}
+            className="p-2 border border-border hover:border-foreground transition-colors rounded font-mono text-xs opacity-70"
+            title="Forward 15 seconds"
+          >
+            +15s
+          </button>
+
+          {hasNext && onNext && (
+            <button
+              onClick={onNext}
+              className="p-2 border border-border hover:border-foreground transition-colors rounded font-mono text-xs"
+              aria-label="Next track"
+            >
+              ⏭
+            </button>
+          )}
         </div>
 
-        {/* Main Controls Console */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-2 relative z-10 border-t border-border/60">
-          {/* Secondary Controls: Speed */}
-          <div className="flex items-center gap-1.5 order-2 sm:order-1">
-            <span className="font-mono text-[9px] uppercase tracking-widest opacity-40 mr-1">
-              Speed:
-            </span>
-            {[0.75, 1, 1.25, 1.5].map((speed) => (
-              <button
-                key={speed}
-                type="button"
-                onClick={() => handleSpeedChange(speed)}
-                className={`px-2 py-0.5 rounded font-mono text-[10px] transition-colors ${
-                  playbackSpeed === speed
-                    ? "bg-accent text-white font-medium shadow-sm"
-                    : "opacity-60 hover:opacity-100 hover:bg-surface"
-                }`}
-              >
-                {speed}x
-              </button>
-            ))}
-          </div>
-
-          {/* Central Playback Cluster */}
-          <div className="flex items-center gap-3 md:gap-4 order-1 sm:order-2">
-            {/* Previous Track */}
-            {onPrev && (
-              <button
-                type="button"
-                onClick={onPrev}
-                disabled={!hasPrev}
-                className="p-2.5 rounded-full border border-border hover:border-foreground disabled:opacity-30 disabled:hover:border-border transition-all hover-lift"
-                title="Previous transmission"
-              >
-                <span className="font-mono text-xs">⏮</span>
-              </button>
-            )}
-
-            {/* Skip -15s */}
-            <button
-              type="button"
-              onClick={() => handleSkip(-15)}
-              className="px-2.5 py-1.5 rounded border border-border/80 hover:border-foreground font-mono text-[10px] tracking-wider opacity-75 hover:opacity-100 transition-colors"
-              title="Rewind 15 seconds"
-            >
-              -15s
-            </button>
-
-            {/* Big Sexy Play / Pause Button */}
-            <button
-              type="button"
-              onClick={togglePlay}
-              className="w-14 h-14 rounded-full bg-foreground text-background hover:bg-accent hover:text-white transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center press-scale"
-              aria-label={isPlaying ? "Pause transmission" : "Play transmission"}
-            >
-              {isPlaying ? (
-                <span className="text-xl">❚❚</span>
-              ) : (
-                <span className="text-2xl ml-1">▶</span>
-              )}
-            </button>
-
-            {/* Skip +15s */}
-            <button
-              type="button"
-              onClick={() => handleSkip(15)}
-              className="px-2.5 py-1.5 rounded border border-border/80 hover:border-foreground font-mono text-[10px] tracking-wider opacity-75 hover:opacity-100 transition-colors"
-              title="Fast forward 15 seconds"
-            >
-              +15s
-            </button>
-
-            {/* Next Track */}
-            {onNext && (
-              <button
-                type="button"
-                onClick={onNext}
-                disabled={!hasNext}
-                className="p-2.5 rounded-full border border-border hover:border-foreground disabled:opacity-30 disabled:hover:border-border transition-all hover-lift"
-                title="Next transmission"
-              >
-                <span className="font-mono text-xs">⏭</span>
-              </button>
-            )}
-          </div>
-
-          {/* Volume Control */}
-          <div className="flex items-center gap-2.5 order-3">
-            <button
-              type="button"
-              onClick={toggleMute}
-              className="p-1.5 opacity-60 hover:opacity-100 transition-opacity font-mono text-xs"
-              title={isMuted ? "Unmute" : "Mute"}
-            >
-              {isMuted ? "🔇" : "🔊"}
-            </button>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={isMuted ? 0 : volume}
-              onChange={handleVolumeChange}
-              className="w-20 md:w-24 h-1.5 bg-border rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:bg-foreground [&::-webkit-slider-thumb]:rounded-full"
-            />
-            <span className="font-mono text-[9px] opacity-40 w-6 text-right">
-              {isMuted ? "0%" : `${volume}%`}
-            </span>
-          </div>
+        {/* Volume controls */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setIsMuted(!isMuted)}
+            className="text-xs font-mono opacity-60 hover:opacity-100"
+            aria-label={isMuted ? "Unmute" : "Mute"}
+          >
+            {isMuted || volume === 0 ? "🔇" : "🔊"}
+          </button>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={isMuted ? 0 : volume}
+            onChange={(e) => {
+              setVolume(Number(e.target.value));
+              if (isMuted) setIsMuted(false);
+            }}
+            className="w-16 md:w-20 accent-accent cursor-pointer h-1 bg-border rounded"
+            aria-label="Volume"
+          />
         </div>
       </div>
     </div>

@@ -1,0 +1,19 @@
+name: Library manifest
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  validate-library-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node --test scripts/content-registry.test.mjs
+      - run: node scripts/check-content.mjs
+      - run: node scripts/check-library-manifest.mjs

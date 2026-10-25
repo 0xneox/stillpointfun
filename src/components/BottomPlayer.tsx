@@ -28,13 +28,8 @@ export function BottomPlayer({ currentItem }: BottomPlayerProps) {
             className="flex items-center gap-3.5 flex-1 min-w-0 group"
           >
             {/* Track artwork thumbnail */}
-            <div className="w-11 h-11 rounded-sm bg-surface overflow-hidden border border-border/80 shrink-0 group-hover:border-accent transition-colors flex items-center justify-center">
-              <img
-                src={`https://img.youtube.com/vi/${currentItem.youtube_video_id}/default.jpg`}
-                alt={currentItem.title}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+            <div className="w-11 h-11 rounded-sm bg-surface overflow-hidden border border-border/80 shrink-0 group-hover:border-accent transition-colors flex items-center justify-center text-accent">
+              <span className="font-mono text-xs">◈</span>
             </div>
 
             <div className="min-w-0 flex-1">

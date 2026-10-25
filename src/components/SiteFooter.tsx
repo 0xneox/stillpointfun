@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
+import { CONTENT_NAV_LINKS } from "@/data/content-registry";
 
 export function SiteFooter() {
   return (
@@ -37,6 +38,11 @@ export function SiteFooter() {
               <Link to="/audiobooks" className="hover:text-accent transition-colors">
                 Audiobooks
               </Link>
+              {CONTENT_NAV_LINKS.map((link) => (
+                <Link key={link.to} to={link.to} className="hover:text-accent transition-colors">
+                  {link.label}
+                </Link>
+              ))}
             </div>
             <div className="flex flex-col gap-4">
               <span className="opacity-30">About</span>

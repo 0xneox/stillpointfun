@@ -62,7 +62,10 @@ export function getAudiobookTrackUrl(relPath: string): string {
 
 export function getTotalAudiobookStats() {
   const totalCollections = SACRED_AUDIOBOOKS.length;
-  const totalTracks = SACRED_AUDIOBOOKS.reduce((sum, c) => sum + c.trackCount, 0);
+  const totalTracks = SACRED_AUDIOBOOKS.reduce(
+    (sum, collection) => sum + collection.tracks.length,
+    0,
+  );
   const totalBytes = SACRED_AUDIOBOOKS.reduce((sum, c) => sum + c.totalSizeBytes, 0);
   const totalGigabytes = (totalBytes / (1024 * 1024 * 1024)).toFixed(1);
   return {

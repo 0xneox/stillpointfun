@@ -1,177 +1,29 @@
 import { useState, useMemo, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CONTENT } from "@/data/content";
-import { POSTS } from "@/data/posts";
+import { getTotalAudiobookStats, SACRED_AUDIOBOOKS } from "@/data/audiobooks";
 import { siteUrl } from "@/lib/site-url";
 import {
-  SACRED_LIBRARY,
-  LIBRARY_CATEGORIES,
+  LIBRARY_ITEMS,
+  LIBRARY_SHELVES,
+  canHostLibraryItem,
   getLibraryPdfUrl,
   getTotalLibraryStats,
-  type LibraryDocument,
+  type LibraryItem,
 } from "@/data/library";
-
-export interface LibraryItem {
-  id: string;
-  title: string;
-  author: string;
-  translator?: string;
-  tradition?: string;
-  language?: string;
-  format: "book" | "pdf" | "audiobook" | "lecture" | "paper";
-  category?: string;
-  description?: string;
-  sourceUrl?: string;
-  downloadUrl?: string;
-  fileName?: string;
-  sizeBytes?: number;
-  sizeFormatted?: string;
-  tags: string[];
-  relatedAudio?: string[];
-  relatedArticles?: string[];
-}
-
-export const FOUNDATIONAL_BOOKS: LibraryItem[] = [
-  {
-    id: "tantraloka",
-    title: "Tantrāloka",
-    author: "Abhinavagupta",
-    translator: "Various",
-    tradition: "Kashmir Śaivism",
-    category: "Kashmir Shaivism & Tantra",
-    language: "Sanskrit / English",
-    format: "book",
-    description:
-      "Abhinavagupta's magnum opus on Kashmir Śaivism. 12 volumes covering the entire non-dual tantric tradition.",
-    tags: ["abhinavagupta", "kashmir-shaivism", "tantra", "philosophy"],
-    sourceUrl: "https://archive.org/details/tantraloka",
-  },
-  {
-    id: "upanishads",
-    title: "Principal Upaniṣads",
-    author: "Traditional",
-    translator: "Eknath Easwaran",
-    tradition: "Vedanta",
-    category: "Vedas & Upanishads",
-    language: "Sanskrit / English",
-    format: "book",
-    description: "The principal Upaniṣads with accessible translations into luminous English.",
-    tags: ["upanishads", "vedanta", "advaita", "scripture"],
-    sourceUrl: "https://archive.org/details/in.ernet.dli.2015.148291",
-  },
-  {
-    id: "ashtavakra-gita",
-    title: "Aṣṭāvakra Gītā",
-    author: "Traditional",
-    translator: "Bart Marshall",
-    tradition: "Advaita",
-    category: "Advaita Vedanta",
-    language: "Sanskrit / English",
-    format: "book",
-    description:
-      "The unsparing dialogue between King Janaka and sage Aṣṭāvakra on the instantaneous nature of reality.",
-    tags: ["advaita", "non-duality", "ashtavakra", "dialogue"],
-    sourceUrl: "https://archive.org/details/AshtavakraGitaEbook",
-  },
-  {
-    id: "spanda-karikas",
-    title: "Spanda-Kārikās",
-    author: "Vasugupta",
-    translator: "Jaideva Singh",
-    tradition: "Kashmir Śaivism",
-    category: "Kashmir Shaivism & Tantra",
-    language: "Sanskrit / English",
-    format: "book",
-    description:
-      "The sacred tremor. Understanding Spanda as the living throb and pulse of pure consciousness.",
-    tags: ["spanda", "kashmir-shaivism", "vasugupta", "consciousness"],
-    sourceUrl:
-      "https://ia803100.us.archive.org/35/items/spandakarikasthedivinecreativepulsation/Spanda%20karikas%20the%20divine%20creative%20pulsation.pdf",
-  },
-  {
-    id: "vivekachudamani",
-    title: "Vivekacūḍāmaṇi",
-    author: "Adi Shankaracharya",
-    translator: "Swami Madhavananda",
-    tradition: "Advaita Vedanta",
-    category: "Advaita Vedanta",
-    language: "Sanskrit / English",
-    format: "book",
-    description:
-      "The Crest Jewel of Discrimination. A quintessential foundation of self-inquiry and discernment.",
-    tags: ["advaita", "shankara", "self-inquiry", "discrimination"],
-    sourceUrl: "https://archive.org/details/shankarascrestje0000sank",
-  },
-  {
-    id: "tripura-rahasya",
-    title: "Tripura Rahasya",
-    author: "Traditional",
-    translator: "Swami Sri Ramanananda Saraswathi",
-    tradition: "Advaita / Shaktism",
-    category: "Kashmir Shaivism & Tantra",
-    language: "Sanskrit / English",
-    format: "book",
-    description:
-      "The Secret of the Three Cities. A profound dialogue revealing all phenomena as reflections in the mirror of Pure Awareness.",
-    tags: ["advaita", "tripura", "non-duality", "practice"],
-    sourceUrl: "https://archive.org/details/tripurarahasyaramanandasaraswathi_202004_485_z",
-  },
-  {
-    id: "yoga-vasistha",
-    title: "Yoga Vāsiṣṭha",
-    author: "Valmiki",
-    translator: "Swami Venkatesananda",
-    tradition: "Advaita Vedanta",
-    category: "Advaita Vedanta",
-    language: "Sanskrit / English",
-    format: "book",
-    description:
-      "The monumental dialogue between Rama and sage Vasistha illustrating that the world is mind-born and freedom is self-knowledge.",
-    tags: ["advaita", "vasistha", "non-duality", "dialogue"],
-    sourceUrl:
-      "https://dn760106.eu.archive.org/0/items/YogaVasishtaOfValmikiValmiki/Yoga%20Vasishta%20of%20Valmiki%20-%20Valmiki.pdf",
-  },
-];
-
-// Convert the 88 archival PDFs into standard LibraryItems
-export const ARCHIVAL_PDF_ITEMS: LibraryItem[] = SACRED_LIBRARY.map((doc: LibraryDocument) => {
-  const resolvedUrl = getLibraryPdfUrl(doc.fileName);
-  return {
-    id: doc.id,
-    title: doc.title,
-    author: doc.author,
-    tradition: doc.tradition,
-    language: doc.language,
-    format: "pdf",
-    category: doc.category,
-    description: doc.description,
-    sourceUrl: resolvedUrl,
-    downloadUrl: resolvedUrl,
-    fileName: doc.fileName,
-    sizeBytes: doc.sizeBytes,
-    sizeFormatted: doc.sizeFormatted,
-    tags: doc.tags || [],
-  };
-});
-
-// Complete combined catalog exported for global search, teachings, and listening pages
-export const LIBRARY_ITEMS: LibraryItem[] = [...FOUNDATIONAL_BOOKS, ...ARCHIVAL_PDF_ITEMS];
 
 export const Route = createFileRoute("/library")({
   head: () => ({
     meta: [
-      { title: "Sacred Archival Library & Manuscripts — Stillpoint" },
+      { title: "Library & Reading Links — Stillpoint" },
       {
         name: "description",
-        content:
-          "Search and study 88 preserved manuscripts, rare translations, and sacred treatises across Advaita Vedanta, Kashmir Shaivism, Vedas & Upanishads, and Direct Inquiry.",
+        content: `Browse ${LIBRARY_ITEMS.length} reviewed library records, with hosted texts and external source links clearly separated.`,
       },
-      { property: "og:title", content: "Sacred Archival Library & Manuscripts — Stillpoint" },
+      { property: "og:title", content: "Library & Reading Links — Stillpoint" },
       {
         property: "og:description",
-        content:
-          "Preserved digital collection of 88 sacred manuscripts and treatises available for immediate study, in-browser reading, and download.",
+        content: `A curated library of ${LIBRARY_ITEMS.length} reviewed records, with hosting limited to cleared items.`,
       },
       { property: "og:url", content: siteUrl("/library") },
     ],
@@ -188,7 +40,6 @@ function Library() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [readingDoc, setReadingDoc] = useState<LibraryItem | null>(null);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const [customBaseUrl, setCustomBaseUrl] = useState(() => {
     if (typeof window !== "undefined") {
@@ -197,21 +48,21 @@ function Library() {
     return "";
   });
 
-  // Calculate counts per category
-  const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = { All: LIBRARY_ITEMS.length };
-    LIBRARY_ITEMS.forEach((item) => {
-      const cat = item.category || "General";
-      counts[cat] = (counts[cat] || 0) + 1;
-    });
-    return counts;
+  const shelfCounts = useMemo(() => {
+    return Object.fromEntries([
+      ["All", LIBRARY_ITEMS.length],
+      ...LIBRARY_SHELVES.map((shelf) => [
+        shelf,
+        LIBRARY_ITEMS.filter((item) => item.shelf === shelf).length,
+      ]),
+    ]);
   }, []);
 
   // Filter items
   const filteredItems = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     return LIBRARY_ITEMS.filter((item) => {
-      // Category filter
+      // Shelf filter
       if (activeCategory !== "All" && item.category !== activeCategory) {
         return false;
       }
@@ -240,18 +91,10 @@ function Library() {
           fileMatch
         );
       }
+
       return true;
     });
   }, [activeCategory, activeFormat, searchQuery]);
-
-  // Handle Copy Link
-  const handleCopyLink = (item: LibraryItem) => {
-    const url = item.downloadUrl || item.sourceUrl || window.location.href;
-    const fullUrl = url.startsWith("http") ? url : `${window.location.origin}${url}`;
-    navigator.clipboard.writeText(fullUrl);
-    setCopiedId(item.id);
-    setTimeout(() => setCopiedId(null), 2000);
-  };
 
   // Close reader on Escape key
   useEffect(() => {
@@ -289,30 +132,26 @@ function Library() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface/80 border border-border rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <span className="font-mono text-[9px] tracking-[0.25em] uppercase opacity-75">
-              Sacred Repository · {stats.totalDocuments} Archival Manuscripts
+              Public Library · {stats.totalDocuments} Available Records
             </span>
           </div>
 
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-            Archival Library & Treatises
+            Library & Reading Links
           </h1>
 
           <p className="font-sans text-base md:text-lg opacity-70 max-w-2xl mx-auto leading-relaxed">
-            A comprehensive, digital collection of primary Sanskrit, Vedantic, Tantric, and
-            contemplative texts preserved for direct inquiry, in-browser study, and archival
-            research.
+            A browsable selection of cleared texts and links to external sources. Materials pending
+            rights or source review are not listed.
           </p>
 
           {/* Repository Meta Pills */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <span className="px-3 py-1 font-mono text-[10px] tracking-widest uppercase bg-surface/60 border border-border">
-              {stats.totalDocuments} Manuscripts
+              {stats.totalDocuments} Records
             </span>
             <span className="px-3 py-1 font-mono text-[10px] tracking-widest uppercase bg-surface/60 border border-border">
-              {stats.totalMegabytes} MB Total Archive
-            </span>
-            <span className="px-3 py-1 font-mono text-[10px] tracking-widest uppercase bg-surface/60 border border-border">
-              6 Philosophical Traditions
+              {stats.categoriesCount} Shelves
             </span>
             <button
               onClick={() => setIsSettingsOpen(true)}
@@ -332,8 +171,8 @@ function Library() {
             </span>
             <h3 className="font-display text-xl">Sacred Audiobooks & Direct Pointings</h3>
             <p className="font-sans text-xs opacity-75">
-              Listen to 236 spoken chapters across 16 traditions (Ramana Maharshi, Nisargadatta,
-              Longchenpa, Zen, Sufi, Christian Mystics).
+              Listen to {getTotalAudiobookStats().totalTracks} chapters across{" "}
+              {SACRED_AUDIOBOOKS.length} audio collections.
             </p>
           </div>
           <Link
@@ -349,7 +188,7 @@ function Library() {
           <div className="relative flex-1 max-w-lg">
             <input
               type="text"
-              placeholder="Search across all 88 manuscripts, authors, traditions, or tags..."
+              placeholder={`Search ${LIBRARY_ITEMS.length} public records, authors, shelves, or tags...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-4 py-2.5 pl-10 font-mono text-xs bg-surface/30 border border-border rounded-none focus:outline-none focus:border-foreground transition-colors"
@@ -383,7 +222,7 @@ function Library() {
                   activeFormat === "pdf" ? "bg-foreground text-background" : "hover:bg-surface"
                 }`}
               >
-                PDFs ({ARCHIVAL_PDF_ITEMS.length})
+                PDFs ({LIBRARY_ITEMS.filter((item) => item.format === "pdf").length})
               </button>
               <button
                 type="button"
@@ -392,7 +231,7 @@ function Library() {
                   activeFormat === "book" ? "bg-foreground text-background" : "hover:bg-surface"
                 }`}
               >
-                Books ({FOUNDATIONAL_BOOKS.length})
+                Books ({LIBRARY_ITEMS.filter((item) => item.format === "book").length})
               </button>
             </div>
 
@@ -421,10 +260,10 @@ function Library() {
           </div>
         </div>
 
-        {/* Categories Horizontal Filter */}
+        {/* Shelf Filter */}
         <div className="mb-10 flex flex-wrap items-center gap-2">
-          {LIBRARY_CATEGORIES.map((cat) => {
-            const count = categoryCounts[cat] || 0;
+          {["All", ...LIBRARY_SHELVES].map((cat) => {
+            const count = shelfCounts[cat] || 0;
             const isActive = activeCategory === cat;
             return (
               <button
@@ -469,12 +308,11 @@ function Library() {
         {filteredItems.length === 0 && (
           <div className="p-16 text-center border border-dashed border-border rounded-sm space-y-4 my-8">
             <p className="font-mono text-xs uppercase tracking-widest opacity-40">
-              No manuscripts found
+              No library records found
             </p>
             <h3 className="font-display text-2xl">No texts matched your criteria</h3>
             <p className="font-sans text-sm opacity-60 max-w-md mx-auto">
-              Try adjusting your search terms, changing the tradition filter, or resetting all
-              filters.
+              Try adjusting your search terms, changing the shelf filter, or resetting all filters.
             </p>
             <button
               onClick={() => {
@@ -493,8 +331,9 @@ function Library() {
         {viewMode === "grid" && filteredItems.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredItems.map((item) => {
-              const isPdf = item.format === "pdf" || Boolean(item.fileName);
-              const resolvedUrl = item.fileName ? getLibraryPdfUrl(item.fileName) : item.sourceUrl;
+              const isHostable = canHostLibraryItem(item);
+              const resolvedUrl =
+                isHostable && item.fileName ? getLibraryPdfUrl(item.fileName) : undefined;
 
               return (
                 <div
@@ -543,6 +382,7 @@ function Library() {
                         {item.description}
                       </p>
                     )}
+                    <LibraryEditorNote item={item} />
 
                     {/* Tags */}
                     {item.tags && item.tags.length > 0 && (
@@ -564,7 +404,7 @@ function Library() {
                   {/* Actions Bar */}
                   <div className="mt-6 pt-4 border-t border-border/50 flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      {isPdf ? (
+                      {isHostable && resolvedUrl ? (
                         <>
                           <button
                             type="button"
@@ -584,7 +424,7 @@ function Library() {
                             Download
                           </a>
                         </>
-                      ) : item.sourceUrl ? (
+                      ) : item.action === "link_out" && item.sourceUrl ? (
                         <a
                           href={item.sourceUrl}
                           target="_blank"
@@ -595,19 +435,6 @@ function Library() {
                         </a>
                       ) : null}
                     </div>
-
-                    <button
-                      type="button"
-                      onClick={() => handleCopyLink(item)}
-                      className="font-mono text-[10px] tracking-wider uppercase opacity-50 hover:opacity-100 transition-opacity flex items-center gap-1"
-                      title="Copy link"
-                    >
-                      {copiedId === item.id ? (
-                        <span className="text-accent font-semibold">✓ Copied</span>
-                      ) : (
-                        <span>🔗 Share</span>
-                      )}
-                    </button>
                   </div>
                 </div>
               );
@@ -619,8 +446,9 @@ function Library() {
         {viewMode === "list" && filteredItems.length > 0 && (
           <div className="space-y-4">
             {filteredItems.map((item) => {
-              const isPdf = item.format === "pdf" || Boolean(item.fileName);
-              const resolvedUrl = item.fileName ? getLibraryPdfUrl(item.fileName) : item.sourceUrl;
+              const isHostable = canHostLibraryItem(item);
+              const resolvedUrl =
+                isHostable && item.fileName ? getLibraryPdfUrl(item.fileName) : undefined;
 
               return (
                 <div
@@ -649,10 +477,11 @@ function Library() {
                       {item.translator && ` · Translated by ${item.translator}`}
                       {item.tradition && ` · ${item.tradition}`}
                     </p>
+                    <LibraryEditorNote item={item} />
                   </div>
 
                   <div className="flex items-center gap-2 w-full md:w-auto justify-end">
-                    {isPdf ? (
+                    {isHostable && resolvedUrl ? (
                       <>
                         <button
                           type="button"
@@ -671,7 +500,7 @@ function Library() {
                           Download
                         </a>
                       </>
-                    ) : item.sourceUrl ? (
+                    ) : item.action === "link_out" && item.sourceUrl ? (
                       <a
                         href={item.sourceUrl}
                         target="_blank"
@@ -681,15 +510,6 @@ function Library() {
                         Access →
                       </a>
                     ) : null}
-
-                    <button
-                      type="button"
-                      onClick={() => handleCopyLink(item)}
-                      className="px-2 py-1.5 font-mono text-[10px] opacity-50 hover:opacity-100"
-                      title="Copy link"
-                    >
-                      {copiedId === item.id ? "✓" : "🔗"}
-                    </button>
                   </div>
                 </div>
               );
@@ -704,14 +524,13 @@ function Library() {
               On Archival Preservation and Rights
             </p>
             <p>
-              This repository is maintained for direct spiritual inquiry, contemplation, scholarly
-              research, and non-commercial preservation of wisdom traditions. Wherever
-              redistribution is authorized, texts are presented in high-fidelity PDF format with
-              instant in-browser reading capability.
+              Only manifest entries explicitly marked for hosting and cleared by their rights status
+              receive local read or download controls. Pending review and removal items are not
+              listed. External-source entries link out without a local copy.
             </p>
             <p>
-              The collection grows through careful curation, respecting both the essential need for
-              open wisdom access and the rights of translators, authors, and publishers.
+              A rights label is not itself a license. Source and license details remain subject to
+              verification in the library manifest.
             </p>
           </div>
         </section>
@@ -731,6 +550,7 @@ function Library() {
                 <p className="font-mono text-[10px] opacity-60 truncate">
                   {readingDoc.author} {readingDoc.sizeFormatted && `· ${readingDoc.sizeFormatted}`}
                 </p>
+                <LibraryEditorNote item={readingDoc} />
               </div>
             </div>
 
@@ -780,8 +600,7 @@ function Library() {
                   </p>
                   <h3 className="font-display text-2xl">{readingDoc.title}</h3>
                   <p className="text-sm opacity-70">
-                    This item is hosted through an authorized archive. Open the external reading
-                    portal to view.
+                    This item is marked for hosting but has no local file attached.
                   </p>
                   {readingDoc.sourceUrl && (
                     <a
@@ -815,12 +634,12 @@ function Library() {
             </div>
 
             <p className="font-sans text-xs opacity-75 leading-relaxed">
-              By default, PDFs are served locally from the workspace{" "}
+              Cleared PDF files can be served from the workspace{" "}
               <code className="px-1 py-0.5 bg-surface text-accent font-mono text-[10px]">
                 /Library
               </code>{" "}
-              folder. If deploying to Vercel, Cloudflare, or an external CDN, provide your base URL
-              below.
+              folder. If deploying to Vercel, Cloudflare, or an external CDN, provide the storage
+              base URL below.
             </p>
 
             <div className="space-y-2">
@@ -874,5 +693,30 @@ function Library() {
         </div>
       )}
     </div>
+  );
+}
+
+function LibraryEditorNote({ item }: { item: LibraryItem }) {
+  const fields: Array<[keyof LibraryItem["editor_note"], string]> = [
+    ["what", "What it is"],
+    ["who_it_is_for", "Who it is for"],
+    ["read_with", "Read with"],
+    ["skip_if", "Skip if"],
+    ["caveat", "Caveat"],
+  ];
+  const populated = fields.filter(([key]) => item.editor_note[key].trim());
+
+  if (populated.length === 0) return null;
+
+  return (
+    <section className="space-y-2 border-l border-accent/50 pl-3" aria-label="Editor's note">
+      <p className="font-mono text-[9px] tracking-widest uppercase opacity-60">Editor’s note</p>
+      {populated.map(([key, label]) => (
+        <p key={key} className="font-sans text-xs leading-relaxed opacity-75">
+          <span className="font-medium">{label}: </span>
+          {item.editor_note[key]}
+        </p>
+      ))}
+    </section>
   );
 }

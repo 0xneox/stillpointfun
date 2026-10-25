@@ -31,9 +31,15 @@ interface PostItem {
 
 function StillBoard() {
   const [posts, setPosts] = useState<PostItem[]>(() => {
-    const saved = localStorage.getItem("stillBoardPosts");
-    if (saved) {
-      return JSON.parse(saved);
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem("stillBoardPosts");
+        if (saved) {
+          return JSON.parse(saved);
+        }
+      } catch {
+        // Fallback to initial items on error
+      }
     }
     return [
       {

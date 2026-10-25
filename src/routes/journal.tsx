@@ -549,7 +549,9 @@ function StickyJournal() {
             return parsed;
           }
         }
-      } catch {}
+      } catch {
+        // Fallback to default notes on parse or access error
+      }
     }
     return DEFAULT_NOTES;
   });
@@ -595,7 +597,9 @@ function StickyJournal() {
     if (typeof window !== "undefined") {
       try {
         localStorage.setItem("stillpoint_sticky_journal_notes", JSON.stringify(notes));
-      } catch {}
+      } catch {
+        // Storage write may fail if quota exceeded or in private mode
+      }
     }
   }, [notes]);
 

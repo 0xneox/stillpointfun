@@ -53,7 +53,7 @@ function renderErrorPage() {
 }
 var serverEntryPromise;
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = import("./server-Cn_mChkV.mjs").then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = import("./server-DUtbOwnc.mjs").then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {
@@ -75,15 +75,24 @@ function isH3SwallowedErrorBody(body) {
 		return false;
 	}
 }
+function applyRobotsHeader(response) {
+	const headers = new Headers(response.headers);
+	headers.set("X-Robots-Tag", "noindex, nofollow");
+	return new Response(response.body, {
+		status: response.status,
+		statusText: response.statusText,
+		headers
+	});
+}
 var server_default = { async fetch(request, env, ctx) {
 	try {
-		return await normalizeCatastrophicSsrResponse(await (await getServerEntry()).fetch(request, env, ctx));
+		return applyRobotsHeader(await normalizeCatastrophicSsrResponse(await (await getServerEntry()).fetch(request, env, ctx)));
 	} catch (error) {
 		console.error(error);
-		return new Response(renderErrorPage(), {
+		return applyRobotsHeader(new Response(renderErrorPage(), {
 			status: 500,
 			headers: { "content-type": "text/html; charset=utf-8" }
-		});
+		}));
 	}
 } };
 //#endregion

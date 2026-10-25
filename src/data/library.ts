@@ -1,46 +1,90 @@
-import libraryData from "./library_data.json";
-import type { RightsStatus } from "./rights";
+import publicManifestData from "virtual:stillpoint-public-library";
+
+export type LibraryRightsStatus =
+  | "public_domain_likely"
+  | "in_copyright_likely"
+  | "unknown"
+  | "open_access_possible"
+  | "verified_cleared";
+
+export type LibraryAction = "host" | "link_out" | "remove" | "verify";
+
+export interface LibraryEditorNote {
+  what: string;
+  who_it_is_for: string;
+  read_with: string;
+  skip_if: string;
+  caveat: string;
+}
 
 export interface LibraryDocument {
   id: string;
   title: string;
   author: string;
-  tradition: string;
-  language: string;
+  translator: string | null;
+  year: number | null;
+  size_mb: number | null;
+  shelf: string;
+  old_filter: string | null;
+  source_url: string | null;
+  license: string | null;
+  rights_status: LibraryRightsStatus;
+  action: LibraryAction;
+  role: "orientation" | "pointer" | "argument" | "source" | "practice";
+  reviewer: string | null;
+  notes: string;
+  duplicate_of: string | null;
+  editor_note: LibraryEditorNote;
   format: "pdf" | "book";
-  category: string;
+  language: string | null;
+  tradition: string | null;
   description: string;
   tags: string[];
-  fileName: string;
-  sizeBytes: number;
-  sizeFormatted: string;
-  downloadUrl: string;
-  rightsStatus: RightsStatus;
-  translator?: string;
-  sourceUrl?: string;
+  file_name: string | null;
 }
 
-export const SACRED_LIBRARY: LibraryDocument[] = libraryData as LibraryDocument[];
+interface LibraryManifest {
+  shelves: string[];
+  items: LibraryDocument[];
+}
 
-export const LIBRARY_CATEGORIES = [
-  "All",
-  "Advaita Vedanta",
-  "Kashmir Shaivism & Tantra",
-  "Vedas & Upanishads",
-  "Masters & Direct Path",
-  "Mysticism & Consciousness",
-  "Buddhism",
-] as const;
+export interface LibraryItem extends LibraryDocument {
+  category: string;
+  sourceUrl?: string;
+  downloadUrl?: string;
+  fileName?: string;
+  sizeBytes?: number;
+  sizeFormatted?: string;
+}
 
-export type LibraryCategory = (typeof LIBRARY_CATEGORIES)[number];
+export const LIBRARY_MANIFEST = publicManifestData as LibraryManifest;
+export const LIBRARY_SHELVES = LIBRARY_MANIFEST.shelves;
+export const ALL_LIBRARY_ITEMS = LIBRARY_MANIFEST.items;
 
-/**
- * Returns the fully resolved URL for viewing or downloading a Library PDF.
- * Supports:
- * 1. MEDIA_BASE_URL for an object-storage origin containing a '/Library' prefix
- * 2. User-customized or legacy base URLs
- * 3. Default local dev path '/Library'
- */
+export function canHostLibraryItem(item: LibraryDocument): boolean {
+  return (
+    item.action === "host" &&
+    Boolean(item.reviewer?.trim()) &&
+    (item.rights_status === "verified_cleared" || item.rights_status === "public_domain_likely")
+  );
+}
+
+export const LIBRARY_ITEMS: LibraryItem[] = ALL_LIBRARY_ITEMS.map((item) => {
+  const sizeBytes = item.size_mb === null ? undefined : Math.round(item.size_mb * 1024 * 1024);
+  return {
+    ...item,
+    category: item.shelf,
+    sourceUrl: item.source_url ?? undefined,
+    downloadUrl:
+      canHostLibraryItem(item) && item.file_name ? getLibraryPdfUrl(item.file_name) : undefined,
+    fileName: item.file_name ?? undefined,
+    sizeBytes,
+    sizeFormatted: item.size_mb === null ? undefined : `${item.size_mb} MB`,
+  };
+});
+
+export const SACRED_LIBRARY = ALL_LIBRARY_ITEMS.filter((item) => item.format === "pdf");
+
 export function getLibraryPdfUrl(fileName: string): string {
   let base = "/Library";
   if (typeof window !== "undefined") {
@@ -56,19 +100,18 @@ export function getLibraryPdfUrl(fileName: string): string {
     base = `${__MEDIA_BASE_URL__.replace(/\/$/, "")}/Library`;
   }
 
-  const encodedFileName = encodeURIComponent(fileName);
-  return `${base.replace(/\/$/, "")}/${encodedFileName}`;
+  return `${base.replace(/\/$/, "")}/${encodeURIComponent(fileName)}`;
 }
 
 export function getTotalLibraryStats() {
-  const totalDocuments = SACRED_LIBRARY.length;
-  const totalBytes = SACRED_LIBRARY.reduce((sum, item) => sum + (item.sizeBytes || 0), 0);
-  const totalMegabytes = (totalBytes / (1024 * 1024)).toFixed(1);
-  const categoriesCount = new Set(SACRED_LIBRARY.map((item) => item.category)).size;
+  const totalDocuments = LIBRARY_ITEMS.length;
+  const hostedItems = LIBRARY_ITEMS.filter(canHostLibraryItem);
+  const totalBytes = hostedItems.reduce((sum, item) => sum + (item.sizeBytes || 0), 0);
+  const categoriesCount = new Set(LIBRARY_ITEMS.map((item) => item.shelf)).size;
   return {
     totalDocuments,
     totalBytes,
-    totalMegabytes,
+    totalMegabytes: (totalBytes / (1024 * 1024)).toFixed(1),
     categoriesCount,
   };
 }

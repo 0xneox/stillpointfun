@@ -2,6 +2,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { SearchBar } from "./SearchBar";
 import { Logo } from "./Logo";
+import { CONTENT_NAV_LINKS } from "@/data/content-registry";
 
 const links = [
   { to: "/", label: "LISTEN" },
@@ -38,6 +39,17 @@ export function StillpointNav() {
               className="hover:text-accent transition-colors py-2"
             >
               {l.label}
+            </Link>
+          ))}
+          {CONTENT_NAV_LINKS.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              activeProps={{ className: "text-accent" }}
+              activeOptions={{ exact: false }}
+              className="hover:text-accent transition-colors py-2"
+            >
+              {link.label}
             </Link>
           ))}
           <button
@@ -84,6 +96,16 @@ export function StillpointNav() {
                 className="hover:text-accent transition-colors py-3 block"
               >
                 {l.label}
+              </Link>
+            ))}
+            {CONTENT_NAV_LINKS.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => setOpen(false)}
+                className="hover:text-accent transition-colors py-3 block"
+              >
+                {link.label}
               </Link>
             ))}
           </div>

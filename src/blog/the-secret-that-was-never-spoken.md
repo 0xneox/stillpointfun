@@ -1,3 +1,10 @@
+---
+date: 2025-02-01
+readMinutes: 9
+topic: God & Shiva
+tags: ["amarnath", "shiva", "parvati", "immortality"]
+---
+
 # The Secret That Was Never Spoken
 
 I've been thinking about something that happened in a cave at 12,756 feet in the Himalayas. According to the legend, Shiva chose the Amarnath cave to reveal the Amar Katha—the secret of immortality—to Parvati. He created kalagni, a sacred fire, to ensure no other being overheard. The knowledge was believed to disrupt the natural order of creation.

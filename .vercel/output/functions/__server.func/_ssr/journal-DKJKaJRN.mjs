@@ -1,4 +1,4 @@
-import { r as __toESM } from "../_runtime.mjs";
+import { i as __toESM } from "../_runtime.mjs";
 import { n as require_react, r as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
 import { t as Breadcrumbs } from "./Breadcrumbs-DTWu_Qqo.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/journal-DKJKaJRN.js

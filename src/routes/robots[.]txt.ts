@@ -5,7 +5,7 @@ export const Route = createFileRoute("/robots.txt")({
   server: {
     handlers: {
       GET: () => {
-        const publicLaunch = process.env.PUBLIC_LAUNCH === "true";
+        const publicLaunch = __PUBLIC_LAUNCH__;
         const content = publicLaunch
           ? `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl("/sitemap.xml")}\n`
           : "User-agent: *\nDisallow: /\n";

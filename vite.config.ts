@@ -2,6 +2,104 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import type { Plugin } from "vite";
+import { assertLaunchMetadata, validateContentRegistry } from "./scripts/content-registry.mjs";
+
+const publicLibraryModuleId = "virtual:stillpoint-public-library";
+const resolvedPublicLibraryModuleId = `\0${publicLibraryModuleId}`;
+const contentRegistryModuleId = "virtual:stillpoint-content-registry";
+const resolvedContentRegistryModuleId = `\0${contentRegistryModuleId}`;
+
+interface SourceLibraryManifestItem {
+  action: "host" | "link_out" | "remove" | "verify";
+  rights_status:
+    | "public_domain_likely"
+    | "in_copyright_likely"
+    | "unknown"
+    | "open_access_possible"
+    | "verified_cleared";
+  source_url: string | null;
+  license: string | null;
+  file_name: string | null;
+  reviewer: string | null;
+}
+
+interface SourceLibraryManifest {
+  shelves: string[];
+  items: SourceLibraryManifestItem[];
+}
+
+function publicLibraryManifestPlugin(): Plugin {
+  return {
+    name: "public-library-manifest",
+    resolveId(id) {
+      return id === publicLibraryModuleId ? resolvedPublicLibraryModuleId : null;
+    },
+    load(id) {
+      if (id !== resolvedPublicLibraryModuleId) return null;
+
+      const manifestPath = path.resolve(process.cwd(), "content", "library", "manifest.json");
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")) as SourceLibraryManifest;
+      const items = manifest.items.filter(
+        (item) =>
+          (item.action === "host" &&
+            (item.rights_status === "verified_cleared" ||
+              item.rights_status === "public_domain_likely") &&
+            Boolean(item.source_url?.trim()) &&
+            Boolean(item.license?.trim()) &&
+            Boolean(item.reviewer?.trim()) &&
+            !["verify", "unknown", "unverified"].includes(
+              item.license?.trim().toLowerCase() ?? "",
+            ) &&
+            Boolean(item.file_name?.trim())) ||
+          (item.action === "link_out" && Boolean(item.source_url?.trim())),
+      );
+
+      return `export default ${JSON.stringify({ shelves: manifest.shelves, items })};`;
+    },
+  };
+}
+
+function contentRegistryPlugin(publicLaunch: boolean): Plugin {
+  const loadRegistry = () => {
+    assertLaunchMetadata(publicLaunch, !publicLaunch);
+    const registry = validateContentRegistry(process.cwd(), { publicLaunch });
+    if (registry.issues.length > 0) {
+      throw new Error(`Content registry validation failed:\n- ${registry.issues.join("\n- ")}`);
+    }
+    return registry;
+  };
+
+  return {
+    name: "stillpoint-content-registry",
+    resolveId(id) {
+      return id === contentRegistryModuleId ? resolvedContentRegistryModuleId : null;
+    },
+    buildStart() {
+      const registry = loadRegistry();
+      for (const item of registry.all) {
+        this.addWatchFile(path.resolve(process.cwd(), item.source_path));
+      }
+      this.addWatchFile(path.resolve(process.cwd(), "content", "content-types.yml"));
+      this.addWatchFile(path.resolve(process.cwd(), "content", "pages", "founder.md"));
+    },
+    load(id) {
+      if (id !== resolvedContentRegistryModuleId) return null;
+      const registry = loadRegistry();
+      for (const warning of registry.warnings) this.warn(warning);
+      const pathSteps = registry.published
+        .filter((item) => item.type === "path_step")
+        .sort((a, b) => Number(a.order) - Number(b.order));
+      return `export default ${JSON.stringify({
+        items: registry.published,
+        pathSteps,
+        navSections: registry.navSections,
+        founderPage: registry.founderPage
+          ? { data: registry.founderPage.data, body: registry.founderPage.body }
+          : null,
+      })};`;
+    },
+  };
+}
 
 function localMediaDevServerPlugin(): Plugin {
   return {
@@ -98,7 +196,11 @@ export default defineConfig(() => {
       __MEDIA_BASE_URL__: JSON.stringify(process.env.MEDIA_BASE_URL ?? ""),
       __SITE_URL__: JSON.stringify(siteUrl),
     },
-    plugins: [localMediaDevServerPlugin()],
+    plugins: [
+      publicLibraryManifestPlugin(),
+      contentRegistryPlugin(publicLaunch),
+      localMediaDevServerPlugin(),
+    ],
     tanstackStart: {
       server: { entry: "server" },
     },

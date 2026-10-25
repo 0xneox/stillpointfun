@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://stillpoint.com/sitemap.xml
-
-# Crawl-delay (optional, be respectful)
-Crawl-delay: 1

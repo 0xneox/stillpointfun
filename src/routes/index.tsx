@@ -5,6 +5,7 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { EnhancedPlayer } from "@/components/EnhancedPlayer";
 import { siteUrl } from "@/lib/site-url";
+import { SITE_CONTENT_COUNTS } from "@/data/site-stats";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -190,6 +191,7 @@ function Home() {
         <div className="mb-10">
           <EnhancedPlayer
             key={currentItem.id}
+            itemId={currentItem.id}
             videoId={currentItem.youtube_video_id}
             title={currentItem.title}
             artist={currentItem.artist_or_speaker}
@@ -209,7 +211,7 @@ function Home() {
               Featured Transmissions
             </span>
             <span className="font-mono text-[10px] opacity-40">
-              {CONTENT.length} Audio Transmissions Available
+              {SITE_CONTENT_COUNTS.audioTransmissions} Audio Transmissions Available
             </span>
           </div>
 
@@ -266,10 +268,10 @@ function Home() {
             </button>
             <div className="flex items-center gap-6 text-[10px] font-mono tracking-widest uppercase opacity-70">
               <Link to="/discourses" className="hover:text-accent transition-colors">
-                All 2,000+ Discourses →
+                Browse {SITE_CONTENT_COUNTS.discourseTrackEntries} Curated Entries →
               </Link>
               <Link to="/audiobooks" className="hover:text-accent transition-colors">
-                236 Spoken Audiobooks →
+                {SITE_CONTENT_COUNTS.audiobookTracks} Audiobook Tracks →
               </Link>
             </div>
           </div>
@@ -282,7 +284,7 @@ function Home() {
         className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${channelsVisible ? "is-visible" : ""}`}
       >
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50 mb-12 text-center">
-          CHANNELS
+          CHANNELS · {SITE_CONTENT_COUNTS.channels} Listening Channels
         </p>
 
         <div className="space-y-6">

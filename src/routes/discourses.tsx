@@ -3,6 +3,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CONTENT, CURATED_PLAYLISTS, type CuratedPlaylistTrack } from "@/data/content";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { siteUrl } from "@/lib/site-url";
+import { SITE_CONTENT_COUNTS } from "@/data/site-stats";
+import { getDiscourseAudioUrls } from "@/lib/media";
 
 export const Route = createFileRoute("/discourses")({
   head: () => ({
@@ -42,7 +44,9 @@ function Discourses() {
   const [volume, setVolume] = useState(100);
   const [isMuted, setIsMuted] = useState(false);
   const [trackSearch, setTrackSearch] = useState("");
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   // Group content by tradition/subject for discourse organization
   // Only include items that are actual talks/lectures/discourses, not music
@@ -143,15 +147,22 @@ function Discourses() {
     );
   }, [activePlaylist, trackSearch]);
 
-  // Send command to the hidden YouTube player engine via postMessage
-  const sendPlayerCommand = (func: string, args: unknown[] = []) => {
-    if (iframeRef.current?.contentWindow) {
-      iframeRef.current.contentWindow.postMessage(
-        JSON.stringify({ event: "command", func, args }),
-        "*",
-      );
+  const streamUrls = useMemo(() => {
+    if (!activePlaylist || !selectedTrack) return [];
+    return getDiscourseAudioUrls(activePlaylist.id, selectedTrack);
+  }, [activePlaylist, selectedTrack]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (streamUrls[0]) {
+      audio.src = streamUrls[0];
+      audio.load();
+      if (isPlaying) {
+        audio.play().catch(() => setIsPlaying(false));
+      }
     }
-  };
+  }, [selectedTrack, streamUrls, isPlaying]);
 
   // Switch playlist
   const switchPlaylist = (playlistId: string) => {
@@ -166,12 +177,16 @@ function Discourses() {
 
   // Toggle play/pause
   const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
     if (isPlaying) {
-      sendPlayerCommand("pauseVideo");
+      audio.pause();
       setIsPlaying(false);
     } else {
-      sendPlayerCommand("playVideo");
-      setIsPlaying(true);
+      audio
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => setIsPlaying(false));
     }
   };
 
@@ -206,44 +221,20 @@ function Discourses() {
   const handleVolumeChange = (newVolume: number) => {
     setVolume(newVolume);
     setIsMuted(newVolume === 0);
-    sendPlayerCommand("setVolume", [newVolume]);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume / 100;
+    }
   };
 
   const toggleMute = () => {
     if (isMuted) {
       setIsMuted(false);
-      sendPlayerCommand("unMute");
-      sendPlayerCommand("setVolume", [volume || 80]);
+      if (audioRef.current) audioRef.current.volume = (volume || 80) / 100;
     } else {
       setIsMuted(true);
-      sendPlayerCommand("mute");
+      if (audioRef.current) audioRef.current.volume = 0;
     }
   };
-
-  // Listen to postMessage events from the YouTube player to track playback state
-  useEffect(() => {
-    const handleMessage = (e: MessageEvent) => {
-      try {
-        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-        if (data && data.event === "onStateChange") {
-          // 1 = playing, 2 = paused, 0 = ended
-          if (data.info === 1) {
-            setIsPlaying(true);
-          } else if (data.info === 2) {
-            setIsPlaying(false);
-          } else if (data.info === 0) {
-            setIsPlaying(false);
-            handleNextTrack();
-          }
-        }
-      } catch {
-        // Ignore non-JSON messages
-      }
-    };
-
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
-  }, [selectedTrack, activePlaylist]);
 
   return (
     <div className="min-h-screen">
@@ -261,6 +252,10 @@ function Discourses() {
             Curated spoken lectures, satsangs, and contemplative dialogues from teachers across
             traditions. Pure audio archives designed for focused listening, stillness, and deep
             study.
+          </p>
+          <p className="mt-4 font-mono text-[10px] tracking-widest uppercase opacity-50">
+            {SITE_CONTENT_COUNTS.discoursePlaylists} playlists ·{" "}
+            {SITE_CONTENT_COUNTS.discourseTrackEntries} listed track entries
           </p>
         </div>
       </header>
@@ -305,7 +300,7 @@ function Discourses() {
                     {activePlaylist.tracks.length} Spoken Lectures & Talks
                   </span>
                   <span className="inline-block px-2.5 py-1 text-[9px] font-mono tracking-widest uppercase text-accent border border-accent/40">
-                    Audio + Video
+                    Pure Opus Audio
                   </span>
                 </div>
                 <h2 className="font-display text-3xl md:text-5xl mt-2">{activePlaylist.title}</h2>
@@ -318,30 +313,27 @@ function Discourses() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                <a
-                  href={activePlaylist.youtubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 border border-border hover:border-foreground font-mono text-[10px] tracking-[0.2em] uppercase transition-colors inline-flex items-center gap-2"
-                >
-                  <span>Original Playlist</span>
-                  <span className="opacity-50">↗</span>
-                </a>
+                <span className="px-4 py-2 border border-border bg-surface font-mono text-[10px] tracking-[0.2em] uppercase">
+                  Opus Direct Stream
+                </span>
               </div>
             </div>
 
-            {/* Custom audio controls with the YouTube player */}
+            {/* Custom pure audio deck */}
             <div className="rounded-sm border border-border bg-background shadow-xl overflow-hidden">
+              <audio
+                ref={audioRef}
+                preload="metadata"
+                onTimeUpdate={() => {
+                  if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
+                }}
+                onLoadedMetadata={() => {
+                  if (audioRef.current) setDuration(audioRef.current.duration);
+                }}
+                onEnded={handleNextTrack}
+              />
               <div className="p-8 md:p-12 bg-surface/40">
                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                  <iframe
-                    ref={iframeRef}
-                    key={selectedTrack.videoId}
-                    src={`https://www.youtube.com/embed/${selectedTrack.videoId}?enablejsapi=1&autoplay=${isPlaying ? 1 : 0}&playsinline=1&controls=0`}
-                    className="h-[204px] w-[204px] shrink-0 rounded-sm border border-border bg-black"
-                    allow="autoplay; encrypted-media; picture-in-picture"
-                    title={`${selectedTrack.title} by ${selectedTrack.speaker}`}
-                  />
 
                   {/* Contemplative Sound Disc Visualizer */}
                   <div className="relative shrink-0 flex items-center justify-center">
@@ -508,15 +500,9 @@ function Discourses() {
                         Stillpoint Contemplation View →
                       </Link>
                     )}
-                    <a
-                      href={`https://www.youtube.com/watch?v=${selectedTrack.videoId}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 transition-opacity flex items-center gap-1"
-                    >
-                      <span>YouTube Source</span>
-                      <span>↗</span>
-                    </a>
+                    <span className="font-mono text-[10px] tracking-widest uppercase opacity-60 border border-border px-2.5 py-1">
+                      Opus Stream
+                    </span>
                   </div>
                 </div>
               </div>

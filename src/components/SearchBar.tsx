@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { CONTENT } from "@/data/content";
 import { POSTS } from "@/data/posts";
-import { LIBRARY_ITEMS } from "@/routes/library";
+import { LIBRARY_ITEMS } from "@/data/library";
 
 interface SearchResult {
   id: string;
@@ -132,7 +132,9 @@ export function SearchBar({ onSelect }: SearchBarProps) {
                   <p className="font-display text-sm">{item.title}</p>
                   <p className="font-mono text-xs opacity-60 mt-1">{item.subtitle}</p>
                 </div>
-                <span className={`font-mono text-[9px] tracking-widest uppercase ${getTypeColor(item.type)}`}>
+                <span
+                  className={`font-mono text-[9px] tracking-widest uppercase ${getTypeColor(item.type)}`}
+                >
                   {item.type}
                 </span>
               </div>

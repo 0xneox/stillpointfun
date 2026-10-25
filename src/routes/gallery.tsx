@@ -88,9 +88,20 @@ function Gallery() {
                 alt={img.alt}
                 loading="lazy"
                 decoding="async"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.classList.remove("hidden");
+                }}
                 style={{ aspectRatio: `${img.width} / ${img.height}` }}
                 className="w-full h-auto object-cover bg-muted transition-transform duration-500 group-hover:scale-[1.03]"
               />
+              <div className="hidden aspect-[3/4] w-full bg-surface border border-border/40 p-4 flex flex-col justify-end">
+                <span className="font-mono text-[9px] uppercase tracking-widest opacity-40">
+                  {img.category}
+                </span>
+                <p className="font-display text-sm mt-1 opacity-80">{img.caption}</p>
+              </div>
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors" />
               <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                 <div className="font-mono text-[9px] tracking-widest uppercase text-background bg-foreground/80 backdrop-blur px-2 py-1 inline-block">

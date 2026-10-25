@@ -61,17 +61,22 @@ function GroundlessInquiry() {
           const newTime = prev - 1;
           if (newTime === 0) {
             setIsActive(false);
-            // Save practice completion to localStorage
-            const savedData = JSON.parse(
-              localStorage.getItem("stillPointData") || '{"totalMinutes":0,"practices":[]}',
-            );
-            savedData.totalMinutes += 120;
-            savedData.practices.push({
-              type: "Groundless Inquiry",
-              duration: 120,
-              timestamp: Date.now(),
-            });
-            localStorage.setItem("stillPointData", JSON.stringify(savedData));
+            if (typeof window !== "undefined") {
+              try {
+                const savedData = JSON.parse(
+                  localStorage.getItem("stillPointData") || '{"totalMinutes":0,"practices":[]}',
+                );
+                savedData.totalMinutes = (savedData.totalMinutes || 0) + 2;
+                savedData.practices.push({
+                  type: "Groundless Inquiry",
+                  duration: 120,
+                  timestamp: Date.now(),
+                });
+                localStorage.setItem("stillPointData", JSON.stringify(savedData));
+              } catch {
+                // Ignore storage error
+              }
+            }
           }
           return newTime;
         });

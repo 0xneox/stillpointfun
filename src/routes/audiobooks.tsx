@@ -11,24 +11,26 @@ import {
 } from "@/data/audiobooks";
 
 export const Route = createFileRoute("/audiobooks")({
-  head: () => ({
-    meta: [
-      { title: "Sacred Audiobooks & Direct Pointings — Stillpoint" },
-      {
-        name: "description",
-        content:
-          "High-fidelity spoken audiobooks, contemplative texts, and direct pointings from Ramana Maharshi, Nisargadatta, Longchenpa, Padmasambhava, Zen, Sufi, and Christian Mystics.",
-      },
-      { property: "og:title", content: "Sacred Audiobooks & Direct Pointings — Stillpoint" },
-      {
-        property: "og:description",
-        content:
-          "High-fidelity spoken audiobooks and contemplative treatises across 16 traditions and 236 chapters.",
-      },
-      { property: "og:url", content: siteUrl("/audiobooks") },
-    ],
-    links: [{ rel: "canonical", href: siteUrl("/audiobooks") }],
-  }),
+  head: () => {
+    const stats = getTotalAudiobookStats();
+    return {
+      meta: [
+        { title: "Sacred Audiobooks & Direct Pointings — Stillpoint" },
+        {
+          name: "description",
+          content:
+            "High-fidelity spoken audiobooks, contemplative texts, and direct pointings from Ramana Maharshi, Nisargadatta, Longchenpa, Padmasambhava, Zen, Sufi, and Christian Mystics.",
+        },
+        { property: "og:title", content: "Sacred Audiobooks & Direct Pointings — Stillpoint" },
+        {
+          property: "og:description",
+          content: `High-fidelity spoken audio across ${stats.totalCollections} collections and ${stats.totalTracks} chapters.`,
+        },
+        { property: "og:url", content: siteUrl("/audiobooks") },
+      ],
+      links: [{ rel: "canonical", href: siteUrl("/audiobooks") }],
+    };
+  },
   component: AudiobooksPage,
 });
 
@@ -324,7 +326,7 @@ function AudiobooksPage() {
                   Pure Audio Sanctum
                 </span>
                 <span className="inline-block px-2.5 py-1 text-[9px] font-mono tracking-widest uppercase border border-border opacity-70">
-                  {stats.totalCollections} Traditions · {stats.totalTracks} Chapters
+                  {stats.totalCollections} Collections · {stats.totalTracks} Chapters
                 </span>
                 <span className="inline-block px-2.5 py-1 text-[9px] font-mono tracking-widest uppercase text-accent border border-accent/40">
                   {stats.totalGigabytes} GB Sacred Archives
@@ -359,7 +361,7 @@ function AudiobooksPage() {
           <div className="relative max-w-md">
             <input
               type="text"
-              placeholder="Search across all 236 chapters, sages, or traditions..."
+              placeholder={`Search across all ${stats.totalTracks} chapters, sages, or traditions...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-4 py-2.5 pl-10 font-mono text-xs bg-surface/40 border border-border rounded-none focus:outline-none focus:border-foreground transition-colors"
@@ -413,7 +415,7 @@ function AudiobooksPage() {
                     }`}
                   >
                     <span>{col.author.split(",")[0].trim()}</span>
-                    <span className="ml-2 opacity-50">({col.trackCount})</span>
+                    <span className="ml-2 opacity-50">({col.tracks.length})</span>
                   </button>
                 );
               })}
@@ -429,7 +431,7 @@ function AudiobooksPage() {
                   Narrated by {activeCollection.narrator}
                 </span>
                 <span className="px-2 py-0.5 text-[9px] font-mono tracking-widest uppercase text-accent border border-accent/30">
-                  {activeCollection.trackCount} Tracks ·{" "}
+                  {activeCollection.tracks.length} Tracks ·{" "}
                   {(activeCollection.totalSizeBytes / (1024 * 1024)).toFixed(0)} MB
                 </span>
               </div>

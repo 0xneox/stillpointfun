@@ -24,6 +24,11 @@ var findRouteRules = /* @__PURE__ */ (() => {
 		route: "/assets/**",
 		handler: headers,
 		options: { "cache-control": "public, max-age=31536000, immutable" }
+	}], $1 = [{
+		name: "headers",
+		route: "/**",
+		handler: headers,
+		options: { "X-Robots-Tag": "noindex, nofollow" }
 	}];
 	return (m, p) => {
 		let r = [];
@@ -35,6 +40,10 @@ var findRouteRules = /* @__PURE__ */ (() => {
 				params: { "_": s.slice(2).join("/") }
 			});
 		}
+		r.unshift({
+			data: $1,
+			params: { "_": s.slice(1).join("/") }
+		});
 		return r;
 	};
 })();

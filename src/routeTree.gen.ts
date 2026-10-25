@@ -12,11 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WritingsRouteImport } from './routes/writings'
 import { Route as TeachingsRouteImport } from './routes/teachings'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SearchRouteImport } from './routes/search'
 import { Route as ScoreRouteImport } from './routes/score'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as PranaRouteImport } from './routes/prana'
+import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as MandalaRouteImport } from './routes/mandala'
+import { Route as LogRouteImport } from './routes/log'
 import { Route as LiveRouteImport } from './routes/live'
 import { Route as LibraryRouteImport } from './routes/library'
 import { Route as JournalRouteImport } from './routes/journal'
@@ -31,7 +34,9 @@ import { Route as AudiobooksRouteImport } from './routes/audiobooks'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TeachingsIndexRouteImport } from './routes/teachings.index'
+import { Route as PathIndexRouteImport } from './routes/path.index'
 import { Route as TeachingsSlugRouteImport } from './routes/teachings.$slug'
+import { Route as PathSlugRouteImport } from './routes/path.$slug'
 import { Route as ListenIdRouteImport } from './routes/listen.$id'
 import { Route as ChannelIdRouteImport } from './routes/channel.$id'
 
@@ -50,6 +55,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ScoreRoute = ScoreRouteImport.update({
   id: '/score',
   path: '/score',
@@ -65,6 +75,11 @@ const PranaRoute = PranaRouteImport.update({
   path: '/prana',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PracticeRoute = PracticeRouteImport.update({
+  id: '/practice',
+  path: '/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NotesRoute = NotesRouteImport.update({
   id: '/notes',
   path: '/notes',
@@ -73,6 +88,11 @@ const NotesRoute = NotesRouteImport.update({
 const MandalaRoute = MandalaRouteImport.update({
   id: '/mandala',
   path: '/mandala',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogRoute = LogRouteImport.update({
+  id: '/log',
+  path: '/log',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LiveRoute = LiveRouteImport.update({
@@ -145,10 +165,20 @@ const TeachingsIndexRoute = TeachingsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => TeachingsRoute,
 } as any)
+const PathIndexRoute = PathIndexRouteImport.update({
+  id: '/path/',
+  path: '/path/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeachingsSlugRoute = TeachingsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => TeachingsRoute,
+} as any)
+const PathSlugRoute = PathSlugRouteImport.update({
+  id: '/path/$slug',
+  path: '/path/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ListenIdRoute = ListenIdRouteImport.update({
   id: '/listen/$id',
@@ -175,17 +205,22 @@ export interface FileRoutesByFullPath {
   '/journal': typeof JournalRoute
   '/library': typeof LibraryRoute
   '/live': typeof LiveRoute
+  '/log': typeof LogRoute
   '/mandala': typeof MandalaRoute
   '/notes': typeof NotesRoute
+  '/practice': typeof PracticeRoute
   '/prana': typeof PranaRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/score': typeof ScoreRoute
+  '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teachings': typeof TeachingsRouteWithChildren
   '/writings': typeof WritingsRoute
   '/channel/$id': typeof ChannelIdRoute
   '/listen/$id': typeof ListenIdRoute
+  '/path/$slug': typeof PathSlugRoute
   '/teachings/$slug': typeof TeachingsSlugRoute
+  '/path/': typeof PathIndexRoute
   '/teachings/': typeof TeachingsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -202,16 +237,21 @@ export interface FileRoutesByTo {
   '/journal': typeof JournalRoute
   '/library': typeof LibraryRoute
   '/live': typeof LiveRoute
+  '/log': typeof LogRoute
   '/mandala': typeof MandalaRoute
   '/notes': typeof NotesRoute
+  '/practice': typeof PracticeRoute
   '/prana': typeof PranaRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/score': typeof ScoreRoute
+  '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/writings': typeof WritingsRoute
   '/channel/$id': typeof ChannelIdRoute
   '/listen/$id': typeof ListenIdRoute
+  '/path/$slug': typeof PathSlugRoute
   '/teachings/$slug': typeof TeachingsSlugRoute
+  '/path': typeof PathIndexRoute
   '/teachings': typeof TeachingsIndexRoute
 }
 export interface FileRoutesById {
@@ -229,17 +269,22 @@ export interface FileRoutesById {
   '/journal': typeof JournalRoute
   '/library': typeof LibraryRoute
   '/live': typeof LiveRoute
+  '/log': typeof LogRoute
   '/mandala': typeof MandalaRoute
   '/notes': typeof NotesRoute
+  '/practice': typeof PracticeRoute
   '/prana': typeof PranaRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/score': typeof ScoreRoute
+  '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teachings': typeof TeachingsRouteWithChildren
   '/writings': typeof WritingsRoute
   '/channel/$id': typeof ChannelIdRoute
   '/listen/$id': typeof ListenIdRoute
+  '/path/$slug': typeof PathSlugRoute
   '/teachings/$slug': typeof TeachingsSlugRoute
+  '/path/': typeof PathIndexRoute
   '/teachings/': typeof TeachingsIndexRoute
 }
 export interface FileRouteTypes {
@@ -258,17 +303,22 @@ export interface FileRouteTypes {
     | '/journal'
     | '/library'
     | '/live'
+    | '/log'
     | '/mandala'
     | '/notes'
+    | '/practice'
     | '/prana'
     | '/robots.txt'
     | '/score'
+    | '/search'
     | '/sitemap.xml'
     | '/teachings'
     | '/writings'
     | '/channel/$id'
     | '/listen/$id'
+    | '/path/$slug'
     | '/teachings/$slug'
+    | '/path/'
     | '/teachings/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -285,16 +335,21 @@ export interface FileRouteTypes {
     | '/journal'
     | '/library'
     | '/live'
+    | '/log'
     | '/mandala'
     | '/notes'
+    | '/practice'
     | '/prana'
     | '/robots.txt'
     | '/score'
+    | '/search'
     | '/sitemap.xml'
     | '/writings'
     | '/channel/$id'
     | '/listen/$id'
+    | '/path/$slug'
     | '/teachings/$slug'
+    | '/path'
     | '/teachings'
   id:
     | '__root__'
@@ -311,17 +366,22 @@ export interface FileRouteTypes {
     | '/journal'
     | '/library'
     | '/live'
+    | '/log'
     | '/mandala'
     | '/notes'
+    | '/practice'
     | '/prana'
     | '/robots.txt'
     | '/score'
+    | '/search'
     | '/sitemap.xml'
     | '/teachings'
     | '/writings'
     | '/channel/$id'
     | '/listen/$id'
+    | '/path/$slug'
     | '/teachings/$slug'
+    | '/path/'
     | '/teachings/'
   fileRoutesById: FileRoutesById
 }
@@ -339,16 +399,21 @@ export interface RootRouteChildren {
   JournalRoute: typeof JournalRoute
   LibraryRoute: typeof LibraryRoute
   LiveRoute: typeof LiveRoute
+  LogRoute: typeof LogRoute
   MandalaRoute: typeof MandalaRoute
   NotesRoute: typeof NotesRoute
+  PracticeRoute: typeof PracticeRoute
   PranaRoute: typeof PranaRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   ScoreRoute: typeof ScoreRoute
+  SearchRoute: typeof SearchRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeachingsRoute: typeof TeachingsRouteWithChildren
   WritingsRoute: typeof WritingsRoute
   ChannelIdRoute: typeof ChannelIdRoute
   ListenIdRoute: typeof ListenIdRoute
+  PathSlugRoute: typeof PathSlugRoute
+  PathIndexRoute: typeof PathIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -374,6 +439,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/score': {
       id: '/score'
       path: '/score'
@@ -395,6 +467,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PranaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/practice': {
+      id: '/practice'
+      path: '/practice'
+      fullPath: '/practice'
+      preLoaderRoute: typeof PracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/notes': {
       id: '/notes'
       path: '/notes'
@@ -407,6 +486,13 @@ declare module '@tanstack/react-router' {
       path: '/mandala'
       fullPath: '/mandala'
       preLoaderRoute: typeof MandalaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/log': {
+      id: '/log'
+      path: '/log'
+      fullPath: '/log'
+      preLoaderRoute: typeof LogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/live': {
@@ -507,12 +593,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeachingsIndexRouteImport
       parentRoute: typeof TeachingsRoute
     }
+    '/path/': {
+      id: '/path/'
+      path: '/path'
+      fullPath: '/path/'
+      preLoaderRoute: typeof PathIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/teachings/$slug': {
       id: '/teachings/$slug'
       path: '/$slug'
       fullPath: '/teachings/$slug'
       preLoaderRoute: typeof TeachingsSlugRouteImport
       parentRoute: typeof TeachingsRoute
+    }
+    '/path/$slug': {
+      id: '/path/$slug'
+      path: '/path/$slug'
+      fullPath: '/path/$slug'
+      preLoaderRoute: typeof PathSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/listen/$id': {
       id: '/listen/$id'
@@ -559,16 +659,21 @@ const rootRouteChildren: RootRouteChildren = {
   JournalRoute: JournalRoute,
   LibraryRoute: LibraryRoute,
   LiveRoute: LiveRoute,
+  LogRoute: LogRoute,
   MandalaRoute: MandalaRoute,
   NotesRoute: NotesRoute,
+  PracticeRoute: PracticeRoute,
   PranaRoute: PranaRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   ScoreRoute: ScoreRoute,
+  SearchRoute: SearchRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeachingsRoute: TeachingsRouteWithChildren,
   WritingsRoute: WritingsRoute,
   ChannelIdRoute: ChannelIdRoute,
   ListenIdRoute: ListenIdRoute,
+  PathSlugRoute: PathSlugRoute,
+  PathIndexRoute: PathIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

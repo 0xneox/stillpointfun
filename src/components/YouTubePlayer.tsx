@@ -1,20 +1,13 @@
-interface YouTubePlayerProps {
-  videoId: string;
-  autoplay?: boolean;
+// Deprecated component — Stillpoint now runs on pure native Opus audio.
+interface AudioPlayerProps {
+  src?: string;
+  autoPlay?: boolean;
 }
 
-export function YouTubePlayer({ videoId, autoplay = false }: YouTubePlayerProps) {
-  const src = `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&playsinline=1&rel=0`;
-
+export function YouTubePlayer({ src, autoPlay = false }: AudioPlayerProps) {
   return (
-    <div className="aspect-video w-full bg-surface">
-      <iframe
-        src={src}
-        className="w-full h-full"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="YouTube video player"
-      />
+    <div className="w-full bg-surface p-4 border border-border">
+      <audio src={src} autoPlay={autoPlay} controls className="w-full" />
     </div>
   );
 }
