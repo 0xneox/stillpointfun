@@ -4,13 +4,13 @@ import { siteUrl } from "@/lib/site-url";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — The Still Point" },
+      { title: "About , The Still Point" },
       {
         name: "description",
         content:
           "A digital sanctuary and transmission space at the intersection of non-dual wisdom and emerging technology.",
       },
-      { property: "og:title", content: "About — The Still Point" },
+      { property: "og:title", content: "About , The Still Point" },
       {
         property: "og:description",
         content:
@@ -47,7 +47,7 @@ function About() {
           <p>
             Rooted in the direct teachings of Kashmir Śaivism (Pratyabhijñā, Spanda, Vijñāna
             Bhairava) and Advaita Vedānta, we explore the living truth that the witnessing
-            consciousness at the center of all experience remains untouched — even as the world
+            consciousness at the center of all experience remains untouched , even as the world
             spins in ever-faster cycles of creation and dissolution.
           </p>
           <p className="italic opacity-90">
@@ -68,12 +68,12 @@ function About() {
           <div className="mt-10 space-y-6 text-lg leading-[1.7] opacity-90">
             <p>
               We do not compromise the direct path for accessibility. The teachings here are offered
-              in their full potency — not watered down, not simplified, not made palatable for mass
+              in their full potency, not watered down, not simplified, not made palatable for mass
               consumption.
             </p>
             <p>
               At the same time, we reject dogma and rigid hierarchy. Truth is not the property of
-              any lineage, teacher, or tradition. It is your own direct recognition — available
+              any lineage, teacher, or tradition. It is your own direct recognition , available
               here, now, in this very moment.
             </p>
             <p>
