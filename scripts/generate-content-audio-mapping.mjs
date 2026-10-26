@@ -1,0 +1,73 @@
+import fs from 'fs';
+
+const mapping = JSON.parse(fs.readFileSync('./src/data/discourses_mapping.json', 'utf8'));
+const files = [...new Set(Object.values(mapping))];
+
+// Map of all 44 CONTENT item IDs to exact files in Discourse/
+const contentAudioMap = {
+  // Alan Watts items
+  "alan-watts-1": "Discourse/allanwatts/039 - The Reality Prison - All The Things We Don’t Know.opus",
+  "watts-myth-of-myself": "Discourse/allanwatts/052 - Alan Watts： A Conversation with Myself - Part 1.opus",
+  "watts-dont-force-life": "Discourse/allanwatts/084 - Alan Watts - The Principle Of Not Forcing.opus",
+  "watts-why-nothing": "Discourse/allanwatts/042 - The Illusion of MONEY, TIME & EGO - Alan Watts.opus",
+  "watts-god-pretending": "Discourse/allanwatts/050 - The Real You  -  Alan Watts.opus",
+  "watts-gateless-gate": "Discourse/allanwatts/041 - Alan Watts - how to see through the game - the secret to life ：： happiness.opus",
+  "watts-speaking-carl-jung": "Discourse/jung/009 - Carl Gustav Jung - In His Own Words Documentary 1990.opus",
+  "watts-ways-of-liberation": "Discourse/allanwatts/064 - Alan Watts - Life Is a Dance of Pattern.opus",
+  "watts-joyous-cosmology": "Discourse/allanwatts/047 - Alan Watts - The Joyous Cosmology Audiobook (HQ).opus",
+  "watts-backwards-law": "Discourse/allanwatts/065 - The Secret of Life - Alan Watts.opus",
+  "watts-sense-of-nonsense": "Discourse/allanwatts/094 - Sense of Nonsense.opus",
+  
+  // Teachers, Sages & Satsangs
+  "neem-karoli-baba-grace": "Discourse/insight/NA - Neem Karoli Baba Film ｜ Windfall of Grace.opus",
+  "ram-dass-miracle-consciousness": "Discourse/insight/008 - The Miracle of Consciousness - Ram Dass Full Lecture 1996.opus",
+  "samadhi-part-1-maya": "Discourse/insight/011 - Inner Worlds, Outer Worlds - Part 1 - Akasha.opus",
+  "samadhi-part-2-not-what-you-think": "Discourse/insight/016 - Awakening Mind Part 1, ＂Know Thyself＂ (2023) - Complete HD Film.opus",
+  "samadhi-part-3-pathless-path": "Discourse/insight/017 - Awakening Mind Part 2, ＂The Mind Unveiled＂ ｜ Official Trailer.opus",
+  "ramana-jnani-film": "Discourse/insight/009 - Sri Ramana Maharshi - JNANI.opus",
+  "daniel-schmidt-batgap": "Discourse/insight/020 - Daniel Schmidt on Kundalini, Ego Dissolution, and Samadhi - Buddha at the Gas Pump Interview.opus",
+  "dayananda-intro-upanishad": "Discourse/sanatana/002 - Śrī Svāmī Dayānanda Sarasvatī： Introduction to Upanishad.opus",
+  "dayananda-bhagavad-gita-1": "Discourse/sanatana/016 - Bhagavad Gita Part 1 by Swami Dayananda Saraswati.opus",
+  "abhinavagupta-kashmir-shaivism": "Discourse/sanatana/078 - A Documentary film on ＂Acharya Abhinavagupta： The Light of Kashmir Shaivism＂.opus",
+  "mandukya-upanishad-essential": "Discourse/Reality/123 - Swami Sarvapriyananda at IITK - ＂Who Am I？＂ according to Mandukya Upanishad-Part 1.opus",
+  "sadhana-panchakam-forty-steps": "Discourse/sanatana/068 - Life's Spiritual Journey in Forty Steps - Sadhana Panchakam.opus",
+  "gurukulam-vedantic-path": "Discourse/sanatana/041 - ＂Guru and Disciple＂ ： Documentary on the Vedantic Path of Self Realization.opus",
+  "chinmayananda-un-address": "Discourse/sanatana/050 - Excerpt of ＂Planet in crisis＂ ： Swami Chinmayananda speaks at United Nations (1992).opus",
+  "adi-shankaracharya-kalady": "Discourse/sanatana/060 - Kalady： The Triumph of Faith Over Time (Rediscovery of Sri Adi Shankaracharya's Birth Place).opus",
+  "ramana-1": "Discourse/Advaita/003 - Ramana Maharshi ~ Teachings on Self-Liberation ~  (No Music).opus",
+  "eckhart-1": "Discourse/Reality/008 - Your Invisible Power, a Manual of Using Mental Energy [Occult Audiobook].opus",
+  "feynman-1": "Discourse/Reality/013 - Great Minds： Richard Feynman - The Uncertainty Of Knowledge.opus",
+  "sagan-1": "Discourse/Reality/016 - Carl Sagan testifying before Congress in 1985 on climate change.opus",
+  "krishna-das-1": "Discourse/insight/018 - Pranava - Deep Chant and Yantra Meditation - Natural Aum ⧸ OM.opus",
+  "om-1": "Discourse/insight/018 - Pranava - Deep Chant and Yantra Meditation - Natural Aum ⧸ OM.opus",
+  "rudram-1": "Discourse/sanatana/052 - Vedic Chanting Demonstration - Dr Sastry Memorial Lecture.opus",
+  "qawwali-1": "Discourse/Reality/084 - The Mystery of Time and How to Master It for Self Development [Occult Lecture].opus",
+  "thich-nhat-1": "Discourse/Advaita/006 - The Thirty-Seven Things that Bodhisattvas Do ~ Mahayana Buddhism.opus",
+  "mckenna-1": "Discourse/psy/001 - Terence McKenna - Existence Is An Illusion.opus",
+  "cbl-1": "Discourse/Reality/001 - The Seven Sermons to the Dead (1916) by Carl Gustav Jung.opus",
+  "karunesh-1": "Discourse/Reality/117 - Hinduism Explained Logically.opus",
+  "raga-1": "Discourse/Advaita/022 - யோக கீதம் ｜ Bring Yoga Alive in your Life ｜ Tamil ｜ Chennai ｜ 2026.opus",
+  "anushka-1": "Discourse/Advaita/005 - Ātma-bodha  ~ Self-Knowledge ~ Adi Shankara  (Advaita-Vedanta).opus",
+  "georgian-1": "Discourse/Advaita/010 - Meditation in Kashmir Shaivism - विज्ञान भैरव ｜ Swami Sarvapriyananda.opus",
+  "nisargadatta-destruction-false": "Discourse/Advaita/001 - Nisargadatta ~ Destruction of the False ~ Advaita - Non-Duality.opus",
+  "ramana-self-liberation": "Discourse/Advaita/003 - Ramana Maharshi ~ Teachings on Self-Liberation ~  (No Music).opus",
+  "nochur-dialogues-arunachala": "Discourse/Advaita/040 - What to do when someone speaks ill about us？ ｜ Dialogue in Arunachala ｜ English ｜ 2025.opus",
+  "ramana-forty-verses-reality": "Discourse/Advaita/009 - Ramana Maharshi - Reality in Forty 40 Verses -  Supplement - Advaita-Vedanta.opus"
+};
+
+// Verify all mapped files exist in the discourses file list
+let missing = 0;
+for (const [id, filePath] of Object.entries(contentAudioMap)) {
+  if (!files.includes(filePath)) {
+    console.error(`ERROR: File not in discourses list: ${filePath}`);
+    missing++;
+  }
+}
+
+if (missing === 0) {
+  console.log(`All ${Object.keys(contentAudioMap).length} items mapped successfully to real files!`);
+  fs.writeFileSync('./src/data/content_audio_mapping.json', JSON.stringify(contentAudioMap, null, 2));
+  console.log('Saved src/data/content_audio_mapping.json');
+} else {
+  console.error(`Found ${missing} missing files.`);
+}

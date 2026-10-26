@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { getMediaBaseUrl } from "@/lib/media";
+import { getContentAudioUrls } from "@/lib/media";
+import { setGlobalAudioTrack, getGlobalAudioTrack, notifyAudioStarted } from "@/lib/audio-player-state";
 
 interface EnhancedPlayerProps {
   videoId?: string;
@@ -36,29 +37,18 @@ export function EnhancedPlayer({
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const [isLooping, setIsLooping] = useState(false);
   const [audioError, setAudioError] = useState<string | null>(null);
+  const [candidateIndex, setCandidateIndex] = useState(0);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Compute resolved stream URL
-  const resolvedUrl = useCallback(() => {
-    if (audioUrl) return audioUrl;
-    const base = getMediaBaseUrl();
-    if (base && itemId) {
-      return `${base}/audio/${itemId}.opus`;
-    }
-    if (base && videoId) {
-      return `${base}/audio/${videoId}.opus`;
-    }
-    if (itemId) {
-      return `/audio/${itemId}.opus`;
-    }
-    if (videoId) {
-      return `/audio/${videoId}.opus`;
-    }
-    return "";
+  // Compute resolved stream candidates
+  const candidateUrls = useCallback(() => {
+    if (audioUrl) return [audioUrl];
+    return getContentAudioUrls({ id: itemId, youtube_video_id: videoId });
   }, [audioUrl, itemId, videoId]);
 
-  const currentStreamUrl = resolvedUrl();
+  const candidates = candidateUrls();
+  const currentStreamUrl = candidates[candidateIndex] || candidates[0] || "";
 
   // Format seconds to mm:ss or hh:mm:ss
   const formatTime = (seconds: number) => {
@@ -102,6 +92,42 @@ export function EnhancedPlayer({
     audio.playbackRate = playbackSpeed;
     audio.loop = isLooping;
   }, [volume, isMuted, playbackSpeed, isLooping]);
+
+  // Synchronize global audio player state
+  useEffect(() => {
+    if (isPlaying) {
+      notifyAudioStarted("transmission", itemId);
+      setGlobalAudioTrack({
+        id: itemId,
+        title,
+        artist,
+        channel,
+        sourceType: "transmission",
+        route: itemId ? `/listen/${itemId}` : "/",
+        isPlaying: true,
+      });
+    } else {
+      const current = getGlobalAudioTrack();
+      if (current && current.sourceType === "transmission" && current.id === itemId) {
+        setGlobalAudioTrack({ ...current, isPlaying: false });
+      }
+    }
+  }, [isPlaying, itemId, title, artist, channel]);
+
+  // Pause when another audio player starts playing
+  useEffect(() => {
+    const handleOtherAudio = (e: Event) => {
+      const detail = (e as CustomEvent<{ sourceType: string; id?: string }>).detail;
+      if (detail && (detail.sourceType !== "transmission" || detail.id !== itemId)) {
+        if (audioRef.current && !audioRef.current.paused) {
+          audioRef.current.pause();
+          setIsPlaying(false);
+        }
+      }
+    };
+    window.addEventListener("stillpoint-audio-started", handleOtherAudio);
+    return () => window.removeEventListener("stillpoint-audio-started", handleOtherAudio);
+  }, [itemId]);
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -164,8 +190,12 @@ export function EnhancedPlayer({
           if (onNext) onNext();
         }}
         onError={() => {
-          // Keep state resilient
-          setAudioError("Cloudflare Opus stream not yet uploaded or offline.");
+          // If candidate failed and more candidates exist, try next candidate
+          if (candidateIndex < candidates.length - 1) {
+            setCandidateIndex((prev) => prev + 1);
+          } else {
+            setAudioError("Cloudflare Opus stream not yet uploaded or offline.");
+          }
         }}
       />
 

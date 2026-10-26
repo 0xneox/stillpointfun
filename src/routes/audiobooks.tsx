@@ -9,6 +9,7 @@ import {
   type AudiobookCollection,
   type AudiobookTrack,
 } from "@/data/audiobooks";
+import { setGlobalAudioTrack, notifyAudioStarted } from "@/lib/audio-player-state";
 
 export const Route = createFileRoute("/audiobooks")({
   head: () => {
@@ -235,6 +236,37 @@ function AudiobooksPage() {
 
     return () => clearInterval(interval);
   }, [currentTrack, currentTime, duration]);
+
+  // Synchronize global audio state
+  useEffect(() => {
+    if (isPlaying && currentTrack && currentCollection) {
+      notifyAudioStarted("audiobook", currentTrack.id);
+      setGlobalAudioTrack({
+        id: currentTrack.id,
+        title: currentTrack.title,
+        artist: currentCollection.author.split(",")[0],
+        channel: currentCollection.tradition,
+        sourceType: "audiobook",
+        route: "/audiobooks",
+        isPlaying: true,
+      });
+    }
+  }, [isPlaying, currentTrack, currentCollection]);
+
+  // Pause when other player starts
+  useEffect(() => {
+    const handleOtherAudio = (e: Event) => {
+      const detail = (e as CustomEvent<{ sourceType: string; id?: string }>).detail;
+      if (detail && detail.sourceType !== "audiobook") {
+        if (audioRef.current && !audioRef.current.paused) {
+          audioRef.current.pause();
+          setIsPlaying(false);
+        }
+      }
+    };
+    window.addEventListener("stillpoint-audio-started", handleOtherAudio);
+    return () => window.removeEventListener("stillpoint-audio-started", handleOtherAudio);
+  }, []);
 
   // Keyboard Shortcuts
   useEffect(() => {

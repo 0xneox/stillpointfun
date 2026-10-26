@@ -39,6 +39,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const [currentItem, setCurrentItem] = useState(CONTENT[0]);
+  const [shouldAutoplay, setShouldAutoplay] = useState(false);
   const [lastPlayedId, setLastPlayedId] = useLocalStorage<string>(
     "stillpoint-last-played",
     CONTENT[0].id,
@@ -50,11 +51,13 @@ function Home() {
     const newItem = CONTENT[randomIndex];
     setCurrentItem(newItem);
     setLastPlayedId(newItem.id);
+    setShouldAutoplay(true);
   };
 
   const playItem = (item: (typeof CONTENT)[0]) => {
     setCurrentItem(item);
     setLastPlayedId(item.id);
+    setShouldAutoplay(true);
   };
 
   const handleNext = () => {
@@ -62,6 +65,7 @@ function Home() {
     const nextIndex = (currentIndex + 1) % CONTENT.length;
     setCurrentItem(CONTENT[nextIndex]);
     setLastPlayedId(CONTENT[nextIndex].id);
+    setShouldAutoplay(true);
   };
 
   const handlePrev = () => {
@@ -69,6 +73,7 @@ function Home() {
     const prevIndex = (currentIndex - 1 + CONTENT.length) % CONTENT.length;
     setCurrentItem(CONTENT[prevIndex]);
     setLastPlayedId(CONTENT[prevIndex].id);
+    setShouldAutoplay(true);
   };
 
   playRandomRef.current = playRandom;
@@ -196,7 +201,7 @@ function Home() {
             title={currentItem.title}
             artist={currentItem.artist_or_speaker}
             channel={currentItem.channel}
-            autoplay={false}
+            autoplay={shouldAutoplay}
             onNext={handleNext}
             onPrev={handlePrev}
             hasPrev={true}

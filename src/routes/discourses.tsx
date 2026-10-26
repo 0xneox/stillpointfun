@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { siteUrl } from "@/lib/site-url";
 import { SITE_CONTENT_COUNTS } from "@/data/site-stats";
 import { getDiscourseAudioUrls } from "@/lib/media";
+import { setGlobalAudioTrack, notifyAudioStarted } from "@/lib/audio-player-state";
 
 export const Route = createFileRoute("/discourses")({
   head: () => ({
@@ -163,6 +164,37 @@ function Discourses() {
       }
     }
   }, [selectedTrack, streamUrls, isPlaying]);
+
+  // Synchronize global audio state
+  useEffect(() => {
+    if (isPlaying && selectedTrack && activePlaylist) {
+      notifyAudioStarted("discourse", selectedTrack.videoId);
+      setGlobalAudioTrack({
+        id: selectedTrack.videoId,
+        title: selectedTrack.title,
+        artist: selectedTrack.speaker || activePlaylist.speaker,
+        channel: activePlaylist.traditions[0],
+        sourceType: "discourse",
+        route: "/discourses",
+        isPlaying: true,
+      });
+    }
+  }, [isPlaying, selectedTrack, activePlaylist]);
+
+  // Pause when other player starts
+  useEffect(() => {
+    const handleOtherAudio = (e: Event) => {
+      const detail = (e as CustomEvent<{ sourceType: string; id?: string }>).detail;
+      if (detail && detail.sourceType !== "discourse") {
+        if (audioRef.current && !audioRef.current.paused) {
+          audioRef.current.pause();
+          setIsPlaying(false);
+        }
+      }
+    };
+    window.addEventListener("stillpoint-audio-started", handleOtherAudio);
+    return () => window.removeEventListener("stillpoint-audio-started", handleOtherAudio);
+  }, []);
 
   // Switch playlist
   const switchPlaylist = (playlistId: string) => {

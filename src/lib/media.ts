@@ -1,6 +1,7 @@
 import type { ListeningItem } from "@/data/content";
 import type { CuratedPlaylistTrack } from "@/data/playlists";
 import discoursesMapping from "@/data/discourses_mapping.json";
+import contentAudioMapping from "@/data/content_audio_mapping.json";
 
 /**
  * Returns the configured base media URL (e.g., https://media.stillpoint.fun or Cloudflare R2 public URL).
@@ -21,24 +22,34 @@ export function getMediaBaseUrl(): string {
 /**
  * Resolves the primary and candidate Opus audio URLs for a content item.
  */
-export function getContentAudioUrls(item: ListeningItem): string[] {
+export function getContentAudioUrls(item: { id?: string; youtube_video_id?: string }): string[] {
   const base = getMediaBaseUrl();
   const urls: string[] = [];
 
+  const mappedPath =
+    (item.id ? (contentAudioMapping as Record<string, string>)[item.id] : undefined) ||
+    (item.youtube_video_id ? (contentAudioMapping as Record<string, string>)[item.youtube_video_id] : undefined) ||
+    (item.youtube_video_id ? (discoursesMapping as Record<string, string>)[item.youtube_video_id] : undefined);
+
   if (base) {
-    // 1. By item id
-    urls.push(`${base}/audio/${item.id}.opus`);
-    // 2. By legacy source video id
-    if (item.youtube_video_id) {
-      urls.push(`${base}/audio/${item.youtube_video_id}.opus`);
+    if (mappedPath) {
+      const cleanMapped = mappedPath.replace(/"/g, "").replace(/\.{2,}/g, "");
+      const encodedMapped = cleanMapped
+        .split("/")
+        .map((segment) => encodeURIComponent(segment))
+        .join("/");
+      urls.push(`${base}/${encodedMapped}`);
     }
+    // Candidate fallbacks
+    if (item.id) urls.push(`${base}/audio/${item.id}.opus`);
+    if (item.youtube_video_id) urls.push(`${base}/audio/${item.youtube_video_id}.opus`);
   }
 
-  // Local fallback path
-  urls.push(`/audio/${item.id}.opus`);
-  if (item.youtube_video_id) {
-    urls.push(`/audio/${item.youtube_video_id}.opus`);
+  if (mappedPath) {
+    urls.push(`/${mappedPath}`);
   }
+  if (item.id) urls.push(`/audio/${item.id}.opus`);
+  if (item.youtube_video_id) urls.push(`/audio/${item.youtube_video_id}.opus`);
 
   return urls;
 }

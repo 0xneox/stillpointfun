@@ -3,6 +3,7 @@ import {
   Outlet,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -15,8 +16,6 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { BottomPlayer } from "@/components/BottomPlayer";
 import { NotFound } from "@/components/NotFound";
 import { ErrorState } from "@/components/ErrorState";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { CONTENT } from "@/data/content";
 import { siteUrl } from "@/lib/site-url";
 
 function NotFoundComponent() {
@@ -162,8 +161,11 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const [lastPlayedId] = useLocalStorage<string>("stillpoint-last-played", "");
-  const currentItem = CONTENT.find((c) => c.id === lastPlayedId);
+  const location = useLocation();
+
+  // Pages with their own embedded bottom docks or dedicated players
+  const hasDedicatedPlayer =
+    location.pathname === "/audiobooks" || location.pathname === "/discourses";
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -172,7 +174,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <SiteFooter />
-      {currentItem && <BottomPlayer currentItem={currentItem} />}
+      {!hasDedicatedPlayer && <BottomPlayer />}
     </QueryClientProvider>
   );
 }
