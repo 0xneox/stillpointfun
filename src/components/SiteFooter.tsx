@@ -53,7 +53,7 @@ export function SiteFooter() {
                 Disclaimer
               </Link>
               <a
-                href="https://github.com/0xneox"
+                href="https://github.com/0xneox/stillpointfun"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-accent transition-colors"
@@ -68,6 +68,9 @@ export function SiteFooter() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <span className="font-mono text-[9px] opacity-40 tracking-[0.3em] uppercase">
               The Still Point © 2026
+            </span>
+            <span className="font-mono text-[9px] opacity-40 tracking-[0.3em] uppercase">
+              Initiated by <a href="https://21b.fun" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">21b.fun</a> · Made by <a href="https://binarybodhi.xyz" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">binarybodhi.xyz</a>
             </span>
             <span className="font-mono text-[9px] opacity-40 tracking-[0.3em] uppercase">
               Open source · Free for inquiry

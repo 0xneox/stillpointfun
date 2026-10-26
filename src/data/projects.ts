@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
     description:
       "An open-source contemplative platform for the study of consciousness, philosophical inquiry, and contemplative practice. Built with TanStack Start, React, and Tailwind CSS.",
     tags: ["Open Source", "React", "Contemplative Tech"],
-    href: "https://github.com/0xneox",
+    href: "https://github.com/0xneox/stillpointfun",
   },
   {
     title: "AI Research Tools",

@@ -28,6 +28,8 @@ export const Route = createFileRoute("/audiobooks")({
           content: `High-fidelity spoken audio across ${stats.totalCollections} collections and ${stats.totalTracks} chapters.`,
         },
         { property: "og:url", content: siteUrl("/audiobooks") },
+        { property: "og:type", content: "website" },
+        { name: "robots", content: __PUBLIC_LAUNCH__ ? "index, follow" : "noindex, nofollow" },
       ],
       links: [{ rel: "canonical", href: siteUrl("/audiobooks") }],
     };
@@ -60,13 +62,6 @@ function AudiobooksPage() {
     SACRED_AUDIOBOOKS[0]?.id || "nisargadatta-maharaj",
   );
   const [searchQuery, setSearchQuery] = useState("");
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [customBaseUrl, setCustomBaseUrl] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("stillpoint_audiobook_base_url") || "";
-    }
-    return "";
-  });
 
   const activeCollection = useMemo(() => {
     return SACRED_AUDIOBOOKS.find((c) => c.id === activeCollectionId) || SACRED_AUDIOBOOKS[0];
@@ -248,6 +243,7 @@ function AudiobooksPage() {
         channel: currentCollection.tradition,
         sourceType: "audiobook",
         route: "/audiobooks",
+        streamUrl: getAudiobookTrackUrl(currentTrack.relPath),
         isPlaying: true,
       });
     }
@@ -293,29 +289,7 @@ function AudiobooksPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isPlaying, currentTrack]);
 
-  // Save Custom Base URL
-  const saveCustomUrl = (url: string) => {
-    const cleaned = url.trim();
-    setCustomBaseUrl(cleaned);
-    if (typeof window !== "undefined") {
-      if (cleaned) {
-        localStorage.setItem("stillpoint_audiobook_base_url", cleaned);
-      } else {
-        localStorage.removeItem("stillpoint_audiobook_base_url");
-      }
-    }
-    // Reload active track with new source
-    if (currentTrack && audioRef.current) {
-      const newUrl = getAudiobookTrackUrl(currentTrack.relPath);
-      const wasPlaying = isPlaying;
-      audioRef.current.src = newUrl;
-      audioRef.current.load();
-      if (wasPlaying) {
-        audioRef.current.play().catch(() => {});
-      }
-    }
-    setIsSettingsOpen(false);
-  };
+
 
   return (
     <div className="min-h-screen bg-background text-foreground pb-36">
@@ -373,18 +347,6 @@ function AudiobooksPage() {
                 the Christian Mystics.
               </p>
             </div>
-
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => setIsSettingsOpen(true)}
-                className="px-4 py-2 font-mono text-[10px] tracking-widest uppercase border border-border bg-surface/50 hover:bg-surface text-foreground transition-colors flex items-center gap-2"
-                title="Storage & Streaming Settings"
-              >
-                <span>⚙ Storage Settings</span>
-                {customBaseUrl && <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />}
-              </button>
-            </div>
           </div>
         </div>
 
@@ -412,17 +374,11 @@ function AudiobooksPage() {
 
         {/* Audio Error Alert if any */}
         {audioError && (
-          <div className="mb-8 p-4 bg-destructive/10 border border-destructive/30 rounded-sm text-xs font-mono flex items-start justify-between gap-4">
+          <div className="mb-8 p-4 bg-destructive/10 border border-destructive/30 rounded-sm text-xs font-mono">
             <div className="space-y-1">
               <p className="font-bold text-destructive">Audio Streaming Notice</p>
               <p className="opacity-80">{audioError}</p>
             </div>
-            <button
-              onClick={() => setIsSettingsOpen(true)}
-              className="px-3 py-1 bg-destructive/20 hover:bg-destructive/30 text-destructive text-[10px] uppercase tracking-wider font-mono whitespace-nowrap"
-            >
-              Configure Storage
-            </button>
           </div>
         )}
 
@@ -699,84 +655,6 @@ function AudiobooksPage() {
                   </span>
                 )}
               </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Cloud Storage / Base URL Settings Modal */}
-      {isSettingsOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm">
-          <div className="bg-surface border border-border w-full max-w-lg p-6 md:p-8 rounded-sm shadow-2xl space-y-6">
-            <div className="flex items-start justify-between">
-              <div>
-                <h3 className="font-display text-2xl">Audio Storage Configuration</h3>
-                <p className="font-mono text-xs opacity-60 mt-1">
-                  Local streaming vs Cloudflare R2 / S3
-                </p>
-              </div>
-              <button
-                onClick={() => setIsSettingsOpen(false)}
-                className="font-mono text-xs p-1 opacity-60 hover:opacity-100"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="space-y-4 font-sans text-xs leading-relaxed opacity-85">
-              <div className="p-3 bg-background/60 border border-border rounded-sm space-y-1">
-                <p className="font-mono font-bold text-accent">
-                  1. Local Offline Streaming (Default)
-                </p>
-                <p>
-                  In local development, the app streams directly from your local{" "}
-                  <code>/audiobook</code> folder with full HTTP 206 partial range scrubbing.
-                </p>
-              </div>
-
-              <div className="p-3 bg-background/60 border border-border rounded-sm space-y-1">
-                <p className="font-mono font-bold text-accent">
-                  2. Production / Cloudflare R2 or S3
-                </p>
-                <p>
-                  When deploying to Vercel or the web, upload your 8 GB <code>audiobook</code>{" "}
-                  folder to a free Cloudflare R2 bucket or AWS S3, and enter your public bucket URL
-                  below.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <label className="block font-mono text-[10px] uppercase tracking-wider">
-                  Custom Audio Base URL:
-                </label>
-                <input
-                  type="url"
-                  placeholder="e.g. https://audio.stillpoint.fun or https://pub-xxx.r2.dev"
-                  value={customBaseUrl}
-                  onChange={(e) => setCustomBaseUrl(e.target.value)}
-                  className="w-full px-3 py-2 font-mono text-xs bg-background border border-border focus:outline-none focus:border-foreground"
-                />
-                <p className="font-mono text-[9px] opacity-50">
-                  Leave empty to use the local <code>/audiobook</code> endpoint.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-end gap-3 pt-4 border-t border-border">
-              <button
-                type="button"
-                onClick={() => saveCustomUrl("")}
-                className="px-4 py-2 font-mono text-[10px] uppercase border border-border hover:bg-surface text-foreground"
-              >
-                Reset to Local
-              </button>
-              <button
-                type="button"
-                onClick={() => saveCustomUrl(customBaseUrl)}
-                className="px-5 py-2 font-mono text-[10px] uppercase bg-foreground text-background font-medium hover:opacity-90"
-              >
-                Save Settings
-              </button>
             </div>
           </div>
         </div>

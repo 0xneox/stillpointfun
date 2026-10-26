@@ -1,5 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { CHANNELS, CHANNEL_DESCRIPTIONS, CONTENT } from "@/data/content";
+import { POSTS } from "@/data/posts";
 import { useState, useRef } from "react";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -38,6 +39,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const router = useRouter();
   const [currentItem, setCurrentItem] = useState(CONTENT[0]);
   const [shouldAutoplay, setShouldAutoplay] = useState(false);
   const [lastPlayedId, setLastPlayedId] = useLocalStorage<string>(
@@ -47,11 +49,21 @@ function Home() {
   const playRandomRef = useRef<(() => void) | null>(null);
 
   const playRandom = () => {
-    const randomIndex = Math.floor(Math.random() * CONTENT.length);
-    const newItem = CONTENT[randomIndex];
-    setCurrentItem(newItem);
-    setLastPlayedId(newItem.id);
-    setShouldAutoplay(true);
+    // Randomly choose between audio content (60%) and written posts (40%)
+    const isAudio = Math.random() < 0.6;
+
+    if (isAudio) {
+      const randomIndex = Math.floor(Math.random() * CONTENT.length);
+      const newItem = CONTENT[randomIndex];
+      setCurrentItem(newItem);
+      setLastPlayedId(newItem.id);
+      setShouldAutoplay(true);
+    } else {
+      // Navigate to a random post (writing/essay)
+      const randomPostIndex = Math.floor(Math.random() * POSTS.length);
+      const randomPost = POSTS[randomPostIndex];
+      router.navigate({ to: `/teachings/${randomPost.slug}` });
+    }
   };
 
   const playItem = (item: (typeof CONTENT)[0]) => {
@@ -111,7 +123,7 @@ function Home() {
           {/* Primary CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 stagger-5">
             <Link
-              to="/"
+              to="/discourses"
               className="px-10 py-4 bg-foreground text-background font-mono text-[11px] tracking-[0.2em] uppercase hover:bg-accent transition-colors w-full sm:w-auto hover-lift press-scale"
             >
               Begin Exploring
@@ -122,51 +134,6 @@ function Home() {
             >
               I Don't Know
             </button>
-          </div>
-
-          {/* Quick Navigation */}
-          <div className="pt-12 flex flex-wrap justify-center gap-6 font-mono text-[10px] tracking-widest uppercase opacity-60">
-            <Link
-              to="/"
-              className="hover:opacity-100 hover:text-accent transition-all link-underline"
-            >
-              Listen
-            </Link>
-            <span className="opacity-30">·</span>
-            <Link
-              to="/library"
-              className="hover:opacity-100 hover:text-accent transition-all link-underline"
-            >
-              Library
-            </Link>
-            <span className="opacity-30">·</span>
-            <Link
-              to="/writings"
-              className="hover:opacity-100 hover:text-accent transition-all link-underline"
-            >
-              Writings
-            </Link>
-            <span className="opacity-30">·</span>
-            <Link
-              to="/journal"
-              className="hover:opacity-100 hover:text-accent transition-all link-underline"
-            >
-              Journal
-            </Link>
-            <span className="opacity-30">·</span>
-            <Link
-              to="/discourses"
-              className="hover:opacity-100 hover:text-accent transition-all link-underline"
-            >
-              Discourses
-            </Link>
-            <span className="opacity-30">·</span>
-            <Link
-              to="/audiobooks"
-              className="hover:opacity-100 hover:text-accent transition-all link-underline"
-            >
-              Audiobooks
-            </Link>
           </div>
         </div>
       </section>
@@ -324,7 +291,7 @@ function Home() {
 
         <div className="mt-12 text-center">
           <Link
-            to="/"
+            to="/discourses"
             className="font-mono text-[10px] tracking-widest uppercase opacity-60 hover:opacity-100 hover:text-accent transition-all link-underline"
           >
             View All Channels →

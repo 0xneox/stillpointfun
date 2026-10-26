@@ -4,6 +4,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CONTENT } from "@/data/content";
 import { POSTS } from "@/data/posts";
 import { LIBRARY_ITEMS } from "@/data/library";
+import { SACRED_AUDIOBOOKS } from "@/data/audiobooks";
+import { CURATED_PLAYLISTS } from "@/data/content";
 import { siteUrl } from "@/lib/site-url";
 
 interface SearchParams {
@@ -21,14 +23,16 @@ export const Route = createFileRoute("/search")({
       { title: "Search — Stillpoint" },
       {
         name: "description",
-        content: "Search audio recordings, texts, writings, and discourses on Stillpoint.",
+        content: "Search audio recordings, texts, writings, discourses, audiobooks, and library texts across all collections on Stillpoint.",
       },
       { property: "og:title", content: "Search — Stillpoint" },
       {
         property: "og:description",
-        content: "Search audio recordings, texts, writings, and discourses on Stillpoint.",
+        content: "Search audio recordings, texts, writings, discourses, audiobooks, and library texts across all collections on Stillpoint.",
       },
       { property: "og:url", content: siteUrl("/search") },
+      { property: "og:type", content: "website" },
+      { name: "robots", content: __PUBLIC_LAUNCH__ ? "index, follow" : "noindex, nofollow" },
     ],
     links: [{ rel: "canonical", href: siteUrl("/search") }],
   }),
@@ -42,16 +46,19 @@ function SearchPage() {
   const trimmed = query.trim().toLowerCase();
 
   const results = useMemo(() => {
-    if (!trimmed) return { audio: [], posts: [], books: [] };
+    if (!trimmed) return { audio: [], posts: [], books: [], audiobooks: [], discourses: [] };
 
+    // Audio/Content
     const audio = CONTENT.filter(
       (item) =>
         item.title.toLowerCase().includes(trimmed) ||
         item.artist_or_speaker.toLowerCase().includes(trimmed) ||
         item.channel.toLowerCase().includes(trimmed) ||
+        item.tradition?.toLowerCase().includes(trimmed) ||
         item.tags.some((tag) => tag.toLowerCase().includes(trimmed)),
     ).slice(0, 15);
 
+    // Posts/Writings
     const posts = POSTS.filter(
       (post) =>
         post.title.toLowerCase().includes(trimmed) ||
@@ -60,6 +67,7 @@ function SearchPage() {
         post.tags?.some((tag: string) => tag.toLowerCase().includes(trimmed)),
     ).slice(0, 15);
 
+    // Library Books
     const books = LIBRARY_ITEMS.filter(
       (book) =>
         book.title.toLowerCase().includes(trimmed) ||
@@ -68,10 +76,42 @@ function SearchPage() {
         book.description?.toLowerCase().includes(trimmed),
     ).slice(0, 15);
 
-    return { audio, posts, books };
+    // Audiobooks - search across collections and tracks
+    const audiobooks = SACRED_AUDIOBOOKS.filter(
+      (collection) =>
+        collection.title.toLowerCase().includes(trimmed) ||
+        collection.author.toLowerCase().includes(trimmed) ||
+        collection.tradition.toLowerCase().includes(trimmed) ||
+        collection.description.toLowerCase().includes(trimmed) ||
+        collection.tags.some((tag) => tag.toLowerCase().includes(trimmed)) ||
+        collection.tracks.some((track) =>
+          track.title.toLowerCase().includes(trimmed),
+        ),
+    ).slice(0, 10);
+
+    // Discourses - search across curated playlists
+    const discourses = CURATED_PLAYLISTS.filter(
+      (playlist) =>
+        playlist.title.toLowerCase().includes(trimmed) ||
+        playlist.speaker.toLowerCase().includes(trimmed) ||
+        playlist.traditions.some((t) => t.toLowerCase().includes(trimmed)) ||
+        playlist.description?.toLowerCase().includes(trimmed) ||
+        playlist.tracks.some((track) =>
+          track.title.toLowerCase().includes(trimmed) ||
+          track.speaker.toLowerCase().includes(trimmed) ||
+          track.description?.toLowerCase().includes(trimmed),
+        ),
+    ).slice(0, 10);
+
+    return { audio, posts, books, audiobooks, discourses };
   }, [trimmed]);
 
-  const totalResults = results.audio.length + results.posts.length + results.books.length;
+  const totalResults =
+    results.audio.length +
+    results.posts.length +
+    results.books.length +
+    results.audiobooks.length +
+    results.discourses.length;
 
   return (
     <div className="min-h-screen">
@@ -121,10 +161,14 @@ function SearchPage() {
             No entries found for &ldquo;{query}&rdquo;. Try another word or view the{" "}
             <Link to="/library" className="underline hover:text-accent">
               Library
-            </Link>{" "}
-            or{" "}
+            </Link>
+            ,{" "}
             <Link to="/discourses" className="underline hover:text-accent">
               Discourses
+            </Link>
+            , or{" "}
+            <Link to="/audiobooks" className="underline hover:text-accent">
+              Audiobooks
             </Link>
             .
           </div>
@@ -219,6 +263,80 @@ function SearchPage() {
                       </p>
                     )}
                   </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Audiobooks */}
+          {results.audiobooks.length > 0 && (
+            <div>
+              <h2 className="font-mono text-xs tracking-widest uppercase opacity-50 mb-6 border-b border-border pb-2">
+                Sacred Audiobooks ({results.audiobooks.length})
+              </h2>
+              <div className="divide-y divide-border">
+                {results.audiobooks.map((audiobook) => (
+                  <Link
+                    key={audiobook.id}
+                    to="/audiobooks"
+                    className="group block py-4 hover:text-accent transition-colors"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="font-display text-xl group-hover:text-accent transition-colors">
+                          {audiobook.title}
+                        </h3>
+                        <p className="text-xs opacity-60 mt-1 font-mono">
+                          {audiobook.author} · {audiobook.tradition} · {audiobook.trackCount} tracks
+                        </p>
+                        {audiobook.description && (
+                          <p className="text-xs opacity-70 mt-1 font-sans line-clamp-2">
+                            {audiobook.description}
+                          </p>
+                        )}
+                      </div>
+                      <span className="font-mono text-xs opacity-40 group-hover:opacity-100">
+                        →
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Discourses */}
+          {results.discourses.length > 0 && (
+            <div>
+              <h2 className="font-mono text-xs tracking-widest uppercase opacity-50 mb-6 border-b border-border pb-2">
+                Discourses & Archives ({results.discourses.length})
+              </h2>
+              <div className="divide-y divide-border">
+                {results.discourses.map((discourse) => (
+                  <Link
+                    key={discourse.id}
+                    to="/discourses"
+                    className="group block py-4 hover:text-accent transition-colors"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="font-display text-xl group-hover:text-accent transition-colors">
+                          {discourse.title}
+                        </h3>
+                        <p className="text-xs opacity-60 mt-1 font-mono">
+                          {discourse.speaker} · {discourse.traditions.join(" · ")} · {discourse.tracks.length} talks
+                        </p>
+                        {discourse.description && (
+                          <p className="text-xs opacity-70 mt-1 font-sans line-clamp-2">
+                            {discourse.description}
+                          </p>
+                        )}
+                      </div>
+                      <span className="font-mono text-xs opacity-40 group-hover:opacity-100">
+                        →
+                      </span>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>

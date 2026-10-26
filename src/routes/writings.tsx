@@ -22,6 +22,8 @@ export const Route = createFileRoute("/writings")({
           "Original essays and reflections on consciousness, philosophy, tradition, and the encounter between the ancient and the contemporary.",
       },
       { property: "og:url", content: siteUrl("/writings") },
+      { property: "og:type", content: "website" },
+      { name: "robots", content: __PUBLIC_LAUNCH__ ? "index, follow" : "noindex, nofollow" },
     ],
     links: [{ rel: "canonical", href: siteUrl("/writings") }],
   }),

@@ -26,6 +26,8 @@ export const Route = createFileRoute("/library")({
         content: `A curated library of ${LIBRARY_ITEMS.length} reviewed records, with hosting limited to cleared items.`,
       },
       { property: "og:url", content: siteUrl("/library") },
+      { property: "og:type", content: "website" },
+      { name: "robots", content: __PUBLIC_LAUNCH__ ? "index, follow" : "noindex, nofollow" },
     ],
     links: [{ rel: "canonical", href: siteUrl("/library") }],
   }),

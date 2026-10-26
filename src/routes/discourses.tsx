@@ -23,6 +23,8 @@ export const Route = createFileRoute("/discourses")({
           "Curated public discourses, spoken audio archives, talks, and philosophical lectures including Alan Watts, Ram Dass, Neem Karoli Baba, Ramana Maharshi, Samadhi, Advaita, and Zen.",
       },
       { property: "og:url", content: siteUrl("/discourses") },
+      { property: "og:type", content: "website" },
+      { name: "robots", content: __PUBLIC_LAUNCH__ ? "index, follow" : "noindex, nofollow" },
     ],
     links: [{ rel: "canonical", href: siteUrl("/discourses") }],
   }),
@@ -176,6 +178,7 @@ function Discourses() {
         channel: activePlaylist.traditions[0],
         sourceType: "discourse",
         route: "/discourses",
+        streamUrl: streamUrls[0],
         isPlaying: true,
       });
     }
@@ -734,7 +737,7 @@ function Discourses() {
           <h2 className="font-display italic text-4xl md:text-5xl text-balance">Explore Further</h2>
           <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/"
+              to="/audiobooks"
               className="px-8 py-4 bg-foreground text-background font-mono text-[10px] tracking-[0.2em] uppercase hover:bg-accent transition-colors"
             >
               Browse All Listening

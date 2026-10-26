@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { siteUrl } from "@/lib/site-url";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 export const Route = createFileRoute("/journal")({
   head: () => ({
@@ -19,6 +20,8 @@ export const Route = createFileRoute("/journal")({
           "Tactile contemplative journal and field notes board. Capture fleeting insights, inquiries, reflections, and quotes in stillness.",
       },
       { property: "og:url", content: siteUrl("/journal") },
+      { property: "og:type", content: "website" },
+      { name: "robots", content: __PUBLIC_LAUNCH__ ? "index, follow" : "noindex, nofollow" },
     ],
     links: [{ rel: "canonical", href: siteUrl("/journal") }],
   }),
@@ -531,6 +534,29 @@ Not as a technique. As the honest description of how it actually is.`,
 ];
 
 function StickyJournal() {
+  // Daily Practice Streak
+  const [streak, setStreak] = useLocalStorage<number>("stillpoint_journal_streak", 0);
+  const [lastPracticeDate, setLastPracticeDate] = useLocalStorage<string | null>(
+    "stillpoint_journal_last_practice",
+    null,
+  );
+
+  // Track daily practice
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const today = new Date().toDateString();
+    if (lastPracticeDate !== today) {
+      const yesterday = new Date(Date.now() - 86400000).toDateString();
+      if (lastPracticeDate === yesterday) {
+        setStreak((prev) => prev + 1);
+      } else if (lastPracticeDate !== today) {
+        setStreak(1);
+      }
+      setLastPracticeDate(today);
+    }
+  }, [lastPracticeDate, setStreak, setLastPracticeDate]);
+
   const [notes, setNotes] = useState<StickyNote[]>(() => {
     if (typeof window !== "undefined") {
       try {
@@ -571,13 +597,30 @@ function StickyJournal() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [readerFontSize, setReaderFontSize] = useState<"sm" | "base" | "lg">("base");
 
-  // Esc key listener to close modals
+  // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't trigger if typing in input/textarea
+      if (
+        ["INPUT", "TEXTAREA"].includes((e.target as HTMLElement)?.tagName) ||
+        (e.target as HTMLElement)?.isContentEditable
+      ) {
+        return;
+      }
+
       if (e.key === "Escape") {
         if (focusedNote) setFocusedNote(null);
         if (editingNote) setEditingNote(null);
         if (isCreating) setIsCreating(false);
+      } else if (e.key === "n" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setIsCreating(true);
+      } else if (e.key === "r" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        handleRandomNote();
+      } else if (e.key === "/" && !e.shiftKey) {
+        e.preventDefault();
+        (document.querySelector('input[placeholder*="Search"]') as HTMLInputElement)?.focus();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -669,6 +712,14 @@ function StickyJournal() {
     setNewTagsInput("");
     setNewIsPinned(false);
     setIsCreating(false);
+  };
+
+  // Random Note Feature
+  const handleRandomNote = () => {
+    const availableNotes = filteredNotes.length > 0 ? filteredNotes : notes;
+    if (availableNotes.length === 0) return;
+    const randomIndex = Math.floor(Math.random() * availableNotes.length);
+    setFocusedNote(availableNotes[randomIndex]);
   };
 
   // Toggle Pin
@@ -773,13 +824,37 @@ function StickyJournal() {
 
           {/* Quick Actions */}
           <div className="flex flex-wrap items-center gap-3 shrink-0">
+            {/* Daily Streak Badge */}
+            <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded">
+              <span className="text-lg">🔥</span>
+              <div className="flex flex-col">
+                <span className="font-mono text-[9px] uppercase tracking-widest opacity-60">
+                  Practice Streak
+                </span>
+                <span className="font-display text-lg font-semibold text-accent">
+                  {streak} {streak === 1 ? "day" : "days"}
+                </span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleRandomNote}
+              className="px-4 py-3 border border-border font-mono text-[10px] tracking-widest uppercase hover:border-foreground hover:bg-surface transition-colors flex items-center gap-2"
+              title="Open random contemplation (Ctrl+R)"
+            >
+              <span>🎲</span>
+              <span className="hidden sm:inline">Random</span>
+            </button>
+
             <button
               type="button"
               onClick={() => setIsCreating(true)}
               className="px-6 py-3 bg-foreground text-background font-mono text-[11px] tracking-[0.2em] uppercase hover:bg-accent hover:text-white transition-all shadow-lg hover-lift press-scale flex items-center gap-2"
+              title="New note (Ctrl+N)"
             >
               <span>✦</span>
-              <span>New Sticky Note</span>
+              <span>New Note</span>
             </button>
 
             <button
@@ -788,7 +863,7 @@ function StickyJournal() {
               className="px-4 py-3 border border-border font-mono text-[10px] tracking-widest uppercase hover:border-foreground transition-colors"
               title="Download backup"
             >
-              📥 Backup
+              📥
             </button>
           </div>
         </div>
@@ -849,7 +924,7 @@ function StickyJournal() {
             <div className="relative flex-1 sm:w-64">
               <input
                 type="text"
-                placeholder="Search notes or #tags..."
+                placeholder="Search notes or #tags... (/)"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-3.5 py-1.5 pl-8 font-mono text-xs bg-surface/50 border border-border rounded focus:outline-none focus:border-foreground transition-colors"
@@ -864,6 +939,22 @@ function StickyJournal() {
                   ✕
                 </button>
               )}
+            </div>
+
+            {/* Color Filter Dropdown */}
+            <div className="relative">
+              <select
+                value={activeColor}
+                onChange={(e) => setActiveColor(e.target.value as NoteColor | "all")}
+                className="px-2.5 py-1.5 font-mono text-xs bg-surface/50 border border-border rounded focus:outline-none focus:border-foreground cursor-pointer"
+              >
+                <option value="all">All Colors</option>
+                {(Object.keys(COLOR_MAP) as NoteColor[]).map((c) => (
+                  <option key={c} value={c}>
+                    {COLOR_MAP[c].name}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="border border-border rounded flex items-center overflow-hidden">
@@ -1058,7 +1149,11 @@ function StickyJournal() {
                       {note.tags.slice(0, 2).map((tag) => (
                         <span
                           key={tag}
-                          className="font-mono text-[9px] opacity-50 hover:opacity-100 transition-opacity"
+                          className="font-mono text-[9px] opacity-50 hover:opacity-100 transition-opacity cursor-pointer"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveTag(tag);
+                          }}
                         >
                           #{tag}
                         </span>
@@ -1072,6 +1167,19 @@ function StickyJournal() {
 
                     {/* Floating Action Buttons */}
                     <div className="flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                      {/* Quick Color Picker (Desktop) */}
+                      <div className="hidden sm:flex items-center gap-0.5 mr-1">
+                        {(Object.keys(COLOR_MAP) as NoteColor[]).slice(0, 4).map((c) => (
+                          <button
+                            key={c}
+                            type="button"
+                            onClick={(e) => handleColorChange(note.id, c, e)}
+                            className={`w-4 h-4 rounded-full border border-white/30 hover:scale-125 transition-transform ${COLOR_MAP[c].bg}`}
+                            title={`Change to ${COLOR_MAP[c].name}`}
+                          />
+                        ))}
+                      </div>
+
                       {/* Copy */}
                       <button
                         type="button"
@@ -1125,36 +1233,63 @@ function StickyJournal() {
         )}
 
         {/* Board Bottom Controls */}
-        <div className="mt-20 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono opacity-60">
-          <p>{notes.length} total reflections stored in local browser storage.</p>
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={handleResetDefaults}
-              className="hover:text-accent transition-colors underline"
-            >
-              Restore Curated Pointings
-            </button>
-            <span>·</span>
-            <button
-              type="button"
-              onClick={handleExportJson}
-              className="hover:text-accent transition-colors underline"
-            >
-              Export JSON Backup
-            </button>
+        <div className="mt-20 pt-8 border-t border-border">
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6 text-xs font-mono">
+            {/* Statistics */}
+            <div className="space-y-2">
+              <p className="opacity-60">
+                {notes.length} total reflections stored in local browser storage.
+              </p>
+              <div className="flex flex-wrap gap-4 opacity-50">
+                <span>📌 {notes.filter((n) => n.isPinned).length} pinned</span>
+                <span>🔥 {streak} day streak</span>
+                <span>
+                  🏷️ {allTags.length} unique tags
+                </span>
+              </div>
+            </div>
+
+            {/* Keyboard Shortcuts Hint */}
+            <div className="space-y-1.5 opacity-50">
+              <p className="uppercase tracking-widest text-[9px]">Keyboard Shortcuts</p>
+              <div className="flex flex-wrap gap-3">
+                <span><kbd className="px-1.5 py-0.5 bg-surface border border-border rounded">Ctrl+N</kbd> New note</span>
+                <span><kbd className="px-1.5 py-0.5 bg-surface border border-border rounded">Ctrl+R</kbd> Random</span>
+                <span><kbd className="px-1.5 py-0.5 bg-surface border border-border rounded">/</kbd> Search</span>
+                <span><kbd className="px-1.5 py-0.5 bg-surface border border-border rounded">Esc</kbd> Close</span>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-4">
+              <button
+                type="button"
+                onClick={handleResetDefaults}
+                className="hover:text-accent transition-colors underline"
+              >
+                Restore Curated Pointings
+              </button>
+              <span className="opacity-30">·</span>
+              <button
+                type="button"
+                onClick={handleExportJson}
+                className="hover:text-accent transition-colors underline"
+              >
+                Export JSON Backup
+              </button>
+            </div>
           </div>
         </div>
       </main>
 
       {/* CREATE NOTE MODAL */}
       {isCreating && (
-        <div className="fixed inset-0 z-50 bg-background/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-surface/90 border border-border p-6 md:p-8 max-w-lg w-full rounded-xl shadow-2xl space-y-6 relative">
+        <div className="fixed inset-0 z-50 bg-background/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
+          <div className="bg-surface/90 border border-border p-4 sm:p-6 md:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl space-y-4 sm:space-y-6 relative">
             <div className="flex items-center justify-between border-b border-border pb-3">
               <div className="flex items-center gap-2">
                 <span className="text-accent text-base">✦</span>
-                <h3 className="font-display text-xl">New Journal Note</h3>
+                <h3 className="font-display text-lg sm:text-xl">New Journal Note</h3>
               </div>
               <button
                 type="button"
@@ -1165,7 +1300,7 @@ function StickyJournal() {
               </button>
             </div>
 
-            <form onSubmit={handleCreateNote} className="space-y-4">
+            <form onSubmit={handleCreateNote} className="space-y-3 sm:space-y-4">
               {/* Note Title */}
               <div>
                 <input
@@ -1173,7 +1308,7 @@ function StickyJournal() {
                   placeholder="Note Title (Optional)..."
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  className="w-full px-3.5 py-2.5 font-display text-lg bg-background border border-border rounded focus:outline-none focus:border-accent transition-colors"
+                  className="w-full px-3 sm:px-3.5 py-2 sm:py-2.5 font-display text-base sm:text-lg bg-background border border-border rounded focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
@@ -1185,7 +1320,7 @@ function StickyJournal() {
                   placeholder="Write your contemplation, quote, inquiry, or moment of stillness..."
                   value={newContent}
                   onChange={(e) => setNewContent(e.target.value)}
-                  className="w-full p-3.5 font-sans text-sm bg-background border border-border rounded focus:outline-none focus:border-accent transition-colors leading-relaxed"
+                  className="w-full p-3 sm:p-3.5 font-sans text-sm bg-background border border-border rounded focus:outline-none focus:border-accent transition-colors leading-relaxed"
                 />
               </div>
 
@@ -1194,20 +1329,20 @@ function StickyJournal() {
                 <label className="font-mono text-[10px] tracking-widest uppercase opacity-60 block">
                   Mood / Type
                 </label>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {(Object.keys(MOOD_ICONS) as NoteMood[]).map((m) => (
                     <button
                       key={m}
                       type="button"
                       onClick={() => setNewMood(m)}
-                      className={`px-3 py-1.5 rounded font-mono text-xs transition-all flex items-center gap-1.5 ${
+                      className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded font-mono text-[10px] sm:text-xs transition-all flex items-center gap-1 sm:gap-1.5 ${
                         newMood === m
                           ? "bg-accent text-white font-medium shadow-sm"
                           : "border border-border hover:bg-background opacity-70"
                       }`}
                     >
-                      <span>{MOOD_ICONS[m].icon}</span>
-                      <span>{MOOD_ICONS[m].label}</span>
+                      <span className="text-xs sm:text-sm">{MOOD_ICONS[m].icon}</span>
+                      <span className="hidden sm:inline">{MOOD_ICONS[m].label}</span>
                     </button>
                   ))}
                 </div>
@@ -1218,7 +1353,7 @@ function StickyJournal() {
                 <label className="font-mono text-[10px] tracking-widest uppercase opacity-60 block">
                   Parchment Tone
                 </label>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                   {(Object.keys(COLOR_MAP) as NoteColor[]).map((c) => {
                     const col = COLOR_MAP[c];
                     const isSelected = newColor === c;
@@ -1227,7 +1362,7 @@ function StickyJournal() {
                         key={c}
                         type="button"
                         onClick={() => setNewColor(c)}
-                        className={`w-7 h-7 rounded-full border-2 transition-transform ${col.bg} ${
+                        className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 transition-transform ${col.bg} ${
                           isSelected
                             ? "border-accent scale-110 shadow-md ring-2 ring-accent/30"
                             : "border-border/60 hover:scale-105"
@@ -1271,17 +1406,17 @@ function StickyJournal() {
               </div>
 
               {/* Submit Buttons */}
-              <div className="pt-4 flex items-center justify-end gap-3 border-t border-border">
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3 border-t border-border">
                 <button
                   type="button"
                   onClick={() => setIsCreating(false)}
-                  className="px-4 py-2 border border-border font-mono text-[10px] tracking-widest uppercase hover:bg-background"
+                  className="px-4 py-2 border border-border font-mono text-[10px] tracking-widest uppercase hover:bg-background w-full sm:w-auto"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-foreground text-background font-mono text-[10px] tracking-widest uppercase hover:bg-accent hover:text-white transition-colors"
+                  className="px-6 py-2 bg-foreground text-background font-mono text-[10px] tracking-widest uppercase hover:bg-accent hover:text-white transition-colors w-full sm:w-auto"
                 >
                   Pin Note ✦
                 </button>
@@ -1293,10 +1428,10 @@ function StickyJournal() {
 
       {/* EDIT NOTE MODAL */}
       {editingNote && (
-        <div className="fixed inset-0 z-50 bg-background/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-surface/95 border border-border p-6 md:p-8 max-w-lg w-full rounded-xl shadow-2xl space-y-6">
+        <div className="fixed inset-0 z-50 bg-background/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
+          <div className="bg-surface/95 border border-border p-4 sm:p-6 md:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl space-y-4 sm:space-y-6">
             <div className="flex items-center justify-between border-b border-border pb-3">
-              <h3 className="font-display text-xl">Edit Field Note</h3>
+              <h3 className="font-display text-lg sm:text-xl">Edit Field Note</h3>
               <button
                 type="button"
                 onClick={() => setEditingNote(null)}
@@ -1311,7 +1446,7 @@ function StickyJournal() {
                 e.preventDefault();
                 handleSaveEdit(editingNote);
               }}
-              className="space-y-4"
+              className="space-y-3 sm:space-y-4"
             >
               <div>
                 <input
@@ -1319,7 +1454,7 @@ function StickyJournal() {
                   placeholder="Title (Optional)..."
                   value={editingNote.title || ""}
                   onChange={(e) => setEditingNote({ ...editingNote, title: e.target.value })}
-                  className="w-full px-3.5 py-2.5 font-display text-lg bg-background border border-border rounded focus:outline-none focus:border-accent"
+                  className="w-full px-3 sm:px-3.5 py-2 sm:py-2.5 font-display text-base sm:text-lg bg-background border border-border rounded focus:outline-none focus:border-accent"
                 />
               </div>
 
@@ -1329,7 +1464,7 @@ function StickyJournal() {
                   required
                   value={editingNote.content}
                   onChange={(e) => setEditingNote({ ...editingNote, content: e.target.value })}
-                  className="w-full p-3.5 font-sans text-sm bg-background border border-border rounded focus:outline-none focus:border-accent leading-relaxed"
+                  className="w-full p-3 sm:p-3.5 font-sans text-sm bg-background border border-border rounded focus:outline-none focus:border-accent leading-relaxed"
                 />
               </div>
 
@@ -1337,20 +1472,20 @@ function StickyJournal() {
                 <label className="font-mono text-[10px] tracking-widest uppercase opacity-60 block">
                   Mood
                 </label>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {(Object.keys(MOOD_ICONS) as NoteMood[]).map((m) => (
                     <button
                       key={m}
                       type="button"
                       onClick={() => setEditingNote({ ...editingNote, mood: m })}
-                      className={`px-3 py-1.5 rounded font-mono text-xs flex items-center gap-1.5 ${
+                      className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded font-mono text-[10px] sm:text-xs flex items-center gap-1 sm:gap-1.5 ${
                         editingNote.mood === m
                           ? "bg-accent text-white font-medium"
                           : "border border-border opacity-70"
                       }`}
                     >
-                      <span>{MOOD_ICONS[m].icon}</span>
-                      <span>{MOOD_ICONS[m].label}</span>
+                      <span className="text-xs sm:text-sm">{MOOD_ICONS[m].icon}</span>
+                      <span className="hidden sm:inline">{MOOD_ICONS[m].label}</span>
                     </button>
                   ))}
                 </div>
@@ -1360,7 +1495,7 @@ function StickyJournal() {
                 <label className="font-mono text-[10px] tracking-widest uppercase opacity-60 block">
                   Parchment Tone
                 </label>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                   {(Object.keys(COLOR_MAP) as NoteColor[]).map((c) => {
                     const col = COLOR_MAP[c];
                     return (
@@ -1368,7 +1503,7 @@ function StickyJournal() {
                         key={c}
                         type="button"
                         onClick={() => setEditingNote({ ...editingNote, color: c })}
-                        className={`w-7 h-7 rounded-full border-2 ${col.bg} ${
+                        className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 ${col.bg} ${
                           editingNote.color === c
                             ? "border-accent scale-110 ring-2 ring-accent/30"
                             : "border-border/60"
@@ -1400,17 +1535,17 @@ function StickyJournal() {
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-3 border-t border-border">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3 pt-3 border-t border-border">
                 <button
                   type="button"
                   onClick={() => setEditingNote(null)}
-                  className="px-4 py-2 border border-border font-mono text-[10px] tracking-widest uppercase"
+                  className="px-4 py-2 border border-border font-mono text-[10px] tracking-widest uppercase w-full sm:w-auto"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-foreground text-background font-mono text-[10px] tracking-widest uppercase hover:bg-accent"
+                  className="px-6 py-2 bg-foreground text-background font-mono text-[10px] tracking-widest uppercase hover:bg-accent w-full sm:w-auto"
                 >
                   Save Changes
                 </button>
@@ -1424,55 +1559,132 @@ function StickyJournal() {
       {focusedNote && (
         <div
           onClick={() => setFocusedNote(null)}
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300"
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 md:p-6 animate-in fade-in duration-300"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className={`max-w-xl w-full p-8 md:p-12 rounded-2xl border shadow-2xl relative ${
+            className={`w-full max-w-full sm:max-w-xl md:max-w-2xl max-h-[90vh] overflow-y-auto p-5 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl border shadow-2xl relative ${
               COLOR_MAP[focusedNote.color]?.bg || "bg-surface"
             } ${COLOR_MAP[focusedNote.color]?.border || "border-border"} ${
               COLOR_MAP[focusedNote.color]?.text || "text-foreground"
             }`}
           >
-            {/* Top Close */}
-            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-              <div className="flex items-center gap-2">
-                <span>{MOOD_ICONS[focusedNote.mood]?.icon}</span>
-                <span className="font-mono text-[10px] tracking-widest uppercase opacity-60">
+            {/* Top Bar */}
+            <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10 mb-4 sm:mb-6">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-base sm:text-lg shrink-0">{MOOD_ICONS[focusedNote.mood]?.icon}</span>
+                <span className="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase opacity-60 truncate">
                   {MOOD_ICONS[focusedNote.mood]?.label} · {formatTimeAgo(focusedNote.createdAt)}
                 </span>
               </div>
-              <button
-                type="button"
-                onClick={() => setFocusedNote(null)}
-                className="font-mono text-xs opacity-50 hover:opacity-100"
-              >
-                ✕ Close
-              </button>
+              <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                {/* Font Size Controls */}
+                <div className="hidden sm:flex items-center gap-1 border border-white/20 rounded px-1 py-0.5">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setReaderFontSize((prev) => (prev === "lg" ? "base" : prev === "base" ? "sm" : "sm"))
+                    }
+                    className="px-2 py-0.5 font-mono text-xs hover:bg-white/10 rounded"
+                    title="Decrease font size"
+                  >
+                    A-
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setReaderFontSize((prev) => (prev === "sm" ? "base" : prev === "base" ? "lg" : "lg"))
+                    }
+                    className="px-2 py-0.5 font-mono text-xs hover:bg-white/10 rounded"
+                    title="Increase font size"
+                  >
+                    A+
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => handleCopy(focusedNote)}
+                  className="font-mono text-xs opacity-50 hover:opacity-100 p-1"
+                  title="Copy to clipboard"
+                >
+                  📋
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setFocusedNote(null)}
+                  className="font-mono text-xs opacity-50 hover:opacity-100 p-1"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
 
             {/* Title */}
             {focusedNote.title && (
-              <h2 className="font-display text-2xl md:text-3xl font-semibold mb-4 leading-tight">
+              <h2
+                className={`font-display font-semibold mb-3 sm:mb-4 leading-tight ${
+                  readerFontSize === "sm"
+                    ? "text-lg sm:text-xl md:text-2xl"
+                    : readerFontSize === "lg"
+                      ? "text-2xl sm:text-3xl md:text-4xl"
+                      : "text-xl sm:text-2xl md:text-3xl"
+                }`}
+              >
                 {focusedNote.title}
               </h2>
             )}
 
             {/* Body */}
-            <p className="font-sans text-base md:text-lg opacity-90 leading-relaxed whitespace-pre-wrap mb-8">
+            <p
+              className={`font-sans opacity-90 leading-relaxed whitespace-pre-wrap mb-6 sm:mb-8 ${
+                readerFontSize === "sm"
+                  ? "text-sm sm:text-base md:text-base"
+                  : readerFontSize === "lg"
+                    ? "text-base sm:text-lg md:text-xl"
+                    : "text-base sm:text-base md:text-lg"
+              }`}
+            >
               {focusedNote.content}
             </p>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-3 sm:pt-4 border-t border-white/10">
               {focusedNote.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-0.5 rounded font-mono text-[10px] bg-white/10 opacity-75"
+                  className="px-1.5 sm:px-2 py-0.5 rounded font-mono text-[9px] sm:text-[10px] bg-white/10 opacity-75 hover:opacity-100 cursor-pointer transition-opacity"
+                  onClick={() => {
+                    setActiveTag(tag);
+                    setFocusedNote(null);
+                  }}
                 >
                   #{tag}
                 </span>
               ))}
+            </div>
+
+            {/* Quick Actions */}
+            <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
+              <button
+                type="button"
+                onClick={() => {
+                  setEditingNote(focusedNote);
+                  setFocusedNote(null);
+                }}
+                className="font-mono text-[10px] uppercase tracking-wider opacity-60 hover:opacity-100 transition-opacity w-full sm:w-auto"
+              >
+                Edit Note
+              </button>
+              <button
+                type="button"
+                onClick={handleRandomNote}
+                className="font-mono text-[10px] uppercase tracking-wider opacity-60 hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 w-full sm:w-auto"
+              >
+                <span>🎲</span>
+                <span>Next Random</span>
+              </button>
             </div>
           </div>
         </div>

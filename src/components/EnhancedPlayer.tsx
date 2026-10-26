@@ -104,6 +104,7 @@ export function EnhancedPlayer({
         channel,
         sourceType: "transmission",
         route: itemId ? `/listen/${itemId}` : "/",
+        streamUrl: currentStreamUrl,
         isPlaying: true,
       });
     } else {

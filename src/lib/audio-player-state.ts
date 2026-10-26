@@ -7,6 +7,7 @@ export interface ActiveAudioTrack {
   channel?: string;
   sourceType: "transmission" | "audiobook" | "discourse";
   route: string;
+  streamUrl?: string;
   isPlaying: boolean;
 }
 
@@ -51,7 +52,7 @@ export function setGlobalAudioTrack(track: ActiveAudioTrack | null) {
  * allowing other players to pause automatically so sounds do not clash.
  */
 export function notifyAudioStarted(
-  sourceType: "transmission" | "audiobook" | "discourse",
+  sourceType: "transmission" | "audiobook" | "discourse" | "bottom-player",
   id?: string,
 ) {
   if (typeof window !== "undefined") {

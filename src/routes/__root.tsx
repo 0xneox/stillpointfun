@@ -121,7 +121,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           url: siteUrl("/"),
           description:
             "An independent, open-source project for listening, inquiry, and the exploration of consciousness.",
-          sameAs: ["https://github.com/0xneox"],
+          sameAs: ["https://github.com/0xneox/stillpointfun"],
           foundingDate: "2026",
         }),
       },
