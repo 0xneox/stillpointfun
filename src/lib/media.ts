@@ -15,7 +15,7 @@ export function getMediaBaseUrl(): string {
   if (typeof __MEDIA_BASE_URL__ === "string" && __MEDIA_BASE_URL__.trim()) {
     return __MEDIA_BASE_URL__.trim().replace(/\/$/, "");
   }
-  return "";
+  return "https://pub-a526649f29164cd09fb7504d66516920.r2.dev";
 }
 
 /**

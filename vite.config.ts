@@ -189,7 +189,9 @@ export default defineConfig(() => {
   return {
     define: {
       __PUBLIC_LAUNCH__: JSON.stringify(publicLaunch),
-      __MEDIA_BASE_URL__: JSON.stringify(process.env.MEDIA_BASE_URL ?? ""),
+      __MEDIA_BASE_URL__: JSON.stringify(
+        process.env.MEDIA_BASE_URL ?? "https://pub-a526649f29164cd09fb7504d66516920.r2.dev",
+      ),
       __SITE_URL__: JSON.stringify(siteUrl),
     },
     plugins: [
