@@ -202,7 +202,9 @@
 
 /* Micro-interactions */
 @utility hover-lift {
-  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
+  transition:
+    transform 0.3s var(--ease-out-expo),
+    box-shadow 0.3s var(--ease-out-expo);
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px color-mix(in oklab, var(--color-foreground) 10%, transparent);
@@ -252,7 +254,9 @@
 @utility scroll-reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
   &.is-visible {
     opacity: 1;
     transform: translateY(0);
@@ -262,7 +266,9 @@
 @utility scroll-reveal-left {
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
   &.is-visible {
     opacity: 1;
     transform: translateX(0);
@@ -272,7 +278,9 @@
 @utility scroll-reveal-right {
   opacity: 0;
   transform: translateX(30px);
-  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
   &.is-visible {
     opacity: 1;
     transform: translateX(0);

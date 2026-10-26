@@ -39,10 +39,29 @@ let successCount = 0;
 let failCount = 0;
 
 for (let i = 0; i < allFiles.length; i++) {
-  const file = allFiles[i];
-  const relPath = path.relative(sourceFolder, file).replace(/\\/g, "/");
+  let file = allFiles[i];
+
+  // If local file contains double quotes, rename it to avoid shell/URL issues
+  if (file.includes('"')) {
+    const cleanFileName = path.basename(file).replace(/"/g, "");
+    const cleanFilePath = path.join(path.dirname(file), cleanFileName);
+    try {
+      if (!fs.existsSync(cleanFilePath)) {
+        fs.renameSync(file, cleanFilePath);
+      }
+      file = cleanFilePath;
+    } catch {
+      // ignore rename failure and continue
+    }
+  }
+
+  const relPath = path
+    .relative(sourceFolder, file)
+    .replace(/\\/g, "/")
+    .replace(/"/g, "")
+    .replace(/\.{2,}/g, "");
   const key = prefix ? `${prefix.replace(/\/$/, "")}/${relPath}` : relPath;
-  
+
   const ext = path.extname(file).toLowerCase();
   let contentType = "application/octet-stream";
   if (ext === ".opus") contentType = "audio/ogg; codecs=opus";

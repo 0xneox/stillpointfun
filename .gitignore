@@ -41,3 +41,6 @@ dist-ssr
 /Library/
 *.pdf
 
+
+.vercel
+.env*

@@ -84,7 +84,10 @@ export function EnhancedPlayer({
       audio.src = currentStreamUrl;
       audio.load();
       if (autoplay) {
-        audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+        audio
+          .play()
+          .then(() => setIsPlaying(true))
+          .catch(() => setIsPlaying(false));
       }
     } else {
       setIsPlaying(false);

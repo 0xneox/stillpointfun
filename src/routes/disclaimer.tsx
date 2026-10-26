@@ -63,24 +63,21 @@ function Disclaimer() {
         <div className="space-y-4 text-base leading-relaxed">
           <p>
             The contents of this site — including audiobooks, library materials, and discourses —
-            are not owned by me or by Still Point. These are open-source contributions, sourced
-            from the Internet Archive and other public sources by community members.
+            are not owned by me or by Still Point. These are open-source contributions, sourced from
+            the Internet Archive and other public sources by community members.
           </p>
           <p>
             The only content that is original or owned by Still Point is the writings and journals.
-            All other materials are shared as contributed resources for educational and contemplative
-            purposes.
+            All other materials are shared as contributed resources for educational and
+            contemplative purposes.
           </p>
-          <p className="font-semibold mt-6">
-            Copyright and Removal Request
-          </p>
+          <p className="font-semibold mt-6">Copyright and Removal Request</p>
           <p>
-            If you are the owner of any works, audiobooks, discourses, or other content on this site,
-            or if you hold the copyright and wish to have your material removed, please contact us at:
+            If you are the owner of any works, audiobooks, discourses, or other content on this
+            site, or if you hold the copyright and wish to have your material removed, please
+            contact us at:
           </p>
-          <p className="font-mono text-accent">
-            neohex@pm.me
-          </p>
+          <p className="font-mono text-accent">neohex@pm.me</p>
           <p>
             We will promptly remove any content upon receiving a valid copyright claim or removal
             request from the rightful owner.

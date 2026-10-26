@@ -41,7 +41,9 @@ export const Route = createFileRoute("/teachings/$slug")({
   errorComponent: ({ error, reset }) => (
     <div className="container-editorial py-32 text-center">
       <h1 className="font-display italic text-4xl">Could not open this teaching</h1>
-      <p className="mt-4 opacity-70 text-sm">{error.message}</p>
+      <p className="mt-4 opacity-70 text-sm">
+        {error instanceof Error ? error.message : "An unexpected error occurred"}
+      </p>
       <button
         onClick={reset}
         className="mt-6 font-mono text-[11px] tracking-widest uppercase text-accent"
@@ -62,7 +64,7 @@ function PostPage() {
   const relatedAudio = useMemo(() => {
     if (!post.tags) return [];
     return CONTENT.filter((audio) =>
-      post.tags?.some((tag) => audio.tags.includes(tag.toLowerCase())),
+      post.tags?.some((tag: string) => audio.tags.includes(tag.toLowerCase())),
     ).slice(0, 3);
   }, [post.tags]);
 
@@ -70,7 +72,7 @@ function PostPage() {
   const relatedBooks = useMemo(() => {
     if (!post.tags) return [];
     return LIBRARY_ITEMS.filter((book) =>
-      post.tags?.some((tag) => book.tags.includes(tag.toLowerCase())),
+      post.tags?.some((tag: string) => book.tags.includes(tag.toLowerCase())),
     ).slice(0, 3);
   }, [post.tags]);
 

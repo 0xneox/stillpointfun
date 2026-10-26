@@ -76,10 +76,10 @@ function Home() {
   const dailySelection = CONTENT.find((c) => c.daily_selection) || CONTENT[0];
 
   // Scroll animation refs
-  const [heroRef, heroVisible] = useScrollAnimation(0.1);
-  const [featuredRef, featuredVisible] = useScrollAnimation(0.1);
-  const [channelsRef, channelsVisible] = useScrollAnimation(0.1);
-  const [discoverRef, discoverVisible] = useScrollAnimation(0.1);
+  const [heroRef, heroVisible] = useScrollAnimation<HTMLElement>(0.1);
+  const [featuredRef, featuredVisible] = useScrollAnimation<HTMLElement>(0.1);
+  const [channelsRef, channelsVisible] = useScrollAnimation<HTMLElement>(0.1);
+  const [discoverRef, discoverVisible] = useScrollAnimation<HTMLElement>(0.1);
 
   return (
     <div className="min-h-screen">
@@ -168,7 +168,7 @@ function Home() {
 
       {/* Featured Listening */}
       <section
-        ref={featuredRef as any}
+        ref={featuredRef}
         className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${
           featuredVisible ? "is-visible" : ""
         }`}
@@ -280,7 +280,7 @@ function Home() {
 
       {/* Channels - Featured Selection */}
       <section
-        ref={channelsRef as any}
+        ref={channelsRef}
         className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${channelsVisible ? "is-visible" : ""}`}
       >
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50 mb-12 text-center">
@@ -329,7 +329,7 @@ function Home() {
 
       {/* Small Discovery */}
       <section
-        ref={discoverRef as any}
+        ref={discoverRef}
         className={`max-w-4xl mx-auto px-6 py-24 border-t border-border scroll-reveal ${discoverVisible ? "is-visible" : ""}`}
       >
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50 mb-12 text-center">

@@ -1,5 +1,6 @@
 import type { ListeningItem } from "@/data/content";
 import type { CuratedPlaylistTrack } from "@/data/playlists";
+import discoursesMapping from "@/data/discourses_mapping.json";
 
 /**
  * Returns the configured base media URL (e.g., https://media.stillpoint.fun or Cloudflare R2 public URL).
@@ -50,9 +51,23 @@ export function getDiscourseAudioUrls(playlistId: string, track: CuratedPlaylist
   const padIndex = String(track.index).padStart(3, "0");
   const urls: string[] = [];
 
+  const mappingKey = `${playlistId}:${track.index}`;
+  const mappedPath =
+    (discoursesMapping as Record<string, string>)[mappingKey] ||
+    (track.videoId ? (discoursesMapping as Record<string, string>)[track.videoId] : undefined);
+
   if (base) {
+    if (mappedPath) {
+      const cleanMapped = mappedPath.replace(/"/g, "").replace(/\.{2,}/g, "");
+      const encodedMapped = cleanMapped
+        .split("/")
+        .map((segment) => encodeURIComponent(segment))
+        .join("/");
+      urls.push(`${base}/${encodedMapped}`);
+    }
     // 1. Organized folder structure: /discourses/{playlistId}/{index}.opus
     urls.push(`${base}/discourses/${playlistId}/${padIndex}.opus`);
+    urls.push(`${base}/Discourse/${playlistId}/${padIndex}.opus`);
     // 2. Flat structure by videoId: /discourses/{videoId}.opus
     if (track.videoId) {
       urls.push(`${base}/discourses/${track.videoId}.opus`);
@@ -60,6 +75,9 @@ export function getDiscourseAudioUrls(playlistId: string, track: CuratedPlaylist
     }
   }
 
+  if (mappedPath) {
+    urls.push(`/${mappedPath}`);
+  }
   // Local fallback paths
   urls.push(`/discourses/${playlistId}/${padIndex}.opus`);
   if (track.videoId) {

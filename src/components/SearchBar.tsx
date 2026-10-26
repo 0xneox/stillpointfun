@@ -48,7 +48,7 @@ export function SearchBar({ onSelect }: SearchBarProps) {
           post.title.toLowerCase().includes(q) ||
           post.excerpt.toLowerCase().includes(q) ||
           post.topic.toLowerCase().includes(q) ||
-          post.tags?.some((tag) => tag.toLowerCase().includes(q)),
+          post.tags?.some((tag: string) => tag.toLowerCase().includes(q)),
       ).map((post) => ({
         id: post.slug,
         title: post.title,

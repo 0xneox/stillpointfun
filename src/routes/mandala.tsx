@@ -23,10 +23,26 @@ export const Route = createFileRoute("/mandala")({
 
 function Mandala() {
   const activeDiscussions = [
-    { title: "The Witness in Kashmir Śaivism: Trika & Pratyabhijñā", category: "Philosophy", status: "Open Study" },
-    { title: "Spanda: Experiencing the Pulse of Pure Awareness", category: "Practice", status: "Ongoing" },
-    { title: "The Mirror and the Reflection: Non-Dual Recognition", category: "Direct Inquiry", status: "Inquiry" },
-    { title: "Phenomenological Perspectives on Pure Consciousness", category: "Dialogue", status: "Reading Group" },
+    {
+      title: "The Witness in Kashmir Śaivism: Trika & Pratyabhijñā",
+      category: "Philosophy",
+      status: "Open Study",
+    },
+    {
+      title: "Spanda: Experiencing the Pulse of Pure Awareness",
+      category: "Practice",
+      status: "Ongoing",
+    },
+    {
+      title: "The Mirror and the Reflection: Non-Dual Recognition",
+      category: "Direct Inquiry",
+      status: "Inquiry",
+    },
+    {
+      title: "Phenomenological Perspectives on Pure Consciousness",
+      category: "Dialogue",
+      status: "Reading Group",
+    },
     { title: "Reflections on Stillness in Daily Life", category: "Contemplation", status: "Open" },
   ];
 
@@ -40,8 +56,8 @@ function Mandala() {
           The Field is Alive
         </h1>
         <p className="mt-6 max-w-xl text-lg opacity-70 leading-relaxed">
-          Long-form study circles, textual exegesis, contemplative inquiry, and
-          sangha support — all held within the field of shared Recognition.
+          Long-form study circles, textual exegesis, contemplative inquiry, and sangha support — all
+          held within the field of shared Recognition.
         </p>
       </header>
 
@@ -73,7 +89,9 @@ function Mandala() {
                     {discussion.title}
                   </h3>
                   <div className="flex items-center gap-4 text-sm opacity-60">
-                    <span className="font-mono text-xs uppercase tracking-wider">{discussion.category}</span>
+                    <span className="font-mono text-xs uppercase tracking-wider">
+                      {discussion.category}
+                    </span>
                     <span>·</span>
                     <span className="font-mono text-xs text-accent">{discussion.status}</span>
                   </div>

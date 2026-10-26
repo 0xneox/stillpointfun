@@ -1,4 +1,29 @@
-import type { Post } from "./posts";
+export type Topic =
+  | "Non-Duality"
+  | "Philosophy"
+  | "Technology"
+  | "AI"
+  | "God & Shiva"
+  | "Life"
+  | "Truth";
+
+export interface PostBodyItem {
+  type: string;
+  text: string;
+  cite?: string;
+  lang?: string;
+}
+
+export interface Post {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readMinutes: number;
+  topic: Topic;
+  tags: string[];
+  body: PostBodyItem[];
+}
 
 export const POSTS: Post[] = [
   {
@@ -2226,9 +2251,11 @@ export const POSTS: Post[] = [
   },
 ];
 
-export const ALL_TOPICS = ["God & Shiva"];
+export const ALL_TOPICS: Topic[] = ["God & Shiva"];
 
-export const sortedPosts = [...POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+export function sortedPosts(): Post[] {
+  return [...POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
 
 export function getPost(slug: string) {
   return POSTS.find((post) => post.slug === slug);

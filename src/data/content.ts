@@ -13,13 +13,7 @@ export type Channel =
   | "SACRED";
 
 export type Mood =
-  | "UNDERSTANDING"
-  | "WONDER"
-  | "DEVOTION"
-  | "SILENCE"
-  | "MYSTERY"
-  | "DISSOLUTION"
-  | "ENERGY";
+  "UNDERSTANDING" | "WONDER" | "DEVOTION" | "SILENCE" | "MYSTERY" | "DISSOLUTION" | "ENERGY";
 
 export interface ListeningItem {
   id: string;

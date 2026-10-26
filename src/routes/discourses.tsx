@@ -334,7 +334,6 @@ function Discourses() {
               />
               <div className="p-8 md:p-12 bg-surface/40">
                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-
                   {/* Contemplative Sound Disc Visualizer */}
                   <div className="relative shrink-0 flex items-center justify-center">
                     <div

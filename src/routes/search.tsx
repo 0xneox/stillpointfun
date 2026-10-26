@@ -19,9 +19,15 @@ export const Route = createFileRoute("/search")({
   head: () => ({
     meta: [
       { title: "Search — Stillpoint" },
-      { name: "description", content: "Search audio recordings, texts, writings, and discourses on Stillpoint." },
+      {
+        name: "description",
+        content: "Search audio recordings, texts, writings, and discourses on Stillpoint.",
+      },
       { property: "og:title", content: "Search — Stillpoint" },
-      { property: "og:description", content: "Search audio recordings, texts, writings, and discourses on Stillpoint." },
+      {
+        property: "og:description",
+        content: "Search audio recordings, texts, writings, and discourses on Stillpoint.",
+      },
       { property: "og:url", content: siteUrl("/search") },
     ],
     links: [{ rel: "canonical", href: siteUrl("/search") }],
@@ -51,7 +57,7 @@ function SearchPage() {
         post.title.toLowerCase().includes(trimmed) ||
         post.excerpt.toLowerCase().includes(trimmed) ||
         post.topic.toLowerCase().includes(trimmed) ||
-        post.tags?.some((tag) => tag.toLowerCase().includes(trimmed)),
+        post.tags?.some((tag: string) => tag.toLowerCase().includes(trimmed)),
     ).slice(0, 15);
 
     const books = LIBRARY_ITEMS.filter(
@@ -148,7 +154,9 @@ function SearchPage() {
                           {item.artist_or_speaker} · {item.channel}
                         </p>
                       </div>
-                      <span className="font-mono text-xs opacity-40 group-hover:opacity-100">→</span>
+                      <span className="font-mono text-xs opacity-40 group-hover:opacity-100">
+                        →
+                      </span>
                     </div>
                   </Link>
                 ))}
@@ -182,7 +190,9 @@ function SearchPage() {
                           {post.topic} · {post.readMinutes} min read
                         </p>
                       </div>
-                      <span className="font-mono text-xs opacity-40 group-hover:opacity-100">→</span>
+                      <span className="font-mono text-xs opacity-40 group-hover:opacity-100">
+                        →
+                      </span>
                     </div>
                   </Link>
                 ))}

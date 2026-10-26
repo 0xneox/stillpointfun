@@ -74,7 +74,8 @@ function readExistingPosts() {
 }
 
 // Read all markdown files from src/blog
-const blogFiles = fs.readdirSync(blogDir)
+const blogFiles = fs
+  .readdirSync(blogDir)
   .filter((file) => file.endsWith(".md"))
   .sort();
 
@@ -217,9 +218,33 @@ function markdownToBody(markdown) {
 // Generate posts.ts file
 function generatePostsFile(posts) {
   const ALL_TOPICS = [...new Set(posts.map((post) => post.topic))];
-  const sortedPosts = [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  const fileContent = `import type { Post } from "./posts";
+  const fileContent = `export type Topic =
+  | "Non-Duality"
+  | "Philosophy"
+  | "Technology"
+  | "AI"
+  | "God & Shiva"
+  | "Life"
+  | "Truth";
+
+export interface PostBodyItem {
+  type: string;
+  text: string;
+  cite?: string;
+  lang?: string;
+}
+
+export interface Post {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readMinutes: number;
+  topic: Topic;
+  tags: string[];
+  body: PostBodyItem[];
+}
 
 export const POSTS: Post[] = [
 ${posts
@@ -238,9 +263,11 @@ ${posts
   .join("\n")}
 ];
 
-export const ALL_TOPICS = ${JSON.stringify(ALL_TOPICS)};
+export const ALL_TOPICS: Topic[] = ${JSON.stringify(ALL_TOPICS)};
 
-export const sortedPosts = [...POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+export function sortedPosts(): Post[] {
+  return [...POSTS].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
 
 export function getPost(slug: string) {
   return POSTS.find((post) => post.slug === slug);

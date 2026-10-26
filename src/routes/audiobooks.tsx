@@ -470,8 +470,9 @@ function AudiobooksPage() {
 
             const parentCol =
               "collectionId" in track
-                ? SACRED_AUDIOBOOKS.find((c) => c.id === (track as any).collectionId) ||
-                  activeCollection
+                ? SACRED_AUDIOBOOKS.find(
+                    (c) => c.id === (track as { collectionId?: string }).collectionId,
+                  ) || activeCollection
                 : activeCollection;
 
             return (
@@ -519,7 +520,7 @@ function AudiobooksPage() {
                     <div className="flex flex-wrap items-center gap-3 mt-1 ml-8">
                       {"collectionTitle" in track && (
                         <span className="font-mono text-[9px] uppercase tracking-wider text-accent border border-accent/30 px-1.5 py-0.5">
-                          {(track as any).collectionTitle.split(":")[0]}
+                          {(track as { collectionTitle?: string }).collectionTitle?.split(":")[0]}
                         </span>
                       )}
                       <span className="font-mono text-[10px] opacity-40">

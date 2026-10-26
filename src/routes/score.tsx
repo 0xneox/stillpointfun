@@ -115,7 +115,7 @@ function PracticeLog() {
               {practices
                 .slice()
                 .reverse()
-                .map((practice: any, i: number) => (
+                .map((practice: Practice, i: number) => (
                   <div
                     key={i}
                     className="flex items-center justify-between py-4 border-t border-surface-foreground/20"

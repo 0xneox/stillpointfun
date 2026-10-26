@@ -4,7 +4,14 @@ import { CONTENT } from "../src/data/content.ts";
 import { CURATED_PLAYLISTS } from "../src/data/playlists.ts";
 
 const rows = [];
-rows.push(["Category", "ID", "Source Video ID", "Title", "Recommended Cloudflare Path", "Alternative Simple Path"]);
+rows.push([
+  "Category",
+  "ID",
+  "Source Video ID",
+  "Title",
+  "Recommended Cloudflare Path",
+  "Alternative Simple Path",
+]);
 
 // 1. Content items
 for (const item of CONTENT) {
@@ -28,7 +35,9 @@ for (const playlist of CURATED_PLAYLISTS) {
       track.videoId || "N/A",
       `"${track.title.replace(/"/g, '""')}"`,
       `discourses/${playlist.id}/${padIndex}.opus`,
-      track.videoId ? `discourses/${track.videoId}.opus` : `discourses/${playlist.id}/${padIndex}.opus`,
+      track.videoId
+        ? `discourses/${track.videoId}.opus`
+        : `discourses/${playlist.id}/${padIndex}.opus`,
     ]);
   }
 }

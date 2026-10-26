@@ -9,139 +9,39 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WritingsRouteImport } from './routes/writings'
-import { Route as TeachingsRouteImport } from './routes/teachings'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SearchRouteImport } from './routes/search'
-import { Route as ScoreRouteImport } from './routes/score'
-import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
-import { Route as PranaRouteImport } from './routes/prana'
-import { Route as PracticeRouteImport } from './routes/practice'
-import { Route as NotesRouteImport } from './routes/notes'
-import { Route as MandalaRouteImport } from './routes/mandala'
-import { Route as LogRouteImport } from './routes/log'
-import { Route as LiveRouteImport } from './routes/live'
-import { Route as LibraryRouteImport } from './routes/library'
-import { Route as JournalRouteImport } from './routes/journal'
-import { Route as InquiryRouteImport } from './routes/inquiry'
-import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as DiscoverRouteImport } from './routes/discover'
-import { Route as DiscoursesRouteImport } from './routes/discourses'
-import { Route as DisclaimerRouteImport } from './routes/disclaimer'
-import { Route as BoardRouteImport } from './routes/board'
-import { Route as AudiobooksRouteImport } from './routes/audiobooks'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as TeachingsIndexRouteImport } from './routes/teachings.index'
-import { Route as PathIndexRouteImport } from './routes/path.index'
-import { Route as TeachingsSlugRouteImport } from './routes/teachings.$slug'
-import { Route as PathSlugRouteImport } from './routes/path.$slug'
-import { Route as ListenIdRouteImport } from './routes/listen.$id'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AudiobooksRouteImport } from './routes/audiobooks'
+import { Route as BoardRouteImport } from './routes/board'
+import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as DiscoursesRouteImport } from './routes/discourses'
+import { Route as DiscoverRouteImport } from './routes/discover'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as InquiryRouteImport } from './routes/inquiry'
+import { Route as JournalRouteImport } from './routes/journal'
+import { Route as LibraryRouteImport } from './routes/library'
+import { Route as LiveRouteImport } from './routes/live'
+import { Route as LogRouteImport } from './routes/log'
+import { Route as MandalaRouteImport } from './routes/mandala'
+import { Route as NotesRouteImport } from './routes/notes'
+import { Route as PracticeRouteImport } from './routes/practice'
+import { Route as PranaRouteImport } from './routes/prana'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as ScoreRouteImport } from './routes/score'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TeachingsRouteImport } from './routes/teachings'
+import { Route as WritingsRouteImport } from './routes/writings'
 import { Route as ChannelIdRouteImport } from './routes/channel.$id'
+import { Route as ListenIdRouteImport } from './routes/listen.$id'
+import { Route as PathIndexRouteImport } from './routes/path.index'
+import { Route as PathSlugRouteImport } from './routes/path.$slug'
+import { Route as TeachingsIndexRouteImport } from './routes/teachings.index'
+import { Route as TeachingsSlugRouteImport } from './routes/teachings.$slug'
 
-const WritingsRoute = WritingsRouteImport.update({
-  id: '/writings',
-  path: '/writings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TeachingsRoute = TeachingsRouteImport.update({
-  id: '/teachings',
-  path: '/teachings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SearchRoute = SearchRouteImport.update({
-  id: '/search',
-  path: '/search',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ScoreRoute = ScoreRouteImport.update({
-  id: '/score',
-  path: '/score',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
-  id: '/robots.txt',
-  path: '/robots.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PranaRoute = PranaRouteImport.update({
-  id: '/prana',
-  path: '/prana',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PracticeRoute = PracticeRouteImport.update({
-  id: '/practice',
-  path: '/practice',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NotesRoute = NotesRouteImport.update({
-  id: '/notes',
-  path: '/notes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MandalaRoute = MandalaRouteImport.update({
-  id: '/mandala',
-  path: '/mandala',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LogRoute = LogRouteImport.update({
-  id: '/log',
-  path: '/log',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LiveRoute = LiveRouteImport.update({
-  id: '/live',
-  path: '/live',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LibraryRoute = LibraryRouteImport.update({
-  id: '/library',
-  path: '/library',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const JournalRoute = JournalRouteImport.update({
-  id: '/journal',
-  path: '/journal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InquiryRoute = InquiryRouteImport.update({
-  id: '/inquiry',
-  path: '/inquiry',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DiscoverRoute = DiscoverRouteImport.update({
-  id: '/discover',
-  path: '/discover',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DiscoursesRoute = DiscoursesRouteImport.update({
-  id: '/discourses',
-  path: '/discourses',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DisclaimerRoute = DisclaimerRouteImport.update({
-  id: '/disclaimer',
-  path: '/disclaimer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BoardRoute = BoardRouteImport.update({
-  id: '/board',
-  path: '/board',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AudiobooksRoute = AudiobooksRouteImport.update({
-  id: '/audiobooks',
-  path: '/audiobooks',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -149,29 +49,114 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AudiobooksRoute = AudiobooksRouteImport.update({
+  id: '/audiobooks',
+  path: '/audiobooks',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeachingsIndexRoute = TeachingsIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => TeachingsRoute,
-} as any)
-const PathIndexRoute = PathIndexRouteImport.update({
-  id: '/path/',
-  path: '/path/',
+const BoardRoute = BoardRouteImport.update({
+  id: '/board',
+  path: '/board',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeachingsSlugRoute = TeachingsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => TeachingsRoute,
+const DisclaimerRoute = DisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const PathSlugRoute = PathSlugRouteImport.update({
-  id: '/path/$slug',
-  path: '/path/$slug',
+const DiscoursesRoute = DiscoursesRouteImport.update({
+  id: '/discourses',
+  path: '/discourses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiscoverRoute = DiscoverRouteImport.update({
+  id: '/discover',
+  path: '/discover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InquiryRoute = InquiryRouteImport.update({
+  id: '/inquiry',
+  path: '/inquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveRoute = LiveRouteImport.update({
+  id: '/live',
+  path: '/live',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogRoute = LogRouteImport.update({
+  id: '/log',
+  path: '/log',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MandalaRoute = MandalaRouteImport.update({
+  id: '/mandala',
+  path: '/mandala',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotesRoute = NotesRouteImport.update({
+  id: '/notes',
+  path: '/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticeRoute = PracticeRouteImport.update({
+  id: '/practice',
+  path: '/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PranaRoute = PranaRouteImport.update({
+  id: '/prana',
+  path: '/prana',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScoreRoute = ScoreRouteImport.update({
+  id: '/score',
+  path: '/score',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeachingsRoute = TeachingsRouteImport.update({
+  id: '/teachings',
+  path: '/teachings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WritingsRoute = WritingsRouteImport.update({
+  id: '/writings',
+  path: '/writings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChannelIdRoute = ChannelIdRouteImport.update({
+  id: '/channel/$id',
+  path: '/channel/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ListenIdRoute = ListenIdRouteImport.update({
@@ -179,10 +164,25 @@ const ListenIdRoute = ListenIdRouteImport.update({
   path: '/listen/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ChannelIdRoute = ChannelIdRouteImport.update({
-  id: '/channel/$id',
-  path: '/channel/$id',
+const PathIndexRoute = PathIndexRouteImport.update({
+  id: '/path/',
+  path: '/path/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PathSlugRoute = PathSlugRouteImport.update({
+  id: '/path/$slug',
+  path: '/path/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeachingsIndexRoute = TeachingsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TeachingsRoute,
+} as any)
+const TeachingsSlugRoute = TeachingsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TeachingsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -405,151 +405,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/writings': {
-      id: '/writings'
-      path: '/writings'
-      fullPath: '/writings'
-      preLoaderRoute: typeof WritingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/teachings': {
-      id: '/teachings'
-      path: '/teachings'
-      fullPath: '/teachings'
-      preLoaderRoute: typeof TeachingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/search': {
-      id: '/search'
-      path: '/search'
-      fullPath: '/search'
-      preLoaderRoute: typeof SearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/score': {
-      id: '/score'
-      path: '/score'
-      fullPath: '/score'
-      preLoaderRoute: typeof ScoreRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/robots.txt': {
-      id: '/robots.txt'
-      path: '/robots.txt'
-      fullPath: '/robots.txt'
-      preLoaderRoute: typeof RobotsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/prana': {
-      id: '/prana'
-      path: '/prana'
-      fullPath: '/prana'
-      preLoaderRoute: typeof PranaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/practice': {
-      id: '/practice'
-      path: '/practice'
-      fullPath: '/practice'
-      preLoaderRoute: typeof PracticeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/notes': {
-      id: '/notes'
-      path: '/notes'
-      fullPath: '/notes'
-      preLoaderRoute: typeof NotesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mandala': {
-      id: '/mandala'
-      path: '/mandala'
-      fullPath: '/mandala'
-      preLoaderRoute: typeof MandalaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/log': {
-      id: '/log'
-      path: '/log'
-      fullPath: '/log'
-      preLoaderRoute: typeof LogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/live': {
-      id: '/live'
-      path: '/live'
-      fullPath: '/live'
-      preLoaderRoute: typeof LiveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/library': {
-      id: '/library'
-      path: '/library'
-      fullPath: '/library'
-      preLoaderRoute: typeof LibraryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/journal': {
-      id: '/journal'
-      path: '/journal'
-      fullPath: '/journal'
-      preLoaderRoute: typeof JournalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/inquiry': {
-      id: '/inquiry'
-      path: '/inquiry'
-      fullPath: '/inquiry'
-      preLoaderRoute: typeof InquiryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/discover': {
-      id: '/discover'
-      path: '/discover'
-      fullPath: '/discover'
-      preLoaderRoute: typeof DiscoverRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/discourses': {
-      id: '/discourses'
-      path: '/discourses'
-      fullPath: '/discourses'
-      preLoaderRoute: typeof DiscoursesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/disclaimer': {
-      id: '/disclaimer'
-      path: '/disclaimer'
-      fullPath: '/disclaimer'
-      preLoaderRoute: typeof DisclaimerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/board': {
-      id: '/board'
-      path: '/board'
-      fullPath: '/board'
-      preLoaderRoute: typeof BoardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/audiobooks': {
-      id: '/audiobooks'
-      path: '/audiobooks'
-      fullPath: '/audiobooks'
-      preLoaderRoute: typeof AudiobooksRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -559,39 +419,158 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/audiobooks': {
+      id: '/audiobooks'
+      path: '/audiobooks'
+      fullPath: '/audiobooks'
+      preLoaderRoute: typeof AudiobooksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/teachings/': {
-      id: '/teachings/'
-      path: '/'
-      fullPath: '/teachings/'
-      preLoaderRoute: typeof TeachingsIndexRouteImport
-      parentRoute: typeof TeachingsRoute
-    }
-    '/path/': {
-      id: '/path/'
-      path: '/path'
-      fullPath: '/path/'
-      preLoaderRoute: typeof PathIndexRouteImport
+    '/board': {
+      id: '/board'
+      path: '/board'
+      fullPath: '/board'
+      preLoaderRoute: typeof BoardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/teachings/$slug': {
-      id: '/teachings/$slug'
-      path: '/$slug'
-      fullPath: '/teachings/$slug'
-      preLoaderRoute: typeof TeachingsSlugRouteImport
-      parentRoute: typeof TeachingsRoute
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/path/$slug': {
-      id: '/path/$slug'
-      path: '/path/$slug'
-      fullPath: '/path/$slug'
-      preLoaderRoute: typeof PathSlugRouteImport
+    '/discourses': {
+      id: '/discourses'
+      path: '/discourses'
+      fullPath: '/discourses'
+      preLoaderRoute: typeof DiscoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discover': {
+      id: '/discover'
+      path: '/discover'
+      fullPath: '/discover'
+      preLoaderRoute: typeof DiscoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inquiry': {
+      id: '/inquiry'
+      path: '/inquiry'
+      fullPath: '/inquiry'
+      preLoaderRoute: typeof InquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live': {
+      id: '/live'
+      path: '/live'
+      fullPath: '/live'
+      preLoaderRoute: typeof LiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/log': {
+      id: '/log'
+      path: '/log'
+      fullPath: '/log'
+      preLoaderRoute: typeof LogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mandala': {
+      id: '/mandala'
+      path: '/mandala'
+      fullPath: '/mandala'
+      preLoaderRoute: typeof MandalaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notes': {
+      id: '/notes'
+      path: '/notes'
+      fullPath: '/notes'
+      preLoaderRoute: typeof NotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practice': {
+      id: '/practice'
+      path: '/practice'
+      fullPath: '/practice'
+      preLoaderRoute: typeof PracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prana': {
+      id: '/prana'
+      path: '/prana'
+      fullPath: '/prana'
+      preLoaderRoute: typeof PranaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/score': {
+      id: '/score'
+      path: '/score'
+      fullPath: '/score'
+      preLoaderRoute: typeof ScoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teachings': {
+      id: '/teachings'
+      path: '/teachings'
+      fullPath: '/teachings'
+      preLoaderRoute: typeof TeachingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/writings': {
+      id: '/writings'
+      path: '/writings'
+      fullPath: '/writings'
+      preLoaderRoute: typeof WritingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/channel/$id': {
+      id: '/channel/$id'
+      path: '/channel/$id'
+      fullPath: '/channel/$id'
+      preLoaderRoute: typeof ChannelIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/listen/$id': {
@@ -601,12 +580,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ListenIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/channel/$id': {
-      id: '/channel/$id'
-      path: '/channel/$id'
-      fullPath: '/channel/$id'
-      preLoaderRoute: typeof ChannelIdRouteImport
+    '/path/': {
+      id: '/path/'
+      path: '/path'
+      fullPath: '/path/'
+      preLoaderRoute: typeof PathIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/path/$slug': {
+      id: '/path/$slug'
+      path: '/path/$slug'
+      fullPath: '/path/$slug'
+      preLoaderRoute: typeof PathSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teachings/': {
+      id: '/teachings/'
+      path: '/'
+      fullPath: '/teachings/'
+      preLoaderRoute: typeof TeachingsIndexRouteImport
+      parentRoute: typeof TeachingsRoute
+    }
+    '/teachings/$slug': {
+      id: '/teachings/$slug'
+      path: '/$slug'
+      fullPath: '/teachings/$slug'
+      preLoaderRoute: typeof TeachingsSlugRouteImport
+      parentRoute: typeof TeachingsRoute
     }
   }
 }

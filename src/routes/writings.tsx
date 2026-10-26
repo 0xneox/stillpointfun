@@ -106,7 +106,7 @@ function Writings() {
 
                 {/* Related Audio */}
                 {post.tags &&
-                  post.tags.some((tag) =>
+                  post.tags.some((tag: string) =>
                     CONTENT.some((c) => c.tags.includes(tag.toLowerCase())),
                   ) && (
                     <div className="mt-6 pt-6 border-t border-border/50">
@@ -115,7 +115,7 @@ function Writings() {
                       </p>
                       <div className="space-y-2">
                         {CONTENT.filter((c) =>
-                          post.tags?.some((tag) => c.tags.includes(tag.toLowerCase())),
+                          post.tags?.some((tag: string) => c.tags.includes(tag.toLowerCase())),
                         )
                           .slice(0, 2)
                           .map((audio) => (
