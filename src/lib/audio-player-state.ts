@@ -50,7 +50,10 @@ export function setGlobalAudioTrack(track: ActiveAudioTrack | null) {
  * Notifies all other audio elements that a new track has started playing,
  * allowing other players to pause automatically so sounds do not clash.
  */
-export function notifyAudioStarted(sourceType: "transmission" | "audiobook" | "discourse", id?: string) {
+export function notifyAudioStarted(
+  sourceType: "transmission" | "audiobook" | "discourse",
+  id?: string,
+) {
   if (typeof window !== "undefined") {
     window.dispatchEvent(
       new CustomEvent("stillpoint-audio-started", {

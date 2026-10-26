@@ -28,8 +28,12 @@ export function getContentAudioUrls(item: { id?: string; youtube_video_id?: stri
 
   const mappedPath =
     (item.id ? (contentAudioMapping as Record<string, string>)[item.id] : undefined) ||
-    (item.youtube_video_id ? (contentAudioMapping as Record<string, string>)[item.youtube_video_id] : undefined) ||
-    (item.youtube_video_id ? (discoursesMapping as Record<string, string>)[item.youtube_video_id] : undefined);
+    (item.youtube_video_id
+      ? (contentAudioMapping as Record<string, string>)[item.youtube_video_id]
+      : undefined) ||
+    (item.youtube_video_id
+      ? (discoursesMapping as Record<string, string>)[item.youtube_video_id]
+      : undefined);
 
   if (base) {
     if (mappedPath) {
