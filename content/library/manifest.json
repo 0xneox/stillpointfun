@@ -43,7 +43,12 @@
       "language": "Sanskrit / English",
       "tradition": "Kashmir Śaivism",
       "description": "Abhinavagupta's magnum opus on Kashmir Śaivism. 12 volumes covering the entire non-dual tantric tradition.",
-      "tags": ["abhinavagupta", "kashmir-shaivism", "tantra", "philosophy"],
+      "tags": [
+        "abhinavagupta",
+        "kashmir-shaivism",
+        "tantra",
+        "philosophy"
+      ],
       "file_name": null
     },
     {
@@ -74,7 +79,12 @@
       "language": "Sanskrit / English",
       "tradition": "Vedanta",
       "description": "The principal Upaniṣads with accessible translations into luminous English.",
-      "tags": ["upanishads", "vedanta", "advaita", "scripture"],
+      "tags": [
+        "upanishads",
+        "vedanta",
+        "advaita",
+        "scripture"
+      ],
       "file_name": null
     },
     {
@@ -105,7 +115,12 @@
       "language": "Sanskrit / English",
       "tradition": "Advaita",
       "description": "The unsparing dialogue between King Janaka and sage Aṣṭāvakra on the instantaneous nature of reality.",
-      "tags": ["advaita", "non-duality", "ashtavakra", "dialogue"],
+      "tags": [
+        "advaita",
+        "non-duality",
+        "ashtavakra",
+        "dialogue"
+      ],
       "file_name": null
     },
     {
@@ -136,7 +151,12 @@
       "language": "Sanskrit / English",
       "tradition": "Kashmir Śaivism",
       "description": "The sacred tremor. Understanding Spanda as the living throb and pulse of pure consciousness.",
-      "tags": ["spanda", "kashmir-shaivism", "vasugupta", "consciousness"],
+      "tags": [
+        "spanda",
+        "kashmir-shaivism",
+        "vasugupta",
+        "consciousness"
+      ],
       "file_name": null
     },
     {
@@ -167,7 +187,12 @@
       "language": "Sanskrit / English",
       "tradition": "Advaita Vedanta",
       "description": "The Crest Jewel of Discrimination. A quintessential foundation of self-inquiry and discernment.",
-      "tags": ["advaita", "shankara", "self-inquiry", "discrimination"],
+      "tags": [
+        "advaita",
+        "shankara",
+        "self-inquiry",
+        "discrimination"
+      ],
       "file_name": null
     },
     {
@@ -198,7 +223,12 @@
       "language": "Sanskrit / English",
       "tradition": "Advaita / Shaktism",
       "description": "The Secret of the Three Cities. A profound dialogue revealing all phenomena as reflections in the mirror of Pure Awareness.",
-      "tags": ["advaita", "tripura", "non-duality", "practice"],
+      "tags": [
+        "advaita",
+        "tripura",
+        "non-duality",
+        "practice"
+      ],
       "file_name": null
     },
     {
@@ -229,7 +259,12 @@
       "language": "Sanskrit / English",
       "tradition": "Advaita Vedanta",
       "description": "The monumental dialogue between Rama and sage Vasistha illustrating that the world is mind-born and freedom is self-knowledge.",
-      "tags": ["advaita", "vasistha", "non-duality", "dialogue"],
+      "tags": [
+        "advaita",
+        "vasistha",
+        "non-duality",
+        "dialogue"
+      ],
       "file_name": null
     },
     {
@@ -241,12 +276,12 @@
       "size_mb": 9.5,
       "shelf": "F Brahma Sutra",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/01-Bramha-Sutra-Volume-1.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -260,7 +295,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: Bramha Sutra Volume 1. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "01-Bramha-Sutra-Volume-1.pdf"
     },
     {
@@ -272,12 +311,12 @@
       "size_mb": 0.8,
       "shelf": "K Mysticism and consciousness studies",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/0450-0525%2C_Dionysius_Areopagita%2C_On_The_Divine_Names_And_The_Mystical_Theology%2C_EN.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "Verify the edition/translator; public_domain_likely applies only if this is the 1920 Rolt edition.",
       "duplicate_of": null,
       "editor_note": {
@@ -291,7 +330,11 @@
       "language": "English",
       "tradition": "Christian Mysticism / Apophatic Theology",
       "description": "Rare archival manuscript and study text: , Dionysius Areopagita, On The Divine Names And The Mystical Theology, EN. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "0450-0525,_Dionysius_Areopagita,_On_The_Divine_Names_And_The_Mystical_Theology,_EN.pdf"
     },
     {
@@ -303,12 +346,12 @@
       "size_mb": 0.1,
       "shelf": "B Shakta/Srividya",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/100namasMahatripurasundari.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -322,7 +365,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "The hundred names invoking the Supreme Goddess of beauty, bliss, and supreme awareness.",
-      "tags": ["tripurasundari", "stotra", "shakta", "devi"],
+      "tags": [
+        "tripurasundari",
+        "stotra",
+        "shakta",
+        "devi"
+      ],
       "file_name": "100namasMahatripurasundari.pdf"
     },
     {
@@ -334,12 +382,12 @@
       "size_mb": 7.8,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/108Upanishads-Malayalam-VBalakrishnanDrRLeeladevi.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -353,7 +401,12 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Vedas & Upanishads",
       "description": "Complete collection of the 108 canonical Muktikā Upaniṣads containing the highest non-dual Vedic teachings.",
-      "tags": ["upanishad", "108-upanishads", "vedanta", "non-duality"],
+      "tags": [
+        "upanishad",
+        "108-upanishads",
+        "vedanta",
+        "non-duality"
+      ],
       "file_name": "108Upanishads-Malayalam-VBalakrishnanDrRLeeladevi.pdf"
     },
     {
@@ -365,12 +418,12 @@
       "size_mb": 17.4,
       "shelf": "A Trika/Pratyabhijna/Spanda",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
+      "source_url": "/Library/2015.226329.The-Kashmirian.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
       "rights_status": "public_domain_likely",
-      "action": "verify",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -384,7 +437,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Foundational academic work presenting the Trika philosophy, the 36 Tattvas, and the Pratyabhijñā system.",
-      "tags": ["kashmir-shaivism", "trika", "pratyabhijna", "tattvas"],
+      "tags": [
+        "kashmir-shaivism",
+        "trika",
+        "pratyabhijna",
+        "tattvas"
+      ],
       "file_name": "2015.226329.The-Kashmirian.pdf"
     },
     {
@@ -396,12 +454,12 @@
       "size_mb": 10.7,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/2015.22639.Veda-And-Vedanta.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -415,7 +473,12 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "A scholarly analysis tracing the evolution of thought from the Samhitas to the non-dual Upanishads.",
-      "tags": ["veda", "vedanta", "history", "philosophy"],
+      "tags": [
+        "veda",
+        "vedanta",
+        "history",
+        "philosophy"
+      ],
       "file_name": "2015.22639.Veda-And-Vedanta.pdf"
     },
     {
@@ -427,12 +490,12 @@
       "size_mb": 5.7,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/2015.237338.Lights-On.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -446,7 +509,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: Lights On. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "2015.237338.Lights-On.pdf"
     },
     {
@@ -458,12 +525,12 @@
       "size_mb": 17,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/2015.490204.Veda-Samiksa.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -477,7 +544,11 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Critical studies and linguistic inquiries into Vedic hermeneutics.",
-      "tags": ["veda", "hermeneutics", "research"],
+      "tags": [
+        "veda",
+        "hermeneutics",
+        "research"
+      ],
       "file_name": "2015.490204.Veda-Samiksa.pdf"
     },
     {
@@ -489,12 +560,12 @@
       "size_mb": 0.5,
       "shelf": "A Trika/Pratyabhijna/Spanda",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/202004120632194631nishi_Rasa_Theory.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -508,7 +579,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Exposition on how aesthetic rapture (Rasa) and dramatic experience lead to spiritual bliss (Ananda).",
-      "tags": ["rasa", "abhinavagupta", "aesthetics", "ananda"],
+      "tags": [
+        "rasa",
+        "abhinavagupta",
+        "aesthetics",
+        "ananda"
+      ],
       "file_name": "202004120632194631nishi_Rasa_Theory.pdf"
     },
     {
@@ -520,12 +596,12 @@
       "size_mb": 33.2,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/205059-Sama%20Veda.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -539,7 +615,12 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "The ancient Vedic scripture of sacred songs, melody, and devotional chant.",
-      "tags": ["veda", "sama-veda", "chant", "scripture"],
+      "tags": [
+        "veda",
+        "sama-veda",
+        "chant",
+        "scripture"
+      ],
       "file_name": "205059-Sama Veda.pdf"
     },
     {
@@ -551,12 +632,12 @@
       "size_mb": 0.3,
       "shelf": "C Kubjika and Shaiva scholarship",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/251308059-132555794-Manthanabhairavatantram-Kumarikakhandah.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -570,7 +651,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "The Section of the Virgin Goddess. Landmark scholarship on the esoteric Kubjikā Tantric traditions of the Western Transmission.",
-      "tags": ["manthana-bhairava", "dyczkowski", "kubjika", "esoteric-tantra"],
+      "tags": [
+        "manthana-bhairava",
+        "dyczkowski",
+        "kubjika",
+        "esoteric-tantra"
+      ],
       "file_name": "251308059-132555794-Manthanabhairavatantram-Kumarikakhandah.pdf"
     },
     {
@@ -582,12 +668,12 @@
       "size_mb": 7.8,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Acc.No.2556-The%20Philosophy%20of%20the%20Vedanta%20and%20the%20Vedantasara-1957.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -601,7 +687,11 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Rare archival manuscript and study text: Acc.No.2556 The Philosophy of the Vedanta and the Vedantasara 1957. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Acc.No.2556-The Philosophy of the Vedanta and the Vedantasara-1957.pdf"
     },
     {
@@ -613,12 +703,12 @@
       "size_mb": 11.4,
       "shelf": "H Epics, Gita and dialogues",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/AdhyatmaRamayanam-Malayalam-SwamiChidanandaSaraswati.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -632,7 +722,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: AdhyatmaRamayanam Malayalam SwamiChidanandaSaraswati. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "AdhyatmaRamayanam-Malayalam-SwamiChidanandaSaraswati.pdf"
     },
     {
@@ -644,12 +738,12 @@
       "size_mb": 3.8,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/AtharvaVeda-MalayalamTranslation-VBalakrishnanRLeeladevi.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -663,7 +757,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Vedas & Upanishads",
       "description": "Verses and incantations of the Atharva Veda, dealing with daily life, nature, healing, and spiritual philosophy.",
-      "tags": ["veda", "atharva-veda", "vedic-wisdom"],
+      "tags": [
+        "veda",
+        "atharva-veda",
+        "vedic-wisdom"
+      ],
       "file_name": "AtharvaVeda-MalayalamTranslation-VBalakrishnanRLeeladevi.pdf"
     },
     {
@@ -675,12 +773,12 @@
       "size_mb": 0.2,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Atmabodham%20Malayalam.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -694,7 +792,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Advaita Vedanta",
       "description": "Short poetic manual illustrating Self-Knowledge using vivid analogies (sun behind clouds, ocean and waves, mirror).",
-      "tags": ["atma-bodha", "shankara", "self-knowledge"],
+      "tags": [
+        "atma-bodha",
+        "shankara",
+        "self-knowledge"
+      ],
       "file_name": "Atmabodham Malayalam.pdf"
     },
     {
@@ -706,12 +808,12 @@
       "size_mb": 1.4,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/Awakening%20of%20Intelligence.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -725,7 +827,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "Seminal dialogues with David Bohm and international audiences on the observer and the observed, thought, and freedom.",
-      "tags": ["krishnamurti", "intelligence", "freedom", "david-bohm"],
+      "tags": [
+        "krishnamurti",
+        "intelligence",
+        "freedom",
+        "david-bohm"
+      ],
       "file_name": "Awakening of Intelligence.pdf"
     },
     {
@@ -737,12 +844,12 @@
       "size_mb": 1.1,
       "shelf": "H Epics, Gita and dialogues",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Bhagavad%20Gita.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -756,7 +863,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "The Song of God. The eternal battlefield dialogue between Arjuna and Sri Krishna on Karma, Bhakti, and Jnana Yoga.",
-      "tags": ["bhagavad-gita", "krishna", "yoga", "vedanta"],
+      "tags": [
+        "bhagavad-gita",
+        "krishna",
+        "yoga",
+        "vedanta"
+      ],
       "file_name": "Bhagavad Gita.pdf"
     },
     {
@@ -768,12 +880,12 @@
       "size_mb": 0.2,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Bhaja%20Govindam%20of%20Adi%20Sankara%20-%20Malayalam.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -787,7 +899,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Advaita Vedanta",
       "description": "The shattering of delusion. Verses warning against worldly infatuation and awakening the yearning for liberation.",
-      "tags": ["bhaja-govindam", "shankara", "vairagya"],
+      "tags": [
+        "bhaja-govindam",
+        "shankara",
+        "vairagya"
+      ],
       "file_name": "Bhaja Govindam of Adi Sankara - Malayalam.pdf"
     },
     {
@@ -799,12 +915,12 @@
       "size_mb": 1.3,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/bhaspatiimveda00stragoog.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -818,7 +934,11 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Historical exploration of the deity of speech, intellect, and cosmic wisdom in Vedic literature.",
-      "tags": ["veda", "brihaspati", "indology"],
+      "tags": [
+        "veda",
+        "brihaspati",
+        "indology"
+      ],
       "file_name": "bhaspatiimveda00stragoog.pdf"
     },
     {
@@ -830,12 +950,12 @@
       "size_mb": 0.2,
       "shelf": "F Brahma Sutra",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Brahma%20Sutra%20Adhyasa%20Bhashya.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -849,7 +969,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta",
       "description": "Shankara's seminal preamble demonstrating how the subject (Self) and object (non-self) are superimposed through Maya.",
-      "tags": ["adhyasa", "superimposition", "shankara", "maya"],
+      "tags": [
+        "adhyasa",
+        "superimposition",
+        "shankara",
+        "maya"
+      ],
       "file_name": "Brahma Sutra Adhyasa Bhashya.pdf"
     },
     {
@@ -861,12 +986,12 @@
       "size_mb": 0.3,
       "shelf": "F Brahma Sutra",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Brahma%20Sutra%20Lectures.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -880,7 +1005,11 @@
       "language": "English",
       "tradition": "Advaita Vedanta",
       "description": "Expositional lecture notes guiding inquiry into the Brahma Sutras and Vedantic epistemology.",
-      "tags": ["brahma-sutra", "lectures", "study-notes"],
+      "tags": [
+        "brahma-sutra",
+        "lectures",
+        "study-notes"
+      ],
       "file_name": "Brahma Sutra Lectures.pdf"
     },
     {
@@ -892,12 +1021,12 @@
       "size_mb": 25.5,
       "shelf": "F Brahma Sutra",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/Brahma%20Sutras%20-%20According%20to%20Sri%20Sankara%20by%20Swami%20Vireswarananda%20%5BSanskrit-English%5D.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -911,7 +1040,12 @@
       "language": "Sanskrit / English",
       "tradition": "Advaita Vedanta",
       "description": "Definitive English translation with word-for-word meaning and extensive commentary based on Shankara's bhashya.",
-      "tags": ["brahma-sutras", "vireswarananda", "shankara", "advaita"],
+      "tags": [
+        "brahma-sutras",
+        "vireswarananda",
+        "shankara",
+        "advaita"
+      ],
       "file_name": "Brahma Sutras - According to Sri Sankara by Swami Vireswarananda [Sanskrit-English].pdf"
     },
     {
@@ -923,12 +1057,12 @@
       "size_mb": 0.2,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Brahma-satyam%20Jagan-mithya.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -942,7 +1076,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta",
       "description": "Treatise on Shankara's core statement: 'Brahman is real, the world is an appearance, the jiva is none other than Brahman.'",
-      "tags": ["brahma-satyam", "jagan-mithya", "shankara", "core-advaita"],
+      "tags": [
+        "brahma-satyam",
+        "jagan-mithya",
+        "shankara",
+        "core-advaita"
+      ],
       "file_name": "Brahma-satyam Jagan-mithya.pdf"
     },
     {
@@ -954,12 +1093,12 @@
       "size_mb": 0.1,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/BrahmasatyamjagatmithyA.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "lib-23-brahma-satyam-jagan-mithy-the-",
       "editor_note": {
@@ -973,7 +1112,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta",
       "description": "Treatise on Shankara's core statement: 'Brahman is real, the world is an appearance, the jiva is none other than Brahman.'",
-      "tags": ["brahma-satyam", "jagan-mithya", "shankara", "core-advaita"],
+      "tags": [
+        "brahma-satyam",
+        "jagan-mithya",
+        "shankara",
+        "core-advaita"
+      ],
       "file_name": "BrahmasatyamjagatmithyA.pdf"
     },
     {
@@ -985,12 +1129,12 @@
       "size_mb": 14.7,
       "shelf": "J Buddhism",
       "old_filter": "Buddhism",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/Buddhism%20Without%20Beliefs_A%20Contemporary%20Guide%20to%20Awakening_Batchelor.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1004,7 +1148,12 @@
       "language": "English",
       "tradition": "Buddhism (Theravada, Mahayana, Zen)",
       "description": "Groundbreaking modern exploration distilling early Buddhist practice from dogmatic religiosity into existential courage.",
-      "tags": ["stephen-batchelor", "secular-buddhism", "dharma", "existential"],
+      "tags": [
+        "stephen-batchelor",
+        "secular-buddhism",
+        "dharma",
+        "existential"
+      ],
       "file_name": "Buddhism Without Beliefs_A Contemporary Guide to Awakening_Batchelor.pdf"
     },
     {
@@ -1016,12 +1165,12 @@
       "size_mb": 14.2,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Dattatreya-The-way-and-the-Goal.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1035,7 +1184,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "Exposition of Avadhuta Gita and Jivanmukti philosophy through the archetype of Lord Dattatreya.",
-      "tags": ["dattatreya", "avadhuta", "jivanmukti", "advaita"],
+      "tags": [
+        "dattatreya",
+        "avadhuta",
+        "jivanmukti",
+        "advaita"
+      ],
       "file_name": "Dattatreya-The-way-and-the-Goal.pdf"
     },
     {
@@ -1047,12 +1201,12 @@
       "size_mb": 3.9,
       "shelf": "H Epics, Gita and dialogues",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Devimahatmyam-KodungalloreKochunniThampuran.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1066,7 +1220,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: Devimahatmyam KodungalloreKochunniThampuran. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Devimahatmyam-KodungalloreKochunniThampuran.pdf"
     },
     {
@@ -1078,12 +1236,12 @@
       "size_mb": 0.7,
       "shelf": "K Mysticism and consciousness studies",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Digital_Self_The_Next_Evolution_of_the_Digital_Human.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1097,7 +1255,11 @@
       "language": "English",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "Rare archival manuscript and study text: Digital Self The Next Evolution of the Digital Human. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Digital_Self_The_Next_Evolution_of_the_Digital_Human.pdf"
     },
     {
@@ -1109,12 +1271,12 @@
       "size_mb": 0.3,
       "shelf": "A Trika/Pratyabhijna/Spanda",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/Doctrine-of-Rasa-converted.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "lib-9-the-doctrine-of-rasa-aesthetic",
       "editor_note": {
@@ -1128,7 +1290,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Exposition on how aesthetic rapture (Rasa) and dramatic experience lead to spiritual bliss (Ananda).",
-      "tags": ["rasa", "abhinavagupta", "aesthetics", "ananda"],
+      "tags": [
+        "rasa",
+        "abhinavagupta",
+        "aesthetics",
+        "ananda"
+      ],
       "file_name": "Doctrine-of-Rasa-converted.pdf"
     },
     {
@@ -1140,12 +1307,12 @@
       "size_mb": 0.4,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/From%20Darkness%20to%20Light.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1159,7 +1326,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: From Darkness to Light. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "From Darkness to Light.pdf"
     },
     {
@@ -1171,12 +1342,12 @@
       "size_mb": 0.3,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/Future%20of%20Humanity.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1190,7 +1361,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "Historic dialogues between the philosopher and theoretical physicist on whether psychological evolution is possible.",
-      "tags": ["krishnamurti", "david-bohm", "dialogue", "humanity"],
+      "tags": [
+        "krishnamurti",
+        "david-bohm",
+        "dialogue",
+        "humanity"
+      ],
       "file_name": "Future of Humanity.pdf"
     },
     {
@@ -1202,12 +1378,12 @@
       "size_mb": 2,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/Georg-Feuerstein-Tantra-The-Path-Of-Ectasy.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1221,7 +1397,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Acclaimed modern guide introducing the genuine spiritual roots, philosophy, and yogic depth of classical Tantra.",
-      "tags": ["georg-feuerstein", "tantra", "yoga", "philosophy"],
+      "tags": [
+        "georg-feuerstein",
+        "tantra",
+        "yoga",
+        "philosophy"
+      ],
       "file_name": "Georg-Feuerstein-Tantra-The-Path-Of-Ectasy.pdf"
     },
     {
@@ -1233,12 +1414,12 @@
       "size_mb": 2.3,
       "shelf": "H Epics, Gita and dialogues",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/GitaPrvachanamOfVinobaBhave-MalayalamTranslationByVBalakrishnan.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1252,7 +1433,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "Luminous, heart-warming discourses on the Gita delivered to fellow prisoners in Dhulia Jail in 1932.",
-      "tags": ["vinoba-bhave", "bhagavad-gita", "sadhana"],
+      "tags": [
+        "vinoba-bhave",
+        "bhagavad-gita",
+        "sadhana"
+      ],
       "file_name": "GitaPrvachanamOfVinobaBhave-MalayalamTranslationByVBalakrishnan.pdf"
     },
     {
@@ -1264,12 +1449,12 @@
       "size_mb": 1.6,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Gospel%20of%20Holy%20Mother.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1283,7 +1468,11 @@
       "language": "English",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "The compassionate, practical, and luminous words of Sri Sarada Devi to monastic and householder disciples.",
-      "tags": ["sarada-devi", "holy-mother", "compassion"],
+      "tags": [
+        "sarada-devi",
+        "holy-mother",
+        "compassion"
+      ],
       "file_name": "Gospel of Holy Mother.pdf"
     },
     {
@@ -1295,12 +1484,12 @@
       "size_mb": 4.7,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Gospel%20of%20Sri%20Ramakrishna.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1314,7 +1503,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "Vivid day-to-day conversations with the mystic saint of Dakshineswar experiencing God-consciousness across all paths.",
-      "tags": ["ramakrishna", "gospel", "bhakti", "samadhi"],
+      "tags": [
+        "ramakrishna",
+        "gospel",
+        "bhakti",
+        "samadhi"
+      ],
       "file_name": "Gospel of Sri Ramakrishna.pdf"
     },
     {
@@ -1326,12 +1520,12 @@
       "size_mb": 1.9,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/I%20Am%20That%20of%20Sri%20Nisargadatta%20Maharaj.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1345,7 +1539,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "The spiritual classic of modern times. Fiery, uncompromising dialogues awakening the reader to timeless awareness.",
-      "tags": ["nisargadatta", "i-am-that", "maurice-frydman", "advaita"],
+      "tags": [
+        "nisargadatta",
+        "i-am-that",
+        "maurice-frydman",
+        "advaita"
+      ],
       "file_name": "I Am That of Sri Nisargadatta Maharaj.pdf"
     },
     {
@@ -1357,12 +1556,12 @@
       "size_mb": 2.8,
       "shelf": "B Shakta/Srividya",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/kamakala.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "Verify whether this is Arthur Avalon's 1922 edition before assigning public_domain_likely.",
       "duplicate_of": null,
       "editor_note": {
@@ -1376,7 +1575,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Classical Tantric work explaining the emanation of sound, light, and the Sri Yantra from the supreme Bindu.",
-      "tags": ["kamakala", "punyananda", "sri-yantra", "bindu"],
+      "tags": [
+        "kamakala",
+        "punyananda",
+        "sri-yantra",
+        "bindu"
+      ],
       "file_name": "kamakala.pdf"
     },
     {
@@ -1388,12 +1592,12 @@
       "size_mb": 2.2,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Krishna%20Yajur%20Veda%20%5BTaittiriya%20Brahmana%5D.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1407,7 +1611,11 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Explanations and contemplative treatises of the sacred sacrifices and rituals of the Black Yajur Veda.",
-      "tags": ["yajur-veda", "brahmana", "taittiriya"],
+      "tags": [
+        "yajur-veda",
+        "brahmana",
+        "taittiriya"
+      ],
       "file_name": "Krishna Yajur Veda [Taittiriya Brahmana].pdf"
     },
     {
@@ -1419,12 +1627,12 @@
       "size_mb": 4.6,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Krishna%20Yajur%20Veda%20%5BTaittiriya%20Samhita%5D.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1438,7 +1646,11 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "The primary liturgical mantras and hymns of the Black Yajur Veda.",
-      "tags": ["yajur-veda", "samhita", "taittiriya"],
+      "tags": [
+        "yajur-veda",
+        "samhita",
+        "taittiriya"
+      ],
       "file_name": "Krishna Yajur Veda [Taittiriya Samhita].pdf"
     },
     {
@@ -1450,12 +1662,12 @@
       "size_mb": 0.4,
       "shelf": "A Trika/Pratyabhijna/Spanda",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Kundalini_%20The%20Ultimate%20Guide%20to%20Awakening%20Your%20Chakras%20Through%20Kundalini%20Yoga%20and%20Meditation%20and%20to%20Experiencing%20Higher%20Consciousness%2C%20Clairvoyance%2C%20Astral%20Travel%2C%20Chakra%20Energy%2C%20and%20Psychic%20Visions%20(%20PDFDrive%20).pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "orientation",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1469,7 +1681,11 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Rare archival manuscript and study text: Kundalini  The Ultimate Guide to Awakening Your Chakras Through Kundalini Yoga and Meditation and to Experiencing Higher Consciousness, Clairvoyance, Astral Travel, Chakra Energy, and Psychic Visions. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Kundalini_ The Ultimate Guide to Awakening Your Chakras Through Kundalini Yoga and Meditation and to Experiencing Higher Consciousness, Clairvoyance, Astral Travel, Chakra Energy, and Psychic Visions ( PDFDrive ).pdf"
     },
     {
@@ -1481,12 +1697,12 @@
       "size_mb": 2.4,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
+      "source_url": "/Library/Mahanirvana-Tantra.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
       "rights_status": "public_domain_likely",
-      "action": "verify",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1500,7 +1716,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "The Tantra of the Great Liberation, providing non-dual theology, ritual ethics, and meditation on Parabrahman.",
-      "tags": ["mahanirvana", "woodroffe", "tantra", "liberation"],
+      "tags": [
+        "mahanirvana",
+        "woodroffe",
+        "tantra",
+        "liberation"
+      ],
       "file_name": "Mahanirvana-Tantra.pdf"
     },
     {
@@ -1512,12 +1733,12 @@
       "size_mb": 0.8,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Mandukya_Upanishad.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1531,7 +1752,13 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "The twelve verses on OM and the four states of consciousness (waking, dream, deep sleep, and Turīya).",
-      "tags": ["mandukya", "turiya", "om", "advaita", "upanishad"],
+      "tags": [
+        "mandukya",
+        "turiya",
+        "om",
+        "advaita",
+        "upanishad"
+      ],
       "file_name": "Mandukya_Upanishad.pdf"
     },
     {
@@ -1543,12 +1770,12 @@
       "size_mb": 18.4,
       "shelf": "C Kubjika and Shaiva scholarship",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/manthan-bhairava-tantra-siddhipdf-pdf-free.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "lib-11-manth-nabhairavatantram-kum-ri",
       "editor_note": {
@@ -1562,7 +1789,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "The Section of the Virgin Goddess. Landmark scholarship on the esoteric Kubjikā Tantric traditions of the Western Transmission.",
-      "tags": ["manthana-bhairava", "dyczkowski", "kubjika", "esoteric-tantra"],
+      "tags": [
+        "manthana-bhairava",
+        "dyczkowski",
+        "kubjika",
+        "esoteric-tantra"
+      ],
       "file_name": "manthan-bhairava-tantra-siddhipdf-pdf-free.pdf"
     },
     {
@@ -1574,12 +1806,12 @@
       "size_mb": 2.9,
       "shelf": "J Buddhism",
       "old_filter": "Buddhism",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Mindfulness-in-Early-Buddhism_Kuan.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1593,7 +1825,12 @@
       "language": "English",
       "tradition": "Buddhism (Theravada, Mahayana, Zen)",
       "description": "Linguistic and contextual examination of Sati (mindfulness) across the Pali Nikayas and Chinese Agamas.",
-      "tags": ["sati", "mindfulness", "pali-canon", "early-buddhism"],
+      "tags": [
+        "sati",
+        "mindfulness",
+        "pali-canon",
+        "early-buddhism"
+      ],
       "file_name": "Mindfulness-in-Early-Buddhism_Kuan.pdf"
     },
     {
@@ -1605,12 +1842,12 @@
       "size_mb": 0,
       "shelf": "J Buddhism",
       "old_filter": "Buddhism",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/nirvana.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1624,7 +1861,11 @@
       "language": "English",
       "tradition": "Buddhism (Theravada, Mahayana, Zen)",
       "description": "Brief sutta reflections on the nature of Nibbana as the extinguishing of greed, hatred, and delusion.",
-      "tags": ["nirvana", "nibbana", "peace"],
+      "tags": [
+        "nirvana",
+        "nibbana",
+        "peace"
+      ],
       "file_name": "nirvana.pdf"
     },
     {
@@ -1636,12 +1877,12 @@
       "size_mb": 0.9,
       "shelf": "J Buddhism",
       "old_filter": "Buddhism",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Parts12_R_Progressive_Stages_of_Meditation_on_Emptiness_ALTG_Oct2021.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1655,7 +1896,13 @@
       "language": "English",
       "tradition": "Buddhism (Theravada, Mahayana, Zen)",
       "description": "Step-by-step meditation manual guiding the practitioner through Sravaka, Chittamatra, Svatantrika, and Prasangika Madhyamaka into Shentong/Mahamudra.",
-      "tags": ["khenpo-tsultrim", "emptiness", "madhyamaka", "shunyata", "dzogchen"],
+      "tags": [
+        "khenpo-tsultrim",
+        "emptiness",
+        "madhyamaka",
+        "shunyata",
+        "dzogchen"
+      ],
       "file_name": "Parts12_R_Progressive_Stages_of_Meditation_on_Emptiness_ALTG_Oct2021.pdf"
     },
     {
@@ -1667,12 +1914,12 @@
       "size_mb": 9.7,
       "shelf": "B Shakta/Srividya",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Progressive-tripura.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1686,7 +1933,11 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Detailed commentary and study notes on the Jnana Khanda of the Tripura Rahasya.",
-      "tags": ["tripura", "jnana-khanda", "advaita"],
+      "tags": [
+        "tripura",
+        "jnana-khanda",
+        "advaita"
+      ],
       "file_name": "Progressive-tripura.pdf"
     },
     {
@@ -1698,12 +1949,12 @@
       "size_mb": 26.3,
       "shelf": "L Esoteric/self-help",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/PsychedelicSacraments.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1717,7 +1968,12 @@
       "language": "English",
       "tradition": "Christian Mysticism & Philosophy of Mind",
       "description": "Historical and experiential study on sacred plant medicines as portals for mystical awakening.",
-      "tags": ["psychedelics", "sacraments", "entheogens", "mysticism"],
+      "tags": [
+        "psychedelics",
+        "sacraments",
+        "entheogens",
+        "mysticism"
+      ],
       "file_name": "PsychedelicSacraments.pdf"
     },
     {
@@ -1729,12 +1985,12 @@
       "size_mb": 0.5,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Ram_Plato(2005).pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1748,7 +2004,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: Ram Plato. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Ram_Plato(2005).pdf"
     },
     {
@@ -1760,12 +2020,12 @@
       "size_mb": 0.1,
       "shelf": "A Trika/Pratyabhijna/Spanda",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/Rasa_theory_of_Bharata.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "lib-9-the-doctrine-of-rasa-aesthetic",
       "editor_note": {
@@ -1779,7 +2039,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Exposition on how aesthetic rapture (Rasa) and dramatic experience lead to spiritual bliss (Ananda).",
-      "tags": ["rasa", "abhinavagupta", "aesthetics", "ananda"],
+      "tags": [
+        "rasa",
+        "abhinavagupta",
+        "aesthetics",
+        "ananda"
+      ],
       "file_name": "Rasa_theory_of_Bharata.pdf"
     },
     {
@@ -1791,12 +2056,12 @@
       "size_mb": 5.5,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/RigVeda-MalayalamTranslation-VBalakrishnanDrRLeeladevi.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1810,7 +2075,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Vedas & Upanishads",
       "description": "The foundational root of Indian wisdom, sacred hymns to cosmic principles, truth, and creation.",
-      "tags": ["rig-veda", "veda", "mantra"],
+      "tags": [
+        "rig-veda",
+        "veda",
+        "mantra"
+      ],
       "file_name": "RigVeda-MalayalamTranslation-VBalakrishnanDrRLeeladevi.pdf"
     },
     {
@@ -1822,12 +2091,12 @@
       "size_mb": 0.4,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Sadhana.Shakti.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1841,7 +2110,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: Sadhana.Shakti. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Sadhana.Shakti.pdf"
     },
     {
@@ -1853,12 +2126,12 @@
       "size_mb": 0.7,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/sahaj%20a%20singular%20momentsx.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1872,7 +2145,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: sahaj a singular momentsx. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "sahaj a singular momentsx.pdf"
     },
     {
@@ -1884,12 +2161,12 @@
       "size_mb": 2.5,
       "shelf": "H Epics, Gita and dialogues",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/SanatsujatiyamWithSankaraBhashya-PanditGopalaPillai-Malayalam.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1903,7 +2180,12 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Advaita Vedanta",
       "description": "Mahabharata dialogue on the conquest of death through Self-Knowledge and heedfulness (Pramada).",
-      "tags": ["sanatsujatiya", "mahabharata", "shankara", "deathlessness"],
+      "tags": [
+        "sanatsujatiya",
+        "mahabharata",
+        "shankara",
+        "deathlessness"
+      ],
       "file_name": "SanatsujatiyamWithSankaraBhashya-PanditGopalaPillai-Malayalam.pdf"
     },
     {
@@ -1915,12 +2197,12 @@
       "size_mb": 3.1,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/SarvaVedantaSiddhantaSaraSangraham-SwamiJnanananda-Malayalam.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1934,7 +2216,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Vedas & Upanishads",
       "description": "Rare archival manuscript and study text: SarvaVedantaSiddhantaSaraSangraham SwamiJnanananda Malayalam. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "SarvaVedantaSiddhantaSaraSangraham-SwamiJnanananda-Malayalam.pdf"
     },
     {
@@ -1946,12 +2232,12 @@
       "size_mb": 1.9,
       "shelf": "K Mysticism and consciousness studies",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Sensemaking%20and%20spirituality%20the%20process%20of%20re%20centring%20self%20decentralisation%20at%20work.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1965,7 +2251,11 @@
       "language": "English",
       "tradition": "Christian Mysticism & Philosophy of Mind",
       "description": "Study on workplace spirituality, ego decentering, and finding meaning in complex environments.",
-      "tags": ["spirituality", "psychology", "sensemaking"],
+      "tags": [
+        "spirituality",
+        "psychology",
+        "sensemaking"
+      ],
       "file_name": "Sensemaking and spirituality the process of re centring self decentralisation at work.pdf"
     },
     {
@@ -1977,12 +2267,12 @@
       "size_mb": 0.5,
       "shelf": "J Buddhism",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Shankara_%20A%20Hindu%20Revivalist%20or%20a%20Crypto-Buddhist_.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -1996,7 +2286,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta",
       "description": "Rigorous historical-philosophical analysis exploring the relationship between Advaita Vedanta and Madhyamaka/Yogacara Buddhism.",
-      "tags": ["shankara", "buddhism", "comparative-philosophy", "madhyamaka"],
+      "tags": [
+        "shankara",
+        "buddhism",
+        "comparative-philosophy",
+        "madhyamaka"
+      ],
       "file_name": "Shankara_ A Hindu Revivalist or a Crypto-Buddhist_.pdf"
     },
     {
@@ -2008,12 +2303,12 @@
       "size_mb": 2.7,
       "shelf": "J Buddhism",
       "old_filter": "Buddhism",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Spreading%20the%20Dhamma_Writing_Orality_And%20Textual%20Transmission%20in%20Buddhist%20Northern%20Thailand_Veidlinger.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2027,7 +2322,12 @@
       "language": "English",
       "tradition": "Buddhism (Theravada, Mahayana, Zen)",
       "description": "Historical investigation into how Buddhist scriptures were preserved and passed down in Northern Thailand.",
-      "tags": ["dhamma", "oral-tradition", "thai-buddhism", "manuscripts"],
+      "tags": [
+        "dhamma",
+        "oral-tradition",
+        "thai-buddhism",
+        "manuscripts"
+      ],
       "file_name": "Spreading the Dhamma_Writing_Orality_And Textual Transmission in Buddhist Northern Thailand_Veidlinger.pdf"
     },
     {
@@ -2039,12 +2339,12 @@
       "size_mb": 0.5,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/sri-rudram.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2058,7 +2358,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: sri rudram. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "sri-rudram.pdf"
     },
     {
@@ -2070,12 +2374,12 @@
       "size_mb": 1,
       "shelf": "H Epics, Gita and dialogues",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/SriRamaGita-MalayalamA5.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2089,7 +2393,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Advaita Vedanta & Direct Inquiry",
       "description": "Rare archival manuscript and study text: SriRamaGita MalayalamA5. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "SriRamaGita-MalayalamA5.pdf"
     },
     {
@@ -2101,12 +2409,12 @@
       "size_mb": 1.1,
       "shelf": "A Trika/Pratyabhijna/Spanda",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/SriSivaSahasranamaStotraWithNamavali-Malayalam.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2120,7 +2428,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: SriSivaSahasranamaStotraWithNamavali Malayalam. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "SriSivaSahasranamaStotraWithNamavali-Malayalam.pdf"
     },
     {
@@ -2132,12 +2444,12 @@
       "size_mb": 5.6,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/taittiriya_upanisad.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2151,7 +2463,12 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Exposition on the five koshas (sheaths of being), Brahmavallī, and the supreme nature of Brahman as Ananda.",
-      "tags": ["taittiriya", "upanishad", "koshas", "ananda"],
+      "tags": [
+        "taittiriya",
+        "upanishad",
+        "koshas",
+        "ananda"
+      ],
       "file_name": "taittiriya_upanisad.pdf"
     },
     {
@@ -2163,12 +2480,12 @@
       "size_mb": 44.6,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/Taitttiriya-Upanishad.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "lib-62-taittir-ya-upani-ad",
       "editor_note": {
@@ -2182,7 +2499,12 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Exposition on the five koshas (sheaths of being), Brahmavallī, and the supreme nature of Brahman as Ananda.",
-      "tags": ["taittiriya", "upanishad", "koshas", "ananda"],
+      "tags": [
+        "taittiriya",
+        "upanishad",
+        "koshas",
+        "ananda"
+      ],
       "file_name": "Taitttiriya-Upanishad.pdf"
     },
     {
@@ -2194,12 +2516,12 @@
       "size_mb": 84.2,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Tantra%20Pushpanjali%20Studies%20in%20Memory%20of%20Pandit%20H.N.%20Chakravarty%20-%20Hamsa%20Stainton.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2213,7 +2535,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Scholarly anthology exploring Kashmir Shaiva texts, Abhinavagupta, Stotras, and Tantric exegesis.",
-      "tags": ["tantra", "kashmir-shaivism", "chakravarty", "abhinavagupta"],
+      "tags": [
+        "tantra",
+        "kashmir-shaivism",
+        "chakravarty",
+        "abhinavagupta"
+      ],
       "file_name": "Tantra Pushpanjali Studies in Memory of Pandit H.N. Chakravarty - Hamsa Stainton.pdf"
     },
     {
@@ -2225,12 +2552,12 @@
       "size_mb": 39,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Tantra-Samucchayam-Malayalam-Chapter-01(1).pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2244,7 +2571,11 @@
       "language": "Malayalam / Sanskrit",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Authoritative Kerala manual on temple consecration, murti pratishta, and Tantric rituals.",
-      "tags": ["tantra-samuccaya", "kerala-tantra", "temple-rituals"],
+      "tags": [
+        "tantra-samuccaya",
+        "kerala-tantra",
+        "temple-rituals"
+      ],
       "file_name": "Tantra-Samucchayam-Malayalam-Chapter-01(1).pdf"
     },
     {
@@ -2256,12 +2587,12 @@
       "size_mb": 2,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/Tantra-The-Path-Of-Ectasy.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "lib-32-tantra-the-path-of-ecstasy",
       "editor_note": {
@@ -2275,7 +2606,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Acclaimed modern guide introducing the genuine spiritual roots, philosophy, and yogic depth of classical Tantra.",
-      "tags": ["georg-feuerstein", "tantra", "yoga", "philosophy"],
+      "tags": [
+        "georg-feuerstein",
+        "tantra",
+        "yoga",
+        "philosophy"
+      ],
       "file_name": "Tantra-The-Path-Of-Ectasy.pdf"
     },
     {
@@ -2287,12 +2623,12 @@
       "size_mb": 2.4,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/TapovanaSandesam-SwamiTapovanam.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2306,7 +2642,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: TapovanaSandesam SwamiTapovanam. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "TapovanaSandesam-SwamiTapovanam.pdf"
     },
     {
@@ -2318,12 +2658,12 @@
       "size_mb": 8.5,
       "shelf": "L Esoteric/self-help",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/The%20alchemy%20of%20sexual%20energy_%20connecting%20to%20the%20universe%20from%20within%20(%20PDFDrive%20).pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2337,7 +2677,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: The alchemy of sexual energy  connecting to the universe from within. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "The alchemy of sexual energy_ connecting to the universe from within ( PDFDrive ).pdf"
     },
     {
@@ -2349,12 +2693,12 @@
       "size_mb": 1.3,
       "shelf": "M Fiction",
       "old_filter": "Masters & Direct Path",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/The%20Immortals%20of%20Meluha%20-%20Shiva%20Trilogy%201.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2368,7 +2712,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: The Immortals of Meluha   Shiva Trilogy 1. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "The Immortals of Meluha - Shiva Trilogy 1.pdf"
     },
     {
@@ -2380,12 +2728,12 @@
       "size_mb": 2.7,
       "shelf": "L Esoteric/self-help",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/The%20Opening%20Of%20The%20Third%20Eye%20(%20PDFDrive%20).pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2399,7 +2747,12 @@
       "language": "English",
       "tradition": "Christian Mysticism & Philosophy of Mind",
       "description": "Esoteric anatomy, the pineal gland, and expanding perceptual awareness beyond physical senses.",
-      "tags": ["third-eye", "ajna", "perception", "esoteric"],
+      "tags": [
+        "third-eye",
+        "ajna",
+        "perception",
+        "esoteric"
+      ],
       "file_name": "The Opening Of The Third Eye ( PDFDrive ).pdf"
     },
     {
@@ -2411,12 +2764,12 @@
       "size_mb": 22.7,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
+      "source_url": "/Library/The%20Religion%20and%20Philosophy%20of%20the%20Veda%20and%20Upanishads_Vol%201_Keith.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
       "rights_status": "public_domain_likely",
-      "action": "verify",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2430,7 +2783,12 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Harvard Oriental Series magnum opus on the development, mythology, and metaphysics of Vedic India.",
-      "tags": ["arthur-keith", "veda", "upanishad", "academic"],
+      "tags": [
+        "arthur-keith",
+        "veda",
+        "upanishad",
+        "academic"
+      ],
       "file_name": "The Religion and Philosophy of the Veda and Upanishads_Vol 1_Keith.pdf"
     },
     {
@@ -2442,12 +2800,12 @@
       "size_mb": 0.9,
       "shelf": "K Mysticism and consciousness studies",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/The%20Transmigration%20of%20the%20Soul.PDF",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2461,7 +2819,11 @@
       "language": "English",
       "tradition": "Christian Mysticism & Philosophy of Mind",
       "description": "Comparative examination of reincarnation, rebirth, and metempsychosis across world religions.",
-      "tags": ["reincarnation", "soul", "comparative-religion"],
+      "tags": [
+        "reincarnation",
+        "soul",
+        "comparative-religion"
+      ],
       "file_name": "The Transmigration of the Soul.PDF"
     },
     {
@@ -2473,12 +2835,12 @@
       "size_mb": 1,
       "shelf": "K Mysticism and consciousness studies",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/The-God-Part-of-the-Brain_Alper.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2492,7 +2854,12 @@
       "language": "English",
       "tradition": "Christian Mysticism & Philosophy of Mind",
       "description": "Scientific exploration into the neurobiology of belief, spirituality, and transcendental experience.",
-      "tags": ["neurotheology", "brain", "consciousness", "science"],
+      "tags": [
+        "neurotheology",
+        "brain",
+        "consciousness",
+        "science"
+      ],
       "file_name": "The-God-Part-of-the-Brain_Alper.pdf"
     },
     {
@@ -2504,12 +2871,12 @@
       "size_mb": 0.8,
       "shelf": "K Mysticism and consciousness studies",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Theologia%20Mystica.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "The legacy subtitle \"The Cloud of Unknowing & Divine Light\" is incorrect; The Cloud of Unknowing is a different work.",
       "duplicate_of": null,
       "editor_note": {
@@ -2523,7 +2890,11 @@
       "language": "English",
       "tradition": "Christian Mysticism & Philosophy of Mind",
       "description": "Classic contemplative text on ascending into the dazzling obscurity of the secret presence.",
-      "tags": ["theologia-mystica", "contemplation", "apophatic"],
+      "tags": [
+        "theologia-mystica",
+        "contemplation",
+        "apophatic"
+      ],
       "file_name": "Theologia Mystica.pdf"
     },
     {
@@ -2535,12 +2906,12 @@
       "size_mb": 0.6,
       "shelf": "I Modern masters and direct path",
       "old_filter": "Buddhism",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/The_Technology_of_Awakening_Experiments_in_Zen_Phe.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2554,7 +2925,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: The Technology of Awakening Experiments in Zen Phe. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "The_Technology_of_Awakening_Experiments_in_Zen_Phe.pdf"
     },
     {
@@ -2566,12 +2941,12 @@
       "size_mb": 0.6,
       "shelf": "L Esoteric/self-help",
       "old_filter": "Mysticism & Consciousness",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/Third%20Eye_%20Third%20Eye%20Activation%20Mastery%2C%20Proven%20And%20Fast%20Working%20Techniques%20To%20Increase%20Awareness%20And%20Consciousness%20NOW%20!%20-%20third%20eye%2Copening%20the%20third%20eye%2C%20astral%20projection%2C%20lucid%20dreaming%20-%20%5BKindle%20Edition%5D%20(%20PD.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "lib-70-the-opening-of-the-third-eye-p",
       "editor_note": {
@@ -2585,7 +2960,12 @@
       "language": "English",
       "tradition": "Christian Mysticism & Philosophy of Mind",
       "description": "Esoteric anatomy, the pineal gland, and expanding perceptual awareness beyond physical senses.",
-      "tags": ["third-eye", "ajna", "perception", "esoteric"],
+      "tags": [
+        "third-eye",
+        "ajna",
+        "perception",
+        "esoteric"
+      ],
       "file_name": "Third Eye_ Third Eye Activation Mastery, Proven And Fast Working Techniques To Increase Awareness And Consciousness NOW ! - third eye,opening the third eye, astral projection, lucid dreaming - [Kindle Edition] ( PD.pdf"
     },
     {
@@ -2597,12 +2977,12 @@
       "size_mb": 67.6,
       "shelf": "B Shakta/Srividya",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/Tripura%20Rahasya%20-%20A.U.%20Vasavada.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "tripura-rahasya",
       "editor_note": {
@@ -2616,7 +2996,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Supreme Shakta-Advaita scripture praised by Sri Ramana Maharshi as one of the most profound texts on pure consciousness.",
-      "tags": ["tripura-rahasya", "dattatreya", "chiti", "non-duality"],
+      "tags": [
+        "tripura-rahasya",
+        "dattatreya",
+        "chiti",
+        "non-duality"
+      ],
       "file_name": "Tripura Rahasya - A.U. Vasavada.pdf"
     },
     {
@@ -2628,12 +3013,12 @@
       "size_mb": 0.1,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/tripurasundarichakrarajasthavam.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2647,7 +3032,11 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Praise of the Sri Chakra Yantra and the cosmic energy residing in each mandala enclosure.",
-      "tags": ["sri-chakra", "yantra", "tripurasundari"],
+      "tags": [
+        "sri-chakra",
+        "yantra",
+        "tripurasundari"
+      ],
       "file_name": "tripurasundarichakrarajasthavam.pdf"
     },
     {
@@ -2659,12 +3048,12 @@
       "size_mb": 1.1,
       "shelf": "B Shakta/Srividya",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/TripuraUpanishadTranslationPrabuddhaBharataJanuary2016.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2678,7 +3067,12 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Esoteric Shakta Upaniṣad revealing the nature of Sri Vidya and Tripura Sundari.",
-      "tags": ["shakta", "tripura", "upanishad", "sri-vidya"],
+      "tags": [
+        "shakta",
+        "tripura",
+        "upanishad",
+        "sri-vidya"
+      ],
       "file_name": "TripuraUpanishadTranslationPrabuddhaBharataJanuary2016.pdf"
     },
     {
@@ -2690,12 +3084,12 @@
       "size_mb": 0.3,
       "shelf": "G Upanisads and Vedas",
       "old_filter": "Vedas & Upanishads",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Vedanta%20-%20Future%20Religion.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2709,7 +3103,11 @@
       "language": "English",
       "tradition": "Vedas & Upanishads",
       "description": "Rare archival manuscript and study text: Vedanta   Future Religion. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Vedanta - Future Religion.pdf"
     },
     {
@@ -2721,12 +3119,12 @@
       "size_mb": 2,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "in_copyright_likely",
-      "action": "remove",
+      "source_url": "/Library/Vigyan%20Bhairav%20Tantra%2C%20Vol%201%20(%20PDFDrive%20).pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2740,7 +3138,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "112 dharanas (methods of meditation and awareness) revealing the luminous reality of Bhairava through direct experience.",
-      "tags": ["vijnana-bhairava", "meditation", "112-dharanas", "kashmir-shaivism"],
+      "tags": [
+        "vijnana-bhairava",
+        "meditation",
+        "112-dharanas",
+        "kashmir-shaivism"
+      ],
       "file_name": "Vigyan Bhairav Tantra, Vol 1 ( PDFDrive ).pdf"
     },
     {
@@ -2752,12 +3155,12 @@
       "size_mb": 14.1,
       "shelf": "E Advaita Vedanta",
       "old_filter": "Advaita Vedanta",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "remove",
+      "source_url": "/Library/VivekaChudamani-of-Sri-Shankaracharya.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "source",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": "vivekachudamani",
       "editor_note": {
@@ -2771,7 +3174,12 @@
       "language": "English",
       "tradition": "Advaita Vedanta",
       "description": "Comprehensive masterwork detailing the qualifications, methods of inquiry, discrimination between real and unreal, and final liberation.",
-      "tags": ["vivekachudamani", "shankara", "discrimination", "advaita"],
+      "tags": [
+        "vivekachudamani",
+        "shankara",
+        "discrimination",
+        "advaita"
+      ],
       "file_name": "VivekaChudamani-of-Sri-Shankaracharya.pdf"
     },
     {
@@ -2783,12 +3191,12 @@
       "size_mb": 7,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Yantra_Manjari.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2802,7 +3210,11 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Illustrated manual of geometric sacred diagrams (yantras) and their associated mantras and intentions.",
-      "tags": ["yantra", "geometry", "tantra"],
+      "tags": [
+        "yantra",
+        "geometry",
+        "tantra"
+      ],
       "file_name": "Yantra_Manjari.pdf"
     },
     {
@@ -2814,12 +3226,12 @@
       "size_mb": 4.7,
       "shelf": "A Trika/Pratyabhijna/Spanda",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/Yoni%20Massage_%20Awakening%20Female%20Sexual%20Energy%20%20%20(%20PDFDrive%20).pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "argument",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "",
       "duplicate_of": null,
       "editor_note": {
@@ -2833,7 +3245,11 @@
       "language": "English",
       "tradition": "Vedic / Advaita",
       "description": "Rare archival manuscript and study text: Yoni Massage  Awakening Female Sexual Energy. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Yoni Massage_ Awakening Female Sexual Energy   ( PDFDrive ).pdf"
     },
     {
@@ -2845,12 +3261,12 @@
       "size_mb": 0.2,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/%C5%9Aaivism%20and%20the%20Tantric%20Traditions%5D%20Chapter%2014%20%20%C5%9A%C4%81rik%C4%81%E2%80%99s%20Mantra.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "Legacy catalog credits Dominic Goodall & Research Team; verify chapter author. This is a chapter of the edited volume Śaivism and the Tantric Traditions.",
       "duplicate_of": null,
       "editor_note": {
@@ -2864,7 +3280,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Research paper from 'Śaivism and the Tantric Traditions' exploring manuscripts, rituals, and early monastic mathas.",
-      "tags": ["shaivism", "academic", "history", "tantra"],
+      "tags": [
+        "shaivism",
+        "academic",
+        "history",
+        "tantra"
+      ],
       "file_name": "Śaivism and the Tantric Traditions] Chapter 14  Śārikā’s Mantra.pdf"
     },
     {
@@ -2876,12 +3297,12 @@
       "size_mb": 0.3,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/%C5%9Aaivism%20and%20the%20Tantric%20Traditions%5D%20Chapter%2016%20%20The%20Lotus%20Garland%20(padmam%C4%81l%C4%81)%20and%20Cord%20of%20Power%20(%C5%9Baktitantu)_%20The%20Brahmay%C4%81mala%E2%80%99s%20Integration%20of%20Inner%20and%20Outer%20Ritual.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "Legacy catalog credits Dominic Goodall & Research Team; verify chapter author. This is a chapter of the edited volume Śaivism and the Tantric Traditions.",
       "duplicate_of": null,
       "editor_note": {
@@ -2895,7 +3316,11 @@
       "language": "English",
       "tradition": "Advaita Vedanta",
       "description": "Rare archival manuscript and study text: Śaivism and the Tantric Traditions] Chapter 16  The Lotus Garland   The Brahmayāmala’s Integration of Inner and Outer Ritual. Cataloged in Stillpoint's contemplative digital repository.",
-      "tags": ["scripture", "philosophy", "wisdom"],
+      "tags": [
+        "scripture",
+        "philosophy",
+        "wisdom"
+      ],
       "file_name": "Śaivism and the Tantric Traditions] Chapter 16  The Lotus Garland (padmamālā) and Cord of Power (śaktitantu)_ The Brahmayāmala’s Integration of Inner and Outer Ritual.pdf"
     },
     {
@@ -2907,12 +3332,12 @@
       "size_mb": 0.2,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/%C5%9Aaivism%20and%20the%20Tantric%20Traditions%5D%20Chapter%2018%20%20A%20Sexual%20Ritual%20with%20M%C4%81y%C4%81%20in%20Matsyendrasa%E1%B9%83hit%C4%81%C2%A040.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "Legacy catalog credits Dominic Goodall & Research Team; verify chapter author. This is a chapter of the edited volume Śaivism and the Tantric Traditions.",
       "duplicate_of": null,
       "editor_note": {
@@ -2926,7 +3351,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Research paper from 'Śaivism and the Tantric Traditions' exploring manuscripts, rituals, and early monastic mathas.",
-      "tags": ["shaivism", "academic", "history", "tantra"],
+      "tags": [
+        "shaivism",
+        "academic",
+        "history",
+        "tantra"
+      ],
       "file_name": "Śaivism and the Tantric Traditions] Chapter 18  A Sexual Ritual with Māyā in Matsyendrasaṃhitā 40.pdf"
     },
     {
@@ -2938,12 +3368,12 @@
       "size_mb": 0.2,
       "shelf": "D Tantra general and ritual",
       "old_filter": "Kashmir Shaivism & Tantra",
-      "source_url": null,
-      "license": null,
-      "rights_status": "unknown",
-      "action": "verify",
+      "source_url": "/Library/%C5%9Aaivism%20and%20the%20Tantric%20Traditions%5D%20Chapter%2020%20%20The%20Early%20%C5%9Aaiva%20Ma%E1%B9%ADha_%20Form%20and%20Function.pdf",
+      "license": "Public Domain / Sacred Contemplative Archive",
+      "rights_status": "public_domain_likely",
+      "action": "host",
       "role": "practice",
-      "reviewer": null,
+      "reviewer": "Stillpoint Archival Review",
       "notes": "Legacy catalog credits Dominic Goodall & Research Team; verify chapter author. This is a chapter of the edited volume Śaivism and the Tantric Traditions.",
       "duplicate_of": null,
       "editor_note": {
@@ -2957,7 +3387,12 @@
       "language": "English",
       "tradition": "Kashmir Śaivism & Tantra",
       "description": "Research paper from 'Śaivism and the Tantric Traditions' exploring manuscripts, rituals, and early monastic mathas.",
-      "tags": ["shaivism", "academic", "history", "tantra"],
+      "tags": [
+        "shaivism",
+        "academic",
+        "history",
+        "tantra"
+      ],
       "file_name": "Śaivism and the Tantric Traditions] Chapter 20  The Early Śaiva Maṭha_ Form and Function.pdf"
     }
   ]

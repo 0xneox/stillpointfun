@@ -62,11 +62,7 @@ export const LIBRARY_SHELVES = LIBRARY_MANIFEST.shelves;
 export const ALL_LIBRARY_ITEMS = LIBRARY_MANIFEST.items;
 
 export function canHostLibraryItem(item: LibraryDocument): boolean {
-  return (
-    item.action === "host" &&
-    Boolean(item.reviewer?.trim()) &&
-    (item.rights_status === "verified_cleared" || item.rights_status === "public_domain_likely")
-  );
+  return item.action === "host" && Boolean(item.file_name?.trim());
 }
 
 export const LIBRARY_ITEMS: LibraryItem[] = ALL_LIBRARY_ITEMS.map((item) => {
