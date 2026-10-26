@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Logo } from "./Logo";
 
 export function SiteFooter() {
   return (
@@ -8,7 +7,7 @@ export function SiteFooter() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-16">
           <div className="max-w-xs">
             <div className="mb-6">
-              <Logo className="h-10 w-auto" />
+              <h3 className="font-display text-2xl">Stillpoint</h3>
             </div>
             <p className="text-sm opacity-60 mb-6 leading-relaxed">
               A space for the questions that outlive answers.
@@ -18,8 +17,11 @@ export function SiteFooter() {
           <div className="grid grid-cols-2 gap-16 text-[11px] font-mono tracking-widest uppercase">
             <div className="flex flex-col gap-4">
               <span className="opacity-30">Navigation</span>
-              <Link to="/discourses" className="hover:text-accent transition-colors">
+              <Link to="/" className="hover:text-accent transition-colors">
                 Listen
+              </Link>
+              <Link to="/audiobooks" className="hover:text-accent transition-colors">
+                Audiobooks
               </Link>
               <Link to="/library" className="hover:text-accent transition-colors">
                 Library
@@ -32,9 +34,6 @@ export function SiteFooter() {
               </Link>
               <Link to="/discourses" className="hover:text-accent transition-colors">
                 Discourses
-              </Link>
-              <Link to="/audiobooks" className="hover:text-accent transition-colors">
-                Audiobooks
               </Link>
             </div>
             <div className="flex flex-col gap-4">
