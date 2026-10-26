@@ -11,7 +11,7 @@ export function SiteFooter() {
               <Logo className="h-10 w-auto" />
             </div>
             <p className="text-sm opacity-60 mb-6 leading-relaxed">
-              An independent, open-source space for listening, inquiry, and the exploration of consciousness.
+              A space for the questions that outlive answers.
             </p>
           </div>
 

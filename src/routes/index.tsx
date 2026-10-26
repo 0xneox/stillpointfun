@@ -15,13 +15,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "An independent, open-source space for listening, reading, and exploring consciousness, philosophy, and the contemplative traditions of the world. What if the deepest questions have no final answers?",
+          "A space for the questions that outlive answers. Listen, read, and explore consciousness, philosophy, and the contemplative traditions of the world.",
       },
       { property: "og:title", content: "Stillpoint — An Independent Space for Inquiry" },
       {
         property: "og:description",
         content:
-          "A space to listen, read, and explore consciousness, philosophy, and the contemplative traditions of the world. What if the deepest questions have no final answers?",
+          "A space for the questions that outlive answers. Listen, read, and explore consciousness, philosophy, and the contemplative traditions of the world.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Stillpoint" },

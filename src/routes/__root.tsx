@@ -47,7 +47,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "An open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
+          "A space for the questions that outlive answers. Exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
       },
       {
         name: "keywords",
@@ -61,7 +61,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
+          "A space for the questions that outlive answers. An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
       },
       { property: "og:url", content: siteUrl("/") },
       { property: "og:image", content: siteUrl("/og-image.png") },
@@ -73,7 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
+          "A space for the questions that outlive answers. An independent space for inquiry into consciousness, philosophy, and contemplative wisdom.",
       },
       { name: "twitter:image", content: siteUrl("/og-image.png") },
       { name: "twitter:image:alt", content: "Stillpoint — Listen. Read. Question." },
@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Stillpoint",
           url: siteUrl("/"),
           description:
-            "An independent, open-source space for exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
+            "A space for the questions that outlive answers. Exploring consciousness, philosophy and the world's contemplative traditions through sound, writing, primary texts and direct inquiry.",
           potentialAction: {
             "@type": "SearchAction",
             target: siteUrl("/search?q={search_term_string}"),
@@ -120,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Stillpoint",
           url: siteUrl("/"),
           description:
-            "An independent, open-source project for listening, inquiry, and the exploration of consciousness.",
+            "A space for the questions that outlive answers. An independent, open-source project for listening, inquiry, and contemplative exploration.",
           sameAs: ["https://github.com/0xneox/stillpointfun"],
           foundingDate: "2026",
         }),
