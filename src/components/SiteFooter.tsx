@@ -26,9 +26,6 @@ export function SiteFooter() {
               <Link to="/library" className="hover:text-accent transition-colors">
                 Library
               </Link>
-              <Link to="/writings" className="hover:text-accent transition-colors">
-                Writings
-              </Link>
               <Link to="/journal" className="hover:text-accent transition-colors">
                 Journal
               </Link>

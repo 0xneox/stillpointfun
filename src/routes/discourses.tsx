@@ -752,7 +752,7 @@ function Discourses() {
               to="/journal"
               className="px-8 py-4 border border-foreground text-foreground font-mono text-[10px] tracking-[0.2em] uppercase hover:bg-foreground hover:text-background transition-colors"
             >
-              Read Writings
+              Read Journal
             </Link>
           </div>
         </div>

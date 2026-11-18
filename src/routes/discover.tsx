@@ -51,20 +51,6 @@ function Discover() {
             </p>
           </Link>
           <Link
-            to="/journal"
-            className="group block p-8 border border-border hover:border-accent transition-colors"
-          >
-            <p className="font-mono text-[10px] tracking-widest uppercase opacity-50 mb-3">
-              Writings
-            </p>
-            <h2 className="font-display text-2xl group-hover:text-accent transition-colors mb-2">
-              Original Essays
-            </h2>
-            <p className="font-sans text-sm opacity-60">
-              Philosophical reflections and exploratory writing.
-            </p>
-          </Link>
-          <Link
             to="/audiobooks"
             className="group block p-8 border border-border hover:border-accent transition-colors"
           >

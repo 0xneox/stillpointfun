@@ -397,14 +397,6 @@ function Home() {
             </span>
           </Link>
 
-          <Link to="/writings" className="group block p-6 border border-border hover:border-foreground transition-colors hover-lift">
-            <h3 className="font-display text-xl mb-2 group-hover:text-accent transition-colors">Writings</h3>
-            <p className="font-sans text-sm opacity-60 mb-4">Ideas examined in words, without the need for a final conclusion.</p>
-            <span className="font-mono text-[10px] tracking-widest uppercase opacity-50">
-              Read the Writings →
-            </span>
-          </Link>
-
           <Link to="/journal" className="group block p-6 border border-border hover:border-foreground transition-colors hover-lift">
             <h3 className="font-display text-xl mb-2 group-hover:text-accent transition-colors">Journal</h3>
             <p className="font-sans text-sm opacity-60 mb-4">Notes, observations, and questions along the way.</p>
